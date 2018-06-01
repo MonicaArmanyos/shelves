@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180601181640) do
+ActiveRecord::Schema.define(version: 20180601190019) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "namespace"
@@ -79,6 +79,20 @@ ActiveRecord::Schema.define(version: 20180601181640) do
     t.bigint "category_id"
     t.index ["category_id"], name: "index_categories_users_on_category_id"
     t.index ["user_id"], name: "index_categories_users_on_user_id"
+  end
+
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.string "profile_picture"
+    t.integer "role"
+    t.string "gender"
+    t.integer "rate"
+    t.boolean "email_confirmed", default: false
+    t.string "confirm_token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

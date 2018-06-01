@@ -24,8 +24,8 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
+ gem 'bcrypt', '~> 3.1.7'
+ gem 'jwt'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -53,3 +53,5 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 2.7.2'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'simple_command'
+#The simple command gem is an easy way of creating services. Its role is similar to the role of a helper, but instead of facilitating the connection between the controller and the view, it does the same for the controller and the model. In this way, we can shorten the code in the models and controllers.
