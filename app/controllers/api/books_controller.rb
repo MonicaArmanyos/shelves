@@ -19,6 +19,16 @@ module Api
             end 
         end 
 
+        #### Create book 
+        def create
+            @book = Book.new(book_params)
+            if @book.save
+                render json: {status: 'SUCCESS', message: 'Book successfully created', book:@book},status: :ok
+            else
+                render json: {status: 'FAIL', message: 'Couldn\'t create book', error:@book.errors},status: :ok
+            end
+        end
+
         private
         #### Permitted book params 
         def book_params
