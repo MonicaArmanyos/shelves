@@ -18,5 +18,12 @@ module Api
                 render json: {status: 'SUCCESS', message: 'Loaded recommended_books', data:@recommended_books},status: :ok
             end 
         end 
+
+        private
+        #### Permitted book params 
+        def book_params
+            params.require(:book).permit(:name, :description, :transcation, :quantity, 
+                                        :bid_user, :user_id, :category_id, :price)
+        end
     end
 end
