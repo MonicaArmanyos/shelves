@@ -110,3 +110,45 @@ Migrating to CreateUsers (20180601190019)
   [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('1280085165144891945')[0m
   [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/" for 127.0.0.1 at 2018-06-01 22:38:34 +0200
+  [1m[35m (467.9ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (87.9ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /var/lib/gems/2.3.0/gems/railties-5.1.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /var/lib/gems/2.3.0/gems/railties-5.1.6/lib/rails/templates/rails/welcome/index.html.erb (41.4ms)
+Completed 200 OK in 1837ms (Views: 1800.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/categories" for 127.0.0.1 at 2018-06-01 22:41:42 +0200
+Processing by Api::CategoriesController#index as HTML
+  [1m[36mCategory Load (14.5ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+Completed 200 OK in 186ms (Views: 29.7ms | ActiveRecord: 35.1ms)
+
+
+Started GET "/api/books/latest_books" for 127.0.0.1 at 2018-06-01 22:41:58 +0200
+Processing by Api::BooksController#latest_books as HTML
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant Book::ImageUploader):
+  
+app/models/book.rb:10:in `<class:Book>'
+app/models/book.rb:1:in `<top (required)>'
+app/controllers/api/books_controller.rb:5:in `latest_books'
+Started GET "/api/books/latest_books" for 127.0.0.1 at 2018-06-01 22:42:34 +0200
+Processing by Api::BooksController#latest_books as HTML
+  [1m[36mBook Load (33.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY created_at Desc LIMIT 20[0m
+Completed 200 OK in 66ms (Views: 10.2ms | ActiveRecord: 43.1ms)
+
+
+Started GET "/api/books/recommended_books" for 127.0.0.1 at 2018-06-01 22:42:44 +0200
+Processing by Api::BooksController#recommended_books as HTML
+Completed 500 Internal Server Error in 243ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `current_user' for #<Api::BooksController:0x00000005dd4fa0>
+Did you mean?  current_admin_user):
+  
+app/controllers/api/books_controller.rb:11:in `recommended_books'
