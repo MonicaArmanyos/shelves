@@ -13,4 +13,19 @@ Rails.application.routes.draw do
     get '/confirm_email'=> 'users#confirm_email' 
     end
   end
+
+  namespace 'api' do
+    resources :categories
+    resources :books do
+      #/api/books/route_name
+      collection do
+        get :latest_books
+        get :recommended_books
+      end
+      #/api/books/:id/route_name
+      member do
+        
+      end
+    end
+   end 
 end
