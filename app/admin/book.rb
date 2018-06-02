@@ -1,5 +1,5 @@
 ActiveAdmin.register Book do
-  permit_params :name, :description, :user_id, :category_id, :bid_user, :transcation, :is_approved, :price, :quantity
+  permit_params :name, :description, :user_id, :category_id, :bid_user, :transcation, :is_approved, :price, :quantity, book_images_attributes: [:id, :image, :_destroy]
   
   index do
     selectable_column
@@ -65,6 +65,16 @@ ActiveAdmin.register Book do
         end  
       end
     end     
+    f.inputs do 
+      f.has_many :book_images do |i|
+        if i.object.new_record?
+          i.inputs :image
+        else
+          i.input :image, :hint => i.template.image_tag(i.object.image.url())
+          i.input :_destroy, as: :boolean, required: :false, label: 'Remove image'
+        end  
+      end    
+    end  
     f.actions
   end
   
