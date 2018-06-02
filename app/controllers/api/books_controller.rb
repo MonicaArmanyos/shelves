@@ -41,7 +41,7 @@ module Api
         #### Permitted book params 
         def book_params
             params.require(:book).permit(:name, :description, :transcation, :quantity, 
-                                        :bid_user, :user_id, :category_id, :price, {images: []})
+                                        :bid_user, :user_id, :category_id, :price, book_images_attributes:[:id, :book_id, :image])
         end
     end
 end
