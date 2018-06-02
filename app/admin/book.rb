@@ -39,7 +39,14 @@ ActiveAdmin.register Book do
     attributes_table do
       row :created_at
       row :updated_at    
-    end  
+    end 
+    attributes_table do    
+      book.book_images.each do |image|
+        row :image do
+          image_tag image.image.url, size: "240x240" if image
+        end  
+      end  
+    end   
     active_admin_comments   
   end 
 
