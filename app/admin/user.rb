@@ -38,6 +38,13 @@ ActiveAdmin.register User do
       attributes_table do
         row :email_confirmed 
       end  
+      attributes_table do
+        user.user_phones.each do |phone|
+          row :phone do
+            phone.phone
+          end  
+        end
+      end  
       active_admin_comments   
     end 
   
