@@ -26,7 +26,16 @@ module Api
                 render :json => @recommended_books, each_serializer: BookSerializer
             end 
         end 
+        ### Show Book
+        def show
+            @book = Book.find(params[:id])
+            if(@book)
+                render :json => @book, each_serializer: BookSerializer
+            else
+                render json: {status: 'FAil', message: 'Can\'t Loaded book'},status: :ok
+            end
 
+        end
         #### Create book 
         def create
             @book = Book.new(book_params)
