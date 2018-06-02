@@ -1,8 +1,8 @@
 class BookImage < ApplicationRecord
     
     #### Relations ####
-belongs_to :book
+    belongs_to :book
 
-#### Mount image uploader
-mount_uploader :image, ImageUploader
+    #### Mount image uploader
+    mount_uploader :image, ImageUploader
 end
