@@ -3,7 +3,7 @@ class User < ApplicationRecord
     before_create :confirmation_token
     enum gender: {male: "male", female: "female"}
     enum role: {"Normal user" => 0, "Book store" =>1}
-
+    validates :email, :password_digest, presence: true
     def email_activate
         self.email_confirmed = true
         self.confirm_token = nil
