@@ -18,6 +18,31 @@ ActiveAdmin.register Book do
     column :updated_at
     actions
   end
+
+  show do |book|
+    attributes_table do
+      row :name 
+      row :description 
+      row :user
+      row :category
+    end  
+    attributes_table do
+      row :quantity
+      row :rate
+      row :is_approved
+    end 
+    attributes_table do
+        row :transcation
+        row :price 
+        row :bid_user
+      end  
+    attributes_table do
+      row :created_at
+      row :updated_at    
+    end  
+    active_admin_comments   
+  end 
+
   filter :description
   filter :transcation
   filter :category
