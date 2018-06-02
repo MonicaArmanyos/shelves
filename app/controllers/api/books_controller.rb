@@ -1,6 +1,15 @@
 module Api
     class Api::BooksController < ApplicationController
 
+        def index
+            @books = Book.all
+            if params[:search]
+              @books = Book.search(params[:search]).order("created_at DESC")
+            else
+              @books = Book.all.order('created_at DESC')
+            end
+        end
+
          #### Latest Books in Home Page ####
          def latest_books
             @latest_books = Book.order('created_at Desc').limit(20);
@@ -14,16 +23,17 @@ module Api
 
         #### Recommended Books in Home Page ####
         def recommended_books
-            if current_user
-                @user = current_user
+            @current_user = AuthorizeApiRequest.call(request.headers).result
+            if @current_user
+                
                 @recommended_books ||= []
-                user_interests = @user.categories
+                user_interests =  @current_user.categories
                 for interest in user_interests
                     @recommended_books << interest.books.order('created_at Desc').limit(5)
                 end
                
                 #render json: {status: 'SUCCESS', message: 'Loaded recommended_books', data:@recommended_books},status: :ok
-                render :json => @recommended_books, each_serializer: BookSerializer
+                render :json => @recommended_books
             end 
         end 
         ### Show Book
@@ -52,5 +62,7 @@ module Api
             params.require(:book).permit(:name, :description, :transcation, :quantity, 
                                         :bid_user, :user_id, :category_id, :price, {images: []})
         end
+
+       
     end
 end

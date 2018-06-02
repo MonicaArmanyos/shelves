@@ -6,7 +6,8 @@ belongs_to :category
 belongs_to :user
 has_many :book_images
 
+
 #### Mount image uploader
-#mount_uploaders :images, ImageUploader
+mount_uploaders :images, ImageUploader
 
 end
