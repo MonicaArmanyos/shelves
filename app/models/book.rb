@@ -4,7 +4,7 @@ class Book < ApplicationRecord
     #### Relations ####
 belongs_to :category
 belongs_to :user
-belongs_to :user, :class_name => 'User', :foreign_key => 'bid_user'
+
 
 has_many :book_images
 
