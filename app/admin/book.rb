@@ -43,6 +43,31 @@ ActiveAdmin.register Book do
     active_admin_comments   
   end 
 
+  form do |f|
+    f.semantic_errors
+    f.inputs do
+      f.input :name
+      f.input :description
+    end
+    f.inputs do 
+      f.input :user
+      f.input :category
+    end  
+    f.inputs do
+      f.input :transcation
+      f.input :price
+      f.input :quantity
+    end  
+    if :is_approved
+      if f.object.new_record? || !f.object.is_approved
+        f.inputs do
+          f.input :is_approved
+        end  
+      end
+    end     
+    f.actions
+  end
+  
   filter :description
   filter :transcation
   filter :category
