@@ -9,6 +9,7 @@ default: &default
   port: <%= ENV['RDS_PORT']%>
   strict: false
 
+
 development:
   <<: *default
 # Warning: The database defined as "test" will be erased and
