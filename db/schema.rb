@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180602025625) do
+ActiveRecord::Schema.define(version: 20180602142751) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "namespace"
@@ -24,14 +24,6 @@ ActiveRecord::Schema.define(version: 20180602025625) do
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
-  end
-
-  create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "building_number"
-    t.string "street"
-    t.string "region"
-    t.string "city"
-    t.integer "postal_code"
   end
 
   create_table "admin_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -82,17 +74,12 @@ ActiveRecord::Schema.define(version: 20180602025625) do
     t.index ["user_id"], name: "index_categories_users_on_user_id"
   end
 
-  create_table "user_addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "user_id"
-    t.bigint "address_id"
-    t.index ["address_id"], name: "index_user_addresses_on_address_id"
-    t.index ["user_id"], name: "index_user_addresses_on_user_id"
-  end
-
-  create_table "user_phones", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "phones", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "user_id"
     t.string "phone"
-    t.index ["user_id"], name: "index_user_phones_on_user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_phones_on_user_id"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -109,7 +96,5 @@ ActiveRecord::Schema.define(version: 20180602025625) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "user_addresses", "addresses"
-  add_foreign_key "user_addresses", "users"
-  add_foreign_key "user_phones", "users"
+  add_foreign_key "phones", "users"
 end
