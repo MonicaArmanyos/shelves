@@ -55,3 +55,4 @@ gem 'uglifier', '>= 2.7.2'
 gem 'jquery-rails'
 gem 'simple_command'
 #The simple command gem is an easy way of creating services. Its role is similar to the role of a helper, but instead of facilitating the connection between the controller and the view, it does the same for the controller and the model. In this way, we can shorten the code in the models and controllers.
+gem 'active_model_serializers', '0.9.3'
