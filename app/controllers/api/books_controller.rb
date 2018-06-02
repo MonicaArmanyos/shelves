@@ -5,9 +5,13 @@ module Api
             @books = Book.all
             if params[:search]
               @books = Book.search(params[:search]).order("created_at DESC")
+               
             else
               @books = Book.all.order('created_at DESC')
+              
             end
+            render :json => @books, each_serializer: BookSerializer
+            #render json: {status: 'SUCCESS', message: 'Loaded books ', data:@books},status: :ok
         end
 
          #### Latest Books in Home Page ####
