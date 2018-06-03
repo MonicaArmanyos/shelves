@@ -47,7 +47,7 @@ ActiveAdmin.register Book do
         end  
       end  
     end   
-    active_admin_comments   
+    #active_admin_comments   
   end 
 
   form do |f|

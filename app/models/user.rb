@@ -10,7 +10,7 @@ class User < ApplicationRecord
             
     #### Relations ####
       has_many :books
-      has_many :user_phones
+      has_many :phones
       has_and_belongs_to_many :categories
       
 

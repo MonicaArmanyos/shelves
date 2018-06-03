@@ -41,13 +41,13 @@ ActiveAdmin.register User do
         row :email_confirmed 
       end  
       attributes_table do
-        user.user_phones.each do |phone|
+        user.phones.each do |phone|
           row :phone do
             phone.phone
           end  
         end
       end  
-      active_admin_comments   
+      #active_admin_comments   
     end 
   
     form :html => { :multipart => true } do |f|
