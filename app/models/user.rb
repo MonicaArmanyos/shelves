@@ -6,12 +6,14 @@ class User < ApplicationRecord
     mount_uploader :profile_picture, ProfilePictureUploader
 
     validates :email, :password_digest, presence: true
-
             
     #### Relations ####
       has_many :books
-      has_many :phones
+      has_many :phones, :dependent => :destroy
       has_and_belongs_to_many :categories
+
+      #### accept upload multiple images
+      accepts_nested_attributes_for :phones, :allow_destroy => true
       
 
     def email_activate
