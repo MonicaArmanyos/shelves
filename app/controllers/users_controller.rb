@@ -22,13 +22,67 @@ class UsersController < ApiController
           user.email_activate
           render :json => "Your account has now been confirmed.You can login now !".to_json, status: :ok
         else 
-          render :json => "Your account has now been confirmed.You can login now !".to_json, status: :notfound
+          render :json => "Something went wrong!".to_json, status: :notfound
        end
       
      end
     def update
-        
-    end
+       @user=User.find(params[:id]) 
+       @user.update(user_complete_params)
+       if params[:phone]
+         newPhones = params[:phone].values
+       
+      #   phonesarray = JSON.parse(newPhone)
+         @phones= Phone.where(:user_id == @user.id )
+         @phones.each do |oldphone|
+          if newPhones.include?(oldphone.phone) == false
+            oldphone.destroy
+          end #end if 
+        end  #end do
+        newPhones.each do |tel|
+         flag=0 #means that new phone not included in old ones 
+         @phones.each do |old|
+          if tel == old.phone
+             flag=1
+          end #end if 
+         end  #end do
+           if flag == 0
+            @phone = Phone.new(user_id: @user.id, phone: tel)
+            @phone.save
+           end #end if
+          end #end do
+        end # end if 
+       if params[:building_number]
+        b_number = params[:building_number].values
+        st=params[:street].values
+        reg=params[:region].values
+        newCity = params[:city].values
+        code = params[:postal_code].values
+        @addresses= Address.where(:user_id == @user.id )
+        @addresses.each do |oldAddr|
+          if b_number.include?(oldAddr.building_number.to_s) == false || st.include?(oldAddr.street) == false || reg.include?(oldAddr.region) == false || newCity.include?(oldAddr.city) == false ||  code.include?(oldAddr.postal_code) == false 
+             oldAddr.destroy
+          end  #end if
+        end #end do
+        i=0
+        b_number.each do |bno|
+          flag = 0 #flag is 0 if new address is not included in old ones
+          @addresses.each do |oldAddress|
+            if bno == oldAddress.building_number.to_s && st[i] == oldAddress.street && reg[i] == oldAddress.region && newCity[i] == oldAddress.city && code[i] == oldAddress.postal_code.to_s
+              flag = 1
+           end #end if 
+          end #end do 
+          if flag == 0
+            @address = Address.new(user_id: @user.id, building_number: bno, street: st[i], region: reg[i], city: newCity[i], postal_code: code[i])
+            @address.save
+          end 
+       i+=1
+        end #end do
+       end #end if 
+
+       
+       render :json => params.to_json, status: :ok
+    end #end method
     private
   
     def user_params
@@ -40,4 +94,23 @@ class UsersController < ApiController
         :role
       )
   end
+  def user_complete_params
+    params.permit(
+      :name,
+      :email, 
+
+      :profile_picture,
+      :gender,
+      phone: [],
+      building_number: [],
+      street: [],
+      region: [],
+      city: [],
+      postal_code: []
+    )
+end
+def address_params
+end
+def category_params
+end
 end
