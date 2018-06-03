@@ -7,7 +7,7 @@ class Book < ApplicationRecord
     has_many :book_images, :dependent => :destroy
 
     #### accept apload multiple images
-    accepts_nested_attributes_for :book_images,:reject_if => lambda { |t| t['image'].nil? }, :allow_destroy => true
+    accepts_nested_attributes_for :book_images, :allow_destroy => true
 
 end
 

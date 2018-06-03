@@ -2,7 +2,7 @@ ActiveAdmin.register User do
     permit_params :name,:email, :role, :gender, :rate, :profile_picture, :password, :password_confirmation
     scope :all,default: true
     config.per_page =6
-    
+
     index do
       selectable_column
       id_column
@@ -56,8 +56,8 @@ ActiveAdmin.register User do
         f.input :email
       end
       f.inputs do  
-        f.input :role
         if f.object.new_record?
+          f.input :role
           f.input :password
           f.input :password_confirmation
         else
