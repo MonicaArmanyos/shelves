@@ -18,6 +18,9 @@ gem 'devise'
 gem 'activeadmin', '~> 1.1.0' 
 # Use carrierwave for file uploads
 gem 'carrierwave', '~> 1.2', '>= 1.2.2'
+# Use carrierwave-base64 for base64 file uploads
+gem 'carrierwave-base64'
+
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
@@ -56,3 +59,6 @@ gem 'jquery-rails'
 gem 'simple_command'
 #The simple command gem is an easy way of creating services. Its role is similar to the role of a helper, but instead of facilitating the connection between the controller and the view, it does the same for the controller and the model. In this way, we can shorten the code in the models and controllers.
 gem 'active_model_serializers', '0.9.3'
+
+gem 'kaminari'
+gem 'will_paginate'
