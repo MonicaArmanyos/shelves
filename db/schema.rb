@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20180602142751) do
+ActiveRecord::Schema.define(version: 20180602144235) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "namespace"
@@ -27,13 +26,16 @@ ActiveRecord::Schema.define(version: 20180602142751) do
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
   end
 
-
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.bigint "user_id"
     t.integer "building_number"
     t.string "street"
     t.string "region"
     t.string "city"
     t.integer "postal_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
   create_table "admin_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -91,8 +93,7 @@ ActiveRecord::Schema.define(version: 20180602142751) do
     t.index ["user_id"], name: "index_categories_users_on_user_id"
   end
 
-  create_table "phones", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-
+  create_table "phones", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.bigint "user_id"
     t.string "phone"
     t.datetime "created_at", null: false
@@ -114,5 +115,6 @@ ActiveRecord::Schema.define(version: 20180602142751) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "addresses", "users"
   add_foreign_key "phones", "users"
 end
