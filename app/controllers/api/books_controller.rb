@@ -1,5 +1,5 @@
 module Api
-    class Api::BooksController < ApplicationController
+    class Api::BooksController < ApiController
 
         def index
             @books = Book.all
@@ -51,11 +51,18 @@ module Api
         end
         #### Create book 
         def create
-            @book = Book.new(book_params)
-            if @book.save
-                render json: {status: 'SUCCESS', message: 'Book successfully created', book:@book},status: :ok
-            else
-                render json: {status: 'FAIL', message: 'Couldn\'t create book', error:@book.errors},status: :ok
+            if current_user
+                @user = current_user
+                @book = Book.new(book_params)
+                @book.user_id = @user.id
+                if @book.save
+                    params[:book][:book_images_attributes].each do |file|
+                        @book.book_images.create!(:image => file)
+                    end
+                    render json: {status: 'SUCCESS', message: 'Book successfully created', book:@book},status: :ok
+                else
+                    render json: {status: 'FAIL', message: 'Couldn\'t create book', error:@book.errors},status: :ok
+                end
             end
         end
 
@@ -63,7 +70,7 @@ module Api
         #### Permitted book params 
         def book_params
             params.require(:book).permit(:name, :description, :transcation, :quantity, 
-                                        :bid_user, :user_id, :category_id, :price, {images: []})
+                                        :bid_user, :category_id, :price, book_images_attributes:[:id, :book_id, :image])
         end
 
        

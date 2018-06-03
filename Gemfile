@@ -18,6 +18,9 @@ gem 'devise'
 gem 'activeadmin', '~> 1.1.0' 
 # Use carrierwave for file uploads
 gem 'carrierwave', '~> 1.2', '>= 1.2.2'
+# Use carrierwave-base64 for base64 file uploads
+gem 'carrierwave-base64'
+
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
