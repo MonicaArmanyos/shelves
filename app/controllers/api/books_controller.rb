@@ -31,6 +31,9 @@ module Api
         def create
             @book = Book.new(book_params)
             if @book.save
+                params[:book][:book_images_attributes].each do |file|
+                    @book.book_images.create!(:image => file)
+                end
                 render json: {status: 'SUCCESS', message: 'Book successfully created', book:@book},status: :ok
             else
                 render json: {status: 'FAIL', message: 'Couldn\'t create book', error:@book.errors},status: :ok
