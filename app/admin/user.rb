@@ -1,5 +1,5 @@
 ActiveAdmin.register User do
-  permit_params :name,:email, :role, :gender, :rate, :profile_picture, :password, :password_confirmation, phones_attributes: [:id, :phone, :_destroy]
+  permit_params :name,:email, :role, :gender, :rate, :profile_picture, :password, :password_confirmation, phones_attributes: [:id, :phone, :_destroy], addresses_attributes: [:id, :building_number, :street, :region, :city, :postal_code]
     scope :all,default: true
     config.per_page =6
 
@@ -82,6 +82,21 @@ ActiveAdmin.register User do
             else
               phone.input :phone
               phone.input :_destroy, as: :boolean, required: :false, label: 'Remove phone'
+            end  
+          end 
+          f.has_many :addresses do |addresse|
+            if addresse.object.new_record?
+              addresse.inputs :building_number 
+              addresse.inputs :street
+              addresse.inputs :region 
+              addresse.inputs :city
+              addresse.inputs :postal_code
+            else
+              addresse.input :building_number 
+              addresse.input :street
+              addresse.input :region 
+              addresse.input :city
+              addresse.input :postal_code
             end  
           end  
         end
