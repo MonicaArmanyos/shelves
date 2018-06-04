@@ -8,7 +8,9 @@ class AuthenticationController < ApiController
         @user= User.find_by_email(params[:email])
         if  @user.email_confirmed
           if params[:remember_me]
-            cookies.permanent[:auth_token] = command.result
+            
+          else
+            
           end
           render json: { auth_token: command.result }, status: :created
         else 
@@ -18,4 +20,8 @@ class AuthenticationController < ApiController
         render json: { error: command.errors }, status: :unauthorized
       end
     end
+
+
+
+  
 end

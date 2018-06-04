@@ -7,15 +7,15 @@ Rails.application.routes.draw do
 
   resources :users,  except: [:index, :show, :destroy, :create, :new, :edit] do
     collection do
-      post 'login', to: 'authentication#authenticate'
-      post 'signup', to: 'users#create'
+      post 'login', to: 'authentication#authenticate', :as => "login"
+      post 'signup', to: 'users#create', :as => "signup"
     end
     #/users/:confirm_tocken/confirm_email
     member do
     get '/confirm_email'=> 'users#confirm_email' 
     end
   end
-
+  resources :password_resets, only: [:create, :update]
   namespace 'api' do
     resources :categories
     resources :books do

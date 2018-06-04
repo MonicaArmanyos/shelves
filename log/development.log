@@ -6035,3 +6035,297 @@ Unpermitted parameters: :phone, :building_number, :street, :region, :city, :post
 Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 2.0ms)
 
 
+Started GET "/users/logout" for 127.0.0.1 at 2018-06-04 20:09:00 +0200
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.1.6) lib/active_record/migration.rb:576:in `check_pending!'
+activerecord (5.1.6) lib/active_record/migration.rb:553:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('6965469184171088535', 0)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddPasswordResetToUsers (20180604170207)
+  [1m[35m (545.7ms)[0m  [1m[35mALTER TABLE `users` ADD `password_reset_token` varchar(255)[0m
+  [1m[35m (520.4ms)[0m  [1m[35mALTER TABLE `users` ADD `password_reset_sent_at` datetime[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180604170207')[0m
+  [1m[35m (30.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('6965469184171088535')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/users/logout" for 127.0.0.1 at 2018-06-04 20:48:40 +0200
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#destroy as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 15ms (Views: 0.1ms | ActiveRecord: 1.3ms)
+
+
+Started PUT "/users/1" for 127.0.0.1 at 2018-06-04 20:48:56 +0200
+Processing by UsersController#update as JSON
+  Parameters: {"name"=>"Monica ", "email"=>"monicaarmanios_333@yahoo.com", "phone"=>{"0"=>"01207843890", "1"=>"01205281227"}, "building_number"=>{"0"=>"61"}, "street"=>{"0"=>"Ismael Sery"}, "region"=>{"0"=>"smouha"}, "city"=>{"0"=>"alex"}, "postal_code"=>{"0"=>"0020"}, "Satire"=>"true", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Unpermitted parameters: :phone, :building_number, :street, :region, :city, :postal_code, :Satire, :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhone Load (0.4ms)[0m  [1m[34mSELECT `phones`.* FROM `phones`[0m
+  [1m[36mAddress Load (0.2ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses`[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT `categories`.* FROM `categories` INNER JOIN `categories_users` ON `categories`.`id` = `categories_users`.`category_id` WHERE `categories_users`.`user_id` = 1[0m
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+Completed 200 OK in 44ms (Views: 0.1ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/users/logout" for 127.0.0.1 at 2018-06-04 20:55:39 +0200
+Processing by UsersController#destroy as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 500 Internal Server Error in 207ms (ActiveRecord: 1.8ms)
+
+
+  
+NameError (undefined local variable or method `cookies' for #<UsersController:0x00000000063bed58>):
+  
+app/controllers/users_controller.rb:98:in `destroy'
+Started GET "/users/logout" for 127.0.0.1 at 2018-06-04 21:26:05 +0200
+Processing by UsersController#destroy as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 500 Internal Server Error in 146ms (ActiveRecord: 0.2ms)
+
+
+  
+NameError (undefined local variable or method `cookies' for #<UsersController:0x00007f0d6014d1f0>):
+  
+app/controllers/users_controller.rb:98:in `destroy'
+Started GET "/users/logout" for 127.0.0.1 at 2018-06-04 21:26:24 +0200
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#destroy as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 500 Internal Server Error in 163ms (ActiveRecord: 1.2ms)
+
+
+  
+NameError (undefined local variable or method `cookies' for #<UsersController:0x00007f8400142cc0>):
+  
+app/controllers/users_controller.rb:98:in `destroy'
+Started POST "/users/login" for 127.0.0.1 at 2018-06-04 21:29:45 +0200
+Processing by AuthenticationController#authenticate as JSON
+  Parameters: {"email"=>"monicaarmanios_333@yahoo.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicaarmanios_333@yahoo.com' LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicaarmanios_333@yahoo.com' LIMIT 1[0m  [["email", "monicaarmanios_333@yahoo.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicaarmanios_333@yahoo.com' LIMIT 1[0m  [["email", "monicaarmanios_333@yahoo.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 301ms (ActiveRecord: 1.3ms)
+
+
+  
+NameError (undefined local variable or method `cookies' for #<AuthenticationController:0x0000000004da5558>):
+  
+app/controllers/authentication_controller.rb:13:in `authenticate'
+Started POST "/users/login" for 127.0.0.1 at 2018-06-04 22:12:55 +0200
+Processing by AuthenticationController#authenticate as JSON
+  Parameters: {"email"=>"monicaarmanios_333@yahoo.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicaarmanios_333@yahoo.com' LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicaarmanios_333@yahoo.com' LIMIT 1[0m  [["email", "monicaarmanios_333@yahoo.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicaarmanios_333@yahoo.com' LIMIT 1[0m  [["email", "monicaarmanios_333@yahoo.com"], ["LIMIT", 1]]
+Completed 201 Created in 131ms (Views: 0.3ms | ActiveRecord: 1.2ms)
+
+
+Started PUT "/users/1" for 127.0.0.1 at 2018-06-04 22:13:03 +0200
+Processing by UsersController#update as JSON
+  Parameters: {"name"=>"Monica ", "email"=>"monicaarmanios_333@yahoo.com", "phone"=>{"0"=>"01207843890", "1"=>"01205281227"}, "building_number"=>{"0"=>"61"}, "street"=>{"0"=>"Ismael Sery"}, "region"=>{"0"=>"smouha"}, "city"=>{"0"=>"alex"}, "postal_code"=>{"0"=>"0020"}, "Satire"=>"true", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Unpermitted parameters: :phone, :building_number, :street, :region, :city, :postal_code, :Satire, :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhone Load (0.3ms)[0m  [1m[34mSELECT `phones`.* FROM `phones`[0m
+  [1m[36mAddress Load (0.2ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses`[0m
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT `categories`.* FROM `categories` INNER JOIN `categories_users` ON `categories`.`id` = `categories_users`.`category_id` WHERE `categories_users`.`user_id` = 1[0m
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+Completed 200 OK in 51ms (Views: 0.1ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/users/logout" for 127.0.0.1 at 2018-06-04 22:13:12 +0200
+Processing by UsersController#destroy as JSON
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/password_resets" for 127.0.0.1 at 2018-06-04 22:32:38 +0200
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  
+SyntaxError (/home/monica/graduationproject/shelves/app/controllers/password_resets_controller.rb:18: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/password_resets_controller.rb:18: syntax error, unexpected end-of-input, expecting keyword_end
+Started POST "/password_resets" for 127.0.0.1 at 2018-06-04 22:33:31 +0200
+  
+SyntaxError (/home/monica/graduationproject/shelves/app/controllers/password_resets_controller.rb:20: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/password_resets_controller.rb:20: syntax error, unexpected end-of-input, expecting keyword_end
+Started POST "/password_resets" for 127.0.0.1 at 2018-06-04 22:34:21 +0200
+Processing by PasswordResetsController#create as JSON
+  Parameters: {"email"=>"monicaarmanios_333@yahoo.com"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicaarmanios_333@yahoo.com' LIMIT 1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`password_reset_token` = 'TuYvoMg1WVFsYT5a_5i08w' LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (17.3ms)[0m  [1m[33mUPDATE `users` SET `password_reset_token` = 'TuYvoMg1WVFsYT5a_5i08w', `password_reset_sent_at` = '2018-06-04 20:34:22', `updated_at` = '2018-06-04 20:34:22' WHERE `users`.`id` = 1[0m
+  [1m[35m (58.9ms)[0m  [1m[35mCOMMIT[0m
+  Rendering user_mailer/password_reset.html.erb
+  Rendered user_mailer/password_reset.html.erb (13.9ms)
+UserMailer#password_reset: processed outbound mail in 204.8ms
+Sent mail to monicaarmanios_333@yahoo.com (3024.8ms)
+Date: Mon, 04 Jun 2018 22:34:22 +0200
+From: noreply@shelves.com
+To: monicaarmanios_333@yahoo.com
+Message-ID: <5b15a24e9245a_39093fc0aa0234b06706b@monica-Lenovo-ideapad-700-15ISK.mail>
+Subject: Password Reset
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi Monica ,<br/>
+To reset your password, click the URL below.
+
+<br/>
+
+If you did not request your password to be reset, just ignore this email and your password will continue to stay the same
+Completed 201 Created in 3574ms (Views: 0.1ms | ActiveRecord: 78.6ms)
+
+
+Started PUT "/password_resets/TuYvoMg1WVFsYT5a_5i08w" for 127.0.0.1 at 2018-06-04 22:58:26 +0200
+Processing by PasswordResetsController#update as JSON
+  Parameters: {"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "id"=>"TuYvoMg1WVFsYT5a_5i08w"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`password_reset_token` = 'TuYvoMg1WVFsYT5a_5i08w' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 1.3ms)
+
+
+  
+ArgumentError (When assigning attributes, you must pass a hash as an argument.):
+  
+app/controllers/password_resets_controller.rb:16:in `update'
+Started PUT "/password_resets/TuYvoMg1WVFsYT5a_5i08w" for 127.0.0.1 at 2018-06-04 23:04:38 +0200
+Processing by PasswordResetsController#update as JSON
+  Parameters: {"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "id"=>"TuYvoMg1WVFsYT5a_5i08w"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`password_reset_token` = 'TuYvoMg1WVFsYT5a_5i08w' LIMIT 1[0m
+No template found for PasswordResetsController#update, rendering head :no_content
+Completed 204 No Content in 54ms (ActiveRecord: 1.4ms)
+
+
+Started PUT "/password_resets/TuYvoMg1WVFsYT5a_5i08w" for 127.0.0.1 at 2018-06-04 23:04:40 +0200
+Processing by PasswordResetsController#update as JSON
+  Parameters: {"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "id"=>"TuYvoMg1WVFsYT5a_5i08w"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`password_reset_token` = 'TuYvoMg1WVFsYT5a_5i08w' LIMIT 1[0m
+No template found for PasswordResetsController#update, rendering head :no_content
+Completed 204 No Content in 43ms (ActiveRecord: 0.3ms)
+
+
+Started PUT "/password_resets/TuYvoMg1WVFsYT5a_5i08w" for 127.0.0.1 at 2018-06-04 23:15:09 +0200
+Processing by PasswordResetsController#update as JSON
+  Parameters: {"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "id"=>"TuYvoMg1WVFsYT5a_5i08w"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`password_reset_token` = 'TuYvoMg1WVFsYT5a_5i08w' LIMIT 1[0m
+Completed 200 OK in 12ms (Views: 0.1ms | ActiveRecord: 1.2ms)
+
+
+Started PUT "/password_resets/TuYvoMg1WVFsYT5a_5i08w" for 127.0.0.1 at 2018-06-04 23:16:42 +0200
+Processing by PasswordResetsController#update as JSON
+  Parameters: {"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "id"=>"TuYvoMg1WVFsYT5a_5i08w"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`password_reset_token` = 'TuYvoMg1WVFsYT5a_5i08w' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 1.4ms)
+
+
+  
+ArgumentError (When assigning attributes, you must pass a hash as an argument.):
+  
+app/controllers/password_resets_controller.rb:16:in `update'
+Started PUT "/password_resets/TuYvoMg1WVFsYT5a_5i08w" for 127.0.0.1 at 2018-06-04 23:19:35 +0200
+Processing by PasswordResetsController#update as JSON
+  Parameters: {"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "id"=>"TuYvoMg1WVFsYT5a_5i08w"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`password_reset_token` = 'TuYvoMg1WVFsYT5a_5i08w' LIMIT 1[0m
+Unpermitted parameter: :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+No template found for PasswordResetsController#update, rendering head :no_content
+Completed 204 No Content in 115ms (ActiveRecord: 1.2ms)
+
+
+Started PUT "/password_resets/TuYvoMg1WVFsYT5a_5i08w" for 127.0.0.1 at 2018-06-04 23:21:27 +0200
+Processing by PasswordResetsController#update as JSON
+  Parameters: {"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "id"=>"TuYvoMg1WVFsYT5a_5i08w"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`password_reset_token` = 'TuYvoMg1WVFsYT5a_5i08w' LIMIT 1[0m
+Unpermitted parameter: :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 76ms (Views: 0.1ms | ActiveRecord: 1.2ms)
+
+
+Started PUT "/password_resets/TuYvoMg1WVFsYT5a_5i08w" for 127.0.0.1 at 2018-06-04 23:22:18 +0200
+Processing by PasswordResetsController#update as JSON
+  Parameters: {"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "id"=>"TuYvoMg1WVFsYT5a_5i08w"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`password_reset_token` = 'TuYvoMg1WVFsYT5a_5i08w' LIMIT 1[0m
+Unpermitted parameter: :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE `users` SET `password_digest` = '$2a$10$ijBr6H/ndf5vTy0gew4ZMOl./cIqvDYT4tS1XoogfQmHzcK7plUzW', `updated_at` = '2018-06-04 21:22:18' WHERE `users`.`id` = 1[0m
+  [1m[35m (36.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 99ms (Views: 0.1ms | ActiveRecord: 37.3ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2018-06-04 23:22:34 +0200
+Processing by AuthenticationController#authenticate as JSON
+  Parameters: {"email"=>"monicaarmanios_333@yahoo.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicaarmanios_333@yahoo.com' LIMIT 1[0m
+Completed 401 Unauthorized in 62ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2018-06-04 23:22:46 +0200
+Processing by AuthenticationController#authenticate as JSON
+  Parameters: {"email"=>"monicaarmanios_333@yahoo.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicaarmanios_333@yahoo.com' LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicaarmanios_333@yahoo.com' LIMIT 1[0m  [["email", "monicaarmanios_333@yahoo.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicaarmanios_333@yahoo.com' LIMIT 1[0m  [["email", "monicaarmanios_333@yahoo.com"], ["LIMIT", 1]]
+Completed 201 Created in 121ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+

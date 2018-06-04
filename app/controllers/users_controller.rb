@@ -93,6 +93,9 @@ class UsersController < ApiController
        end
        render :json =>  params.to_json, status: :ok
     end #end method
+
+    def destroy
+    end
     private
   
     def user_params
