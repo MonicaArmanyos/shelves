@@ -42,6 +42,13 @@ ActiveAdmin.register User do
       attributes_table do
         row :email_confirmed 
       end  
+      panel 'Interests' do
+        table_for user.categories.each do |t|
+          t.column :name
+          t.column :created_at
+          t.column :updated_at
+        end   
+      end  
       panel 'Phones' do
         table_for user.phones.each do |t|  
           t.column :phone 
