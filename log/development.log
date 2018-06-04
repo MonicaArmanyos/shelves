@@ -5609,3 +5609,375 @@ Unpermitted parameters: :phone, :building_number, :street, :region, :city, :post
 Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 1.3ms)
 
 
+Started GET "/admin/login" for 127.0.0.1 at 2018-06-04 02:52:14 +0200
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Rendering /home/monica/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out
+  Rendered /home/monica/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/devise/shared/_links.erb (6.3ms)
+  Rendered /home/monica/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (130.8ms)
+Completed 200 OK in 735ms (Views: 711.7ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/assets/active_admin-5e8340bab1f5529e1a977b053f676dd8b1d14fe76c87fb74153f4959ebeb3a36.css" for 127.0.0.1 at 2018-06-04 02:52:15 +0200
+Started GET "/assets/active_admin-e670a4b09c70a1cf0e546e3cc233273ec00d44a2fe841969cac0562998dbec41.js" for 127.0.0.1 at 2018-06-04 02:52:15 +0200
+Started GET "/assets/active_admin/print-d2f43370b3b5b55d0e775d6d23d5f1cc6da0d261ed3c2e255d14544c4147be79.css" for 127.0.0.1 at 2018-06-04 02:52:15 +0200
+Started POST "/admin/login" for 127.0.0.1 at 2018-06-04 02:53:02 +0200
+Processing by ActiveAdmin::Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iVnCmCQnd8igiu+tT2VTyRvNp1QLkfzkAe/47m4CO60nntJ0M4ymjx6v5Qj/AIa+kP3IUIEUWz7ceCpi2cV2jQ==", "admin_user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Login"}
+  [1m[36mAdminUser Load (0.3ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`email` = 'admin@example.com' ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE `admin_users` SET `current_sign_in_at` = '2018-06-04 00:53:02', `sign_in_count` = 2, `updated_at` = '2018-06-04 00:53:02' WHERE `admin_users`.`id` = 1[0m
+  [1m[35m (51.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 265ms (ActiveRecord: 52.1ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-06-04 02:53:02 +0200
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (1.3ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/monica/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/page/index.html.arb
+  Rendered /home/monica/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/page/index.html.arb (54.7ms)
+Completed 200 OK in 120ms (Views: 78.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/admin/categories" for 127.0.0.1 at 2018-06-04 02:53:06 +0200
+Processing by Admin::CategoriesController#index as HTML
+  [1m[36mAdminUser Load (0.8ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` ORDER BY `categories`.`id` desc LIMIT 11 OFFSET 0[0m
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 2.5ms)
+
+
+  
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` ORDER BY `categories`.`id` desc LIMIT 11 OFFSET 0[0m  [["LIMIT", 11], ["OFFSET", 0]]
+NoMethodError (undefined method `per' for #<ActiveRecord::Relation []>):
+  
+activerecord (5.1.6) lib/active_record/relation/delegation.rb:125:in `method_missing'
+activerecord (5.1.6) lib/active_record/relation/delegation.rb:95:in `method_missing'
+activeadmin (1.1.0) lib/active_admin/resource_controller/data_access.rb:253:in `apply_pagination'
+activeadmin (1.1.0) lib/active_admin/resource_controller/data_access.rb:59:in `block in find_collection'
+activeadmin (1.1.0) lib/active_admin/resource_controller/data_access.rb:58:in `each'
+activeadmin (1.1.0) lib/active_admin/resource_controller/data_access.rb:58:in `find_collection'
+activeadmin (1.1.0) lib/active_admin/resource_controller/data_access.rb:44:in `collection'
+inherited_resources (1.8.0) lib/inherited_resources/actions.rb:7:in `index'
+activeadmin (1.1.0) lib/active_admin/resource_controller/streaming.rb:12:in `index'
+actionpack (5.1.6) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.1.6) lib/abstract_controller/base.rb:186:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.1.6) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.1.6) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.1.6) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.6) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.6) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.6) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.6) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.6) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.6) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.6) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.6) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:844:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.6) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/admin" for 127.0.0.1 at 2018-06-04 02:58:02 +0200
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.3ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/monica/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/page/index.html.arb
+  Rendered /home/monica/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/page/index.html.arb (265.0ms)
+Completed 200 OK in 290ms (Views: 268.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/active_admin-5e8340bab1f5529e1a977b053f676dd8b1d14fe76c87fb74153f4959ebeb3a36.css" for 127.0.0.1 at 2018-06-04 02:58:02 +0200
+Started GET "/assets/active_admin/print-d2f43370b3b5b55d0e775d6d23d5f1cc6da0d261ed3c2e255d14544c4147be79.css" for 127.0.0.1 at 2018-06-04 02:58:02 +0200
+Started GET "/assets/active_admin-e670a4b09c70a1cf0e546e3cc233273ec00d44a2fe841969cac0562998dbec41.js" for 127.0.0.1 at 2018-06-04 02:58:02 +0200
+Started GET "/admin" for 127.0.0.1 at 2018-06-04 02:58:04 +0200
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.8ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/monica/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/page/index.html.arb
+  Rendered /home/monica/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/page/index.html.arb (31.9ms)
+Completed 200 OK in 40ms (Views: 35.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/active_admin-5e8340bab1f5529e1a977b053f676dd8b1d14fe76c87fb74153f4959ebeb3a36.css" for 127.0.0.1 at 2018-06-04 02:58:04 +0200
+Started GET "/assets/active_admin/print-d2f43370b3b5b55d0e775d6d23d5f1cc6da0d261ed3c2e255d14544c4147be79.css" for 127.0.0.1 at 2018-06-04 02:58:04 +0200
+Started GET "/assets/active_admin-e670a4b09c70a1cf0e546e3cc233273ec00d44a2fe841969cac0562998dbec41.js" for 127.0.0.1 at 2018-06-04 02:58:04 +0200
+Started GET "/admin/admin_users" for 127.0.0.1 at 2018-06-04 02:58:06 +0200
+Processing by Admin::AdminUsersController#index as HTML
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  [1m[36mAdminUser Load (0.8ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` ORDER BY `admin_users`.`id` desc LIMIT 11 OFFSET 0[0m
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.7ms)
+
+
+  
+  [1m[36mCACHE AdminUser Load (0.0ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` ORDER BY `admin_users`.`id` desc LIMIT 11 OFFSET 0[0m  [["LIMIT", 11], ["OFFSET", 0]]
+NoMethodError (undefined method `per' for #<AdminUser::ActiveRecord_Relation:0x00007fad6809dcc0>):
+  
+activerecord (5.1.6) lib/active_record/relation/delegation.rb:125:in `method_missing'
+activerecord (5.1.6) lib/active_record/relation/delegation.rb:95:in `method_missing'
+activeadmin (1.1.0) lib/active_admin/resource_controller/data_access.rb:253:in `apply_pagination'
+activeadmin (1.1.0) lib/active_admin/resource_controller/data_access.rb:59:in `block in find_collection'
+activeadmin (1.1.0) lib/active_admin/resource_controller/data_access.rb:58:in `each'
+activeadmin (1.1.0) lib/active_admin/resource_controller/data_access.rb:58:in `find_collection'
+activeadmin (1.1.0) lib/active_admin/resource_controller/data_access.rb:44:in `collection'
+inherited_resources (1.8.0) lib/inherited_resources/actions.rb:7:in `index'
+activeadmin (1.1.0) lib/active_admin/resource_controller/streaming.rb:12:in `index'
+actionpack (5.1.6) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.1.6) lib/abstract_controller/base.rb:186:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.1.6) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.1.6) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.1.6) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.6) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.6) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.6) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.6) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.6) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.6) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.6) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.6) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:844:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.6) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started PUT "/users/1" for 127.0.0.1 at 2018-06-04 03:09:58 +0200
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#update as JSON
+  Parameters: {"name"=>"Monica ", "email"=>"monicaarmanios_333@yahoo.com", "phone"=>{"0"=>"01207843890", "1"=>"01205281227"}, "building_number"=>{"0"=>"61"}, "street"=>{"0"=>"Ismael Sery"}, "region"=>{"0"=>"smouha"}, "city"=>{"0"=>"alex"}, "postal_code"=>{"0"=>"0020"}, "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Unpermitted parameters: :phone, :building_number, :street, :region, :city, :postal_code, :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhone Load (0.2ms)[0m  [1m[34mSELECT `phones`.* FROM `phones`[0m
+  [1m[36mAddress Load (0.3ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses`[0m
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT `categories`.* FROM `categories` INNER JOIN `categories_users` ON `categories`.`id` = `categories_users`.`category_id` WHERE `categories_users`.`user_id` = 1[0m
+Completed 200 OK in 151ms (Views: 0.2ms | ActiveRecord: 6.6ms)
+
+
+Started PUT "/users/1" for 127.0.0.1 at 2018-06-04 03:37:44 +0200
+Processing by UsersController#update as JSON
+  Parameters: {"name"=>"Monica ", "email"=>"monicaarmanios_333@yahoo.com", "phone"=>{"0"=>"01207843890", "1"=>"01205281227"}, "building_number"=>{"0"=>"61"}, "street"=>{"0"=>"Ismael Sery"}, "region"=>{"0"=>"smouha"}, "city"=>{"0"=>"alex"}, "postal_code"=>{"0"=>"0020"}, "Science fiction"=>"true", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Unpermitted parameters: :phone, :building_number, :street, :region, :city, :postal_code, :Science fiction, :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhone Load (0.2ms)[0m  [1m[34mSELECT `phones`.* FROM `phones`[0m
+  [1m[36mAddress Load (0.2ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses`[0m
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT `categories`.* FROM `categories` INNER JOIN `categories_users` ON `categories`.`id` = `categories_users`.`category_id` WHERE `categories_users`.`user_id` = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM `categories_users` WHERE `categories_users`.`category_id` = 1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM `categories` WHERE `categories`.`id` = 1[0m
+  [1m[35m (129.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[31mDELETE FROM `categories_users` WHERE `categories_users`.`category_id` = 2[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM `categories` WHERE `categories`.`id` = 2[0m
+  [1m[35m (60.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+Completed 200 OK in 239ms (Views: 0.1ms | ActiveRecord: 199.6ms)
+
+
+Started PUT "/users/1" for 127.0.0.1 at 2018-06-04 03:44:45 +0200
+Processing by UsersController#update as JSON
+  Parameters: {"name"=>"Monica ", "email"=>"monicaarmanios_333@yahoo.com", "phone"=>{"0"=>"01207843890", "1"=>"01205281227"}, "building_number"=>{"0"=>"61"}, "street"=>{"0"=>"Ismael Sery"}, "region"=>{"0"=>"smouha"}, "city"=>{"0"=>"alex"}, "postal_code"=>{"0"=>"0020"}, "Science fiction"=>"true", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Unpermitted parameters: :phone, :building_number, :street, :region, :city, :postal_code, :Science fiction, :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhone Load (0.2ms)[0m  [1m[34mSELECT `phones`.* FROM `phones`[0m
+  [1m[36mAddress Load (0.2ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses`[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT `categories`.* FROM `categories` INNER JOIN `categories_users` ON `categories`.`id` = `categories_users`.`category_id` WHERE `categories_users`.`user_id` = 1[0m
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 5.4ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 2, expected 0..1)):
+  
+app/controllers/users_controller.rb:91:in `block in update'
+app/controllers/users_controller.rb:88:in `update'
+Started PUT "/users/1" for 127.0.0.1 at 2018-06-04 03:45:32 +0200
+Processing by UsersController#update as JSON
+  Parameters: {"name"=>"Monica ", "email"=>"monicaarmanios_333@yahoo.com", "phone"=>{"0"=>"01207843890", "1"=>"01205281227"}, "building_number"=>{"0"=>"61"}, "street"=>{"0"=>"Ismael Sery"}, "region"=>{"0"=>"smouha"}, "city"=>{"0"=>"alex"}, "postal_code"=>{"0"=>"0020"}, "Science fiction"=>"true", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Unpermitted parameters: :phone, :building_number, :street, :region, :city, :postal_code, :Science fiction, :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhone Load (0.3ms)[0m  [1m[34mSELECT `phones`.* FROM `phones`[0m
+  [1m[36mAddress Load (0.2ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses`[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT `categories`.* FROM `categories` INNER JOIN `categories_users` ON `categories`.`id` = `categories_users`.`category_id` WHERE `categories_users`.`user_id` = 1[0m
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 5.1ms)
+
+
+  
+ArgumentError (When assigning attributes, you must pass a hash as an argument.):
+  
+app/controllers/users_controller.rb:91:in `block in update'
+app/controllers/users_controller.rb:88:in `update'
+Started PUT "/users/1" for 127.0.0.1 at 2018-06-04 03:46:16 +0200
+Processing by UsersController#update as JSON
+  Parameters: {"name"=>"Monica ", "email"=>"monicaarmanios_333@yahoo.com", "phone"=>{"0"=>"01207843890", "1"=>"01205281227"}, "building_number"=>{"0"=>"61"}, "street"=>{"0"=>"Ismael Sery"}, "region"=>{"0"=>"smouha"}, "city"=>{"0"=>"alex"}, "postal_code"=>{"0"=>"0020"}, "Science fiction"=>"true", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Unpermitted parameters: :phone, :building_number, :street, :region, :city, :postal_code, :Science fiction, :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhone Load (0.3ms)[0m  [1m[34mSELECT `phones`.* FROM `phones`[0m
+  [1m[36mAddress Load (0.2ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses`[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT `categories`.* FROM `categories` INNER JOIN `categories_users` ON `categories`.`id` = `categories_users`.`category_id` WHERE `categories_users`.`user_id` = 1[0m
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 4.9ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'category' for Category.):
+  
+app/controllers/users_controller.rb:91:in `block in update'
+app/controllers/users_controller.rb:88:in `update'
+Started PUT "/users/1" for 127.0.0.1 at 2018-06-04 03:47:10 +0200
+Processing by UsersController#update as JSON
+  Parameters: {"name"=>"Monica ", "email"=>"monicaarmanios_333@yahoo.com", "phone"=>{"0"=>"01207843890", "1"=>"01205281227"}, "building_number"=>{"0"=>"61"}, "street"=>{"0"=>"Ismael Sery"}, "region"=>{"0"=>"smouha"}, "city"=>{"0"=>"alex"}, "postal_code"=>{"0"=>"0020"}, "Science fiction"=>"true", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Unpermitted parameters: :phone, :building_number, :street, :region, :city, :postal_code, :Science fiction, :id
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhone Load (0.2ms)[0m  [1m[34mSELECT `phones`.* FROM `phones`[0m
+  [1m[36mAddress Load (0.2ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses`[0m
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT `categories`.* FROM `categories` INNER JOIN `categories_users` ON `categories`.`id` = `categories_users`.`category_id` WHERE `categories_users`.`user_id` = 1[0m
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 5.9ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'category_id' for Category.):
+  
+app/controllers/users_controller.rb:91:in `block in update'
+app/controllers/users_controller.rb:88:in `update'
+Started PUT "/users/1" for 127.0.0.1 at 2018-06-04 03:48:18 +0200
+Processing by UsersController#update as JSON
+  Parameters: {"name"=>"Monica ", "email"=>"monicaarmanios_333@yahoo.com", "phone"=>{"0"=>"01207843890", "1"=>"01205281227"}, "building_number"=>{"0"=>"61"}, "street"=>{"0"=>"Ismael Sery"}, "region"=>{"0"=>"smouha"}, "city"=>{"0"=>"alex"}, "postal_code"=>{"0"=>"0020"}, "Science fiction"=>"true", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Unpermitted parameters: :phone, :building_number, :street, :region, :city, :postal_code, :Science fiction, :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhone Load (0.3ms)[0m  [1m[34mSELECT `phones`.* FROM `phones`[0m
+  [1m[36mAddress Load (0.3ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses`[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT `categories`.* FROM `categories` INNER JOIN `categories_users` ON `categories`.`id` = `categories_users`.`category_id` WHERE `categories_users`.`user_id` = 1[0m
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 200 OK in 70ms (Views: 0.1ms | ActiveRecord: 5.4ms)
+
+
+Started PUT "/users/1" for 127.0.0.1 at 2018-06-04 03:54:31 +0200
+Processing by UsersController#update as JSON
+  Parameters: {"name"=>"Monica ", "email"=>"monicaarmanios_333@yahoo.com", "phone"=>{"0"=>"01207843890", "1"=>"01205281227"}, "building_number"=>{"0"=>"61"}, "street"=>{"0"=>"Ismael Sery"}, "region"=>{"0"=>"smouha"}, "city"=>{"0"=>"alex"}, "postal_code"=>{"0"=>"0020"}, "Science fiction"=>"true", "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Unpermitted parameters: :phone, :building_number, :street, :region, :city, :postal_code, :Science fiction, :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhone Load (0.2ms)[0m  [1m[34mSELECT `phones`.* FROM `phones`[0m
+  [1m[36mAddress Load (0.2ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses`[0m
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT `categories`.* FROM `categories` INNER JOIN `categories_users` ON `categories`.`id` = `categories_users`.`category_id` WHERE `categories_users`.`user_id` = 1[0m
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `categories_users` (`user_id`, `category_id`) VALUES (1, 3)[0m
+  [1m[35m (139.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 187ms (Views: 0.4ms | ActiveRecord: 145.6ms)
+
+

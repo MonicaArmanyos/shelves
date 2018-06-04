@@ -79,10 +79,20 @@ class UsersController < ApiController
        i+=1
         end #end do
        end #end if 
-
+       @user.categories.each do |userCateg|
+        if params[userCateg.name] == nil
+          @user.categories.delete(userCateg)
+        end
+       end
        @interests = Category.all
-       
-       render :json => params.to_json, status: :ok
+       @interests.each do |interest|
+        if params[interest.name]
+          if @user.categories.include?(interest) == false
+            @user.categories << interest
+          end
+        end
+       end
+       render :json =>  params.to_json, status: :ok
     end #end method
     private
   
@@ -109,8 +119,6 @@ class UsersController < ApiController
       city: [],
       postal_code: []
     )
-end
-def address_params
 end
 def category_params
 end
