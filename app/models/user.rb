@@ -1,7 +1,7 @@
 class User < ApplicationRecord
     has_secure_password
     before_create :confirmation_token
-    enum gender: {male: "male", female: "female"}
+    enum gender: {"male" => 0, "female" => 1}
     enum role: {"Normal user" => 0, "Book store" =>1}
     mount_uploader :profile_picture, ProfilePictureUploader
 
