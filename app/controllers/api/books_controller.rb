@@ -1,5 +1,5 @@
 module Api
-    class Api::BooksController < ApiController
+    class Api::BooksController < ApplicationController
 
         def index
             @books = Book.all
@@ -51,6 +51,7 @@ module Api
         end
         #### Create book 
         def create
+            current_user = AuthorizeApiRequest.call(request.headers).result
             if current_user
                 @user = current_user
                 @book = Book.new(book_params)
