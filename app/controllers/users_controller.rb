@@ -80,6 +80,7 @@ class UsersController < ApiController
         end #end do
        end #end if 
 
+       @interests = Category.all
        
        render :json => params.to_json, status: :ok
     end #end method
