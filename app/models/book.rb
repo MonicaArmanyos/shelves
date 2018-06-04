@@ -1,6 +1,6 @@
 class Book < ApplicationRecord
     enum transcation: {"Sell" => 0, "Free Share" =>1,"Exchange" =>2,"Sell By Bids" =>4}
-    
+    paginates_per 3
     #### Relations ####
   belongs_to :category
   belongs_to :user

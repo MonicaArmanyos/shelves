@@ -6429,3 +6429,92 @@ Processing by Api::BooksController#latest_books as JSON
 Completed 200 OK in 295ms (Views: 244.6ms | ActiveRecord: 16.7ms)
 
 
+Started GET "/api/books" for 127.0.0.1 at 2018-06-05 00:24:19 +0200
+Processing by Api::BooksController#index as JSON
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY created_at DESC LIMIT 11[0m
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 0.0ms)
+
+
+  
+  [1m[36mCACHE Book Load (0.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY created_at DESC LIMIT 11[0m  [["LIMIT", 11]]
+NoMethodError (undefined method `paginate' for #<Book::ActiveRecord_Relation:0x00000006951928>):
+  
+app/controllers/api/books_controller.rb:10:in `index'
+  [1m[36mCACHE Book Load (0.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY created_at DESC LIMIT 11[0m  [["LIMIT", 11]]
+Started GET "/api/books" for 127.0.0.1 at 2018-06-05 00:38:19 +0200
+Processing by Api::BooksController#index as JSON
+  [1m[36mBook Load (18.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY created_at DESC LIMIT 2 OFFSET 0[0m
+  [1m[36mCategory Load (1.6ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 2 LIMIT 1[0m
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 2 LIMIT 1[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate`, `users`.`email_confirmed`, `users`.`confirm_token`, `users`.`created_at`, `users`.`updated_at`, `users`.`password_reset_token`, `users`.`password_reset_sent_at` FROM `users` WHERE `users`.`id` IS NULL[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate`, `users`.`email_confirmed`, `users`.`confirm_token`, `users`.`created_at`, `users`.`updated_at`, `users`.`password_reset_token`, `users`.`password_reset_sent_at` FROM `users` WHERE `users`.`id` = 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate`, `users`.`email_confirmed`, `users`.`confirm_token`, `users`.`created_at`, `users`.`updated_at`, `users`.`password_reset_token`, `users`.`password_reset_sent_at` FROM `users` WHERE `users`.`id` IS NULL[0m
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate`, `users`.`email_confirmed`, `users`.`confirm_token`, `users`.`created_at`, `users`.`updated_at`, `users`.`password_reset_token`, `users`.`password_reset_sent_at` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+Completed 200 OK in 275ms (Views: 194.7ms | ActiveRecord: 53.4ms)
+
+
+Started GET "/api/books" for 127.0.0.1 at 2018-06-05 00:38:41 +0200
+Processing by Api::BooksController#index as JSON
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY created_at DESC LIMIT 3 OFFSET 0[0m
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 2 LIMIT 1[0m
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 2 LIMIT 1[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate`, `users`.`email_confirmed`, `users`.`confirm_token`, `users`.`created_at`, `users`.`updated_at`, `users`.`password_reset_token`, `users`.`password_reset_sent_at` FROM `users` WHERE `users`.`id` IS NULL[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate`, `users`.`email_confirmed`, `users`.`confirm_token`, `users`.`created_at`, `users`.`updated_at`, `users`.`password_reset_token`, `users`.`password_reset_sent_at` FROM `users` WHERE `users`.`id` = 1[0m
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate`, `users`.`email_confirmed`, `users`.`confirm_token`, `users`.`created_at`, `users`.`updated_at`, `users`.`password_reset_token`, `users`.`password_reset_sent_at` FROM `users` WHERE `users`.`id` IS NULL[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate`, `users`.`email_confirmed`, `users`.`confirm_token`, `users`.`created_at`, `users`.`updated_at`, `users`.`password_reset_token`, `users`.`password_reset_sent_at` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate`, `users`.`email_confirmed`, `users`.`confirm_token`, `users`.`created_at`, `users`.`updated_at`, `users`.`password_reset_token`, `users`.`password_reset_sent_at` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate`, `users`.`email_confirmed`, `users`.`confirm_token`, `users`.`created_at`, `users`.`updated_at`, `users`.`password_reset_token`, `users`.`password_reset_sent_at` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+Completed 200 OK in 172ms (Views: 133.0ms | ActiveRecord: 11.6ms)
+
+
+  [1m[35m (155.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdminUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM `admin_users` WHERE `admin_users`.`email` = BINARY 'admin@example.com' LIMIT 1[0m
+  [1m[35mSQL (177.6ms)[0m  [1m[32mINSERT INTO `admin_users` (`email`, `encrypted_password`, `created_at`, `updated_at`) VALUES ('admin@example.com', '$2a$11$CfdrxYmUCQxtEugKfySntecTtSD/WjIH/SofcUffkRYZYuVVwxWi6', '2018-06-04 22:40:29', '2018-06-04 22:40:29')[0m
+  [1m[35m (79.6ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/admin/users" for 127.0.0.1 at 2018-06-05 00:40:58 +0200
+Processing by Admin::UsersController#index as HTML
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+Completed 401 Unauthorized in 149ms (ActiveRecord: 6.7ms)
+
+
+Started GET "/admin/login" for 127.0.0.1 at 2018-06-05 00:40:59 +0200
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Rendering /var/lib/gems/2.3.0/gems/activeadmin-1.1.0/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out
+  Rendered /var/lib/gems/2.3.0/gems/activeadmin-1.1.0/app/views/active_admin/devise/shared/_links.erb (4.7ms)
+  Rendered /var/lib/gems/2.3.0/gems/activeadmin-1.1.0/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (792.5ms)
+Completed 200 OK in 13964ms (Views: 13863.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/active_admin-7b7c01de563c40348e07c4d89e1ce4cb88bea7d788af253d1a6d1186ba84be45.css" for 127.0.0.1 at 2018-06-05 00:41:13 +0200
+Started GET "/assets/active_admin-e670a4b09c70a1cf0e546e3cc233273ec00d44a2fe841969cac0562998dbec41.js" for 127.0.0.1 at 2018-06-05 00:41:13 +0200
+Started GET "/assets/active_admin/print-6db40c322b1a18cc92957e9df0c7422f9203af81ab61cf36730a0d838ead0a31.css" for 127.0.0.1 at 2018-06-05 00:41:13 +0200
+Started POST "/admin/login" for 127.0.0.1 at 2018-06-05 00:41:46 +0200
+Processing by ActiveAdmin::Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WojZzhBEZ/kPlI84YuSX4mhI1JadPoYEp3IuBlt2O/27SbORHpsDTNfviPcgGEPPqYvmift6te1K+vvjzT52+g==", "admin_user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Login"}
+  [1m[36mAdminUser Load (47.2ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`email` = 'admin@example.com' ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (92.5ms)[0m  [1m[33mUPDATE `admin_users` SET `current_sign_in_at` = '2018-06-04 22:41:47', `last_sign_in_at` = '2018-06-04 22:41:47', `current_sign_in_ip` = '127.0.0.1', `last_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1, `updated_at` = '2018-06-04 22:41:47' WHERE `admin_users`.`id` = 1[0m
+  [1m[35m (101.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/admin/users
+Completed 302 Found in 990ms (ActiveRecord: 241.6ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2018-06-05 00:41:47 +0200
+Processing by Admin::UsersController#index as HTML
+  [1m[36mAdminUser Load (1.1ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /var/lib/gems/2.3.0/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (40.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `users`[0m
+  [1m[35m (25.3ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `users` LIMIT 6 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `users` LIMIT 6 OFFSET 0) subquery_for_count[0m  [["LIMIT", 6], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM `users`[0m
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `users` LIMIT 6 OFFSET 0) subquery_for_count[0m  [["LIMIT", 6], ["OFFSET", 0]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` ORDER BY `users`.`id` desc LIMIT 6 OFFSET 0[0m
+  Rendered /var/lib/gems/2.3.0/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (643.1ms)
+Completed 200 OK in 763ms (Views: 631.6ms | ActiveRecord: 67.5ms)
+
+
+Started GET "/assets/active_admin/print-6db40c322b1a18cc92957e9df0c7422f9203af81ab61cf36730a0d838ead0a31.css" for 127.0.0.1 at 2018-06-05 00:41:48 +0200
+Started GET "/assets/active_admin/orderable-29374dbb55b0012d78a37c614d573bb3474f0779849b478a147d0f1845ca6617.png" for 127.0.0.1 at 2018-06-05 00:41:49 +0200
