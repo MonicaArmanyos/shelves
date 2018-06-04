@@ -1,18 +1,17 @@
 class User < ApplicationRecord
     has_secure_password
     before_create :confirmation_token
-    enum gender: {male: "male", female: "female"}
+    enum gender: {"male" => 0, "female" => 1}
     enum role: {"Normal user" => 0, "Book store" =>1}
     mount_uploader :profile_picture, ProfilePictureUploader
 
     validates :email, :password_digest, presence: true
-
             
     #### Relations ####
       has_many :books
-      has_many :phones
-      has_many :addresses
-      has_and_belongs_to_many :categories
+      has_many :phones, :dependent => :destroy
+      has_many :addresses, :dependent => :destroy
+      has_and_belongs_to_many :categories, :dependent => :destroy
       accepts_nested_attributes_for :phones, allow_destroy: true #to be able to remove a phone
       accepts_nested_attributes_for :addresses, allow_destroy: true
       accepts_nested_attributes_for :categories, allow_destroy: true
