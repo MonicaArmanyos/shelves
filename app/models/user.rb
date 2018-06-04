@@ -9,6 +9,7 @@ class User < ApplicationRecord
             
     #### Relations ####
       has_many :books
+      has_many :addresses
       has_many :phones, :dependent => :destroy
       has_and_belongs_to_many :categories
 

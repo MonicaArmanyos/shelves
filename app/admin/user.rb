@@ -47,7 +47,19 @@ ActiveAdmin.register User do
           end  
         end
       end  
-      #active_admin_comments   
+      panel 'Addresses' do
+        table_for user.addresses.each do |t|
+          t.column :id
+          t.column :building_number
+          t.column :street
+          t.column :region
+          t.column :city
+          t.column :postal_code
+          t.column :created_at
+          t.column :updated_at
+        end  
+      end  
+      active_admin_comments   
     end 
   
     form :html => { :multipart => true } do |f|
