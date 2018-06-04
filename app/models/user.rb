@@ -9,14 +9,14 @@ class User < ApplicationRecord
             
     #### Relations ####
       has_many :books
-      has_many :addresses
+      has_many :addresses, :dependent => :destroy
       has_many :phones, :dependent => :destroy
       has_and_belongs_to_many :categories
 
       #### accept upload multiple phones
       accepts_nested_attributes_for :phones, :allow_destroy => true
       #### accept upload multiple addresses
-      accepts_nested_attributes_for :addresses
+      accepts_nested_attributes_for :addresses, :allow_destroy => true
       
 
     def email_activate
