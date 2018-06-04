@@ -29,7 +29,9 @@ ActiveAdmin.register User do
       end  
       attributes_table do
         row :email
-        row :gender
+        if user.role.eql? "Normal user"
+          row :gender
+        end  
         row :role
         row :rate 
       end 
@@ -40,16 +42,15 @@ ActiveAdmin.register User do
       attributes_table do
         row :email_confirmed 
       end  
-      attributes_table do
-        user.phones.each do |phone|
-          row :phone do
-            phone.phone
-          end  
-        end
+      panel 'Phones' do
+        table_for user.phones.each do |t|  
+          t.column :phone 
+          t.column :created_at
+          t.column :updated_at
+        end  
       end  
       panel 'Addresses' do
         table_for user.addresses.each do |t|
-          t.column :id
           t.column :building_number
           t.column :street
           t.column :region
@@ -73,7 +74,9 @@ ActiveAdmin.register User do
           f.input :password
           f.input :password_confirmation
         else
-          f.input :gender
+          if f.object.role.eql? "Normal user"
+            f.input :gender
+          end  
           f.input :rate  
           f.input :profile_picture
           f.has_many :phones do |phone|
@@ -84,20 +87,20 @@ ActiveAdmin.register User do
               phone.input :_destroy, as: :boolean, required: :false, label: 'Remove phone'
             end  
           end 
-          f.has_many :addresses do |addresse|
-            if addresse.object.new_record?
-              addresse.inputs :building_number 
-              addresse.inputs :street
-              addresse.inputs :region 
-              addresse.inputs :city
-              addresse.inputs :postal_code
+          f.has_many :addresses do |address|
+            if address.object.new_record?
+              address.inputs :building_number 
+              address.inputs :street
+              address.inputs :region 
+              address.inputs :city
+              address.inputs :postal_code
             else
-              addresse.input :building_number 
-              addresse.input :street
-              addresse.input :region 
-              addresse.input :city
-              addresse.input :postal_code
-              addresse.input :_destroy, as: :boolean, required: :false, label: 'Remove phone'
+              address.input :building_number 
+              address.input :street
+              address.input :region 
+              address.input :city
+              address.input :postal_code
+              address.input :_destroy, as: :boolean, required: :false, label: 'Remove phone'
 
             end  
           end  
