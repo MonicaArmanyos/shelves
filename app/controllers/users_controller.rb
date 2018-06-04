@@ -30,8 +30,7 @@ class UsersController < ApiController
        @user=User.find(params[:id]) 
        @user.update(user_complete_params)
        if params[:phone]
-         newPhones = params[:phone].values
-       
+         newPhones = params[:phone].values  
       #   phonesarray = JSON.parse(newPhone)
          @phones= Phone.where(:user_id == @user.id )
          @phones.each do |oldphone|
@@ -109,7 +108,6 @@ class UsersController < ApiController
     params.permit(
       :name,
       :email, 
-
       :profile_picture,
       :gender,
       phone: [],
@@ -119,7 +117,5 @@ class UsersController < ApiController
       city: [],
       postal_code: []
     )
-end
-def category_params
 end
 end

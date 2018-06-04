@@ -5981,3 +5981,57 @@ Unpermitted parameters: :phone, :building_number, :street, :region, :city, :post
 Completed 200 OK in 187ms (Views: 0.4ms | ActiveRecord: 145.6ms)
 
 
+Started PUT "/users/1" for 127.0.0.1 at 2018-06-04 18:54:49 +0200
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#update as JSON
+  Parameters: {"name"=>"Monica ", "email"=>"monicaarmanios_333@yahoo.com", "phone"=>{"0"=>"01207843890", "1"=>"01205281227"}, "building_number"=>{"0"=>"61"}, "street"=>{"0"=>"Ismael Sery"}, "region"=>{"0"=>"smouha"}, "city"=>{"0"=>"alex"}, "postal_code"=>{"0"=>"0020"}, "Satire"=>"true", "id"=>"1"}
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 25ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2018-06-04 18:55:00 +0200
+Processing by AuthenticationController#authenticate as JSON
+  Parameters: {"email"=>"monicaarmanios_333@yahoo.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicaarmanios_333@yahoo.com' LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicaarmanios_333@yahoo.com' LIMIT 1[0m  [["email", "monicaarmanios_333@yahoo.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicaarmanios_333@yahoo.com' LIMIT 1[0m  [["email", "monicaarmanios_333@yahoo.com"], ["LIMIT", 1]]
+Completed 201 Created in 291ms (Views: 0.2ms | ActiveRecord: 3.5ms)
+
+
+Started PUT "/users/1" for 127.0.0.1 at 2018-06-04 18:55:23 +0200
+Processing by UsersController#update as JSON
+  Parameters: {"name"=>"Monica ", "email"=>"monicaarmanios_333@yahoo.com", "phone"=>{"0"=>"01207843890", "1"=>"01205281227"}, "building_number"=>{"0"=>"61"}, "street"=>{"0"=>"Ismael Sery"}, "region"=>{"0"=>"smouha"}, "city"=>{"0"=>"alex"}, "postal_code"=>{"0"=>"0020"}, "Satire"=>"true", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Unpermitted parameters: :phone, :building_number, :street, :region, :city, :postal_code, :Satire, :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhone Load (0.7ms)[0m  [1m[34mSELECT `phones`.* FROM `phones`[0m
+  [1m[36mAddress Load (0.8ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses`[0m
+  [1m[36mCategory Load (17.0ms)[0m  [1m[34mSELECT `categories`.* FROM `categories` INNER JOIN `categories_users` ON `categories`.`id` = `categories_users`.`category_id` WHERE `categories_users`.`user_id` = 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM `categories_users` WHERE `categories_users`.`user_id` = 1 AND `categories_users`.`category_id` = 3[0m
+  [1m[35m (288.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO `categories_users` (`user_id`, `category_id`) VALUES (1, 4)[0m
+  [1m[35m (97.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 688ms (Views: 0.2ms | ActiveRecord: 414.4ms)
+
+
+Started PUT "/users/1" for 127.0.0.1 at 2018-06-04 18:55:46 +0200
+Processing by UsersController#update as JSON
+  Parameters: {"name"=>"Monica ", "email"=>"monicaarmanios_333@yahoo.com", "phone"=>{"0"=>"01207843890", "1"=>"01205281227"}, "building_number"=>{"0"=>"61"}, "street"=>{"0"=>"Ismael Sery"}, "region"=>{"0"=>"smouha"}, "city"=>{"0"=>"alex"}, "postal_code"=>{"0"=>"0020"}, "Satire"=>"true", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Unpermitted parameters: :phone, :building_number, :street, :region, :city, :postal_code, :Satire, :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhone Load (0.2ms)[0m  [1m[34mSELECT `phones`.* FROM `phones`[0m
+  [1m[36mAddress Load (0.2ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses`[0m
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT `categories`.* FROM `categories` INNER JOIN `categories_users` ON `categories`.`id` = `categories_users`.`category_id` WHERE `categories_users`.`user_id` = 1[0m
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 2.0ms)
+
+
