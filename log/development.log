@@ -6328,3 +6328,809 @@ Processing by AuthenticationController#authenticate as JSON
 Completed 201 Created in 121ms (Views: 0.2ms | ActiveRecord: 0.3ms)
 
 
+Started GET "/admin/login" for 127.0.0.1 at 2018-06-05 17:22:29 +0200
+  
+Mysql2::Error::ConnectionError (Access denied for user 'monica'@'localhost' (using password: NO)):
+  
+mysql2 (0.5.1) lib/mysql2/client.rb:90:in `connect'
+mysql2 (0.5.1) lib/mysql2/client.rb:90:in `initialize'
+activerecord (5.1.6) lib/active_record/connection_adapters/mysql2_adapter.rb:21:in `new'
+activerecord (5.1.6) lib/active_record/connection_adapters/mysql2_adapter.rb:21:in `mysql2_connection'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:759:in `new_connection'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:803:in `checkout_new_connection'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:782:in `try_to_checkout_new_connection'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:743:in `acquire_connection'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:500:in `checkout'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:374:in `connection'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:931:in `retrieve_connection'
+activerecord (5.1.6) lib/active_record/connection_handling.rb:116:in `retrieve_connection'
+activerecord (5.1.6) lib/active_record/connection_handling.rb:88:in `connection'
+activerecord (5.1.6) lib/active_record/migration.rb:562:in `connection'
+activerecord (5.1.6) lib/active_record/migration.rb:553:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/favicon.ico" for 127.0.0.1 at 2018-06-05 17:22:30 +0200
+  
+Mysql2::Error::ConnectionError (Access denied for user 'monica'@'localhost' (using password: NO)):
+  
+mysql2 (0.5.1) lib/mysql2/client.rb:90:in `connect'
+mysql2 (0.5.1) lib/mysql2/client.rb:90:in `initialize'
+activerecord (5.1.6) lib/active_record/connection_adapters/mysql2_adapter.rb:21:in `new'
+activerecord (5.1.6) lib/active_record/connection_adapters/mysql2_adapter.rb:21:in `mysql2_connection'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:759:in `new_connection'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:803:in `checkout_new_connection'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:782:in `try_to_checkout_new_connection'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:743:in `acquire_connection'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:500:in `checkout'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:374:in `connection'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:931:in `retrieve_connection'
+activerecord (5.1.6) lib/active_record/connection_handling.rb:116:in `retrieve_connection'
+activerecord (5.1.6) lib/active_record/connection_handling.rb:88:in `connection'
+activerecord (5.1.6) lib/active_record/migration.rb:562:in `connection'
+activerecord (5.1.6) lib/active_record/migration.rb:553:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/admin/login" for 127.0.0.1 at 2018-06-05 17:36:54 +0200
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.1.6) lib/active_record/migration.rb:576:in `check_pending!'
+activerecord (5.1.6) lib/active_record/migration.rb:553:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('6965469184171088535', 0)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to ChangeColumnInUsers (20180604145126)
+  [1m[35m (631.7ms)[0m  [1m[35mALTER TABLE `users` CHANGE `gender` `gender` int DEFAULT NULL[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180604145126')[0m
+  [1m[35m (26.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('6965469184171088535')[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/admin/login" for 127.0.0.1 at 2018-06-05 17:37:33 +0200
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Rendering /home/monica/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out
+  Rendered /home/monica/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/devise/shared/_links.erb (11.3ms)
+  Rendered /home/monica/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (146.3ms)
+Completed 200 OK in 1513ms (Views: 1448.1ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/active_admin-5e8340bab1f5529e1a977b053f676dd8b1d14fe76c87fb74153f4959ebeb3a36.css" for 127.0.0.1 at 2018-06-05 17:37:34 +0200
+Started GET "/assets/active_admin/print-d2f43370b3b5b55d0e775d6d23d5f1cc6da0d261ed3c2e255d14544c4147be79.css" for 127.0.0.1 at 2018-06-05 17:37:34 +0200
+Started GET "/assets/active_admin-e670a4b09c70a1cf0e546e3cc233273ec00d44a2fe841969cac0562998dbec41.js" for 127.0.0.1 at 2018-06-05 17:37:34 +0200
+Started POST "/admin/login" for 127.0.0.1 at 2018-06-05 17:37:39 +0200
+Processing by ActiveAdmin::Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xiL9PcIReUsbY07wFKrPwDwbXHNGmxincG9N20l6dZRTlAogiTXbHHPdZPwog0K3r/rWEc70VYNPmGUVQvmBgg==", "admin_user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Login"}
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`email` = 'admin@example.com' ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (15.8ms)[0m  [1m[33mUPDATE `admin_users` SET `current_sign_in_at` = '2018-06-05 15:37:39', `last_sign_in_at` = '2018-06-04 00:53:02', `sign_in_count` = 3, `updated_at` = '2018-06-05 15:37:39' WHERE `admin_users`.`id` = 1[0m
+  [1m[35m (33.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 275ms (ActiveRecord: 49.8ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-06-05 17:37:39 +0200
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.8ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/monica/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/page/index.html.arb
+  Rendered /home/monica/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/page/index.html.arb (42.9ms)
+Completed 200 OK in 84ms (Views: 68.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/books" for 127.0.0.1 at 2018-06-05 17:37:44 +0200
+Processing by Admin::BooksController#index as HTML
+  [1m[36mAdminUser Load (0.3ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/monica/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `books`[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `books` LIMIT 6 OFFSET 0) subquery_for_count[0m
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  Rendered /home/monica/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (267.7ms)
+Completed 200 OK in 328ms (Views: 284.2ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/admin/books/new" for 127.0.0.1 at 2018-06-05 17:37:48 +0200
+Processing by Admin::BooksController#new as HTML
+  [1m[36mAdminUser Load (0.3ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/monica/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/new.html.arb
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+  Rendered /home/monica/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/new.html.arb (115.8ms)
+Completed 200 OK in 130ms (Views: 117.3ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/admin/books" for 127.0.0.1 at 2018-06-05 17:44:12 +0200
+Processing by Admin::BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"458Z8syDmGMpXwE8gtXbR2hGANMhLzFJ9coDRACXHydzaSaStHTqbAjmRluvrS0FVExlzNH1il1Z8fak4vFmlg==", "book"=>{"name"=>"Prizoner of Zenda", "description"=>"nineth edition ", "user_id"=>"1", "category_id"=>"4", "transcation"=>"Sell", "price"=>"70", "quantity"=>"10", "is_approved"=>"1"}, "commit"=>"Create Book"}
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 4 LIMIT 1[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO `books` (`name`, `description`, `quantity`, `price`, `is_approved`, `transcation`, `category_id`, `user_id`, `created_at`, `updated_at`) VALUES ('Prizoner of Zenda', 'nineth edition ', 10, 70.0, 1, 0, 4, 1, '2018-06-05 15:44:12', '2018-06-05 15:44:12')[0m
+  [1m[35m (29.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/admin/books/1
+Completed 302 Found in 141ms (ActiveRecord: 32.5ms)
+
+
+Started GET "/admin/books/1" for 127.0.0.1 at 2018-06-05 17:44:13 +0200
+Processing by Admin::BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAdminUser Load (0.8ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
+  Rendering /home/monica/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/show.html.arb
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 4 LIMIT 1[0m
+  [1m[36mBookImage Load (0.3ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 1[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `active_admin_comments` WHERE `active_admin_comments`.`resource_type` = 'Book' AND `active_admin_comments`.`resource_id` = 1 AND `active_admin_comments`.`namespace` = 'admin'[0m
+  [1m[36mActiveAdmin::Comment Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `active_admin_comments` WHERE `active_admin_comments`.`resource_type` = 'Book' AND `active_admin_comments`.`resource_id` = 1 AND `active_admin_comments`.`namespace` = 'admin' LIMIT 1 OFFSET 0[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `active_admin_comments` WHERE `active_admin_comments`.`resource_type` = 'Book' AND `active_admin_comments`.`resource_id` = 1 AND `active_admin_comments`.`namespace` = 'admin' ORDER BY created_at ASC LIMIT 25 OFFSET 0) subquery_for_count[0m
+  Rendered /home/monica/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/show.html.arb (172.7ms)
+Completed 200 OK in 202ms (Views: 192.2ms | ActiveRecord: 4.6ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2018-06-05 22:29:58 +0200
+  [1m[35m (0.7ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by AuthenticationController#authenticate as JSON
+  Parameters: {"email"=>"monicaarmanios_333@yahoo.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicaarmanios_333@yahoo.com' LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicaarmanios_333@yahoo.com' LIMIT 1[0m  [["email", "monicaarmanios_333@yahoo.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicaarmanios_333@yahoo.com' LIMIT 1[0m  [["email", "monicaarmanios_333@yahoo.com"], ["LIMIT", 1]]
+Completed 201 Created in 175ms (Views: 0.3ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2018-06-05 22:31:31 +0200
+  
+SyntaxError (/home/monica/graduationproject/shelves/app/controllers/authentication_controller.rb:15: syntax error, unexpected ',', expecting =>
+... render json: {  @user.to_json, auth_token: command.result }...
+...                              ^
+/home/monica/graduationproject/shelves/app/controllers/authentication_controller.rb:15: syntax error, unexpected '}', expecting keyword_end
+...n, auth_token: command.result }, status: :created
+...                              ^):
+  
+app/controllers/authentication_controller.rb:15: syntax error, unexpected ',', expecting =>
+app/controllers/authentication_controller.rb:15: syntax error, unexpected '}', expecting keyword_end
+Started POST "/users/login" for 127.0.0.1 at 2018-06-05 22:31:54 +0200
+  
+SyntaxError (/home/monica/graduationproject/shelves/app/controllers/authentication_controller.rb:15: syntax error, unexpected '}', expecting =>
+...   render json: {@user.to_json}, status: :created
+...                              ^):
+  
+app/controllers/authentication_controller.rb:15: syntax error, unexpected '}', expecting =>
+Started POST "/users/login" for 127.0.0.1 at 2018-06-05 22:33:22 +0200
+  
+SyntaxError (/home/monica/graduationproject/shelves/app/controllers/authentication_controller.rb:15: syntax error, unexpected tLABEL, expecting keyword_end
+... :json => @user.to_json status: :created
+...                        ^~~~~~~):
+  
+app/controllers/authentication_controller.rb:15: syntax error, unexpected tLABEL, expecting keyword_end
+Started POST "/users/login" for 127.0.0.1 at 2018-06-05 22:33:37 +0200
+Processing by AuthenticationController#authenticate as JSON
+  Parameters: {"email"=>"monicaarmanios_333@yahoo.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicaarmanios_333@yahoo.com' LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicaarmanios_333@yahoo.com' LIMIT 1[0m  [["email", "monicaarmanios_333@yahoo.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicaarmanios_333@yahoo.com' LIMIT 1[0m  [["email", "monicaarmanios_333@yahoo.com"], ["LIMIT", 1]]
+Completed 201 Created in 130ms (Views: 0.2ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2018-06-05 22:33:56 +0200
+  
+SyntaxError (/home/monica/graduationproject/shelves/app/controllers/authentication_controller.rb:15: syntax error, unexpected ':', expecting keyword_end
+          render :json => user: @user.to_json, status: :crea...
+                              ^
+/home/monica/graduationproject/shelves/app/controllers/authentication_controller.rb:15: syntax error, unexpected tLABEL, expecting '='
+...=> user: @user.to_json, status: :created
+...                        ^~~~~~~):
+  
+app/controllers/authentication_controller.rb:15: syntax error, unexpected ':', expecting keyword_end
+app/controllers/authentication_controller.rb:15: syntax error, unexpected tLABEL, expecting '='
+Started POST "/users/login" for 127.0.0.1 at 2018-06-05 22:34:35 +0200
+  
+SyntaxError (/home/monica/graduationproject/shelves/app/controllers/authentication_controller.rb:15: syntax error, unexpected ':', expecting keyword_end
+...       render :json => "user" : @user.to_json, status: :crea...
+...                              ^
+/home/monica/graduationproject/shelves/app/controllers/authentication_controller.rb:15: syntax error, unexpected tLABEL, expecting '='
+..."user" : @user.to_json, status: :created
+...                        ^~~~~~~):
+  
+app/controllers/authentication_controller.rb:15: syntax error, unexpected ':', expecting keyword_end
+app/controllers/authentication_controller.rb:15: syntax error, unexpected tLABEL, expecting '='
+Started POST "/users/login" for 127.0.0.1 at 2018-06-05 22:35:23 +0200
+Processing by AuthenticationController#authenticate as JSON
+  Parameters: {"email"=>"monicaarmanios_333@yahoo.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicaarmanios_333@yahoo.com' LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicaarmanios_333@yahoo.com' LIMIT 1[0m  [["email", "monicaarmanios_333@yahoo.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicaarmanios_333@yahoo.com' LIMIT 1[0m  [["email", "monicaarmanios_333@yahoo.com"], ["LIMIT", 1]]
+Completed 201 Created in 130ms (Views: 0.9ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2018-06-05 22:36:09 +0200
+Processing by AuthenticationController#authenticate as JSON
+  Parameters: {"email"=>"monicaarmanios_333@yahoo.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicaarmanios_333@yahoo.com' LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicaarmanios_333@yahoo.com' LIMIT 1[0m  [["email", "monicaarmanios_333@yahoo.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicaarmanios_333@yahoo.com' LIMIT 1[0m  [["email", "monicaarmanios_333@yahoo.com"], ["LIMIT", 1]]
+Completed 201 Created in 129ms (Views: 1.0ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-06-05 22:53:50 +0200
+  
+ActionController::RoutingError (No route matches [POST] "/users"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/users/login" for 127.0.0.1 at 2018-06-05 22:54:30 +0200
+Processing by AuthenticationController#authenticate as JSON
+  Parameters: {"name"=>"Monica Armanyos", "email"=>"monicamagdy70@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "role"=>"Normal user"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicamagdy70@gmail.com' LIMIT 1[0m
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/signup" for 127.0.0.1 at 2018-06-05 22:56:14 +0200
+Processing by UsersController#create as JSON
+  Parameters: {"name"=>"Monica Armanyos", "email"=>"monicamagdy70@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "role"=>"Normal user"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `password_digest`, `role`, `confirm_token`, `created_at`, `updated_at`) VALUES ('Monica Armanyos', 'monicamagdy70@gmail.com', '$2a$10$y0qsKaxhS5V307PVHK42weLEcSztIsaqrSsYJPCb/bR/Bq0yIiu2m', 0, 'U_Ag0A0kksuNwcBgmPbK9g', '2018-06-05 20:56:14', '2018-06-05 20:56:14')[0m
+  [1m[35m (135.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (8.4ms)[0m  [1m[33mUPDATE `users` SET `profile_picture` = NULL WHERE `users`.`id` = 2[0m
+  [1m[35m (32.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering user_mailer/registration_confirmation.html.erb
+  Rendered user_mailer/registration_confirmation.html.erb (13.8ms)
+UserMailer#registration_confirmation: processed outbound mail in 230.6ms
+Sent mail to monicamagdy70@gmail.com (3887.3ms)
+Date: Tue, 05 Jun 2018 22:56:15 +0200
+From: noreply@shelves.com
+To: Monica Armanyos <monicamagdy70@gmail.com>
+Message-ID: <5b16f8ef4d975_1c2e358d65010647@monica-Lenovo-ideapad-700-15ISK.mail>
+Subject: Email Confirmation
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi Monica Armanyos,<br/>
+Thanks for registering at Shelves! To confirm your registration , Please click this link :
+
+<a href="http://localhost:3000/users/U_Ag0A0kksuNwcBgmPbK9g/confirm_email"> Activate from here </a>
+<br/>
+Regards,<br/>
+Shelves Team
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicamagdy70@gmail.com' LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicamagdy70@gmail.com' LIMIT 1[0m  [["email", "monicamagdy70@gmail.com"], ["LIMIT", 1]]
+Completed 201 Created in 4855ms (Views: 0.6ms | ActiveRecord: 178.1ms)
+
+
+Started GET "/users/U_Ag0A0kksuNwcBgmPbK9g/confirm_email" for 127.0.0.1 at 2018-06-05 23:06:03 +0200
+Processing by UsersController#confirm_email as HTML
+  Parameters: {"id"=>"U_Ag0A0kksuNwcBgmPbK9g"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`confirm_token` = 'U_Ag0A0kksuNwcBgmPbK9g' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[33mUPDATE `users` SET `email_confirmed` = 1, `confirm_token` = NULL, `updated_at` = '2018-06-05 21:06:03' WHERE `users`.`id` = 2[0m
+  [1m[35m (236.8ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 247ms (Views: 0.3ms | ActiveRecord: 238.8ms)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2018-06-05 23:06:03 +0200
+Started GET "/favicon.ico" for 127.0.0.1 at 2018-06-05 23:06:03 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/users/signup" for 127.0.0.1 at 2018-06-05 23:10:45 +0200
+Processing by UsersController#create as JSON
+  Parameters: {"name"=>"Monica Armanyos", "email"=>"sci.monicamagdy2016@alexu.edu.eg", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "role"=>"Normal user"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `password_digest`, `role`, `confirm_token`, `created_at`, `updated_at`) VALUES ('Monica Armanyos', 'sci.monicamagdy2016@alexu.edu.eg', '$2a$10$nWYXJBnC5O9BIwoB63ujb.qJ3KRseIImhjm.9WpFFSRrjlylqUtLu', 0, 'TdTDfQGZKt7EsPNYeHz7JA', '2018-06-05 21:10:45', '2018-06-05 21:10:45')[0m
+  [1m[35m (168.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (31.5ms)[0m  [1m[33mUPDATE `users` SET `profile_picture` = NULL WHERE `users`.`id` = 3[0m
+  [1m[35m (32.7ms)[0m  [1m[35mCOMMIT[0m
+  Rendering user_mailer/registration_confirmation.html.erb
+  Rendered user_mailer/registration_confirmation.html.erb (0.4ms)
+UserMailer#registration_confirmation: processed outbound mail in 15.7ms
+Sent mail to sci.monicamagdy2016@alexu.edu.eg (2611.7ms)
+Date: Tue, 05 Jun 2018 23:10:45 +0200
+From: noreply@shelves.com
+To: Monica Armanyos <sci.monicamagdy2016@alexu.edu.eg>
+Message-ID: <5b16fc557ccdc_1c2e358d6dc107b3@monica-Lenovo-ideapad-700-15ISK.mail>
+Subject: Email Confirmation
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi Monica Armanyos,<br/>
+Thanks for registering at Shelves! To confirm your registration , Please click this link :
+
+<a href="http://localhost:3000/users/TdTDfQGZKt7EsPNYeHz7JA/confirm_email"> Activate from here </a>
+<br/>
+Regards,<br/>
+Shelves Team
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'sci.monicamagdy2016@alexu.edu.eg' LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'sci.monicamagdy2016@alexu.edu.eg' LIMIT 1[0m  [["email", "sci.monicamagdy2016@alexu.edu.eg"], ["LIMIT", 1]]
+Completed 201 Created in 3056ms (Views: 0.1ms | ActiveRecord: 234.3ms)
+
+
+Started GET "/users/TdTDfQGZKt7EsPNYeHz7JA/confirm_email" for 127.0.0.1 at 2018-06-05 23:11:11 +0200
+Processing by UsersController#confirm_email as HTML
+  Parameters: {"id"=>"TdTDfQGZKt7EsPNYeHz7JA"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`confirm_token` = 'TdTDfQGZKt7EsPNYeHz7JA' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE `users` SET `email_confirmed` = 1, `confirm_token` = NULL, `updated_at` = '2018-06-05 21:11:11' WHERE `users`.`id` = 3[0m
+  [1m[35m (207.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 212ms (Views: 0.4ms | ActiveRecord: 207.7ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2018-06-05 23:24:42 +0200
+Processing by AuthenticationController#authenticate as JSON
+  Parameters: {"email"=>"monicamagdy70@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicamagdy70@gmail.com' LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicamagdy70@gmail.com' LIMIT 1[0m  [["email", "monicamagdy70@gmail.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicamagdy70@gmail.com' LIMIT 1[0m  [["email", "monicamagdy70@gmail.com"], ["LIMIT", 1]]
+Completed 201 Created in 115ms (Views: 0.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/books/3/exchange" for 127.0.0.1 at 2018-06-05 23:27:28 +0200
+  
+SyntaxError (/home/monica/graduationproject/shelves/app/controllers/api/books_controller.rb:3: syntax error, unexpected ',', expecting =>
+...t, only: :index, :latest_books, :show
+...                              ^):
+  
+app/controllers/api/books_controller.rb:3: syntax error, unexpected ',', expecting =>
+Started GET "/api/books/3/exchange" for 127.0.0.1 at 2018-06-05 23:28:10 +0200
+Processing by Api::BooksController#exchange as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+Completed 200 OK in 24ms (Views: 0.1ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/api/books/3/exchange" for 127.0.0.1 at 2018-06-05 23:29:00 +0200
+Processing by Api::BooksController#exchange as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+Completed 200 OK in 24ms (Views: 0.1ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/api/books/3/exchange" for 127.0.0.1 at 2018-06-05 23:29:03 +0200
+Processing by Api::BooksController#exchange as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/books/3/exchange" for 127.0.0.1 at 2018-06-05 23:30:27 +0200
+Processing by Api::BooksController#exchange as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+Completed 200 OK in 23ms (Views: 0.1ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/api/books/3/exchange" for 127.0.0.1 at 2018-06-05 23:33:20 +0200
+Processing by Api::BooksController#exchange as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 0 LIMIT 1[0m
+Completed 404 Not Found in 23ms (ActiveRecord: 2.8ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Book with 'id'=false):
+  
+app/controllers/api/books_controller.rb:81:in `exchange'
+Started GET "/api/books/3/exchange" for 127.0.0.1 at 2018-06-05 23:33:41 +0200
+Processing by Api::BooksController#exchange as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+Completed 200 OK in 24ms (Views: 0.1ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/api/books/3/exchange" for 127.0.0.1 at 2018-06-05 23:34:04 +0200
+Processing by Api::BooksController#exchange as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+Completed 200 OK in 23ms (Views: 0.1ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/api/books/3/exchange" for 127.0.0.1 at 2018-06-05 23:34:49 +0200
+Processing by Api::BooksController#exchange as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+Completed 200 OK in 24ms (Views: 0.1ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/api/books/3/exchange" for 127.0.0.1 at 2018-06-05 23:35:20 +0200
+Processing by Api::BooksController#exchange as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/api/books/3/exchange" for 127.0.0.1 at 2018-06-05 23:35:27 +0200
+Processing by Api::BooksController#exchange as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+Completed 200 OK in 25ms (Views: 0.1ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/api/books/3/exchange" for 127.0.0.1 at 2018-06-05 23:35:55 +0200
+Processing by Api::BooksController#exchange as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+Completed 200 OK in 25ms (Views: 0.1ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/api/books/3/exchange" for 127.0.0.1 at 2018-06-05 23:36:16 +0200
+Processing by Api::BooksController#exchange as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+Completed 404 Not Found in 25ms (ActiveRecord: 2.8ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Book without an ID):
+  
+app/controllers/api/books_controller.rb:81:in `exchange'
+Started GET "/api/books/3/exchange" for 127.0.0.1 at 2018-06-05 23:36:38 +0200
+Processing by Api::BooksController#exchange as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+Completed 200 OK in 22ms (Views: 0.1ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/api/books/3/exchange" for 127.0.0.1 at 2018-06-05 23:37:10 +0200
+Processing by Api::BooksController#exchange as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+Completed 200 OK in 24ms (Views: 0.1ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/api/books/3/exchange" for 127.0.0.1 at 2018-06-05 23:38:07 +0200
+Processing by Api::BooksController#exchange as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+Completed 200 OK in 33ms (Views: 0.1ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/api/books/3/exchange" for 127.0.0.1 at 2018-06-06 00:54:13 +0200
+Processing by Api::BooksController#exchange as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+Completed 200 OK in 21ms (Views: 0.1ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/api/books/3/exchange" for 127.0.0.1 at 2018-06-06 00:54:35 +0200
+Processing by Api::BooksController#exchange as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+Completed 200 OK in 43ms (Views: 0.5ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/api/books/3/exchange" for 127.0.0.1 at 2018-06-06 00:55:41 +0200
+Processing by Api::BooksController#exchange as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+Completed 200 OK in 25ms (Views: 0.1ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/api/books/3/exchange" for 127.0.0.1 at 2018-06-06 00:56:46 +0200
+Processing by Api::BooksController#exchange as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+Completed 200 OK in 24ms (Views: 0.1ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/api/books/3/exchange" for 127.0.0.1 at 2018-06-06 00:57:35 +0200
+Processing by Api::BooksController#exchange as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+Completed 200 OK in 22ms (Views: 0.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/books/3/exchange" for 127.0.0.1 at 2018-06-06 00:57:53 +0200
+Processing by Api::BooksController#exchange as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+No template found for Api::BooksController#exchange, rendering head :no_content
+Completed 204 No Content in 58ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/api/books/3/exchange" for 127.0.0.1 at 2018-06-06 00:59:38 +0200
+Processing by Api::BooksController#exchange as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+Completed 500 Internal Server Error in 24ms (Views: 0.1ms | ActiveRecord: 2.3ms)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/api/books_controller.rb:84:in `block in exchange'
+app/controllers/api/books_controller.rb:83:in `exchange'
+Started GET "/api/books/3/exchange" for 127.0.0.1 at 2018-06-06 01:00:02 +0200
+Processing by Api::BooksController#exchange as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+Completed 500 Internal Server Error in 25ms (Views: 0.4ms | ActiveRecord: 3.1ms)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/api/books_controller.rb:84:in `block in exchange'
+app/controllers/api/books_controller.rb:83:in `exchange'
+Started GET "/api/books/3/exchange" for 127.0.0.1 at 2018-06-06 01:00:19 +0200
+Processing by Api::BooksController#exchange as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+Completed 500 Internal Server Error in 35ms (Views: 0.1ms | ActiveRecord: 2.6ms)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/api/books_controller.rb:84:in `block in exchange'
+app/controllers/api/books_controller.rb:83:in `exchange'
+Started GET "/api/books/3/exchange" for 127.0.0.1 at 2018-06-06 01:02:25 +0200
+Processing by Api::BooksController#exchange as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+Completed 200 OK in 30ms (Views: 0.1ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/api/books/3/exchange" for 127.0.0.1 at 2018-06-06 01:03:46 +0200
+Processing by Api::BooksController#exchange as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+Completed 200 OK in 26ms (Views: 0.1ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/api/books/3/exchange" for 127.0.0.1 at 2018-06-06 01:04:16 +0200
+Processing by Api::BooksController#exchange as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+Completed 200 OK in 21ms (Views: 0.1ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/api/books/3/exchange" for 127.0.0.1 at 2018-06-06 01:05:59 +0200
+Processing by Api::BooksController#exchange as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+Completed 200 OK in 22ms (Views: 0.1ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/api/books/3/exchange" for 127.0.0.1 at 2018-06-06 01:06:32 +0200
+Processing by Api::BooksController#exchange as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+Completed 200 OK in 23ms (Views: 0.1ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/api/books/3/exchange" for 127.0.0.1 at 2018-06-06 01:07:15 +0200
+Processing by Api::BooksController#exchange as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+Completed 200 OK in 24ms (Views: 0.1ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/api/books/3/exchange" for 127.0.0.1 at 2018-06-06 01:07:58 +0200
+Processing by Api::BooksController#exchange as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+Completed 200 OK in 26ms (Views: 0.1ms | ActiveRecord: 2.1ms)
+
+

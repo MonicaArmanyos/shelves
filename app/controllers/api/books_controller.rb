@@ -1,6 +1,6 @@
 module Api
     class Api::BooksController < ApiController
-
+        skip_before_action :authenticate_request, only: [:index, :latest_books, :show]
         def index
             @books = Book.all
             if params[:search]
@@ -66,6 +66,28 @@ module Api
             end
         end
 
+        ###edit book
+        def edit
+            @book = Book.find(params[:id])
+            if @book.update(book_params)
+                render json: {status: 'SUCCESS', message: 'Book successfully updated', book:@book},status: :ok
+            else
+                render json: {status: 'FAIL', message: 'Couldn\'t update book', error:@book.errors},status: :ok
+            end 
+        end 
+
+        def exchange
+           @wanted_book =  Book.find(params[:id])
+           @books = Book.all
+           @exchangeable_books = Array.new
+         
+            for book in @books
+                if book.user_id == current_user.id  && book.transcation == "Exchange"
+                    @exchangeable_books << book
+                end
+           end
+           render json:  @exchangeable_books.to_json, status: :ok
+        end
         private
         #### Permitted book params 
         def book_params

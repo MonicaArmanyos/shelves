@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   resources :password_resets, only: [:create, :update]
   namespace 'api' do
     resources :categories
-    resources :books do
+    resources :books, except:[:new, :edit] do
       #/api/books/route_name
       collection do
         get :latest_books
@@ -26,7 +26,7 @@ Rails.application.routes.draw do
       end
       #/api/books/:id/route_name
       member do
-        
+        get 'exchange', to: 'books#exchange'
       end
     end
    end 
