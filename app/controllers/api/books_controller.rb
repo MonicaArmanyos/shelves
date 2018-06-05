@@ -1,6 +1,7 @@
 module Api
     class Api::BooksController < ApplicationController
 
+        #### Show all books and searched books #### 
         def index
             @books = Book.all
             if params[:search]
@@ -15,7 +16,9 @@ module Api
 
          #### Latest Books in Home Page ####
          def latest_books
+            
             @latest_books = Book.order('created_at Desc').limit(20);
+            
             if(@latest_books)
                 render :json => @latest_books, each_serializer: BookSerializer
             else
@@ -39,7 +42,8 @@ module Api
                 render :json => @recommended_books
             end 
         end 
-        ### Show Book
+         
+        ### Show Book ####
         def show
             @book = Book.find(params[:id])
             if(@book)
@@ -49,7 +53,8 @@ module Api
             end
 
         end
-        #### Create book 
+
+        #### Create book ####
         def create
             current_user = AuthorizeApiRequest.call(request.headers).result
             if current_user
@@ -66,6 +71,20 @@ module Api
                 end
             end
         end
+
+        #### Update Book ####
+
+        #### Delete Book ####
+        def destroy
+            @book = Book.find(params[:id])
+            if @book.destroy
+                render json: {status: 'SUCCESS', message: 'Book successfully deleted'},status: :ok
+            else
+                render json: {status: 'FAIL', message: 'Couldn\'t delete book'},status: :ok
+            end
+
+        end
+
 
         private
         #### Permitted book params 
