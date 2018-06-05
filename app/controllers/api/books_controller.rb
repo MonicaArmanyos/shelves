@@ -1,13 +1,15 @@
 module Api
+
     class Api::BooksController < ApiController
         skip_before_action :authenticate_request, only: [:index, :latest_books, :show]
+
         def index
             @books = Book.all
             if params[:search]
-              @books = Book.search(params[:search]).order("created_at DESC").paginate(page: params[:page], per_page: 3) 
+              @books = Book.search(params[:search]).order("created_at DESC").page params[:page]
                
             else
-              @books = Book.all.order('created_at DESC').paginate(page: params[:page], per_page: 3) 
+              @books = Book.all.order('created_at DESC').page params[:page]
               
             end
             render :json => @books, each_serializer: BookSerializer
@@ -51,6 +53,7 @@ module Api
         end
         #### Create book 
         def create
+            current_user = AuthorizeApiRequest.call(request.headers).result
             if current_user
                 @user = current_user
                 @book = Book.new(book_params)
