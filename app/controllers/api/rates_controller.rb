@@ -1,7 +1,15 @@
-class Api::RatesController < ApplicationController
+class Api::RatesController < ApiController
     before_action :set_book
 
-
+    def create
+        @rate = @book.rates.new(:book_id => params[:book_id], :rate => params[:rate].to_i)
+        @rate.user_id = current_user.id 
+        if @rate.save
+            render json: {status: 'SUCCESS', message: 'Rate successfully added to book'},status: :ok
+        else
+            render json: {status: 'FAIL', message: 'Couldn\'t add rate to book'},status: :ok
+        end
+    end
 
     private
 
@@ -9,7 +17,4 @@ class Api::RatesController < ApplicationController
         @book = Book.find(params[:book_id])
     end
 
-    def rate_params
-         params.require(:rate).permit(:book_id, :rate)
-    end
 end
