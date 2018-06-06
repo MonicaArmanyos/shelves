@@ -8,6 +8,9 @@ class Book < ApplicationRecord
   belongs_to :user
   has_many :book_images, :dependent => :destroy
 
+  has_many :rates
+  has_many :users, through: :rates
+  
     #### Search For Books by name & description ####
   def self.search(search)
     where("name LIKE ? OR description LIKE ?", "%#{search}%", "%#{search}%") 
