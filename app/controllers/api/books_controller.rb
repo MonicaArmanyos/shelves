@@ -69,14 +69,18 @@ module Api
             end
         end
 
-        ###edit book
-        def edit
-            @book = Book.find(params[:id])
+        ###update book
+        def update
+         @book = Book.find(params[:id])
+         if current_user.id == @book.user_id
             if @book.update(book_params)
                 render json: {status: 'SUCCESS', message: 'Book successfully updated', book:@book},status: :ok
             else
                 render json: {status: 'FAIL', message: 'Couldn\'t update book', error:@book.errors},status: :ok
             end 
+        else
+            render json: {status: 'FAIL', message: 'Un autherized', error:@book.errors},status: :ok
+        end
         end 
 
         def exchange
