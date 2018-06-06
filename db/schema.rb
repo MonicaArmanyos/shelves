@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180606010153) do
+ActiveRecord::Schema.define(version: 20180606165011) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "namespace"
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 20180606010153) do
   create_table "books", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "name"
     t.text "description"
-    t.integer "rate"
+    t.float "rate", limit: 24
     t.integer "quantity", default: 1
     t.float "price", limit: 24
     t.boolean "is_approved"
