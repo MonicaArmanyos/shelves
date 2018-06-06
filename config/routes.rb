@@ -5,10 +5,11 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :users,  except: [:index, :show, :destroy, :create, :new, :edit] do
+  resources :users,  except: [:index, :destroy, :create, :new, :edit] do
     collection do
       post 'login', to: 'authentication#authenticate', :as => "login"
       post 'signup', to: 'users#create', :as => "signup"
+      get '', to: 'users#show'
     end
     #/users/:confirm_tocken/confirm_email
     member do
@@ -18,8 +19,9 @@ Rails.application.routes.draw do
   resources :password_resets, only: [:create, :update]
   namespace 'api' do
     resources :categories
-    resources :books do
+    resources :books, except:[:new, :edit] do
       resources :rates
+   
       #/api/books/route_name
       collection do
         get :latest_books
@@ -27,7 +29,7 @@ Rails.application.routes.draw do
       end
       #/api/books/:id/route_name
       member do
-        
+        get 'exchange', to: 'books#exchange'
       end
     end
    end 

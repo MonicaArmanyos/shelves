@@ -12,7 +12,7 @@ class AuthenticationController < ApiController
           else
             
           end
-          render json: { auth_token: command.result }, status: :created
+          render json: {user: @user, auth_token: command.result }, status: :created
         else 
           render json: :inactive
         end
