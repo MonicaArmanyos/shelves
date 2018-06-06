@@ -61,6 +61,7 @@ module Api
                 @user = current_user
                 @book = Book.new(book_params)
                 @book.user_id = @user.id
+                
                 if @book.save
                     params[:book][:book_images_attributes].each do |file|
                         @book.book_images.create!(:image => file)

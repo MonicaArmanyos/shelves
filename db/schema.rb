@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 20180606010153) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.json "images"
     t.boolean "is_available"
     t.datetime "bid_duration"
     t.index ["category_id"], name: "index_books_on_category_id"
