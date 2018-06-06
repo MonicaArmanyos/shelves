@@ -100,7 +100,14 @@ class UsersController < ApiController
     #### get current user info
     def show
       @user = current_user
-      render json: {status: 'SUCCESS', user:@user},status: :ok
+      @books = Book.all
+      @user_books = Array.new
+       for book in @books
+           if book.user_id == current_user.id 
+            @user_books << book
+           end
+      end
+      render json: {status: 'SUCCESS', user:@user, books: @user_books},status: :ok
     end
 
     private
