@@ -98,7 +98,7 @@ class UsersController < ApiController
     end
 
     #### get current user info
-    def get_user
+    def show
       @user = current_user
       render json: {status: 'SUCCESS', user:@user},status: :ok
     end

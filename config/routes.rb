@@ -5,11 +5,11 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :users,  except: [:index, :show, :destroy, :create, :new, :edit] do
+  resources :users,  except: [:index, :destroy, :create, :new, :edit] do
     collection do
       post 'login', to: 'authentication#authenticate', :as => "login"
       post 'signup', to: 'users#create', :as => "signup"
-      get '', to: 'users#get_user'
+      get '', to: 'users#show'
     end
     #/users/:confirm_tocken/confirm_email
     member do
