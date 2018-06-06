@@ -74,6 +74,9 @@ module Api
          @book = Book.find(params[:id])
          if current_user.id == @book.user_id
             if @book.update(book_params)
+                params[:book][:book_images_attributes].each do |file|
+                    @book.book_images.uodate!(:image => file)
+                end
                 render json: {status: 'SUCCESS', message: 'Book successfully updated', book:@book},status: :ok
             else
                 render json: {status: 'FAIL', message: 'Couldn\'t update book', error:@book.errors},status: :ok
