@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     collection do
       post 'login', to: 'authentication#authenticate', :as => "login"
       post 'signup', to: 'users#create', :as => "signup"
+      get '', to: 'users#get_user'
     end
     #/users/:confirm_tocken/confirm_email
     member do

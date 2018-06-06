@@ -96,6 +96,13 @@ class UsersController < ApiController
 
     def destroy
     end
+
+    #### get current user info
+    def get_user
+      @user = current_user
+      render json: {status: 'SUCCESS', user:@user},status: :ok
+    end
+
     private
   
     def user_params
@@ -120,5 +127,7 @@ class UsersController < ApiController
       city: [],
       postal_code: []
     )
-end
+  end
+
+
 end
