@@ -12,7 +12,6 @@ class User < ApplicationRecord
       has_many :phones, :dependent => :destroy
       has_many :addresses, :dependent => :destroy
       has_and_belongs_to_many :categories, :dependent => :destroy
-
       has_many :rates
       has_many :books, through: :rates
       has_many :orders

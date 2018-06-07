@@ -9377,3 +9377,126 @@ Completed 200 OK in 311ms (Views: 215.4ms | ActiveRecord: 11.5ms)
 Started GET "/assets/active_admin-365d7294774f2338299dafe5cec179b41884dcb3cd74805114a47f5dbc830c13.css" for 127.0.0.1 at 2018-06-07 22:12:06 +0200
 Started GET "/assets/active_admin/print-b05a0449174c4e0e939ecab3483d5b7389c188baae07f7b99af2da69df0243d9.css" for 127.0.0.1 at 2018-06-07 22:12:06 +0200
 Started GET "/assets/active_admin-e670a4b09c70a1cf0e546e3cc233273ec00d44a2fe841969cac0562998dbec41.js" for 127.0.0.1 at 2018-06-07 22:12:06 +0200
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('6983064309306950865', 0)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to ChangeColumnDatatypeOrderTable (20180607202322)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT RELEASE_LOCK('6983064309306950865')[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('6983064309306950865', 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to ChangeColumnDatatypeOrderTable (20180607202322)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('6983064309306950865')[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('6983064309306950865', 0)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to ChangeColumnDatatypeOrderTable (20180607202322)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT RELEASE_LOCK('6983064309306950865')[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('6983064309306950865', 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to ChangeColumnDatatypeOrderTable (20180607202322)
+  [1m[35m (705.4ms)[0m  [1m[35mALTER TABLE `orders` ADD `seller_id_id` bigint[0m
+  [1m[35m (317.5ms)[0m  [1m[35mCREATE  INDEX `index_orders_on_seller_id_id`  ON `orders` (`seller_id_id`) [0m
+  [1m[35m (393.1ms)[0m  [1m[35mALTER TABLE `orders` ADD CONSTRAINT `fk_rails_d389959a4b`
+FOREIGN KEY (`seller_id_id`)
+  REFERENCES `seller_ids` (`id`)
+[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('6983064309306950865')[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('6983064309306950865', 0)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to ChangeColumnDatatypeOrderTable (20180607202322)
+  [1m[35m (861.5ms)[0m  [1m[35mALTER TABLE `orders` ADD `seller_id` bigint[0m
+  [1m[35m (287.3ms)[0m  [1m[35mCREATE  INDEX `index_orders_on_seller_id`  ON `orders` (`seller_id`) [0m
+  [1m[35m (411.8ms)[0m  [1m[35mALTER TABLE `orders` ADD CONSTRAINT `fk_rails_f569184c98`
+FOREIGN KEY (`seller_id`)
+  REFERENCES `sellers` (`id`)
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('6983064309306950865')[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('6983064309306950865', 0)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to ChangeColumnDatatypeOrderTable (20180607202322)
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE `seller` ADD `orders_id` bigint[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('6983064309306950865')[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('6983064309306950865', 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to ChangeColumnDatatypeOrderTable (20180607202322)
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE `orders` ADD `seller_id` bigint[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('6983064309306950865')[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('6983064309306950865', 0)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to ChangeColumnDatatypeOrderTable (20180607202322)
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE `orders` ADD `seller_id_id` bigint[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT RELEASE_LOCK('6983064309306950865')[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('6983064309306950865', 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to ChangeColumnDatatypeOrderTable (20180607202322)
+  [1m[35m (959.2ms)[0m  [1m[35mALTER TABLE `orders` DROP `seller`[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE `orders` ADD `seller_id` bigint[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('6983064309306950865')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT GET_LOCK('6983064309306950865', 0)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to RemoveColumnOrderTable (20180607204915)
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE `orders` DROP `seller`[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('6983064309306950865')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('6983064309306950865', 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to RemoveColumnOrderTable (20180607204915)
+  [1m[35m (784.3ms)[0m  [1m[35mALTER TABLE `orders` DROP `seller`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180607204915')[0m
+  [1m[35m (78.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('6983064309306950865')[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('6983064309306950865', 0)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddColumnOrderTable (20180607205200)
+  [1m[35m (776.9ms)[0m  [1m[35mALTER TABLE `orders` ADD `seller_id` bigint[0m
+  [1m[35m (276.3ms)[0m  [1m[35mCREATE  INDEX `index_orders_on_seller_id`  ON `orders` (`seller_id`) [0m
+  [1m[35m (378.4ms)[0m  [1m[35mALTER TABLE `orders` ADD CONSTRAINT `fk_rails_f569184c98`
+FOREIGN KEY (`seller_id`)
+  REFERENCES `sellers` (`id`)
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('6983064309306950865')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('6983064309306950865', 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddColumnOrderTable (20180607205200)
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE `orders` ADD `seller_id` bigint[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('6983064309306950865')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('6983064309306950865', 0)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddColumnOrderTable (20180607205200)
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE `orders` ADD `seller_id` bigint[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('6983064309306950865')[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('6983064309306950865', 0)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddColumnOrderTable (20180607205200)
+  [1m[35m (819.1ms)[0m  [1m[35mALTER TABLE `orders` ADD `seller_id` bigint[0m
+  [1m[35m (276.8ms)[0m  [1m[35mCREATE  INDEX `index_orders_on_seller_id`  ON `orders` (`seller_id`) [0m
+  [1m[35m (356.5ms)[0m  [1m[35mALTER TABLE `orders` ADD CONSTRAINT `fk_rails_f569184c98`
+FOREIGN KEY (`seller_id`)
+  REFERENCES `sellers` (`id`)
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('6983064309306950865')[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('6983064309306950865', 0)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('6983064309306950865')[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
