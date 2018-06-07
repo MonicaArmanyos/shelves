@@ -1,6 +1,22 @@
 ActiveAdmin.register Order do
   permit_params :book_id, :user_id, :seller, :state, :transcation, :price
-  
+  scope :all,default: true
+  config.per_page =6
+
+  index do
+    selectable_column
+    id_column
+    column :user
+    column :book
+    column :seller
+    column :state
+    column :transcation
+    column :price
+    column :created_at
+    column :updated_at
+    actions
+  end  
+
   form do |f|
     f.semantic_errors
     f.inputs do
@@ -16,5 +32,14 @@ ActiveAdmin.register Order do
       f.input :price
     end  
     f.actions 
-  end  
+  end 
+  
+  filter :user
+  filter :book
+  filter :seller
+  filter :state
+  filter :transcation  
+  filter :price 
+  filter :updated_at
+  filter :created_at
 end    
