@@ -7,7 +7,12 @@ class AuthenticationController < ApiController
       if command.success?
         @user= User.find_by_email(params[:email])
         if  @user.email_confirmed
-          render json: { auth_token: command.result }, status: :created
+          if params[:remember_me]
+            
+          else
+            
+          end
+          render json: {user: @user, auth_token: command.result }, status: :created
         else 
           render json: :inactive
         end
@@ -15,4 +20,8 @@ class AuthenticationController < ApiController
         render json: { error: command.errors }, status: :unauthorized
       end
     end
+
+
+
+  
 end

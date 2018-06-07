@@ -30,8 +30,7 @@ class UsersController < ApiController
        @user=User.find(params[:id]) 
        @user.update(user_complete_params)
        if params[:phone]
-         newPhones = params[:phone].values
-       
+         newPhones = params[:phone].values  
       #   phonesarray = JSON.parse(newPhone)
          @phones= Phone.where(:user_id == @user.id )
          @phones.each do |oldphone|
@@ -94,6 +93,23 @@ class UsersController < ApiController
        end
        render :json =>  params.to_json, status: :ok
     end #end method
+
+    def destroy
+    end
+
+    #### get current user info
+    def show
+      @user = current_user
+      @books = Book.all
+      @user_books = Array.new
+       for book in @books
+           if book.user_id == current_user.id 
+            @user_books << book
+           end
+      end
+      render json: {status: 'SUCCESS', user:@user, books: @user_books},status: :ok
+    end
+
     private
   
     def user_params
@@ -109,7 +125,6 @@ class UsersController < ApiController
     params.permit(
       :name,
       :email, 
-
       :profile_picture,
       :gender,
       phone: [],
@@ -119,7 +134,7 @@ class UsersController < ApiController
       city: [],
       postal_code: []
     )
-end
-def category_params
-end
+  end
+
+
 end

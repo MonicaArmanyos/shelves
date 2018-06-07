@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20180607111415) do
+=======
+ActiveRecord::Schema.define(version: 20180606165011) do
+>>>>>>> 5d432b9cbef8bdc10849a9172c258dc018cfad26
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "namespace"
@@ -66,7 +70,7 @@ ActiveRecord::Schema.define(version: 20180607111415) do
   create_table "books", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "name"
     t.text "description"
-    t.integer "rate"
+    t.float "rate", limit: 24
     t.integer "quantity", default: 1
     t.float "price", limit: 24
     t.boolean "is_approved"
@@ -76,6 +80,9 @@ ActiveRecord::Schema.define(version: 20180607111415) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.json "images"
+    t.boolean "is_available"
+    t.datetime "bid_duration"
     t.index ["category_id"], name: "index_books_on_category_id"
     t.index ["user_id"], name: "index_books_on_user_id"
   end
@@ -114,6 +121,16 @@ ActiveRecord::Schema.define(version: 20180607111415) do
     t.index ["user_id"], name: "index_phones_on_user_id"
   end
 
+  create_table "rates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.bigint "user_id"
+    t.bigint "book_id"
+    t.integer "rate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_rates_on_book_id"
+    t.index ["user_id"], name: "index_rates_on_user_id"
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "name"
     t.string "email"
@@ -126,6 +143,8 @@ ActiveRecord::Schema.define(version: 20180607111415) do
     t.string "confirm_token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_reset_token"
+    t.datetime "password_reset_sent_at"
   end
 
   add_foreign_key "addresses", "users"
