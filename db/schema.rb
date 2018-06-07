@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20180607111415) do
-=======
-ActiveRecord::Schema.define(version: 20180606165011) do
->>>>>>> 5d432b9cbef8bdc10849a9172c258dc018cfad26
+ActiveRecord::Schema.define(version: 20180607194641) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "namespace"
@@ -80,7 +76,6 @@ ActiveRecord::Schema.define(version: 20180606165011) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.json "images"
     t.boolean "is_available"
     t.datetime "bid_duration"
     t.index ["category_id"], name: "index_books_on_category_id"
@@ -105,7 +100,7 @@ ActiveRecord::Schema.define(version: 20180606165011) do
     t.bigint "book_id"
     t.integer "seller"
     t.integer "state"
-    t.integer "type"
+    t.integer "transcation"
     t.float "price", limit: 24
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
