@@ -3,7 +3,7 @@ class Book < ApplicationRecord
     paginates_per 3
     #### Relations ####
   belongs_to :category
-  belongs_to :user
+  belongs_to :user 
   has_many :book_images, :dependent => :destroy
 
     #### Search For Books by name & description ####

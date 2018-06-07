@@ -45,7 +45,7 @@ module Api
         def show
             @book = Book.find(params[:id])
             if(@book)
-                render :json => @book, each_serializer: BookSerializer
+                render :json => @book, include: :user, each_serializer: BookSerializer
             else
                 render json: {status: 'FAil', message: 'Can\'t Loaded book'},status: :ok
             end
