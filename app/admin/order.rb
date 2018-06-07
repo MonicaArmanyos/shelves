@@ -17,6 +17,22 @@ ActiveAdmin.register Order do
     actions
   end  
 
+  show do |user|
+    attributes_table do
+      row :user 
+      row :book
+    end  
+    attributes_table do
+      row :seller 
+      row :price
+    end  
+    attributes_table do
+      row :state 
+      row :transcation
+    end  
+    active_admin_comments
+  end  
+
   form do |f|
     f.semantic_errors
     f.inputs do
