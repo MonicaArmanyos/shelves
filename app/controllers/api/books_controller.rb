@@ -49,7 +49,7 @@ module Api
         def show
             @book = Book.find(params[:id])
             if(@book)
-                render :json => @book, each_serializer: BookSerializer
+                render :json => @book, include: :user, each_serializer: BookSerializer
             else
                 render json: {status: 'FAil', message: 'Can\'t Loaded book'},status: :ok
             end
@@ -102,7 +102,7 @@ module Api
                        @exchangeable_books << book
                    end
               end
-              render json:  @exchangeable_books.to_json, status: :ok
+              render json:  {status: 'SUCCESS', exchangeable_books: @exchangeable_books}, status: :ok
            end
 
         #### Delete Book ####

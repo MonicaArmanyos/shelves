@@ -5,7 +5,7 @@ class Book < ApplicationRecord
 
     #### Relations ####
   belongs_to :category
-  belongs_to :user
+  belongs_to :user 
   has_many :book_images, :dependent => :destroy
 
   has_many :rates
