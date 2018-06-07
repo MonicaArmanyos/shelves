@@ -3,6 +3,7 @@ module Api
     class Api::BooksController < ApiController
         skip_before_action :authenticate_request, only: [:index, :latest_books, :show]
 
+        #### Show all books and searched books #### 
         def index
             @books = Book.all
             if params[:search]
@@ -17,7 +18,9 @@ module Api
 
          #### Latest Books in Home Page ####
          def latest_books
+            
             @latest_books = Book.order('created_at Desc').limit(20);
+            
             if(@latest_books)
                 render :json => @latest_books, each_serializer: BookSerializer
             else
@@ -41,7 +44,8 @@ module Api
                 render :json => @recommended_books
             end 
         end 
-        ### Show Book
+         
+        ### Show Book ####
         def show
             @book = Book.find(params[:id])
             if(@book)
@@ -51,13 +55,15 @@ module Api
             end
 
         end
-        #### Create book 
+
+        #### Create book ####
         def create
             current_user = AuthorizeApiRequest.call(request.headers).result
             if current_user
                 @user = current_user
                 @book = Book.new(book_params)
                 @book.user_id = @user.id
+                
                 if @book.save
                     params[:book][:book_images_attributes].each do |file|
                         @book.book_images.create!(:image => file)
@@ -69,35 +75,50 @@ module Api
             end
         end
 
-        ###update book
+        #### Update Book ####
         def update
-         @book = Book.find(params[:id])
-         if current_user.id == @book.user_id
-            if @book.update(book_params)
-                params[:book][:book_images_attributes].each do |file|
-                    @book.book_images.uodate!(:image => file)
-                end
-                render json: {status: 'SUCCESS', message: 'Book successfully updated', book:@book},status: :ok
-            else
-                render json: {status: 'FAIL', message: 'Couldn\'t update book', error:@book.errors},status: :ok
-            end 
-        else
-            render json: {status: 'FAIL', message: 'Un autherized', error:@book.errors},status: :ok
-        end
-        end 
-
-        def exchange
-           @wanted_book =  Book.find(params[:id])
-           @books = Book.all
-           @exchangeable_books = Array.new
-         
-            for book in @books
-                if book.user_id == current_user.id  && book.transcation == "Exchange"
-                    @exchangeable_books << book
-                end
+            @book = Book.find(params[:id])
+            if current_user.id == @book.user_id
+               if @book.update(book_params)
+                   params[:book][:book_images_attributes].each do |file|
+                       @book.book_images.uodate!(:image => file)
+                   end
+                   render json: {status: 'SUCCESS', message: 'Book successfully updated', book:@book},status: :ok
+               else
+                   render json: {status: 'FAIL', message: 'Couldn\'t update book', error:@book.errors},status: :ok
+               end 
+           else
+               render json: {status: 'FAIL', message: 'Un autherized', error:@book.errors},status: :ok
            end
-           render json:  @exchangeable_books.to_json, status: :ok
+           end 
+   
+           def exchange
+              @wanted_book =  Book.find(params[:id])
+              @books = Book.all
+              @exchangeable_books = Array.new
+            
+               for book in @books
+                   if book.user_id == current_user.id  && book.transcation == "Exchange"
+                       @exchangeable_books << book
+                   end
+              end
+              render json:  @exchangeable_books.to_json, status: :ok
+           end
+
+        #### Delete Book ####
+        def destroy
+            @book = Book.find(params[:id])
+            if @book.destroy
+                render json: {status: 'SUCCESS', message: 'Book successfully deleted'},status: :ok
+            else
+                render json: {status: 'FAIL', message: 'Couldn\'t delete book'},status: :ok
+            end
+
         end
+
+
+
+       
         private
         #### Permitted book params 
         def book_params

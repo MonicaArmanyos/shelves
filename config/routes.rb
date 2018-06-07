@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   namespace 'api' do
     resources :categories
     resources :books, except:[:new, :edit] do
+      resources :rates
+   
       #/api/books/route_name
       collection do
         get :latest_books
