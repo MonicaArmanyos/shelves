@@ -7496,3 +7496,256 @@ Processing by Api::BooksController#show as JSON
 Completed 200 OK in 35ms (Views: 20.9ms | ActiveRecord: 2.6ms)
 
 
+Started GET "/users" for 127.0.0.1 at 2018-06-07 21:33:00 +0200
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.1.6) lib/active_record/migration.rb:576:in `check_pending!'
+activerecord (5.1.6) lib/active_record/migration.rb:553:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('6965469184171088535', 0)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddIsAvailableToBooks (20180605143614)
+  [1m[35m (698.3ms)[0m  [1m[35mALTER TABLE `books` ADD `is_available` tinyint(1)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180605143614')[0m
+  [1m[35m (29.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddBidDurationToBooks (20180605144039)
+  [1m[35m (689.6ms)[0m  [1m[35mALTER TABLE `books` ADD `bid_duration` datetime[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180605144039')[0m
+  [1m[35m (32.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateRates (20180606010153)
+  [1m[35m (310.2ms)[0m  [1m[35mCREATE TABLE `rates` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `user_id` bigint, `book_id` bigint, `rate` int, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_rates_on_user_id`  (`user_id`),  INDEX `index_rates_on_book_id`  (`book_id`)) ENGINE=InnoDB[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180606010153')[0m
+  [1m[35m (29.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to RateChangeColumnType (20180606165011)
+  [1m[35m (775.0ms)[0m  [1m[35mALTER TABLE `books` CHANGE `rate` `rate` float DEFAULT NULL[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180606165011')[0m
+  [1m[35m (29.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateOrders (20180607111415)
+  [1m[35m (306.1ms)[0m  [1m[35mCREATE TABLE `orders` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `user_id` bigint, `book_id` bigint, `seller` int, `state` int, `type` int, `price` float, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_orders_on_user_id`  (`user_id`),  INDEX `index_orders_on_book_id`  (`book_id`), CONSTRAINT `fk_rails_f868b47f6a`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+, CONSTRAINT `fk_rails_2640c262ee`
+FOREIGN KEY (`book_id`)
+  REFERENCES `books` (`id`)
+) ENGINE=InnoDB[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180607111415')[0m
+  [1m[35m (29.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('6965469184171088535')[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/users" for 127.0.0.1 at 2018-06-07 21:33:30 +0200
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#show as JSON
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 28ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/users/1" for 127.0.0.1 at 2018-06-07 21:33:49 +0200
+Processing by UsersController#update as JSON
+  Parameters: {"name"=>"Monica ", "email"=>"monicaarmanios_333@yahoo.com", "phone"=>{"0"=>"01207843890", "1"=>"01205281227"}, "building_number"=>{"0"=>"61"}, "street"=>{"0"=>"Ismael Sery"}, "region"=>{"0"=>"smouha"}, "city"=>{"0"=>"alex"}, "postal_code"=>{"0"=>"0020"}, "Satire"=>"true", "id"=>"1"}
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2018-06-07 21:33:56 +0200
+Processing by AuthenticationController#authenticate as JSON
+  Parameters: {"email"=>"monicamagdy70@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicamagdy70@gmail.com' LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicamagdy70@gmail.com' LIMIT 1[0m  [["email", "monicamagdy70@gmail.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicamagdy70@gmail.com' LIMIT 1[0m  [["email", "monicamagdy70@gmail.com"], ["LIMIT", 1]]
+Completed 201 Created in 181ms (Views: 0.7ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/api/books/3" for 127.0.0.1 at 2018-06-07 21:34:18 +0200
+Processing by Api::BooksController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Completed 200 OK in 183ms (Views: 49.5ms | ActiveRecord: 1.9ms)
+
+
+Started PUT "/users/1" for 127.0.0.1 at 2018-06-07 22:00:47 +0200
+Processing by UsersController#update as JSON
+  Parameters: {"name"=>"Monica ", "email"=>"monicaarmanios_333@yahoo.com", "phone"=>{"0"=>"01207843890", "1"=>"01205281227"}, "building_number"=>{"0"=>"61"}, "street"=>{"0"=>"Ismael Sery"}, "region"=>{"0"=>"smouha"}, "city"=>{"0"=>"alex"}, "postal_code"=>{"0"=>"0020"}, "Satire"=>"true", "id"=>"1"}
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/users/1" for 127.0.0.1 at 2018-06-07 22:01:21 +0200
+Processing by UsersController#update as JSON
+  Parameters: {"name"=>"Monica ", "email"=>"monicaarmanios_333@yahoo.com", "phone"=>{"0"=>"01207843890", "1"=>"01205281227"}, "building_number"=>{"0"=>"61"}, "street"=>{"0"=>"Ismael Sery"}, "region"=>{"0"=>"smouha"}, "city"=>{"0"=>"alex"}, "postal_code"=>{"0"=>"0020"}, "Satire"=>"true", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = NULL LIMIT 1[0m
+Completed 404 Not Found in 4ms (ActiveRecord: 1.4ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=):
+  
+app/commands/authorize_api_request.rb:17:in `user'
+app/commands/authorize_api_request.rb:9:in `call'
+app/controllers/api_controller.rb:8:in `authenticate_request'
+Started GET "/api/books/3" for 127.0.0.1 at 2018-06-07 22:03:41 +0200
+Processing by Api::BooksController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Completed 200 OK in 30ms (Views: 13.2ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/api/books/3" for 127.0.0.1 at 2018-06-07 22:03:47 +0200
+Processing by Api::BooksController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.6ms)
+
+
+Started PUT "/users/1" for 127.0.0.1 at 2018-06-07 22:04:53 +0200
+Processing by UsersController#update as JSON
+  Parameters: {"name"=>"Monica ", "email"=>"monicaarmanios_333@yahoo.com", "phone"=>{"0"=>"01207843890", "1"=>"01205281227"}, "building_number"=>{"0"=>"61"}, "street"=>{"0"=>"Ismael Sery"}, "region"=>{"0"=>"smouha"}, "city"=>{"0"=>"alex"}, "postal_code"=>{"0"=>"0020"}, "Satire"=>"true", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = NULL LIMIT 1[0m
+Completed 404 Not Found in 4ms (ActiveRecord: 1.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=):
+  
+app/commands/authorize_api_request.rb:17:in `user'
+app/commands/authorize_api_request.rb:9:in `call'
+app/controllers/api_controller.rb:8:in `authenticate_request'
+Started PUT "/users/2" for 127.0.0.1 at 2018-06-07 22:06:53 +0200
+Processing by UsersController#update as JSON
+  Parameters: {"name"=>"Monica ", "email"=>"monicaarmanios_333@yahoo.com", "phone"=>{"0"=>"01207843890", "1"=>"01205281227"}, "building_number"=>{"0"=>"61"}, "street"=>{"0"=>"Ismael Sery"}, "region"=>{"0"=>"smouha"}, "city"=>{"0"=>"alex"}, "postal_code"=>{"0"=>"0020"}, "Satire"=>"true", "id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = NULL LIMIT 1[0m
+Completed 404 Not Found in 1ms (ActiveRecord: 0.4ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=):
+  
+app/commands/authorize_api_request.rb:17:in `user'
+app/commands/authorize_api_request.rb:9:in `call'
+app/controllers/api_controller.rb:8:in `authenticate_request'
+Started POST "/users/login" for 127.0.0.1 at 2018-06-07 22:08:35 +0200
+Processing by AuthenticationController#authenticate as JSON
+  Parameters: {"email"=>"monicaarmanios_333@yahoo.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicaarmanios_333@yahoo.com' LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicaarmanios_333@yahoo.com' LIMIT 1[0m  [["email", "monicaarmanios_333@yahoo.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicaarmanios_333@yahoo.com' LIMIT 1[0m  [["email", "monicaarmanios_333@yahoo.com"], ["LIMIT", 1]]
+Completed 201 Created in 128ms (Views: 1.0ms | ActiveRecord: 0.3ms)
+
+
+Started PUT "/users/2" for 127.0.0.1 at 2018-06-07 22:09:01 +0200
+Processing by UsersController#update as JSON
+  Parameters: {"name"=>"Monica ", "email"=>"monicaarmanios_333@yahoo.com", "phone"=>{"0"=>"01207843890", "1"=>"01205281227"}, "building_number"=>{"0"=>"61"}, "street"=>{"0"=>"Ismael Sery"}, "region"=>{"0"=>"smouha"}, "city"=>{"0"=>"alex"}, "postal_code"=>{"0"=>"0020"}, "Satire"=>"true", "id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Unpermitted parameters: :phone, :building_number, :street, :region, :city, :postal_code, :Satire, :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (103.7ms)[0m  [1m[33mUPDATE `users` SET `name` = 'Monica ', `email` = 'monicaarmanios_333@yahoo.com', `updated_at` = '2018-06-07 20:09:01' WHERE `users`.`id` = 2[0m
+  [1m[35m (38.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhone Load (0.7ms)[0m  [1m[34mSELECT `phones`.* FROM `phones`[0m
+  [1m[36mAddress Load (0.7ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses`[0m
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT `categories`.* FROM `categories` INNER JOIN `categories_users` ON `categories`.`id` = `categories_users`.`category_id` WHERE `categories_users`.`user_id` = 2[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `categories_users` (`user_id`, `category_id`) VALUES (2, 4)[0m
+  [1m[35m (32.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 283ms (Views: 0.3ms | ActiveRecord: 183.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-06-07 22:13:39 +0200
+Processing by UsersController#show as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 2.5ms)
+
+
+  
+NoMethodError (undefined method `to_hash' for nil:NilClass):
+  
+app/controllers/users_controller.rb:110:in `show'
+Started GET "/users" for 127.0.0.1 at 2018-06-07 22:14:04 +0200
+Processing by UsersController#show as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 2.4ms)
+
+
+  
+NoMethodError (undefined method `to_hash' for nil:NilClass):
+  
+app/controllers/users_controller.rb:110:in `show'
+Started GET "/users" for 127.0.0.1 at 2018-06-07 22:14:27 +0200
+Processing by UsersController#show as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+Completed 200 OK in 25ms (Views: 0.1ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-06-07 22:14:57 +0200
+Processing by UsersController#show as JSON
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+Completed 200 OK in 24ms (Views: 0.2ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-06-07 22:16:10 +0200
+  
+NameError (uninitialized constant DTO):
+  
+app/models/user.rb:1:in `<top (required)>'
+app/admin/user.rb:1:in `<top (required)>'
+Started GET "/api/books/3/exchange" for 127.0.0.1 at 2018-06-07 22:35:02 +0200
+Processing by Api::BooksController#exchange as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+Completed 200 OK in 24ms (Views: 0.1ms | ActiveRecord: 2.0ms)
+
+
