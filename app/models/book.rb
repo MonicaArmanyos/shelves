@@ -5,12 +5,12 @@ class Book < ApplicationRecord
 
     #### Relations ####
   belongs_to :category
-  belongs_to :user
+  belongs_to :user 
   has_many :book_images, :dependent => :destroy
 
   has_many :rates
   has_many :users, through: :rates
-  
+  has_many :orders
     #### Search For Books by name & description ####
   def self.search(search)
     where("name LIKE ? OR description LIKE ?", "%#{search}%", "%#{search}%") 

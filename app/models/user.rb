@@ -6,19 +6,20 @@ class User < ApplicationRecord
     mount_uploader :profile_picture, ProfilePictureUploader
 
     validates :email, :password_digest, presence: true
-            
+    validates :email, uniqueness: true    
     #### Relations ####
       has_many :books
       has_many :phones, :dependent => :destroy
       has_many :addresses, :dependent => :destroy
       has_and_belongs_to_many :categories, :dependent => :destroy
-
       has_many :rates
       has_many :books, through: :rates
-      
+      has_many :orders
+
       accepts_nested_attributes_for :phones, allow_destroy: true #to be able to remove a phone
       accepts_nested_attributes_for :addresses, allow_destroy: true
       accepts_nested_attributes_for :categories, allow_destroy: true
+
 
     def email_activate
         self.email_confirmed = true

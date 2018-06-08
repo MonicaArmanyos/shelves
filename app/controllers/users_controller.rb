@@ -4,25 +4,25 @@ class UsersController < ApiController
     # return authenticated token upon signup
     def create
       @user = User.create!(user_params)
-      @user.profile_picture = "/assets/images/default_profile.jpg"
+      #@user.profile_picture = "/assets/images/default_profile.jpg"
       if @user.save
         UserMailer.registration_confirmation(@user).deliver
       auth_token = AuthenticateUser.new(@user.email, @user.password).call
-      response = { message: Message.account_created, auth_token: auth_token }
+      response = {status: 'SUCCESS', message: Message.account_created, auth_token: auth_token }
       render json: response, status: :created
      else
         head(:unprocessable_entity)
       end
     end
   
-
+{status: 'FAil', message: 'Can\'t Loaded latest_books'}
     def confirm_email
         user=User.find_by_confirm_token(params[:id])
         if user
           user.email_activate
-          render :json => "Your account has now been confirmed.You can login now !".to_json, status: :ok
+          render json: {status: 'SUCCESS', message: "Your account has now been confirmed.You can login now !"}, status: :ok
         else 
-          render :json => "Something went wrong!".to_json, status: :notfound
+          render json: {status: 'FAIL', message: "Something went wrong!"}, status: :notfound
        end
       
      end
