@@ -7749,7 +7749,6 @@ Processing by Api::BooksController#exchange as JSON
 Completed 200 OK in 24ms (Views: 0.1ms | ActiveRecord: 2.0ms)
 
 
-<<<<<<< HEAD
 Started GET "/admin/addresses" for 127.0.0.1 at 2018-06-07 15:38:32 +0200
 Processing by Admin::AddressesController#index as HTML
   [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
@@ -8902,5 +8901,398 @@ FOREIGN KEY (`seller_id`)
   [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('6983064309306950865')[0m
   [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
-=======
->>>>>>> a4055bc94f9c4a4ffadb0c74ef303058d7eccbcc
+Started POST "/users/login" for 127.0.0.1 at 2018-06-08 17:08:22 +0200
+Processing by AuthenticationController#authenticate as */*
+  Parameters: {"email"=>"ghada.khamis.m@gmail.com", "password"=>"[FILTERED]"}
+  [1m[35m (234.9ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[36mUser Load (14.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'ghada.khamis.m@gmail.com' LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'ghada.khamis.m@gmail.com' LIMIT 1[0m  [["email", "ghada.khamis.m@gmail.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'ghada.khamis.m@gmail.com' LIMIT 1[0m  [["email", "ghada.khamis.m@gmail.com"], ["LIMIT", 1]]
+Completed 201 Created in 1391ms (Views: 1.0ms | ActiveRecord: 624.9ms)
+
+
+Started GET "/api/books/recommended_books" for 127.0.0.1 at 2018-06-08 17:09:03 +0200
+Processing by Api::BooksController#recommended_books as */*
+  Parameters: {"book"=>{}}
+  [1m[36mUser Load (79.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCategory Load (37.2ms)[0m  [1m[34mSELECT `categories`.* FROM `categories` INNER JOIN `categories_users` ON `categories`.`id` = `categories_users`.`category_id` WHERE `categories_users`.`user_id` = 6[0m
+Completed 200 OK in 289ms (Views: 0.4ms | ActiveRecord: 215.8ms)
+
+
+Started GET "/admin/login" for 127.0.0.1 at 2018-06-08 17:59:14 +0200
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/devise/shared/_links.erb (70.1ms)
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (221.2ms)
+Completed 200 OK in 2063ms (Views: 1903.7ms | ActiveRecord: 49.3ms)
+
+
+Started GET "/assets/active_admin-365d7294774f2338299dafe5cec179b41884dcb3cd74805114a47f5dbc830c13.css" for 127.0.0.1 at 2018-06-08 17:59:16 +0200
+Started GET "/assets/active_admin/print-b05a0449174c4e0e939ecab3483d5b7389c188baae07f7b99af2da69df0243d9.css" for 127.0.0.1 at 2018-06-08 17:59:16 +0200
+Started GET "/favicon.ico" for 127.0.0.1 at 2018-06-08 17:59:17 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/admin/login" for 127.0.0.1 at 2018-06-08 17:59:26 +0200
+Processing by ActiveAdmin::Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UkLgOm+8Kd+mlhyGZxU9N+nSN3h3hEl2jYOXt9ps09TFz2ioqXIAsclxUmTHUq4SZuOzI/WaHSBC6WQaGB1c7A==", "admin_user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Login"}
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`email` = 'admin@example.com' ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (33.4ms)[0m  [1m[33mUPDATE `admin_users` SET `current_sign_in_at` = '2018-06-08 15:59:26', `last_sign_in_at` = '2018-06-07 18:31:45', `sign_in_count` = 8, `updated_at` = '2018-06-08 15:59:26' WHERE `admin_users`.`id` = 1[0m
+  [1m[35m (107.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 393ms (ActiveRecord: 142.2ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-06-08 17:59:27 +0200
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/page/index.html.arb
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/page/index.html.arb (64.3ms)
+Completed 200 OK in 110ms (Views: 80.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/admin/books" for 127.0.0.1 at 2018-06-08 17:59:30 +0200
+Processing by Admin::BooksController#index as HTML
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `books`[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `books` LIMIT 6 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `books` LIMIT 6 OFFSET 0) subquery_for_count[0m  [["LIMIT", 6], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `books`[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `books` LIMIT 6 OFFSET 0) subquery_for_count[0m  [["LIMIT", 6], ["OFFSET", 0]]
+  [1m[36mBook Load (16.4ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY `books`.`id` desc LIMIT 6 OFFSET 0[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 2 LIMIT 1[0m
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (458.4ms)
+Completed 200 OK in 497ms (Views: 467.6ms | ActiveRecord: 21.7ms)
+
+
+Started GET "/admin/books/new" for 127.0.0.1 at 2018-06-08 18:00:06 +0200
+Processing by Admin::BooksController#new as HTML
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/new.html.arb
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/new.html.arb (229.9ms)
+Completed 200 OK in 260ms (Views: 218.1ms | ActiveRecord: 36.6ms)
+
+
+Started POST "/admin/books" for 127.0.0.1 at 2018-06-08 18:00:47 +0200
+Processing by Admin::BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QO9t082uukso+ATUQAJ9+MHgxZzO7VVCU84zxOJVpY1r6g/IodB4+rCcRtGRXeKf3eiTYFzj7v1oXz7LyPyb9Q==", "book"=>{"name"=>"hhh", "description"=>"kkkkkkkkkkkkkkkk", "user_id"=>"1", "category_id"=>"2", "transcation"=>"Free Share", "price"=>"", "quantity"=>"1", "is_approved"=>"1"}, "commit"=>"Create Book"}
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 2 LIMIT 1[0m
+  [1m[36mUser Load (5.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mSQL (17.1ms)[0m  [1m[32mINSERT INTO `books` (`name`, `description`, `is_approved`, `transcation`, `category_id`, `user_id`, `created_at`, `updated_at`) VALUES ('hhh', 'kkkkkkkkkkkkkkkk', 1, 1, 2, 1, '2018-06-08 16:00:47', '2018-06-08 16:00:47')[0m
+  [1m[35m (131.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/admin/books/2
+Completed 302 Found in 189ms (ActiveRecord: 155.9ms)
+
+
+Started GET "/admin/books/2" for 127.0.0.1 at 2018-06-08 18:00:47 +0200
+Processing by Admin::BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAdminUser Load (2.1ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/show.html.arb
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 2 LIMIT 1[0m
+  [1m[36mBookImage Load (0.8ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 2[0m
+  [1m[35m (14.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `active_admin_comments` WHERE `active_admin_comments`.`resource_type` = 'Book' AND `active_admin_comments`.`resource_id` = 2 AND `active_admin_comments`.`namespace` = 'admin'[0m
+  [1m[36mActiveAdmin::Comment Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `active_admin_comments` WHERE `active_admin_comments`.`resource_type` = 'Book' AND `active_admin_comments`.`resource_id` = 2 AND `active_admin_comments`.`namespace` = 'admin' LIMIT 1 OFFSET 0[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `active_admin_comments` WHERE `active_admin_comments`.`resource_type` = 'Book' AND `active_admin_comments`.`resource_id` = 2 AND `active_admin_comments`.`namespace` = 'admin' ORDER BY created_at ASC LIMIT 25 OFFSET 0) subquery_for_count[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/show.html.arb (328.7ms)
+Completed 200 OK in 351ms (Views: 270.3ms | ActiveRecord: 74.8ms)
+
+
+Started GET "/admin/books" for 127.0.0.1 at 2018-06-08 18:00:54 +0200
+Processing by Admin::BooksController#index as HTML
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `books`[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `books` LIMIT 6 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `books` LIMIT 6 OFFSET 0) subquery_for_count[0m  [["LIMIT", 6], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `books`[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `books` LIMIT 6 OFFSET 0) subquery_for_count[0m  [["LIMIT", 6], ["OFFSET", 0]]
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY `books`.`id` desc LIMIT 6 OFFSET 0[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 2 LIMIT 1[0m
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 2 LIMIT 1[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (211.6ms)
+Completed 200 OK in 223ms (Views: 209.5ms | ActiveRecord: 7.5ms)
+
+
+Started POST "/api/books/2/orders" for 127.0.0.1 at 2018-06-08 18:01:19 +0200
+Processing by Api::OrdersController#create as */*
+  Parameters: {"book_id"=>"2", "order"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `orders` (`user_id`, `book_id`, `state`, `seller`, `transcation`, `created_at`, `updated_at`) VALUES (6, 2, 0, 1, 1, '2018-06-08 16:01:19', '2018-06-08 16:01:19')[0m
+  [1m[35m (34.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 75ms (Views: 1.2ms | ActiveRecord: 47.3ms)
+
+
+Started GET "/admin/users/1" for 127.0.0.1 at 2018-06-08 18:01:55 +0200
+Processing by Admin::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/show.html.arb
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT `categories`.* FROM `categories` INNER JOIN `categories_users` ON `categories`.`id` = `categories_users`.`category_id` WHERE `categories_users`.`user_id` = 1[0m
+  [1m[36mPhone Load (3.4ms)[0m  [1m[34mSELECT `phones`.* FROM `phones` WHERE `phones`.`user_id` = 1[0m
+  [1m[36mAddress Load (14.7ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses` WHERE `addresses`.`user_id` = 1[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `active_admin_comments` WHERE `active_admin_comments`.`resource_type` = 'User' AND `active_admin_comments`.`resource_id` = 1 AND `active_admin_comments`.`namespace` = 'admin'[0m
+  [1m[36mActiveAdmin::Comment Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `active_admin_comments` WHERE `active_admin_comments`.`resource_type` = 'User' AND `active_admin_comments`.`resource_id` = 1 AND `active_admin_comments`.`namespace` = 'admin' LIMIT 1 OFFSET 0[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `active_admin_comments` WHERE `active_admin_comments`.`resource_type` = 'User' AND `active_admin_comments`.`resource_id` = 1 AND `active_admin_comments`.`namespace` = 'admin' ORDER BY created_at ASC LIMIT 25 OFFSET 0) subquery_for_count[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/show.html.arb (279.9ms)
+Completed 200 OK in 290ms (Views: 175.5ms | ActiveRecord: 109.3ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2018-06-08 18:01:59 +0200
+Processing by Admin::UsersController#index as HTML
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `users`[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `users` LIMIT 6 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `users` LIMIT 6 OFFSET 0) subquery_for_count[0m  [["LIMIT", 6], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `users`[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `users` LIMIT 6 OFFSET 0) subquery_for_count[0m  [["LIMIT", 6], ["OFFSET", 0]]
+  [1m[36mUser Load (8.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` ORDER BY `users`.`id` desc LIMIT 6 OFFSET 0[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (150.4ms)
+Completed 200 OK in 163ms (Views: 146.3ms | ActiveRecord: 10.4ms)
+
+
+Started POST "/api/books/2/orders" for 127.0.0.1 at 2018-06-08 18:13:42 +0200
+Processing by Api::OrdersController#create as */*
+  Parameters: {"book_id"=>"2", "order"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 80ms (ActiveRecord: 6.0ms)
+
+
+  
+NoMethodError (undefined method `errors' for nil:NilClass):
+  
+app/controllers/api/orders_controller.rb:19:in `create'
+Started POST "/api/books/2/orders" for 127.0.0.1 at 2018-06-08 18:14:28 +0200
+Processing by Api::OrdersController#create as */*
+  Parameters: {"book_id"=>"2", "order"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+Completed 200 OK in 68ms (Views: 0.4ms | ActiveRecord: 6.3ms)
+
+
+Started POST "/api/books/2/orders" for 127.0.0.1 at 2018-06-08 18:14:55 +0200
+Processing by Api::OrdersController#create as */*
+  Parameters: {"book_id"=>"2", "order"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/api/books/2/orders" for 127.0.0.1 at 2018-06-08 18:15:02 +0200
+Processing by Api::OrdersController#create as */*
+  Parameters: {"book_id"=>"2", "order"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mBook Load (3.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+Completed 200 OK in 14ms (Views: 0.3ms | ActiveRecord: 3.9ms)
+
+
+Started POST "/api/books/2/orders" for 127.0.0.1 at 2018-06-08 18:19:23 +0200
+Processing by Api::OrdersController#create as */*
+  Parameters: {"book_id"=>"2", "order"=>{}}
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 4ms (Views: 0.3ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/api/books/2/orders" for 127.0.0.1 at 2018-06-08 18:19:34 +0200
+Processing by Api::OrdersController#create as */*
+  Parameters: {"book_id"=>"2", "order"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+Completed 200 OK in 83ms (Views: 0.5ms | ActiveRecord: 5.1ms)
+
+
+Started POST "/api/books/2/orders" for 127.0.0.1 at 2018-06-08 18:24:59 +0200
+Processing by Api::OrdersController#create as */*
+  Parameters: {"book_id"=>"2", "order"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+Completed 200 OK in 95ms (Views: 0.4ms | ActiveRecord: 7.3ms)
+
+
+Started POST "/api/books/2/orders" for 127.0.0.1 at 2018-06-08 18:28:08 +0200
+Processing by Api::OrdersController#create as */*
+  Parameters: {"book_id"=>"2", "order"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/api/books/2/orders" for 127.0.0.1 at 2018-06-08 18:28:49 +0200
+  
+SyntaxError (/home/ghada/ruby/shelves/app/controllers/api/orders_controller.rb:13: syntax error, unexpected tCONSTANT, expecting keyword_then or ';' or '\n'
+... render json: {status: 'SUCCESS', message: 'order successful...
+...                        ^~~~~~~
+/home/ghada/ruby/shelves/app/controllers/api/orders_controller.rb:13: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...tus: 'SUCCESS', message: 'order successfully created', order...
+...                          ^~~~~
+/home/ghada/ruby/shelves/app/controllers/api/orders_controller.rb:15: syntax error, unexpected tCONSTANT, expecting keyword_end
+...    render json: {status: 'FAIL', message: 'Couldn\'t create...
+...                           ^~~~
+/home/ghada/ruby/shelves/app/controllers/api/orders_controller.rb:15: syntax error, unexpected tCONSTANT, expecting keyword_end
+...tatus: 'FAIL', message: 'Couldn\'t create order', error:@ord...
+...                         ^~~~~~
+/home/ghada/ruby/shelves/app/controllers/api/orders_controller.rb:15: syntax error, unexpected ',', expecting keyword_end
+...sage: 'Couldn\'t create order', error:@order.errors},status:...
+...                              ^
+/home/ghada/ruby/shelves/app/controllers/api/orders_controller.rb:15: syntax error, unexpected tSTRING_DEND, expecting keyword_end
+...te order', error:@order.errors},status: :ok
+...                              ^
+/home/ghada/ruby/shelves/app/controllers/api/orders_controller.rb:19: syntax error, unexpected tSTRING_DEND, expecting '}'
+...available', error:@book.errors},status: :ok
+...                              ^
+/home/ghada/ruby/shelves/app/controllers/api/orders_controller.rb:22: syntax error, unexpected keyword_end, expecting end-of-input
+    end  
+    ^~~):
+  
+app/controllers/api/orders_controller.rb:13: syntax error, unexpected tCONSTANT, expecting keyword_then or ';' or '\n'
+app/controllers/api/orders_controller.rb:13: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+app/controllers/api/orders_controller.rb:15: syntax error, unexpected tCONSTANT, expecting keyword_end
+app/controllers/api/orders_controller.rb:15: syntax error, unexpected tCONSTANT, expecting keyword_end
+app/controllers/api/orders_controller.rb:15: syntax error, unexpected ',', expecting keyword_end
+app/controllers/api/orders_controller.rb:15: syntax error, unexpected tSTRING_DEND, expecting keyword_end
+app/controllers/api/orders_controller.rb:19: syntax error, unexpected tSTRING_DEND, expecting '}'
+app/controllers/api/orders_controller.rb:22: syntax error, unexpected keyword_end, expecting end-of-input
+Started POST "/api/books/2/orders" for 127.0.0.1 at 2018-06-08 18:30:01 +0200
+  
+SyntaxError (/home/ghada/ruby/shelves/app/controllers/api/orders_controller.rb:13: syntax error, unexpected tCONSTANT, expecting keyword_then or ';' or '\n'
+... render json: {status: 'SUCCESS', message: 'order successful...
+...                        ^~~~~~~
+/home/ghada/ruby/shelves/app/controllers/api/orders_controller.rb:13: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...tus: 'SUCCESS', message: 'order successfully created', order...
+...                          ^~~~~
+/home/ghada/ruby/shelves/app/controllers/api/orders_controller.rb:15: syntax error, unexpected tCONSTANT, expecting keyword_end
+...    render json: {status: 'FAIL', message: 'Couldn\'t create...
+...                           ^~~~
+/home/ghada/ruby/shelves/app/controllers/api/orders_controller.rb:15: syntax error, unexpected tCONSTANT, expecting keyword_end
+...tatus: 'FAIL', message: 'Couldn\'t create order', error:@ord...
+...                         ^~~~~~
+/home/ghada/ruby/shelves/app/controllers/api/orders_controller.rb:15: syntax error, unexpected ',', expecting keyword_end
+...sage: 'Couldn\'t create order', error:@order.errors},status:...
+...                              ^
+/home/ghada/ruby/shelves/app/controllers/api/orders_controller.rb:15: syntax error, unexpected tSTRING_DEND, expecting keyword_end
+...te order', error:@order.errors},status: :ok
+...                              ^
+/home/ghada/ruby/shelves/app/controllers/api/orders_controller.rb:19: syntax error, unexpected tSTRING_DEND, expecting '}'
+...available', error:@book.errors},status: :ok
+...                              ^
+/home/ghada/ruby/shelves/app/controllers/api/orders_controller.rb:22: syntax error, unexpected keyword_end, expecting end-of-input
+    end  
+    ^~~):
+  
+app/controllers/api/orders_controller.rb:13: syntax error, unexpected tCONSTANT, expecting keyword_then or ';' or '\n'
+app/controllers/api/orders_controller.rb:13: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+app/controllers/api/orders_controller.rb:15: syntax error, unexpected tCONSTANT, expecting keyword_end
+app/controllers/api/orders_controller.rb:15: syntax error, unexpected tCONSTANT, expecting keyword_end
+app/controllers/api/orders_controller.rb:15: syntax error, unexpected ',', expecting keyword_end
+app/controllers/api/orders_controller.rb:15: syntax error, unexpected tSTRING_DEND, expecting keyword_end
+app/controllers/api/orders_controller.rb:19: syntax error, unexpected tSTRING_DEND, expecting '}'
+app/controllers/api/orders_controller.rb:22: syntax error, unexpected keyword_end, expecting end-of-input
+Started POST "/api/books/2/orders" for 127.0.0.1 at 2018-06-08 18:30:21 +0200
+Processing by Api::OrdersController#create as */*
+  Parameters: {"book_id"=>"2", "order"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+Completed 200 OK in 73ms (Views: 0.4ms | ActiveRecord: 6.2ms)
+
+
+Started POST "/api/books/2/orders" for 127.0.0.1 at 2018-06-08 18:30:55 +0200
+Processing by Api::OrdersController#create as */*
+  Parameters: {"book_id"=>"2", "order"=>{}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+Completed 200 OK in 73ms (Views: 0.4ms | ActiveRecord: 6.3ms)
+
+
+Started POST "/api/books/2/orders" for 127.0.0.1 at 2018-06-08 18:31:09 +0200
+Processing by Api::OrdersController#create as */*
+  Parameters: {"book_id"=>"2", "order"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mBook Load (1.8ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/api/books/2/orders" for 127.0.0.1 at 2018-06-08 18:43:08 +0200
+Processing by Api::OrdersController#create as */*
+  Parameters: {"book_id"=>"2", "order"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+Completed 200 OK in 72ms (Views: 0.5ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/api/books" for 127.0.0.1 at 2018-06-08 18:45:14 +0200
+Processing by Api::BooksController#index as */*
+  Parameters: {"book"=>{}}
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY created_at DESC LIMIT 3 OFFSET 0[0m
+Completed 200 OK in 11ms (Views: 2.9ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/api/books/2/orders" for 127.0.0.1 at 2018-06-08 18:46:15 +0200
+Processing by Api::OrdersController#create as */*
+  Parameters: {"book_id"=>"2", "order"=>{}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO `orders` (`user_id`, `book_id`, `state`, `seller`, `transcation`, `created_at`, `updated_at`) VALUES (6, 2, 0, 1, 1, '2018-06-08 16:46:16', '2018-06-08 16:46:16')[0m
+  [1m[35m (82.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 180ms (Views: 1.1ms | ActiveRecord: 89.9ms)
+
+

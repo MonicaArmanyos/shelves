@@ -31,6 +31,7 @@ Rails.application.routes.draw do
       member do
         get 'exchange', to: 'books#exchange'
       end
+      resources :orders
     end
    end 
 end
