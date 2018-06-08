@@ -1,8 +1,9 @@
-module Api
+module Api::V1::Book
 
-    class Api::BooksController < ApiController
-        skip_before_action :authenticate_request, only: [:index, :latest_books, :show]
+    class Api::V1::Book::BooksController < ApplicationController
 
+        before_action :authenticate_request, only: [:recommended_books, :create, :update, :exchange, :destroy]
+        
         #### Show all books and searched books #### 
         def index
             @books = Book.all
@@ -18,7 +19,6 @@ module Api
 
          #### Latest Books in Home Page ####
          def latest_books
-            
             @latest_books = Book.order('created_at Desc').limit(20);
             
             if(@latest_books)
@@ -31,7 +31,6 @@ module Api
 
         #### Recommended Books in Home Page ####
         def recommended_books
-            @current_user = AuthorizeApiRequest.call(request.headers).result
             if @current_user
                 
                 @recommended_books ||= []
@@ -49,7 +48,7 @@ module Api
         def show
             @book = Book.find(params[:id])
             if(@book)
-                render :json => @book, include: :user, each_serializer: BookSerializer
+                render :json => @book, each_serializer: BookSerializer
             else
                 render json: {status: 'FAil', message: 'Can\'t Loaded book'},status: :ok
             end
@@ -58,9 +57,8 @@ module Api
 
         #### Create book ####
         def create
-            current_user = AuthorizeApiRequest.call(request.headers).result
-            if current_user
-                @user = current_user
+            if @current_user
+                @user = @current_user
                 @book = Book.new(book_params)
                 @book.user_id = @user.id
                 
@@ -78,7 +76,7 @@ module Api
         #### Update Book ####
         def update
             @book = Book.find(params[:id])
-            if current_user.id == @book.user_id
+            if @current_user.id == @book.user_id
                if @book.update(book_params)
                    params[:book][:book_images_attributes].each do |file|
                        @book.book_images.uodate!(:image => file)
@@ -91,14 +89,15 @@ module Api
                render json: {status: 'FAIL', message: 'Un autherized', error:@book.errors},status: :ok
            end
            end 
-   
+
+           #### Order Book For Exchange ####
            def exchange
               @wanted_book =  Book.find(params[:id])
               @books = Book.all
               @exchangeable_books = Array.new
             
                for book in @books
-                   if book.user_id == current_user.id  && book.transcation == "Exchange"
+                   if book.user_id == @current_user.id  && book.transcation == "Exchange"
                        @exchangeable_books << book
                    end
               end
@@ -107,11 +106,13 @@ module Api
 
         #### Delete Book ####
         def destroy
-            @book = Book.find(params[:id])
-            if @book.destroy
+           
+            if Book.exists?(params[:id])
+                @book = Book.find(params[:id])
+                @book.destroy
                 render json: {status: 'SUCCESS', message: 'Book successfully deleted'},status: :ok
             else
-                render json: {status: 'FAIL', message: 'Couldn\'t delete book'},status: :ok
+                render json: {status: 'FAIL', message: 'Couldn\'t delete book,Book Not found'},status: :ok
             end
 
         end
@@ -120,12 +121,19 @@ module Api
 
        
         private
-        #### Permitted book params 
+        #### Permitted book params ####
         def book_params
             params.require(:book).permit(:name, :description, :transcation, :quantity, 
                                         :bid_user, :category_id, :price, book_images_attributes:[:id, :book_id, :image])
         end
 
+        #### Authentication of user ####
+        def authenticate_request
+            @current_user = AuthorizeApiRequest.call(request.headers).result
+            render json: { error: 'Not Authorized' }, status: 401 unless @current_user
+        end
+
        
     end
+
 end

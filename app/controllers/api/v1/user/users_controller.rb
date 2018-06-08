@@ -1,4 +1,4 @@
-class UsersController < ApiController
+class Api::V1::User::UsersController < ApiController
     skip_before_action :authenticate_request, only: [:create, :confirm_email]
     # POST /signup
     # return authenticated token upon signup
@@ -14,8 +14,7 @@ class UsersController < ApiController
         head(:unprocessable_entity)
       end
     end
-  
-{status: 'FAil', message: 'Can\'t Loaded latest_books'}
+
     def confirm_email
         user=User.find_by_confirm_token(params[:id])
         if user
@@ -107,7 +106,7 @@ class UsersController < ApiController
             @user_books << book
            end
       end
-      render json: {status: 'SUCCESS', user:@user, books: @user_books},status: :ok
+      render json: {status: 'SUCCESS', :user => {id: @user.id, name: @user.name, email: @user.email, profile_picture: @user.profile_picture}, books: @user_books},status: :ok
     end
 
     private
