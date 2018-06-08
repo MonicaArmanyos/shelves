@@ -1,6 +1,6 @@
-module Api
+module Api::V1::Book
 
-    class Api::BooksController < ApplicationController
+    class Api::V1::Book::BooksController < ApplicationController
 
         before_action :authenticate_request, only: [:recommended_books, :create, :update, :exchange, :destroy]
         
@@ -135,4 +135,5 @@ module Api
 
        
     end
+
 end

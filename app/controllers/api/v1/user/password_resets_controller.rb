@@ -1,4 +1,4 @@
-class PasswordResetsController < ApiController
+class Api::V1::User::PasswordResetsController < ApiController
   skip_before_action :authenticate_request
   def create
     user = User.find_by_email(params[:email])
