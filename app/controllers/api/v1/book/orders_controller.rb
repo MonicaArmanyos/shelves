@@ -1,5 +1,5 @@
-module Api
-  class Api::OrdersController < ApiController
+module Api::V1::Book
+  class Api::V1::Book::OrdersController < ApiController
     before_action :set_book
 
     def create
@@ -14,6 +14,8 @@ module Api
             else
               render json: {status: 'FAIL', message: 'Couldn\'t create order', error:@order.errors},status: :ok
             end
+          elsif @book.transcation.eql? "Sell"  
+            
           end
         else
           render json:{status: 'FAIL', message: 'This book not available', error:@book.errors},status: :ok

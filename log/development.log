@@ -9296,3 +9296,94 @@ Processing by Api::OrdersController#create as */*
 Completed 200 OK in 180ms (Views: 1.1ms | ActiveRecord: 89.9ms)
 
 
+Started POST "/api/v1/books/2/orders" for 127.0.0.1 at 2018-06-08 19:00:46 +0200
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/books/2/orders"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/api/v1/book/2/orders" for 127.0.0.1 at 2018-06-08 19:01:33 +0200
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/book/2/orders"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/api/v1/book/books/2/orders" for 127.0.0.1 at 2018-06-08 19:02:02 +0200
+Processing by Api::OrdersController#create as */*
+  Parameters: {"book_id"=>"2", "order"=>{}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (2.8ms)[0m  [1m[32mINSERT INTO `orders` (`user_id`, `book_id`, `state`, `seller`, `transcation`, `created_at`, `updated_at`) VALUES (6, 2, 0, 1, 1, '2018-06-08 17:02:02', '2018-06-08 17:02:02')[0m
+  [1m[35m (49.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 136ms (Views: 1.3ms | ActiveRecord: 92.7ms)
+
+
+  [1m[35m (258.1ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (35.6ms)[0m  [1m[34mSELECT GET_LOCK('6983064309306950865', 0)[0m
+  [1m[35m (17.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateNotificationTokens (20180608122810)
+  [1m[35m (695.1ms)[0m  [1m[35mCREATE TABLE `notification_tokens` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `token` varchar(255), `user_id` bigint, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_notification_tokens_on_user_id`  (`user_id`)) ENGINE=InnoDB[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (30.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180608122810')[0m
+  [1m[35m (29.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddQuantityColumnOrderTable (20180608190108)
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE `orders` ADD `quantity` integet DEFAULT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('6983064309306950865')[0m
+  [1m[35m (15.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT GET_LOCK('6983064309306950865', 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddQuantityColumnOrderTable (20180608190108)
+  [1m[35m (1064.3ms)[0m  [1m[35mALTER TABLE `orders` ADD `quantity` int DEFAULT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (43.7ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180608190108')[0m
+  [1m[35m (38.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (11.1ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('6983064309306950865')[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
