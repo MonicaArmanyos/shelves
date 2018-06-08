@@ -1,8 +1,8 @@
 module Api
 
-    class Api::BooksController < ApiController
-        skip_before_action :authenticate_request, only: [:index, :latest_books, :show]
+    class Api::BooksController < ApplicationController
 
+        before_action :authenticate_request, only: [:recommended_books, :create, :update, :exchange, :destroy]
         #### Show all books and searched books #### 
         def index
             @books = Book.all
@@ -31,7 +31,7 @@ module Api
 
         #### Recommended Books in Home Page ####
         def recommended_books
-            @current_user = AuthorizeApiRequest.call(request.headers).result
+            #@current_user = AuthorizeApiRequest.call(request.headers).result
             if @current_user
                 
                 @recommended_books ||= []
@@ -124,6 +124,11 @@ module Api
         def book_params
             params.require(:book).permit(:name, :description, :transcation, :quantity, 
                                         :bid_user, :category_id, :price, book_images_attributes:[:id, :book_id, :image])
+        end
+
+        def authenticate_request
+            @current_user = AuthorizeApiRequest.call(request.headers).result
+            render json: { error: 'Not Authorized' }, status: 401 unless @current_user
         end
 
        
