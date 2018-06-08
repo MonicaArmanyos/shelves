@@ -23,7 +23,9 @@ module Api::V1::Book
             # save order and check it saved successfuly
             if @order.save
               ###notification to book owner
-              render json: {status: 'SUCCESS', message: 'order successfully created', order: @order},status: :ok
+              @seller=User.find(@order.seller)
+              @category=Category.find(@book.category_id)
+              render json: {status: 'SUCCESS', message: 'order successfully created', order: {id: @order.id, state: @order.state, transcation: @order.transcation, price: @order.price, quantity: @order.quantity}, book: {id: @book.id, name: @book.name, description: @book.description, rate: @book.rate, price: @book.price}, category:{id: @category.id, name: @category.name}, seller: {id: @seller.id, name: @seller.name}},status: :ok
             else
               render json: {status: 'FAIL', message: 'Couldn\'t create order', error:@order.errors},status: :ok
             end
