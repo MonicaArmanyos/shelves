@@ -47,6 +47,10 @@ Rails.application.routes.draw do
               end
             end
 
+            namespace 'notification' do 
+              resources :notification_tokens
+            end
+
 
             end
           end 
