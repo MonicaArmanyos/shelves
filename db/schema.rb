@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20180607204915) do
-=======
-ActiveRecord::Schema.define(version: 20180607111415) do
->>>>>>> a4055bc94f9c4a4ffadb0c74ef303058d7eccbcc
+ActiveRecord::Schema.define(version: 20180607194641) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "namespace"
@@ -102,8 +98,8 @@ ActiveRecord::Schema.define(version: 20180607111415) do
   create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "user_id"
     t.bigint "book_id"
+    t.integer "seller"
     t.integer "state"
-    t.integer "seller", null: false
     t.integer "transcation"
     t.float "price", limit: 24
     t.datetime "created_at", null: false
