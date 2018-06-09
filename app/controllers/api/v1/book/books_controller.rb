@@ -61,16 +61,14 @@ module Api::V1::Book
                 @user = @current_user
                 @book = Book.new(book_params)
                 @book.user_id = @user.id
-                @user_notification_tokens = @user.notification_tokens
-                
-                @user_img_url=@serverurl+@user.profile_picture.url
+               
               
                 if @book.save
                     params[:book][:book_images_attributes].each do |file|
                         @book.book_images.create!(:image => file)
                     end
                     render json: {status: 'SUCCESS', message: 'Book successfully created', book:@book},status: :ok
-                    send_notification(@user_notification_tokens ,"Book successfully created" ,@user_img_url, "https://angularfirebase.com")
+                    send_notification(@user ,"Book successfully created", "https://angularfirebase.com")
                 else
                     render json: {status: 'FAIL', message: 'Couldn\'t create book', error:@book.errors},status: :ok
                 end

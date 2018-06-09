@@ -9,7 +9,10 @@ class ApplicationController < ActionController::Base
     end
 
     #### send notification function ####
-    def send_notification(user_notification_tokens ,body ,icon, click_action)
+    def send_notification(receiver_user ,body , click_action)
+        @current_user = AuthorizeApiRequest.call(request.headers).result
+        user_notification_tokens = receiver_user.notification_tokens        
+        icon=@serverurl+@current_user.profile_picture.url
         user_notification_tokens.each do |user_notification_token|
             JSON.load `curl https://fcm.googleapis.com/fcm/send \
         -H "Content-Type: application/json" \
