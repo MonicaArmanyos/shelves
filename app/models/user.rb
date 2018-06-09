@@ -22,6 +22,8 @@ class User < ApplicationRecord
       accepts_nested_attributes_for :categories, allow_destroy: true
 
 
+      
+
     def email_activate
         self.email_confirmed = true
         self.confirm_token = nil
