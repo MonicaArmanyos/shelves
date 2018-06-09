@@ -13,9 +13,8 @@ module Api::V1::Notification
 
         #### Update notification_token ####
         def update
-            @notification_token = NotificationToken.where(:token => params[:id])
-               
-            if @notification_token
+            if  NotificationToken.exists?(:token => params[:id])
+                @notification_token = NotificationToken.where(:token => params[:id])
                 @notification_token.update(notification_token_params)
                 render json: {status: 'SUCCESS', message: 'notification_token successfully updated', notification_token:@notification_token},status: :ok
             else
@@ -24,6 +23,7 @@ module Api::V1::Notification
         end
 
         private
+        
         #### Permitted book params ####
         def notification_token_params
             params.require(:notification_token).permit(:token, :user_id)
