@@ -41,6 +41,7 @@ Rails.application.routes.draw do
               #/users/:confirm_tocken/confirm_email
               member do
                 get '/confirm_email'=> 'users#confirm_email' 
+                get 'get_user_books'=> 'users#get_user_notifications'
               end
 
             end

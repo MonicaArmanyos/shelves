@@ -109,7 +109,10 @@ module Api::V1::User
         end
         render json: {status: 'SUCCESS', :user => @user, books: @user_books,  auth_token: request.headers['Authorization']}, :except => [:password_digest],status: :ok
       end
-
+      #### get user books ####
+      def get_user_notifications
+        
+      end
       private
     
       def user_params
