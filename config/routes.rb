@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   namespace 'api' do
     namespace 'v1' do
+
       namespace 'book' do     
         resources :books, except:[:new, :edit] do
           resources :rates
@@ -41,8 +42,18 @@ Rails.application.routes.draw do
               member do
                 get '/confirm_email'=> 'users#confirm_email' 
               end
+
             end
           end
+
+            namespace 'notification' do 
+              resources :notification_tokens
+            end
+
+
+            
+          end 
         end
-      end 
+
+       
 end

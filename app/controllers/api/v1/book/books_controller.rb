@@ -1,7 +1,7 @@
 module Api::V1::Book
 
     class Api::V1::Book::BooksController < ApplicationController
-
+        
         before_action :authenticate_request, only: [:recommended_books, :create, :update, :exchange, :destroy]
         
         #### Show all books and searched books #### 
@@ -61,12 +61,14 @@ module Api::V1::Book
                 @user = @current_user
                 @book = Book.new(book_params)
                 @book.user_id = @user.id
-                
+               
+              
                 if @book.save
                     params[:book][:book_images_attributes].each do |file|
                         @book.book_images.create!(:image => file)
                     end
                     render json: {status: 'SUCCESS', message: 'Book successfully created', book:@book},status: :ok
+                    send_notification(@user ,"Book successfully created", "https://angularfirebase.com")
                 else
                     render json: {status: 'FAIL', message: 'Couldn\'t create book', error:@book.errors},status: :ok
                 end

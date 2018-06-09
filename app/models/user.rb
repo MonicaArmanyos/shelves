@@ -15,6 +15,7 @@ class User < ApplicationRecord
       has_many :rates
       has_many :books, through: :rates
       has_many :orders
+      has_many :notification_tokens
 
       accepts_nested_attributes_for :phones, allow_destroy: true #to be able to remove a phone
       accepts_nested_attributes_for :addresses, allow_destroy: true
