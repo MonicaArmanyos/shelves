@@ -61,3 +61,6 @@ gem 'simple_command'
 gem 'active_model_serializers', '0.9.3'
 
 gem 'kaminari'
+# the activeadmin_dynamic_fieldsgem is an easy way to make dynamic views
+gem 'activeadmin_dynamic_fields'
+

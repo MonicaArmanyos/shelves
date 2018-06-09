@@ -5,17 +5,18 @@ ActiveAdmin.register Book do
     selectable_column
     id_column
     column :name
-    column :description
+    #column :description
     column :user
     column :category
     column :rate
-    column :bid_user
+    #column :bid_user
     column :transcation
     column :is_approved
+    column :is_available
     column :price
     column :quantity
     column :created_at
-    column :updated_at
+    #column :updated_at
     actions
   end
 
@@ -29,12 +30,20 @@ ActiveAdmin.register Book do
     attributes_table do
       row :quantity
       row :rate
+    end
+    attributes_table do
       row :is_approved
+      row :is_available        
     end 
     attributes_table do
         row :transcation
-        row :price 
-        row :bid_user
+        if !((book.transcation.eql? "Exchange") || (book.transcation.eql? "Free Share"))
+          row :price 
+        end  
+        if book.transcation.eql? "Sell By Bids"
+          row :bid_user
+          row :bid_duration
+        end  
       end  
     attributes_table do
       row :created_at
@@ -60,10 +69,12 @@ ActiveAdmin.register Book do
       f.input :user
       f.input :category
     end  
-    f.inputs do
-      f.input :transcation
-      f.input :price
-      f.input :quantity
+    if f.object.user_id_changed?
+      f.inputs do
+        f.input :transcation
+        f.input :price
+        f.input :quantity
+      end  
     end  
     if :is_approved
       if f.object.new_record? || !f.object.is_approved
@@ -93,6 +104,7 @@ ActiveAdmin.register Book do
   filter :quantity
   filter :rate  
   filter :is_approved 
+  filter :is_available
   filter :updated_at
   filter :created_at
 
