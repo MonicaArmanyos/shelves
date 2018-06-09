@@ -76,3 +76,1201 @@ If you did not request your password to be reset, just ignore this email and you
 Completed 201 Created in 3968ms (Views: 0.3ms | ActiveRecord: 136.1ms)
 
 
+Started PUT "/password_resets/PN2raqA7cI-omGTbYtcucg" for 127.0.0.1 at 2018-06-09 18:00:02 +0200
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  
+ActionController::RoutingError (No route matches [PUT] "/password_resets/PN2raqA7cI-omGTbYtcucg"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started PUT "/api/v1/user/password_resets/PN2raqA7cI-omGTbYtcucg" for 127.0.0.1 at 2018-06-09 18:00:30 +0200
+Processing by Api::V1::User::PasswordResetsController#update as JSON
+  Parameters: {"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "id"=>"PN2raqA7cI-omGTbYtcucg"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`password_reset_token` = 'PN2raqA7cI-omGTbYtcucg' LIMIT 1[0m
+Unpermitted parameter: :id
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'monicaarmanios_333@yahoo.com' AND (`users`.`id` != 1) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 200 OK in 87ms (Views: 0.2ms | ActiveRecord: 2.5ms)
+
+
+Started PUT "/api/v1/user/password_resets/PN2raqA7cI-omGTbYtcucg" for 127.0.0.1 at 2018-06-09 18:02:41 +0200
+Processing by Api::V1::User::PasswordResetsController#update as JSON
+  Parameters: {"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "id"=>"PN2raqA7cI-omGTbYtcucg"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`password_reset_token` = 'PN2raqA7cI-omGTbYtcucg' LIMIT 1[0m
+Unpermitted parameter: :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'monicaarmanios_333@yahoo.com' AND (`users`.`id` != 1) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 200 OK in 63ms (Views: 0.2ms | ActiveRecord: 0.8ms)
+
+
+Started PUT "/api/v1/user/password_resets/PN2raqA7cI-omGTbYtcucg" for 127.0.0.1 at 2018-06-09 18:03:15 +0200
+Processing by Api::V1::User::PasswordResetsController#update as JSON
+  Parameters: {"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "id"=>"PN2raqA7cI-omGTbYtcucg"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`password_reset_token` = 'PN2raqA7cI-omGTbYtcucg' LIMIT 1[0m
+Unpermitted parameter: :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'monicaarmanios_333@yahoo.com' AND (`users`.`id` != 1) LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+Completed 200 OK in 65ms (Views: 0.2ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/api/v1/user/password_resets" for 127.0.0.1 at 2018-06-09 18:03:33 +0200
+Processing by Api::V1::User::PasswordResetsController#create as JSON
+  Parameters: {"email"=>"monicaarmanios_333@yahoo.com"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicaarmanios_333@yahoo.com' LIMIT 1[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`password_reset_token` = '3gqVGgEWslbMqEL-UhJXpw' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE `users` SET `password_reset_token` = '3gqVGgEWslbMqEL-UhJXpw', `password_reset_sent_at` = '2018-06-09 16:03:33', `updated_at` = '2018-06-09 16:03:33' WHERE `users`.`id` = 1[0m
+  [1m[35m (138.1ms)[0m  [1m[35mCOMMIT[0m
+  Rendering user_mailer/password_reset.html.erb
+  Rendered user_mailer/password_reset.html.erb (1.1ms)
+UserMailer#password_reset: processed outbound mail in 126.7ms
+Sent mail to monicaarmanios_333@yahoo.com (3197.7ms)
+Date: Sat, 09 Jun 2018 18:03:33 +0200
+From: noreply@shelves.com
+To: monicaarmanios_333@yahoo.com
+Message-ID: <5b1bfa55bc718_25032ed891828891@monica-Lenovo-ideapad-700-15ISK.mail>
+Subject: Password Reset
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi Monica ,<br/>
+To reset your password, click the URL below.<br/>
+<a href="http://localhost:4200/newpassword?token=@user.password_reset_token"> Reset password</a>
+<br/>
+
+If you did not request your password to be reset, just ignore this email and your password will continue to stay the same
+Completed 201 Created in 3591ms (Views: 0.7ms | ActiveRecord: 138.9ms)
+
+
+Started PUT "/api/v1/user/password_resets/3gqVGgEWslbMqEL-UhJXpw" for 127.0.0.1 at 2018-06-09 18:05:44 +0200
+Processing by Api::V1::User::PasswordResetsController#update as JSON
+  Parameters: {"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "id"=>"3gqVGgEWslbMqEL-UhJXpw"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`password_reset_token` = '3gqVGgEWslbMqEL-UhJXpw' LIMIT 1[0m
+Unpermitted parameter: :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'monicaarmanios_333@yahoo.com' AND (`users`.`id` != 1) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 200 OK in 63ms (Views: 0.2ms | ActiveRecord: 1.0ms)
+
+
+Started PUT "/api/v1/user/password_resets/3gqVGgEWslbMqEL-UhJXpw" for 127.0.0.1 at 2018-06-09 18:07:42 +0200
+Processing by Api::V1::User::PasswordResetsController#update as JSON
+  Parameters: {"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "id"=>"3gqVGgEWslbMqEL-UhJXpw"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`password_reset_token` = '3gqVGgEWslbMqEL-UhJXpw' LIMIT 1[0m
+Unpermitted parameter: :id
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'monicaarmanios_333@yahoo.com' AND (`users`.`id` != 1) LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+Completed 200 OK in 75ms (Views: 0.8ms | ActiveRecord: 2.4ms)
+
+
+Started PUT "/api/v1/user/password_resets/3gqVGgEWslbMqEL-UhJXpw" for 127.0.0.1 at 2018-06-09 18:08:58 +0200
+Processing by Api::V1::User::PasswordResetsController#update as JSON
+  Parameters: {"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "id"=>"3gqVGgEWslbMqEL-UhJXpw"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`password_reset_token` = '3gqVGgEWslbMqEL-UhJXpw' LIMIT 1[0m
+Unpermitted parameter: :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'monicaarmanios_333@yahoo.com' AND (`users`.`id` != 1) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE `users` SET `password_digest` = '$2a$10$WPKcTgsb8toGdupF9GPjc.Vrepo82dn6We6BNyvaPDjGcTpoqDO4W', `updated_at` = '2018-06-09 16:08:58' WHERE `users`.`id` = 1[0m
+  [1m[35m (137.8ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 203ms (Views: 0.5ms | ActiveRecord: 138.7ms)
+
+
+Started PUT "/api/v1/user/password_resets/3gqVGgEWslbMqEL-UhJXpw" for 127.0.0.1 at 2018-06-09 18:09:32 +0200
+Processing by Api::V1::User::PasswordResetsController#update as JSON
+  Parameters: {"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "id"=>"3gqVGgEWslbMqEL-UhJXpw"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`password_reset_token` = '3gqVGgEWslbMqEL-UhJXpw' LIMIT 1[0m
+Unpermitted parameter: :id
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'monicaarmanios_333@yahoo.com' AND (`users`.`id` != 1) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE `users` SET `password_digest` = '$2a$10$6L63RETC7RAIouU4fEZ8SOKMv94iBjcGnVOggk1OxBPh0MrfWcpBi', `updated_at` = '2018-06-09 16:09:33' WHERE `users`.`id` = 1[0m
+  [1m[35m (144.7ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 225ms (Views: 0.5ms | ActiveRecord: 147.6ms)
+
+
+Started PUT "/api/v1/user/password_resets/3gqVGgEWslbMqEL-UhJXpw" for 127.0.0.1 at 2018-06-09 18:15:08 +0200
+Processing by Api::V1::User::PasswordResetsController#update as JSON
+  Parameters: {"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "id"=>"3gqVGgEWslbMqEL-UhJXpw"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`password_reset_token` = '3gqVGgEWslbMqEL-UhJXpw' LIMIT 1[0m
+Unpermitted parameter: :id
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'monicaarmanios_333@yahoo.com' AND (`users`.`id` != 1) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE `users` SET `password_digest` = '$2a$10$GCnou2ysVrsRbb.AaQHmY./qb34cLzs5x9TZ2kCf7g7nYi6UluBES', `updated_at` = '2018-06-09 16:15:09' WHERE `users`.`id` = 1[0m
+  [1m[35m (121.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 201ms (ActiveRecord: 123.4ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 2, expected 0)):
+  
+app/controllers/api/v1/user/password_resets_controller.rb:22:in `update'
+Started PUT "/api/v1/user/password_resets/3gqVGgEWslbMqEL-UhJXpw" for 127.0.0.1 at 2018-06-09 18:15:51 +0200
+Processing by Api::V1::User::PasswordResetsController#update as JSON
+  Parameters: {"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "id"=>"3gqVGgEWslbMqEL-UhJXpw"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`password_reset_token` = '3gqVGgEWslbMqEL-UhJXpw' LIMIT 1[0m
+Unpermitted parameter: :id
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'monicaarmanios_333@yahoo.com' AND (`users`.`id` != 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE `users` SET `password_digest` = '$2a$10$jeBFL82dVFL077s8Fc2YLuj6Feu/3T2pa8qHZGbYKDkQmw087v/BO', `updated_at` = '2018-06-09 16:15:51' WHERE `users`.`id` = 1[0m
+  [1m[35m (123.9ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 204ms (ActiveRecord: 126.1ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 0)):
+  
+app/controllers/api/v1/user/password_resets_controller.rb:22:in `update'
+Started PUT "/api/v1/user/password_resets/3gqVGgEWslbMqEL-UhJXpw" for 127.0.0.1 at 2018-06-09 18:19:43 +0200
+Processing by Api::V1::User::PasswordResetsController#update as JSON
+  Parameters: {"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "id"=>"3gqVGgEWslbMqEL-UhJXpw"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`password_reset_token` = '3gqVGgEWslbMqEL-UhJXpw' LIMIT 1[0m
+Unpermitted parameter: :id
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'monicaarmanios_333@yahoo.com' AND (`users`.`id` != 1) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE `users` SET `password_digest` = '$2a$10$aqMmlgodo0/Zw7aF9xO24Oh.sDEZn9/X5m3BiaAXF1FcRlGR/i4TW', `updated_at` = '2018-06-09 16:19:43' WHERE `users`.`id` = 1[0m
+  [1m[35m (134.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'monicaarmanios_333@yahoo.com' AND (`users`.`id` != 1) LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE `users` SET `password_reset_sent_at` = NULL, `password_reset_token` = NULL WHERE `users`.`id` = 1[0m
+  [1m[35m (34.8ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 254ms (Views: 0.5ms | ActiveRecord: 173.4ms)
+
+
+Started POST "/api/v1/user/password_resets" for 127.0.0.1 at 2018-06-09 18:20:21 +0200
+Processing by Api::V1::User::PasswordResetsController#create as JSON
+  Parameters: {"email"=>"monicaarmanios_333@yahoo.com"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicaarmanios_333@yahoo.com' LIMIT 1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`password_reset_token` = 'ijRtyL9gFBmWVzQwHb_1RA' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE `users` SET `password_reset_token` = 'ijRtyL9gFBmWVzQwHb_1RA', `password_reset_sent_at` = '2018-06-09 16:20:21', `updated_at` = '2018-06-09 16:20:21' WHERE `users`.`id` = 1[0m
+  [1m[35m (121.1ms)[0m  [1m[35mCOMMIT[0m
+  Rendering user_mailer/password_reset.html.erb
+  Rendered user_mailer/password_reset.html.erb (0.4ms)
+UserMailer#password_reset: processed outbound mail in 6.6ms
+Sent mail to monicaarmanios_333@yahoo.com (5358.4ms)
+Date: Sat, 09 Jun 2018 18:20:21 +0200
+From: noreply@shelves.com
+To: monicaarmanios_333@yahoo.com
+Message-ID: <5b1bfe4593621_25032ed8b482893e@monica-Lenovo-ideapad-700-15ISK.mail>
+Subject: Password Reset
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi Monica ,<br/>
+To reset your password, click the URL below.<br/>
+<a href="http://localhost:4200/newpassword?token=@user.password_reset_token"> Reset password</a>
+<br/>
+
+If you did not request your password to be reset, just ignore this email and your password will continue to stay the same
+Completed 201 Created in 5495ms (Views: 0.5ms | ActiveRecord: 122.2ms)
+
+
+Started GET "/api/vi/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 20:25:45 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/vi/book/books/2/exchange"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 20:25:58 +0200
+Processing by Api::V1::Book::BooksController#exchange as JSON
+  Parameters: {"id"=>"2"}
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 127ms (Views: 7.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 20:27:00 +0200
+Processing by Api::V1::Book::BooksController#exchange as JSON
+  Parameters: {"id"=>"2"}
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2018-06-09 20:27:18 +0200
+  
+ActionController::RoutingError (No route matches [POST] "/users/login"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/ap/v1/user/users/login" for 127.0.0.1 at 2018-06-09 20:28:03 +0200
+  
+ActionController::RoutingError (No route matches [POST] "/ap/v1/user/users/login"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/api/v1/user/users/login" for 127.0.0.1 at 2018-06-09 20:28:18 +0200
+Processing by Api::V1::User::AuthenticationController#authenticate as JSON
+  Parameters: {"email"=>"sci.monicamagdy2016@alexu.edu.eg", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'sci.monicamagdy2016@alexu.edu.eg' LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'sci.monicamagdy2016@alexu.edu.eg' LIMIT 1[0m  [["email", "sci.monicamagdy2016@alexu.edu.eg"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'sci.monicamagdy2016@alexu.edu.eg' LIMIT 1[0m  [["email", "sci.monicamagdy2016@alexu.edu.eg"], ["LIMIT", 1]]
+Completed 201 Created in 265ms (Views: 0.7ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 20:28:56 +0200
+Processing by Api::V1::Book::BooksController#exchange as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+Completed 200 OK in 19ms (Views: 3.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 20:29:23 +0200
+Processing by Api::V1::Book::BooksController#exchange as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+Completed 200 OK in 5ms (Views: 2.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/v1/book/books/3/exchange" for 127.0.0.1 at 2018-06-09 20:29:31 +0200
+Processing by Api::V1::Book::BooksController#exchange as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+Completed 200 OK in 5ms (Views: 2.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 20:31:14 +0200
+Processing by Api::V1::Book::BooksController#exchange as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+Completed 200 OK in 5ms (Views: 2.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 20:35:08 +0200
+Processing by Api::V1::Book::BooksController#exchange as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+Completed 200 OK in 30ms (Views: 2.5ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 20:35:58 +0200
+Processing by Api::V1::Book::BooksController#exchange as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Completed 200 OK in 166ms (Views: 139.7ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 20:37:13 +0200
+Processing by Api::V1::Book::BooksController#exchange as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Completed 200 OK in 38ms (Views: 5.4ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 20:37:38 +0200
+Processing by Api::V1::Book::BooksController#exchange as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Completed 200 OK in 30ms (Views: 5.7ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 20:38:50 +0200
+Processing by Api::V1::Book::BooksController#exchange as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Completed 200 OK in 34ms (Views: 6.0ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 20:39:26 +0200
+Processing by Api::V1::Book::BooksController#exchange as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Completed 200 OK in 37ms (Views: 5.4ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 20:40:04 +0200
+Processing by Api::V1::Book::BooksController#exchange as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Completed 200 OK in 33ms (Views: 5.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 20:40:22 +0200
+Processing by Api::V1::Book::BooksController#exchange as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Completed 200 OK in 31ms (Views: 5.3ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 20:41:06 +0200
+Processing by Api::V1::Book::BooksController#exchange as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 3.3ms)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/controllers/api/v1/book/books_controller.rb:107:in `[]'
+app/controllers/api/v1/book/books_controller.rb:107:in `exchange'
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 20:41:53 +0200
+Processing by Api::V1::Book::BooksController#exchange as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Completed 200 OK in 47ms (Views: 5.6ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 20:42:22 +0200
+Processing by Api::V1::Book::BooksController#exchange as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Completed 200 OK in 33ms (Views: 6.1ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 20:43:07 +0200
+Processing by Api::V1::Book::BooksController#exchange as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Completed 200 OK in 29ms (Views: 4.8ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 20:43:51 +0200
+Processing by Api::V1::Book::BooksController#exchange as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Completed 200 OK in 33ms (Views: 7.0ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 20:45:22 +0200
+Processing by Api::V1::Book::BooksController#exchange as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Completed 200 OK in 39ms (Views: 5.3ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 20:46:09 +0200
+Processing by Api::V1::Book::BooksController#exchange as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+Completed 500 Internal Server Error in 261ms (ActiveRecord: 2.8ms)
+
+
+  
+NameError (undefined local variable or method `password_digest' for #<Api::V1::Book::BooksController:0x000000000422f228>
+Did you mean?  password_path):
+  
+app/controllers/api/v1/book/books_controller.rb:107:in `exchange'
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 20:46:42 +0200
+Processing by Api::V1::Book::BooksController#exchange as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Completed 200 OK in 33ms (Views: 6.2ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 20:47:16 +0200
+Processing by Api::V1::Book::BooksController#exchange as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Completed 200 OK in 33ms (Views: 5.3ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 20:48:09 +0200
+Processing by Api::V1::Book::BooksController#exchange as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Completed 200 OK in 37ms (Views: 5.6ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 20:50:18 +0200
+Processing by Api::V1::Book::BooksController#exchange as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Completed 200 OK in 38ms (Views: 4.9ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 20:51:17 +0200
+Processing by Api::V1::Book::BooksController#exchange as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 2.8ms)
+
+
+  
+NoMethodError (undefined method `except' for #<Book:0x00007f576a781bd0>
+Did you mean?  exec):
+  
+app/controllers/api/v1/book/books_controller.rb:107:in `exchange'
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 20:51:54 +0200
+Processing by Api::V1::Book::BooksController#exchange as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 2.4ms)
+
+
+  
+NoMethodError (undefined method `except' for #<Book:0x00007f575cd76cb0>
+Did you mean?  exec):
+  
+app/controllers/api/v1/book/books_controller.rb:107:in `exchange'
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 20:52:29 +0200
+Processing by Api::V1::Book::BooksController#exchange as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Completed 200 OK in 28ms (Views: 5.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 20:52:44 +0200
+Processing by Api::V1::Book::BooksController#exchange as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Completed 200 OK in 31ms (Views: 5.1ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 20:53:16 +0200
+Processing by Api::V1::Book::BooksController#exchange as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 2.4ms)
+
+
+  
+NoMethodError (undefined method `except' for #<Book:0x00007f5769b06770>
+Did you mean?  exec):
+  
+app/controllers/api/v1/book/books_controller.rb:107:in `exchange'
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 20:53:44 +0200
+Processing by Api::V1::Book::BooksController#exchange as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 2.5ms)
+
+
+  
+NoMethodError (undefined method `except' for #<Book:0x00007f5769b2e900>
+Did you mean?  exec):
+  
+app/controllers/api/v1/book/books_controller.rb:107:in `exchange'
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 20:59:37 +0200
+Processing by Api::V1::Book::BooksController#exchange as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 3.5ms)
+
+
+  
+NoMethodError (undefined method `except' for :user:Symbol):
+  
+app/controllers/api/v1/book/books_controller.rb:107:in `exchange'
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 20:59:56 +0200
+Processing by Api::V1::Book::BooksController#exchange as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 2.8ms)
+
+
+  
+NoMethodError (undefined method `except' for :user:Symbol):
+  
+app/controllers/api/v1/book/books_controller.rb:107:in `exchange'
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 21:00:28 +0200
+  
+SyntaxError (/home/monica/graduationproject/shelves/app/controllers/api/v1/book/books_controller.rb:107: syntax error, unexpected ':', expecting =>
+...lude.except(:password_digest) :user, status: :ok
+...                              ^):
+  
+app/controllers/api/v1/book/books_controller.rb:107: syntax error, unexpected ':', expecting =>
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 21:01:08 +0200
+  
+SyntaxError (/home/monica/graduationproject/shelves/app/controllers/api/v1/book/books_controller.rb:107: syntax error, unexpected tIDENTIFIER, expecting =>
+... @wanted_book}, :include except: :password_digest :user, sta...
+...                         ^~~~~~):
+  
+app/controllers/api/v1/book/books_controller.rb:107: syntax error, unexpected tIDENTIFIER, expecting =>
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 21:03:00 +0200
+  
+SyntaxError (/home/monica/graduationproject/shelves/app/controllers/api/v1/book/books_controller.rb:107: syntax error, unexpected '}', expecting =>
+...d_book}, :include => { :user  }, status: :ok
+...                              ^):
+  
+app/controllers/api/v1/book/books_controller.rb:107: syntax error, unexpected '}', expecting =>
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 21:03:18 +0200
+Processing by Api::V1::Book::BooksController#exchange as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Completed 200 OK in 29ms (Views: 5.1ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 21:03:53 +0200
+  
+SyntaxError (/home/monica/graduationproject/shelves/app/controllers/api/v1/book/books_controller.rb:107: syntax error, unexpected =>, expecting keyword_end
+...d_book}, :include =>  :user  => { :only => :name }  , status...
+...                             ^~
+/home/monica/graduationproject/shelves/app/controllers/api/v1/book/books_controller.rb:107: syntax error, unexpected ',', expecting keyword_end
+...:user  => { :only => :name }  , status: :ok
+...                              ^):
+  
+app/controllers/api/v1/book/books_controller.rb:107: syntax error, unexpected =>, expecting keyword_end
+app/controllers/api/v1/book/books_controller.rb:107: syntax error, unexpected ',', expecting keyword_end
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 21:04:11 +0200
+  
+SyntaxError (/home/monica/graduationproject/shelves/app/controllers/api/v1/book/books_controller.rb:107: syntax error, unexpected =>, expecting keyword_end
+...d_book}, :include =>  :user  =>  :only => :name  , status: :...
+...                             ^~):
+  
+app/controllers/api/v1/book/books_controller.rb:107: syntax error, unexpected =>, expecting keyword_end
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 21:04:31 +0200
+  
+SyntaxError (/home/monica/graduationproject/shelves/app/controllers/api/v1/book/books_controller.rb:107: syntax error, unexpected =>, expecting keyword_end
+...d_book}, :include =>  :user  =>  [:only => :name ] , status:...
+...                             ^~
+/home/monica/graduationproject/shelves/app/controllers/api/v1/book/books_controller.rb:107: syntax error, unexpected ',', expecting keyword_end
+... :user  =>  [:only => :name ] , status: :ok
+...                              ^):
+  
+app/controllers/api/v1/book/books_controller.rb:107: syntax error, unexpected =>, expecting keyword_end
+app/controllers/api/v1/book/books_controller.rb:107: syntax error, unexpected ',', expecting keyword_end
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 21:04:59 +0200
+  
+SyntaxError (/home/monica/graduationproject/shelves/app/controllers/api/v1/book/books_controller.rb:107: syntax error, unexpected =>, expecting '}'
+...nclude =>  {:user  =>  :only => :name } , status: :ok
+...                             ^~):
+  
+app/controllers/api/v1/book/books_controller.rb:107: syntax error, unexpected =>, expecting '}'
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 21:05:21 +0200
+Processing by Api::V1::Book::BooksController#exchange as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Completed 200 OK in 37ms (Views: 4.9ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 21:05:49 +0200
+Processing by Api::V1::Book::BooksController#exchange as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Completed 200 OK in 31ms (Views: 4.7ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 21:06:19 +0200
+Processing by Api::V1::Book::BooksController#exchange as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+Completed 200 OK in 27ms (Views: 2.5ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-09 21:07:04 +0200
+Processing by Api::V1::Book::BooksController#exchange as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Completed 200 OK in 30ms (Views: 5.1ms | ActiveRecord: 2.7ms)
+
+
+Started PUT "/api/v1/user/password_resets/ijRtyL9gFBmWVzQwHb_1RA" for 127.0.0.1 at 2018-06-09 21:16:07 +0200
+Processing by Api::V1::User::PasswordResetsController#update as JSON
+  Parameters: {"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "id"=>"ijRtyL9gFBmWVzQwHb_1RA"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`password_reset_token` = 'ijRtyL9gFBmWVzQwHb_1RA' LIMIT 1[0m
+Completed 200 OK in 11ms (Views: 0.1ms | ActiveRecord: 1.5ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('6965469184171088535', 0)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddColumnAndConstraintsToOrders (20180609195052)
+  [1m[35m (543.7ms)[0m  [1m[35mALTER TABLE `orders` ADD `exchangeable_book` int[0m
+  [1m[35m (21.3ms)[0m  [1m[35mALTER TABLE `orders` CHANGE `seller` `seller` int DEFAULT NULL[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180609195052')[0m
+  [1m[35m (47.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('6965469184171088535')[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('6965469184171088535', 0)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddColumnAndConstraintsToOrders (20180609195052)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT RELEASE_LOCK('6965469184171088535')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('6965469184171088535', 0)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddColumnAndConstraintsToOrders (20180609201116)
+  [1m[35m (593.7ms)[0m  [1m[35mALTER TABLE `orders` ADD `exchangeable_book` int[0m
+  [1m[35m (33.1ms)[0m  [1m[35mALTER TABLE `orders` CHANGE `seller` `seller` int DEFAULT NULL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180609201116')[0m
+  [1m[35m (30.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('6965469184171088535')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('6965469184171088535', 0)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddColumnAndConstraintsToOrders (20180609201330)
+  [1m[35m (461.8ms)[0m  [1m[35mALTER TABLE `orders` ADD CONSTRAINT `fk_rails_5e486dbcd5`
+FOREIGN KEY (`seller`)
+  REFERENCES `users` (`id`)
+[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('6965469184171088535')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('6965469184171088535', 0)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddColumnAndConstraintsToOrders (20180609201330)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT RELEASE_LOCK('6965469184171088535')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('6965469184171088535', 0)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddColumnAndConstraintsToOrders (20180609201330)
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE `orders` ADD CONSTRAINT `fk_rails_882fdd1a15`
+FOREIGN KEY (`exchangeable_book`)
+  REFERENCES `books` (`id`)
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('6965469184171088535')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('6965469184171088535', 0)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddColumnAndConstraintsToOrders (20180609201330)
+  [1m[35m (586.2ms)[0m  [1m[35mALTER TABLE `orders` ADD `exchangeable_book_id` bigint[0m
+  [1m[35m (186.5ms)[0m  [1m[35mCREATE  INDEX `index_orders_on_exchangeable_book_id`  ON `orders` (`exchangeable_book_id`) [0m
+  [1m[35m (789.6ms)[0m  [1m[35mALTER TABLE `orders` ADD CONSTRAINT `fk_rails_49b3482fb2`
+FOREIGN KEY (`exchangeable_book_id`)
+  REFERENCES `books` (`id`)
+[0m
+  [1m[35m (334.9ms)[0m  [1m[35mALTER TABLE `orders` ADD CONSTRAINT `fk_rails_5e486dbcd5`
+FOREIGN KEY (`seller`)
+  REFERENCES `users` (`id`)
+[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT RELEASE_LOCK('6965469184171088535')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('6965469184171088535', 0)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddColumnAndConstraintsToOrders (20180609201330)
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE `orders` ADD `exchangeable_book_id` bigint[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('6965469184171088535')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('6965469184171088535', 0)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddColumnAndConstraintsToOrders (20180609201330)
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE `orders` DROP `exchangeable_book`[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('6965469184171088535')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('6965469184171088535', 0)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddColumnAndConstraintsToOrders (20180609201330)
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE `orders` ADD `exchangeable_book_id` bigint[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('6965469184171088535')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('6965469184171088535', 0)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddColumnAndConstraintsToOrders (20180609201330)
+  [1m[35m (166.5ms)[0m  [1m[35mALTER TABLE `orders` DROP FOREIGN KEY fk_rails_49b3482fb2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180609201330')[0m
+  [1m[35m (63.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT RELEASE_LOCK('6965469184171088535')[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('6965469184171088535', 0)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to RemoveColumnSellerFromOrders (20180609215612)
+  [1m[35m (556.6ms)[0m  [1m[35mALTER TABLE `orders` DROP `seller`[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180609215612')[0m
+  [1m[35m (29.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('6965469184171088535')[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('6965469184171088535', 0)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddDetailsToOrders (20180609220314)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('6965469184171088535')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('6965469184171088535', 0)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddDetailsToOrders (20180609220314)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT RELEASE_LOCK('6965469184171088535')[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('6965469184171088535', 0)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddDetailsToOrders (20180609220314)
+  [1m[35m (572.4ms)[0m  [1m[35mALTER TABLE `orders` ADD `seller_id` bigint AFTER `book_id`[0m
+  [1m[35m (186.4ms)[0m  [1m[35mCREATE  INDEX `index_orders_on_seller_id`  ON `orders` (`seller_id`) [0m
+  [1m[35m (712.2ms)[0m  [1m[35mALTER TABLE `orders` ADD CONSTRAINT `fk_rails_f569184c98`
+FOREIGN KEY (`seller_id`)
+  REFERENCES `users` (`id`)
+[0m
+  [1m[35m (480.3ms)[0m  [1m[35mALTER TABLE `orders` ADD `exchangeable_book_id` bigint[0m
+  [1m[35m (197.3ms)[0m  [1m[35mCREATE  INDEX `index_orders_on_exchangeable_book_id`  ON `orders` (`exchangeable_book_id`) [0m
+  [1m[35m (656.9ms)[0m  [1m[35mALTER TABLE `orders` ADD CONSTRAINT `fk_rails_49b3482fb2`
+FOREIGN KEY (`exchangeable_book_id`)
+  REFERENCES `books` (`id`)
+[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180609220314')[0m
+  [1m[35m (27.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('6965469184171088535')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started POST "/api/v1/user/users/login" for 127.0.0.1 at 2018-06-10 01:01:34 +0200
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by Api::V1::User::AuthenticationController#authenticate as JSON
+  Parameters: {"email"=>"sci.monicamagdy2016@alexu.edu.eg", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'sci.monicamagdy2016@alexu.edu.eg' LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'sci.monicamagdy2016@alexu.edu.eg' LIMIT 1[0m  [["email", "sci.monicamagdy2016@alexu.edu.eg"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'sci.monicamagdy2016@alexu.edu.eg' LIMIT 1[0m  [["email", "sci.monicamagdy2016@alexu.edu.eg"], ["LIMIT", 1]]
+Completed 201 Created in 138ms (Views: 0.8ms | ActiveRecord: 1.6ms)
+
+
+Started PUT "/api/v1/user/users/3" for 127.0.0.1 at 2018-06-10 01:02:47 +0200
+Processing by Api::V1::User::UsersController#update as JSON
+  Parameters: {"name"=>"Monica Magdy", "phone"=>{"0"=>"01207843890", "1"=>"01205281227"}, "building_number"=>{"0"=>"61"}, "street"=>{"0"=>"Ismael Sery"}, "region"=>{"0"=>"smouha"}, "city"=>{"0"=>"alex"}, "postal_code"=>{"0"=>"0020"}, "Satire"=>"true", "id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Unpermitted parameters: :phone, :building_number, :street, :region, :city, :postal_code, :Satire, :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'sci.monicamagdy2016@alexu.edu.eg' AND (`users`.`id` != 3) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE `users` SET `name` = 'Monica Magdy', `updated_at` = '2018-06-09 23:02:47' WHERE `users`.`id` = 3[0m
+  [1m[35m (61.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhone Load (0.6ms)[0m  [1m[34mSELECT `phones`.* FROM `phones`[0m
+  [1m[36mAddress Load (0.8ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses`[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT `categories`.* FROM `categories` INNER JOIN `categories_users` ON `categories`.`id` = `categories_users`.`category_id` WHERE `categories_users`.`user_id` = 3[0m
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `categories_users` (`user_id`, `category_id`) VALUES (3, 4)[0m
+  [1m[35m (38.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 217ms (Views: 0.3ms | ActiveRecord: 108.2ms)
+
+
+Started PUT "/api/v1/user/users/3" for 127.0.0.1 at 2018-06-10 01:05:39 +0200
+Processing by Api::V1::User::UsersController#update as JSON
+  Parameters: {"name"=>"Monica Magdy", "phone"=>{"0"=>"01207843890", "1"=>"01205281227"}, "building_number"=>{"0"=>"61"}, "street"=>{"0"=>"Ismael Sery"}, "region"=>{"0"=>"smouha"}, "city"=>{"0"=>"alex"}, "postal_code"=>{"0"=>"0020"}, "Satire"=>"true", "id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Unpermitted parameters: :phone, :building_number, :street, :region, :city, :postal_code, :Satire, :id
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'sci.monicamagdy2016@alexu.edu.eg' AND (`users`.`id` != 3) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhone Load (0.2ms)[0m  [1m[34mSELECT `phones`.* FROM `phones`[0m
+  [1m[36mAddress Load (0.2ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses`[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT `categories`.* FROM `categories` INNER JOIN `categories_users` ON `categories`.`id` = `categories_users`.`category_id` WHERE `categories_users`.`user_id` = 3[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+Completed 200 OK in 44ms (Views: 0.1ms | ActiveRecord: 5.4ms)
+
+
+Started PUT "/api/v1/user/users/3" for 127.0.0.1 at 2018-06-10 01:11:49 +0200
+Processing by Api::V1::User::UsersController#update as JSON
+  Parameters: {"name"=>"Monica Magdy", "phone"=>{"0"=>"01207843890", "1"=>"01205281227"}, "building_number"=>{"0"=>"61"}, "street"=>{"0"=>"Ismael Sery"}, "region"=>{"0"=>"smouha"}, "city"=>{"0"=>"alex"}, "postal_code"=>{"0"=>"0020"}, "Satire"=>"true", "id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Unpermitted parameters: :phone, :building_number, :street, :region, :city, :postal_code, :Satire, :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'sci.monicamagdy2016@alexu.edu.eg' AND (`users`.`id` != 3) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhone Load (0.2ms)[0m  [1m[34mSELECT `phones`.* FROM `phones`[0m
+  [1m[36mAddress Load (0.2ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses`[0m
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT `categories`.* FROM `categories` INNER JOIN `categories_users` ON `categories`.`id` = `categories_users`.`category_id` WHERE `categories_users`.`user_id` = 3[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+Completed 200 OK in 44ms (Views: 0.1ms | ActiveRecord: 6.2ms)
+
+
+Started PUT "/api/v1/user/users/3" for 127.0.0.1 at 2018-06-10 01:27:32 +0200
+Processing by Api::V1::User::UsersController#update as JSON
+  Parameters: {"name"=>"Monica Magdy", "phone"=>{"0"=>"01207843890", "1"=>"01205281227"}, "building_number"=>{"0"=>"61"}, "street"=>{"0"=>"Ismael Sery"}, "region"=>{"0"=>"smouha"}, "city"=>{"0"=>"alex"}, "postal_code"=>{"0"=>"0020"}, "Satire"=>"true", "id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Unpermitted parameters: :phone, :building_number, :street, :region, :city, :postal_code, :Satire, :id
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'sci.monicamagdy2016@alexu.edu.eg' AND (`users`.`id` != 3) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhone Load (0.1ms)[0m  [1m[34mSELECT `phones`.* FROM `phones`[0m
+  [1m[36mAddress Load (0.2ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses`[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT `categories`.* FROM `categories` INNER JOIN `categories_users` ON `categories`.`id` = `categories_users`.`category_id` WHERE `categories_users`.`user_id` = 3[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+Completed 200 OK in 44ms (Views: 0.1ms | ActiveRecord: 6.2ms)
+
+
+Started PUT "/api/v1/user/users/3" for 127.0.0.1 at 2018-06-10 01:28:33 +0200
+Processing by Api::V1::User::UsersController#update as JSON
+  Parameters: {"name"=>"Monica Magdy", "phone"=>{"0"=>"01207843890", "1"=>"01205281227"}, "building_number"=>{"0"=>"61"}, "street"=>{"0"=>"Ismael Sery"}, "region"=>{"0"=>"smouha"}, "city"=>{"0"=>"alex"}, "postal_code"=>{"0"=>"0020"}, "Satire"=>"true", "id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Unpermitted parameters: :phone, :building_number, :street, :region, :city, :postal_code, :Satire, :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'sci.monicamagdy2016@alexu.edu.eg' AND (`users`.`id` != 3) LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhone Load (0.3ms)[0m  [1m[34mSELECT `phones`.* FROM `phones`[0m
+  [1m[36mAddress Load (0.2ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses`[0m
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT `categories`.* FROM `categories` INNER JOIN `categories_users` ON `categories`.`id` = `categories_users`.`category_id` WHERE `categories_users`.`user_id` = 3[0m
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+Completed 200 OK in 79ms (Views: 0.1ms | ActiveRecord: 7.8ms)
+
+
+Started PUT "/api/v1/user/users/3" for 127.0.0.1 at 2018-06-10 01:29:12 +0200
+Processing by Api::V1::User::UsersController#update as JSON
+  Parameters: {"name"=>"Monica Magdy", "phone"=>{"0"=>"01207843890", "1"=>"01205281227"}, "building_number"=>{"0"=>"61"}, "street"=>{"0"=>"Ismael Sery"}, "region"=>{"0"=>"smouha"}, "city"=>{"0"=>"alex"}, "postal_code"=>{"0"=>"0020"}, "Satire"=>"true", "id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Unpermitted parameters: :phone, :building_number, :street, :region, :city, :postal_code, :Satire, :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'sci.monicamagdy2016@alexu.edu.eg' AND (`users`.`id` != 3) LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhone Load (0.4ms)[0m  [1m[34mSELECT `phones`.* FROM `phones`[0m
+  [1m[36mAddress Load (0.2ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses`[0m
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT `categories`.* FROM `categories` INNER JOIN `categories_users` ON `categories`.`id` = `categories_users`.`category_id` WHERE `categories_users`.`user_id` = 3[0m
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+Completed 200 OK in 53ms (Views: 0.1ms | ActiveRecord: 5.7ms)
+
+
+Started PUT "/api/v1/user/users/3" for 127.0.0.1 at 2018-06-10 01:29:50 +0200
+Processing by Api::V1::User::UsersController#update as JSON
+  Parameters: {"name"=>"Monica Magdy", "phone"=>{"0"=>"01207843890", "1"=>"01205281227"}, "building_number"=>{"0"=>"61"}, "street"=>{"0"=>"Ismael Sery"}, "region"=>{"0"=>"smouha"}, "city"=>{"0"=>"alex"}, "postal_code"=>{"0"=>"0020"}, "Satire"=>"true", "id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Unpermitted parameters: :phone, :building_number, :street, :region, :city, :postal_code, :Satire, :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'sci.monicamagdy2016@alexu.edu.eg' AND (`users`.`id` != 3) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhone Load (0.2ms)[0m  [1m[34mSELECT `phones`.* FROM `phones`[0m
+  [1m[36mAddress Load (0.2ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses`[0m
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT `categories`.* FROM `categories` INNER JOIN `categories_users` ON `categories`.`id` = `categories_users`.`category_id` WHERE `categories_users`.`user_id` = 3[0m
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+Completed 200 OK in 40ms (Views: 0.1ms | ActiveRecord: 6.9ms)
+
+
+Started PUT "/api/v1/user/users/3" for 127.0.0.1 at 2018-06-10 01:30:49 +0200
+Processing by Api::V1::User::UsersController#update as JSON
+  Parameters: {"name"=>"Monica Magdy", "phone"=>{"0"=>"01207843890", "1"=>"01205281227"}, "building_number"=>{"0"=>"61"}, "street"=>{"0"=>"Ismael Sery"}, "region"=>{"0"=>"smouha"}, "city"=>{"0"=>"alex"}, "postal_code"=>{"0"=>"0020"}, "Satire"=>"true", "id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Unpermitted parameters: :phone, :building_number, :street, :region, :city, :postal_code, :Satire, :id
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'sci.monicamagdy2016@alexu.edu.eg' AND (`users`.`id` != 3) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhone Load (0.2ms)[0m  [1m[34mSELECT `phones`.* FROM `phones`[0m
+  [1m[36mAddress Load (0.2ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses`[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT `categories`.* FROM `categories` INNER JOIN `categories_users` ON `categories`.`id` = `categories_users`.`category_id` WHERE `categories_users`.`user_id` = 3[0m
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+No template found for Api::V1::User::UsersController#update, rendering head :no_content
+Completed 204 No Content in 83ms (ActiveRecord: 6.5ms)
+
+
+Started PUT "/api/v1/user/users/3" for 127.0.0.1 at 2018-06-10 01:32:05 +0200
+Processing by Api::V1::User::UsersController#update as JSON
+  Parameters: {"name"=>"Monica Magdy", "phone"=>{"0"=>"01207843890", "1"=>"01205281227"}, "building_number"=>{"0"=>"61"}, "street"=>{"0"=>"Ismael Sery"}, "region"=>{"0"=>"smouha"}, "city"=>{"0"=>"alex"}, "postal_code"=>{"0"=>"0020"}, "Satire"=>"true", "id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Unpermitted parameters: :phone, :building_number, :street, :region, :city, :postal_code, :Satire, :id
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'sci.monicamagdy2016@alexu.edu.eg' AND (`users`.`id` != 3) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhone Load (0.2ms)[0m  [1m[34mSELECT `phones`.* FROM `phones`[0m
+  [1m[36mAddress Load (0.2ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses`[0m
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT `categories`.* FROM `categories` INNER JOIN `categories_users` ON `categories`.`id` = `categories_users`.`category_id` WHERE `categories_users`.`user_id` = 3[0m
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+Completed 200 OK in 43ms (Views: 0.1ms | ActiveRecord: 6.4ms)
+
+
+Started PUT "/api/v1/user/users/3" for 127.0.0.1 at 2018-06-10 01:32:46 +0200
+Processing by Api::V1::User::UsersController#update as JSON
+  Parameters: {"name"=>"Monica Magdy", "phone"=>{"0"=>"01207843890", "1"=>"01205281227"}, "building_number"=>{"0"=>"61"}, "street"=>{"0"=>"Ismael Sery"}, "region"=>{"0"=>"smouha"}, "city"=>{"0"=>"alex"}, "postal_code"=>{"0"=>"0020"}, "Satire"=>"true", "id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Unpermitted parameters: :phone, :building_number, :street, :region, :city, :postal_code, :Satire, :id
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'sci.monicamagdy2016@alexu.edu.eg' AND (`users`.`id` != 3) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhone Load (0.2ms)[0m  [1m[34mSELECT `phones`.* FROM `phones`[0m
+  [1m[36mAddress Load (0.2ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses`[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT `categories`.* FROM `categories` INNER JOIN `categories_users` ON `categories`.`id` = `categories_users`.`category_id` WHERE `categories_users`.`user_id` = 3[0m
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+Completed 200 OK in 45ms (Views: 0.1ms | ActiveRecord: 5.9ms)
+
+
+Started PUT "/api/v1/user/users/3" for 127.0.0.1 at 2018-06-10 01:33:21 +0200
+Processing by Api::V1::User::UsersController#update as JSON
+  Parameters: {"name"=>"Monica Magdy", "phone"=>{"0"=>"01207843890", "1"=>"01205281227"}, "building_number"=>{"0"=>"61"}, "street"=>{"0"=>"Ismael Sery"}, "region"=>{"0"=>"smouha"}, "city"=>{"0"=>"alex"}, "postal_code"=>{"0"=>"0020"}, "Satire"=>"true", "id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Unpermitted parameters: :phone, :building_number, :street, :region, :city, :postal_code, :Satire, :id
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'sci.monicamagdy2016@alexu.edu.eg' AND (`users`.`id` != 3) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhone Load (0.2ms)[0m  [1m[34mSELECT `phones`.* FROM `phones`[0m
+  [1m[36mAddress Load (0.2ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses`[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT `categories`.* FROM `categories` INNER JOIN `categories_users` ON `categories`.`id` = `categories_users`.`category_id` WHERE `categories_users`.`user_id` = 3[0m
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+Completed 200 OK in 43ms (Views: 0.1ms | ActiveRecord: 7.0ms)
+
+
+Started PUT "/api/v1/user/users/3" for 127.0.0.1 at 2018-06-10 01:35:34 +0200
+Processing by Api::V1::User::UsersController#update as JSON
+  Parameters: {"name"=>"Monica Magdy", "phone"=>{"0"=>"01207843890", "1"=>"01205281227"}, "building_number"=>{"0"=>"61"}, "street"=>{"0"=>"Ismael Sery"}, "region"=>{"0"=>"smouha"}, "city"=>{"0"=>"alex"}, "postal_code"=>{"0"=>"0020"}, "Satire"=>"true", "id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Unpermitted parameters: :phone, :building_number, :street, :region, :city, :postal_code, :Satire, :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'sci.monicamagdy2016@alexu.edu.eg' AND (`users`.`id` != 3) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhone Load (0.2ms)[0m  [1m[34mSELECT `phones`.* FROM `phones`[0m
+  [1m[36mAddress Load (0.2ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses`[0m
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT `categories`.* FROM `categories` INNER JOIN `categories_users` ON `categories`.`id` = `categories_users`.`category_id` WHERE `categories_users`.`user_id` = 3[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+Completed 200 OK in 43ms (Views: 0.1ms | ActiveRecord: 6.3ms)
+
+
+Started PUT "/api/v1/user/users/3" for 127.0.0.1 at 2018-06-10 01:40:15 +0200
+Processing by Api::V1::User::UsersController#update as JSON
+  Parameters: {"name"=>"Monica Magdy", "phone"=>{"0"=>"01207843890", "1"=>"01205281227"}, "building_number"=>{"0"=>"61"}, "street"=>{"0"=>"Ismael Sery"}, "region"=>{"0"=>"smouha"}, "city"=>{"0"=>"alex"}, "postal_code"=>{"0"=>"0020"}, "Satire"=>"true", "id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Unpermitted parameters: :phone, :building_number, :street, :region, :city, :postal_code, :Satire, :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'sci.monicamagdy2016@alexu.edu.eg' AND (`users`.`id` != 3) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhone Load (0.1ms)[0m  [1m[34mSELECT `phones`.* FROM `phones` WHERE `phones`.`user_id` = 3[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `phones` (`user_id`, `phone`, `created_at`, `updated_at`) VALUES (3, '01207843890', '2018-06-09 23:40:15', '2018-06-09 23:40:15')[0m
+  [1m[35m (164.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO `phones` (`user_id`, `phone`, `created_at`, `updated_at`) VALUES (3, '01205281227', '2018-06-09 23:40:15', '2018-06-09 23:40:15')[0m
+  [1m[35m (80.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mAddress Load (0.7ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses`[0m
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT `categories`.* FROM `categories` INNER JOIN `categories_users` ON `categories`.`id` = `categories_users`.`category_id` WHERE `categories_users`.`user_id` = 3[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+Completed 200 OK in 361ms (Views: 0.1ms | ActiveRecord: 285.2ms)
+
+
+Started PUT "/api/v1/user/users/3" for 127.0.0.1 at 2018-06-10 01:42:19 +0200
+Processing by Api::V1::User::UsersController#update as JSON
+  Parameters: {"name"=>"Monica Magdy", "phone"=>{"0"=>"01207843890", "1"=>"01205281227"}, "building_number"=>{"0"=>"61"}, "street"=>{"0"=>"Ismael Sery"}, "region"=>{"0"=>"smouha"}, "city"=>{"0"=>"alex"}, "postal_code"=>{"0"=>"0020"}, "Satire"=>"true", "id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Unpermitted parameters: :phone, :building_number, :street, :region, :city, :postal_code, :Satire, :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'sci.monicamagdy2016@alexu.edu.eg' AND (`users`.`id` != 3) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhone Load (0.2ms)[0m  [1m[34mSELECT `phones`.* FROM `phones` WHERE `phones`.`user_id` = 3[0m
+  [1m[36mAddress Load (0.2ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses` WHERE `addresses`.`user_id` = 3[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `addresses` (`user_id`, `building_number`, `street`, `region`, `city`, `postal_code`, `created_at`, `updated_at`) VALUES (3, 61, 'Ismael Sery', 'smouha', 'alex', '0020', '2018-06-09 23:42:20', '2018-06-09 23:42:20')[0m
+  [1m[35m (122.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT `categories`.* FROM `categories` INNER JOIN `categories_users` ON `categories`.`id` = `categories_users`.`category_id` WHERE `categories_users`.`user_id` = 3[0m
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+Completed 200 OK in 191ms (Views: 0.3ms | ActiveRecord: 131.9ms)
+
+
