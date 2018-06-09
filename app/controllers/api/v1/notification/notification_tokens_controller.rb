@@ -24,7 +24,7 @@ module Api::V1::Notification
 
         private
         
-        #### Permitted book params ####
+        #### Permitted notifcation_token params ####
         def notification_token_params
             params.require(:notification_token).permit(:token, :user_id)
         end
