@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
         user_notification_tokens = receiver_user.notification_tokens        
         icon=@serverurl+@current_user.profile_picture.url
         user_notification_tokens.each do |user_notification_token|
-            JSON.load `curl https://fcm.googleapis.com/fcm/send \
+        JSON.load `curl https://fcm.googleapis.com/fcm/send \
         -H "Content-Type: application/json" \
         -H 'Authorization: #{@serverkey} ' \
         -d '{ "notification": {"title": "Shelves", "body": "#{body}", "icon": "#{icon}" "click_action" : "#{click_action}"}, "to" : "#{user_notification_token.token}" }'`
