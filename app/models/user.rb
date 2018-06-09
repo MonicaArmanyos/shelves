@@ -6,7 +6,7 @@ class User < ApplicationRecord
     mount_uploader :profile_picture, ProfilePictureUploader
 
     validates :email, :password_digest, presence: true
-    validates :email, uniqueness: true    
+    validates :email, uniqueness: true, unless: :skip_email_validation    
     #### Relations ####
       has_many :books
       has_many :phones, :dependent => :destroy
@@ -21,7 +21,7 @@ class User < ApplicationRecord
       accepts_nested_attributes_for :addresses, allow_destroy: true
       accepts_nested_attributes_for :categories, allow_destroy: true
 
-
+      attr_accessor :skip_email_validation
       
 
     def email_activate
