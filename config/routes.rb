@@ -32,6 +32,7 @@ Rails.application.routes.draw do
 
         namespace 'user' do 
           resources :password_resets, only: [:create, :update]
+          resources :books, only: [:show]
           resources :users,  except: [:index, :destroy, :create, :new, :edit] do
             collection do
               post 'login', to: 'authentication#authenticate', :as => "login"

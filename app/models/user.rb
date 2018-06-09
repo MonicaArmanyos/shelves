@@ -13,7 +13,7 @@ class User < ApplicationRecord
       has_many :addresses, :dependent => :destroy
       has_and_belongs_to_many :categories, :dependent => :destroy
       has_many :rates
-      has_many :books, through: :rates
+      has_many :books
       has_many :orders
       has_many :notification_tokens
       has_many :notification_messages

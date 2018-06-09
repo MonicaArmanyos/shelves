@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20180609143621) do
 
-  create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "namespace"
     t.text "body"
     t.string "resource_type"
@@ -76,7 +76,6 @@ ActiveRecord::Schema.define(version: 20180609143621) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.json "images"
     t.boolean "is_available"
     t.datetime "bid_duration"
     t.index ["category_id"], name: "index_books_on_category_id"
