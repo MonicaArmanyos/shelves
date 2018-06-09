@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180608190108) do
+ActiveRecord::Schema.define(version: 20180609143621) do
 
-  create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "namespace"
     t.text "body"
     t.string "resource_type"
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 20180608190108) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.json "images"
     t.boolean "is_available"
     t.datetime "bid_duration"
     t.index ["category_id"], name: "index_books_on_category_id"
@@ -93,6 +94,18 @@ ActiveRecord::Schema.define(version: 20180608190108) do
     t.bigint "category_id"
     t.index ["category_id"], name: "index_categories_users_on_category_id"
     t.index ["user_id"], name: "index_categories_users_on_user_id"
+  end
+
+  create_table "notification_messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "title", default: "Shelves"
+    t.string "body"
+    t.string "click_action"
+    t.string "icon"
+    t.integer "receiver_user"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_notification_messages_on_user_id"
   end
 
   create_table "notification_tokens", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|

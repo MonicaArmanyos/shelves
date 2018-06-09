@@ -48,6 +48,13 @@ Rails.application.routes.draw do
 
             namespace 'notification' do 
               resources :notification_tokens
+              resources :notification_messages do
+ 
+                #/api/v1/notification/notification_messages/:id/get_user_notifications
+                member do
+                  get 'get_user_notifications', to: 'notification_messages#get_user_notifications'
+                end
+              end
             end
 
 
