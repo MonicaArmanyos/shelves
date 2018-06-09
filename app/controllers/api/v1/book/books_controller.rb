@@ -88,7 +88,7 @@ module Api::V1::Book
                    render json: {status: 'FAIL', message: 'Couldn\'t update book', error:@book.errors},status: :ok
                end 
            else
-               render json: {status: 'FAIL', message: 'Un autherized', error:@book.errors},status: :ok
+               render json: {status: 'FAIL', message: 'Un authorized', error:@book.errors},status: :ok
            end
            end 
 
@@ -104,6 +104,10 @@ module Api::V1::Book
                    end
               end
               render json:  {status: 'SUCCESS', exchangeable_books: @exchangeable_books}, status: :ok
+           end
+            ##After user chooses the books he agreed to exchange
+           def request_exchange
+            send_notification(current_user,"Book exchange request", "https://")
            end
 
         #### Delete Book ####
