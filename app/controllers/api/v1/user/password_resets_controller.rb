@@ -6,8 +6,11 @@ module Api::V1::User
       user.skip_email_validation = true
       if user
         user.send_password_reset
+        render json:  {status: 'SUCCESS', message: "Email sent with password reset instructions."}, status: :created
+      else
+        render json:  {status: 'FAIL', message: "Email does not exists."}, status: :ok
       end
-      render json:  {status: 'SUCCESS', message: "Email sent with password reset instructions."}, status: :created
+      
     end
 
 
