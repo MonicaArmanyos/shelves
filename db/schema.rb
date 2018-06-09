@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180607194641) do
+ActiveRecord::Schema.define(version: 20180608190108) do
 
-  create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+ActiveRecord::Schema.define(version: 20180608122810) do
+  create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "namespace"
     t.text "body"
     t.string "resource_type"
@@ -95,7 +96,15 @@ ActiveRecord::Schema.define(version: 20180607194641) do
     t.index ["user_id"], name: "index_categories_users_on_user_id"
   end
 
-  create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "notification_tokens", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "token"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_notification_tokens_on_user_id"
+  end
+
+  create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "user_id"
     t.bigint "book_id"
     t.integer "seller"
@@ -104,6 +113,7 @@ ActiveRecord::Schema.define(version: 20180607194641) do
     t.float "price", limit: 24
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "quantity", default: 1
     t.index ["book_id"], name: "index_orders_on_book_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end

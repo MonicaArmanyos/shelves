@@ -61,3 +61,4 @@ gem 'simple_command'
 gem 'active_model_serializers', '0.9.3'
 
 gem 'kaminari'
+
