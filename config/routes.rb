@@ -34,6 +34,7 @@ Rails.application.routes.draw do
 
         namespace 'user' do 
           resources :password_resets, only: [:create, :update]
+          resources :books, only: [:show]
           resources :users,  except: [:index, :destroy, :create, :new, :edit] do
             collection do
               post 'login', to: 'authentication#authenticate', :as => "login"
@@ -50,6 +51,13 @@ Rails.application.routes.draw do
 
             namespace 'notification' do 
               resources :notification_tokens
+              resources :notification_messages do
+ 
+                #/api/v1/notification/notification_messages/:id/get_user_notifications
+                member do
+                  get 'get_user_notifications', to: 'notification_messages#get_user_notifications'
+                end
+              end
             end
 
 
