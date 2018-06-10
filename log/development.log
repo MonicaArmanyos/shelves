@@ -9036,3 +9036,68 @@ Processing by Api::V1::User::UsersController#show as JSON
 Completed 200 OK in 45ms (Views: 4.8ms | ActiveRecord: 18.7ms)
 
 
+Started POST "/users/signup" for 127.0.0.1 at 2018-06-10 15:01:11 +0200
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  
+ActionController::RoutingError (No route matches [POST] "/users/signup"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/api/v1/user/users/signup" for 127.0.0.1 at 2018-06-10 15:01:34 +0200
+Processing by Api::V1::User::UsersController#create as JSON
+  Parameters: {"name"=>"Monica M ", "email"=>"sci.monicamagdy@alexu.edu.eg", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "role"=>"Normal user"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'sci.monicamagdy@alexu.edu.eg' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `password_digest`, `role`, `confirm_token`, `created_at`, `updated_at`) VALUES ('Monica M ', 'sci.monicamagdy@alexu.edu.eg', '$2a$10$y8n.smQ6nH/OPOb1FyCESeFRbQIqfYV5nCyWGgjwTCRsEkanbOAGm', 0, '6vI6BRxqf3-WTRRrDqlNnQ', '2018-06-10 13:01:34', '2018-06-10 13:01:34')[0m
+  [1m[35m (129.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'sci.monicamagdy@alexu.edu.eg' AND (`users`.`id` != 4) LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  Rendering user_mailer/registration_confirmation.html.erb
+  Rendered user_mailer/registration_confirmation.html.erb (13.9ms)
+UserMailer#registration_confirmation: processed outbound mail in 195.1ms
+Sent mail to sci.monicamagdy@alexu.edu.eg (3602.5ms)
+Date: Sun, 10 Jun 2018 15:01:34 +0200
+From: noreply@shelves.com
+To: Monica M <sci.monicamagdy@alexu.edu.eg>
+Message-ID: <5b1d212ee7444_13e232885401147@monica-Lenovo-ideapad-700-15ISK.mail>
+Subject: Email Confirmation
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi Monica M ,<br/>
+Thanks for registering at Shelves! To confirm your registration , Please click this link :
+
+<a href="http://localhost:3000/users/6vI6BRxqf3-WTRRrDqlNnQ/confirm_email"> Activate from here </a>
+<br/>
+Regards,<br/>
+Shelves Team
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'sci.monicamagdy@alexu.edu.eg' LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'sci.monicamagdy@alexu.edu.eg' LIMIT 1[0m  [["email", "sci.monicamagdy@alexu.edu.eg"], ["LIMIT", 1]]
+Completed 201 Created in 4571ms (Views: 2.7ms | ActiveRecord: 133.5ms)
+
+
