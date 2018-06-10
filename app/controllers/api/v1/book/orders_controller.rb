@@ -74,9 +74,9 @@ module Api::V1::Book
       @book = Book.find(params[:book_id])
     end
      #### Authentication of user ####
-     def authenticate_request
-      @current_user = AuthorizeApiRequest.call(request.headers).result
-      render json: { error: 'Not Authorized' }, status: 401 unless @current_user
-  end
+        def authenticate_request
+            @current_user = AuthorizeApiRequest.call(request.headers).result
+            render json: { error: 'Not Authorized' }, status: 401 unless @current_user
+        end
   end
 end
