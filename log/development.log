@@ -523,29 +523,6 @@ Processing by Api::V1::Book::BooksController#index as JSON
 Completed 200 OK in 37ms (Views: 30.6ms | ActiveRecord: 4.0ms)
 
 
-<<<<<<< HEAD
-Started POST "/api/v1/user/users/login" for 127.0.0.1 at 2018-06-10 01:59:43 +0200
-Processing by Api::V1::User::AuthenticationController#authenticate as JSON
-  Parameters: {"email"=>"asmaa@gmail.com", "password"=>"[FILTERED]"}
-  [1m[35m (248.0ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
-  [1m[36mUser Load (46.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'asmaa@gmail.com' LIMIT 1[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'asmaa@gmail.com' LIMIT 1[0m  [["email", "asmaa@gmail.com"], ["LIMIT", 1]]
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'asmaa@gmail.com' LIMIT 1[0m  [["email", "asmaa@gmail.com"], ["LIMIT", 1]]
-Completed 201 Created in 3512ms (Views: 2.1ms | ActiveRecord: 1051.2ms)
-
-
-Started GET "/api/v1/user/users/1/get_user_books" for 127.0.0.1 at 2018-06-10 02:01:54 +0200
-  
-AbstractController::ActionNotFound (The action 'get_user_notifications' could not be found for Api::V1::User::UsersController):
-  
-actionpack (5.1.6) lib/abstract_controller/base.rb:119:in `process'
-actionview (5.1.6) lib/action_view/rendering.rb:30:in `process'
-actionpack (5.1.6) lib/action_controller/metal.rb:189:in `dispatch'
-actionpack (5.1.6) lib/action_controller/metal.rb:253:in `dispatch'
-actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
-actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:31:in `serve'
-actionpack (5.1.6) lib/action_dispatch/journey/router.rb:50:in `block in serve'
-=======
   [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
   [1m[35m (2.3ms)[0m  [1m[34mSELECT GET_LOCK('7676309644904275725', 0)[0m
   [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
@@ -588,7 +565,6 @@ actionpack (5.1.6) lib/action_dispatch/http/parameters.rb:99:in `binary_params_f
 actionpack (5.1.6) lib/action_dispatch/http/parameters.rb:90:in `set_binary_encoding'
 actionpack (5.1.6) lib/action_dispatch/http/parameters.rb:67:in `path_parameters='
 actionpack (5.1.6) lib/action_dispatch/journey/router.rb:48:in `block in serve'
->>>>>>> c3feb033d7bcfd64063b86cdeaed87b200bcce76
 actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `each'
 actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `serve'
 actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:844:in `call'
@@ -601,19 +577,13 @@ rack (2.0.5) lib/rack/head.rb:12:in `call'
 rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
 rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
 actionpack (5.1.6) lib/action_dispatch/middleware/cookies.rb:613:in `call'
-<<<<<<< HEAD
-=======
 activerecord (5.1.6) lib/active_record/migration.rb:556:in `call'
->>>>>>> c3feb033d7bcfd64063b86cdeaed87b200bcce76
 actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
 activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
 actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
 actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
 actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
-<<<<<<< HEAD
-=======
 >>>>>>> 5fd83685778d5153acce0038aa0c4fb921da490e
->>>>>>> c3feb033d7bcfd64063b86cdeaed87b200bcce76
 actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
 railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
 railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
@@ -621,10 +591,7 @@ activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagge
 activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
 activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
 railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
-<<<<<<< HEAD
-=======
 
->>>>>>> c3feb033d7bcfd64063b86cdeaed87b200bcce76
 actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
 actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
 rack (2.0.5) lib/rack/method_override.rb:22:in `call'
@@ -640,195 +607,6 @@ puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
 puma (3.11.4) lib/puma/server.rb:446:in `process_client'
 puma (3.11.4) lib/puma/server.rb:306:in `block in run'
 puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
-<<<<<<< HEAD
-Started GET "/api/v1/user/users/1/get_user_books" for 127.0.0.1 at 2018-06-10 02:03:24 +0200
-Processing by Api::V1::User::UsersController#get_user_books as JSON
-  Parameters: {"id"=>"1"}
-  [1m[36mUser Load (34.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
-  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
-  [1m[36mBook Load (147.4ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`user_id` = 1[0m
-Completed 200 OK in 1052ms (Views: 54.5ms | ActiveRecord: 399.0ms)
-
-
-Started GET "/api/v1/user/users/1/get_user_books" for 127.0.0.1 at 2018-06-10 02:12:51 +0200
-  
-ArgumentError (Before process_action callback :authenticate_request has not been defined):
-  
-app/controllers/api/v1/user/users_controller.rb:3:in `<class:UsersController>'
-app/controllers/api/v1/user/users_controller.rb:2:in `<module:User>'
-app/controllers/api/v1/user/users_controller.rb:1:in `<top (required)>'
-Started GET "/api/v1/user/users/1/get_user_books" for 127.0.0.1 at 2018-06-10 02:14:07 +0200
-  
-ArgumentError (Before process_action callback :authenticate_request has not been defined):
-  
-app/controllers/api/v1/user/users_controller.rb:3:in `<class:UsersController>'
-app/controllers/api/v1/user/users_controller.rb:2:in `<module:User>'
-app/controllers/api/v1/user/users_controller.rb:1:in `<top (required)>'
-Started GET "/api/v1/user/users/1/get_user_books" for 127.0.0.1 at 2018-06-10 02:15:19 +0200
-  
-ArgumentError (Before process_action callback :authenticate_request has not been defined):
-  
-app/controllers/api/v1/user/users_controller.rb:3:in `<class:UsersController>'
-app/controllers/api/v1/user/users_controller.rb:2:in `<module:User>'
-app/controllers/api/v1/user/users_controller.rb:1:in `<top (required)>'
-Started GET "/api/v1/user/users/1/get_user_books" for 127.0.0.1 at 2018-06-10 02:16:02 +0200
-  
-ArgumentError (Before process_action callback :authenticate_request has not been defined):
-  
-app/controllers/api/v1/user/users_controller.rb:3:in `<class:UsersController>'
-app/controllers/api/v1/user/users_controller.rb:2:in `<module:User>'
-app/controllers/api/v1/user/users_controller.rb:1:in `<top (required)>'
-Started GET "/api/v1/user/users/1/get_user_books" for 127.0.0.1 at 2018-06-10 02:16:16 +0200
-Processing by Api::V1::User::UsersController#get_user_books as JSON
-  Parameters: {"id"=>"1"}
-  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
-  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`user_id` = 1[0m
-  [1m[36mCategory Load (6.1ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m
-  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Category Load (0.1ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mBookImage Load (81.3ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 4[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 5[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 6[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 7[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 8[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 9[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mBookImage Load (0.3ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 10[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mBookImage Load (0.3ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 11[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mBookImage Load (0.3ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 12[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mBookImage Load (0.3ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 13[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mBookImage Load (0.3ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 14[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mBookImage Load (66.5ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 15[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mBookImage Load (0.5ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 16[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 17[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 18[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mBookImage Load (0.6ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 19[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mBookImage Load (0.5ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 20[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 21[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 22[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 23[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 24[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 25[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mBookImage Load (0.5ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 26[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mBookImage Load (0.3ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 27[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 28[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 29[0m
-  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 30[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 31[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 32[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mBookImage Load (0.3ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 33[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mBookImage Load (1.3ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 34[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 35[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mBookImage Load (0.3ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 36[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 37[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mBookImage Load (0.3ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 38[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
-  [1m[36mBookImage Load (0.3ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 39[0m
-Completed 200 OK in 1255ms (Views: 331.9ms | ActiveRecord: 870.0ms)
-=======
 
 Started PUT "/api/v1/user/password_resets/PN2raqA7cI-omGTbYtcucg" for 127.0.0.1 at 2018-06-09 18:00:30 +0200
 Processing by Api::V1::User::PasswordResetsController#update as JSON
@@ -8808,7 +8586,376 @@ Processing by Api::V1::User::BooksController#show as */*
   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
   [1m[36mBookImage Load (0.2ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 14[0m
   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `use
->>>>>>> c3feb033d7bcfd64063b86cdeaed87b200bcce76
+
+
+Started PUT "/api/v1/user/users/3" for 127.0.0.1 at 2018-06-10 02:26:11 +0200
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.1.6) lib/active_record/migration.rb:576:in `check_pending!'
+activerecord (5.1.6) lib/active_record/migration.rb:553:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('6965469184171088535', 0)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateNotificationMessages (20180609143621)
+  [1m[35m (359.3ms)[0m  [1m[35mCREATE TABLE `notification_messages` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `title` varchar(255) DEFAULT 'Shelves', `body` varchar(255), `click_action` varchar(255), `icon` varchar(255), `receiver_user` int, `user_id` bigint, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_notification_messages_on_user_id`  (`user_id`)) ENGINE=InnoDB[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180609143621')[0m
+  [1m[35m (30.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT RELEASE_LOCK('6965469184171088535')[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-10 02:57:14 +0200
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  
+SyntaxError (/home/monica/graduationproject/shelves/app/controllers/api/v1/book/books_controller.rb:120: syntax error, unexpected tIDENTIFIER, expecting ')'
+...Order.new(:user_id current_user.id, :book_id @wanted_book.id...
+...                   ^~~~~~~~~~~~
+/home/monica/graduationproject/shelves/app/controllers/api/v1/book/books_controller.rb:120: syntax error, unexpected tIVAR, expecting &. or :: or '[' or '.'
+..._user.id, :book_id @wanted_book.id, :seller_id @wanted_book....
+...                   ^~~~~~~~~~~~
+/home/monica/graduationproject/shelves/app/controllers/api/v1/book/books_controller.rb:120: syntax error, unexpected tIVAR, expecting &. or :: or '[' or '.'
+...ook.id, :seller_id @wanted_book.user_id, :state "under confi...
+...                   ^~~~~~~~~~~~
+/home/monica/graduationproject/shelves/app/controllers/api/v1/book/books_controller.rb:120: syntax error, unexpected tSTRING_BEG, expecting &. or :: or '[' or '.'
+... @wanted_book.user_id, :state "under confirmed", :transcatio...
+...                              ^
+/home/monica/graduationproject/shelves/app/controllers/api/v1/book/books_controller.rb:120: syntax error, unexpected ',', expecting keyword_end
+...r_id, :state "under confirmed", :transcation "Exchange")
+...                              ^
+/home/monica/graduationproject/shelves/app/controllers/api/v1/book/books_controller.rb:120: syntax error, unexpected ')', expecting keyword_end
+...rmed", :transcation "Exchange")
+...                              ^):
+  
+app/controllers/api/v1/book/books_controller.rb:120: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/controllers/api/v1/book/books_controller.rb:120: syntax error, unexpected tIVAR, expecting &. or :: or '[' or '.'
+app/controllers/api/v1/book/books_controller.rb:120: syntax error, unexpected tIVAR, expecting &. or :: or '[' or '.'
+app/controllers/api/v1/book/books_controller.rb:120: syntax error, unexpected tSTRING_BEG, expecting &. or :: or '[' or '.'
+app/controllers/api/v1/book/books_controller.rb:120: syntax error, unexpected ',', expecting keyword_end
+app/controllers/api/v1/book/books_controller.rb:120: syntax error, unexpected ')', expecting keyword_end
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-10 02:59:23 +0200
+Processing by Api::V1::Book::BooksController#exchange as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+Completed 500 Internal Server Error in 271ms (ActiveRecord: 7.2ms)
+
+
+  
+NameError (undefined local variable or method `current_user' for #<Api::V1::Book::BooksController:0x0000000005d89780>
+Did you mean?  @current_user):
+  
+app/controllers/api/v1/book/books_controller.rb:120:in `exchange'
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-10 02:59:54 +0200
+Processing by Api::V1::Book::BooksController#exchange as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 64ms (Views: 15.1ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-10 03:00:43 +0200
+Processing by Api::V1::Book::BooksController#exchange as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `orders` (`user_id`, `book_id`, `seller_id`, `state`, `transcation`, `created_at`, `updated_at`) VALUES (3, 2, 2, 0, 2, '2018-06-10 01:00:43', '2018-06-10 01:00:43')[0m
+  [1m[35m (59.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Completed 200 OK in 124ms (Views: 19.0ms | ActiveRecord: 65.3ms)
+
+
+Started POST "/api/v1/book/books/1/exchange_request" for 127.0.0.1 at 2018-06-10 03:24:56 +0200
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  
+AbstractController::ActionNotFound (The action 'exchange_request' could not be found for Api::V1::Book::OrdersController):
+  
+actionpack (5.1.6) lib/abstract_controller/base.rb:119:in `process'
+actionview (5.1.6) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.6) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.6) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:844:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.6) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/api/v1/book/books/1/exchange_request" for 127.0.0.1 at 2018-06-10 03:25:29 +0200
+Processing by Api::V1::Book::OrdersController#exchange_request as JSON
+  Parameters: {"id"=>"1", "order"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = NULL LIMIT 1[0m
+Completed 404 Not Found in 22ms (ActiveRecord: 3.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Book with 'id'=):
+  
+app/controllers/api/v1/book/orders_controller.rb:46:in `set_book'
+Started POST "/api/v1/book/books/1/exchange_request" for 127.0.0.1 at 2018-06-10 03:27:05 +0200
+Processing by Api::V1::Book::OrdersController#exchange_request as JSON
+  Parameters: {"id"=>"1", "order"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Completed 200 OK in 12ms (Views: 0.1ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/api/v1/book/books/1/exchange_request" for 127.0.0.1 at 2018-06-10 03:27:45 +0200
+Processing by Api::V1::Book::OrdersController#exchange_request as JSON
+  Parameters: {"id"=>"1", "order"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Completed 200 OK in 18ms (Views: 0.2ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/api/v1/book/books/1/exchange_request" for 127.0.0.1 at 2018-06-10 03:29:21 +0200
+Processing by Api::V1::Book::OrdersController#exchange_request as JSON
+  Parameters: {"id"=>"1", "order"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Completed 200 OK in 14ms (Views: 0.2ms | ActiveRecord: 2.0ms)
+
+
+Started PUT "/api/v1/user/users/3" for 127.0.0.1 at 2018-06-10 03:37:50 +0200
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by Api::V1::User::UsersController#update as JSON
+  Parameters: {"name"=>"Monica Magdy", "phone"=>{"0"=>"01207843890", "1"=>"01201281227"}, "building_number"=>{"0"=>"61"}, "street"=>{"0"=>"Ismael Sery"}, "region"=>{"0"=>"smouha"}, "city"=>{"0"=>"alex"}, "postal_code"=>{"0"=>"0020"}, "Science fiction"=>"true", "Satire"=>"true", "id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Unpermitted parameters: :phone, :building_number, :street, :region, :city, :postal_code, :Science fiction, :Satire, :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'sci.monicamagdy2016@alexu.edu.eg' AND (`users`.`id` != 3) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhone Load (0.2ms)[0m  [1m[34mSELECT `phones`.* FROM `phones` WHERE `phones`.`user_id` = 3[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM `phones` WHERE `phones`.`id` = 4[0m
+  [1m[35m (133.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `phones` (`user_id`, `phone`, `created_at`, `updated_at`) VALUES (3, '01201281227', '2018-06-10 01:37:50', '2018-06-10 01:37:50')[0m
+  [1m[35m (69.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mAddress Load (0.4ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses` WHERE `addresses`.`user_id` = 3[0m
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT `categories`.* FROM `categories` INNER JOIN `categories_users` ON `categories`.`id` = `categories_users`.`category_id` WHERE `categories_users`.`user_id` = 3[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `categories_users` (`user_id`, `category_id`) VALUES (3, 3)[0m
+  [1m[35m (60.0ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 382ms (Views: 2.2ms | ActiveRecord: 303.9ms)
+
+
+Started POST "/api/v1/book/books/1/exchange_request" for 127.0.0.1 at 2018-06-10 04:03:46 +0200
+Processing by Api::V1::Book::OrdersController#exchange_request as JSON
+  Parameters: {"books"=>[{"id"=>3}], "id"=>"1", "order"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  `orders`.* FROM `orders` WHERE `orders`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 22ms (Views: 0.2ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/api/v1/book/books/1/exchange_request" for 127.0.0.1 at 2018-06-10 04:13:50 +0200
+Processing by Api::V1::Book::OrdersController#exchange_request as JSON
+  Parameters: {"books"=>[{"id"=>3}], "id"=>"1", "order"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  `orders`.* FROM `orders` WHERE `orders`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 21ms (Views: 0.2ms | ActiveRecord: 1.8ms)
+
+
+Started DELETE "/api/v1/book/books/1/dismiss_exchange" for 127.0.0.1 at 2018-06-10 04:59:49 +0200
+Processing by Api::V1::Book::OrdersController#dismiss_exchange as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = NULL LIMIT 1[0m
+Completed 404 Not Found in 4ms (ActiveRecord: 1.7ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Book with 'id'=):
+  
+app/controllers/api/v1/book/orders_controller.rb:73:in `set_book'
+Started DELETE "/api/v1/book/books/1/dismiss_exchange" for 127.0.0.1 at 2018-06-10 05:00:28 +0200
+Processing by Api::V1::Book::OrdersController#dismiss_exchange as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  `orders`.* FROM `orders` WHERE `orders`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM `orders` WHERE `orders`.`id` = 1[0m
+  [1m[35m (156.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 182ms (Views: 0.3ms | ActiveRecord: 160.0ms)
+
+
+Started GET "/api/v1/book/books/2/exchange" for 127.0.0.1 at 2018-06-10 05:01:16 +0200
+Processing by Api::V1::Book::BooksController#exchange as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `orders` (`user_id`, `book_id`, `seller_id`, `state`, `transcation`, `created_at`, `updated_at`) VALUES (3, 2, 2, 0, 2, '2018-06-10 03:01:17', '2018-06-10 03:01:17')[0m
+  [1m[35m (132.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Completed 200 OK in 181ms (Views: 20.8ms | ActiveRecord: 136.1ms)
+
+
+Started POST "/api/v1/book/books/2/confirm_exchange" for 127.0.0.1 at 2018-06-10 05:04:30 +0200
+Processing by Api::V1::Book::OrdersController#confirm_exchange as JSON
+  Parameters: {"book"=>3, "id"=>"2", "order"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  `orders`.* FROM `orders` WHERE `orders`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 1.1ms)
+
+
+  
+NoMethodError (undefined method `seller' for #<Order:0x00000000070187c0>
+Did you mean?  Sell!
+               Sell?):
+  
+app/controllers/api/v1/book/orders_controller.rb:58:in `confirm_exchange'
+Started POST "/api/v1/book/books/2/confirm_exchange" for 127.0.0.1 at 2018-06-10 05:04:54 +0200
+Processing by Api::V1::Book::OrdersController#confirm_exchange as JSON
+  Parameters: {"book"=>3, "id"=>"2", "order"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  `orders`.* FROM `orders` WHERE `orders`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 50ms (ActiveRecord: 3.2ms)
+
+
+  
+NoMethodError (undefined method `serializable_hash' for 2:Integer):
+  
+app/controllers/api/v1/book/orders_controller.rb:58:in `confirm_exchange'
+Started POST "/api/v1/book/books/2/confirm_exchange" for 127.0.0.1 at 2018-06-10 05:05:27 +0200
+Processing by Api::V1::Book::OrdersController#confirm_exchange as JSON
+  Parameters: {"book"=>3, "id"=>"2", "order"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  `orders`.* FROM `orders` WHERE `orders`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 47ms (Views: 0.7ms | ActiveRecord: 3.1ms)
+
+
+Started POST "/api/v1/book/books/2/confirm_exchange" for 127.0.0.1 at 2018-06-10 05:08:06 +0200
+Processing by Api::V1::Book::OrdersController#confirm_exchange as JSON
+  Parameters: {"book"=>3, "id"=>"2", "order"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  `orders`.* FROM `orders` WHERE `orders`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE `orders` SET `state` = 1, `updated_at` = '2018-06-10 03:08:06' WHERE `orders`.`id` = 2[0m
+  [1m[35m (128.7ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 172ms (Views: 1.2ms | ActiveRecord: 132.8ms)
+
+
+Started POST "/api/v1/book/books/2/confirm_exchange" for 127.0.0.1 at 2018-06-10 05:09:17 +0200
+Processing by Api::V1::Book::OrdersController#confirm_exchange as JSON
+  Parameters: {"book"=>3, "id"=>"2", "order"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  `orders`.* FROM `orders` WHERE `orders`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE `orders` SET `state` = 1, `exchangeable_book_id` = 3, `updated_at` = '2018-06-10 03:09:17' WHERE `orders`.`id` = 2[0m
+  [1m[35m (166.9ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 210ms (Views: 0.6ms | ActiveRecord: 170.0ms)
 
 
 Started GET "/api/v1/user/users/1/get_user_books" for 127.0.0.1 at 2018-06-10 13:33:31 +0200

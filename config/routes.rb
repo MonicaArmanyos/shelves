@@ -22,9 +22,14 @@ Rails.application.routes.draw do
             member do
               get 'exchange', to: 'books#exchange'
             end
-            #route of :  request_exchange
-            # /api/v1/book/books/
             resources :orders
+             #route of :  request_exchange
+            # /api/v1/book/books/:id/exchange_request
+            member do
+              post 'exchange_request', to: 'orders#exchange_request'
+              post 'confirm_exchange', to: 'orders#confirm_exchange'
+              delete 'dismiss_exchange', to: 'orders#dismiss_exchange'
+            end
           end
         end
 
