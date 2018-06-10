@@ -1,6 +1,7 @@
 module Api::V1::User
-  class Api::V1::User::UsersController < ApiController
-      skip_before_action :authenticate_request, only: [:create, :confirm_email]
+  class Api::V1::User::UsersController < ApplicationController
+      before_action :authenticate_request, only: [:create, :confirm_email]
+     
       # POST /signup
       # return authenticated token upon signup
       def create
@@ -110,11 +111,22 @@ module Api::V1::User
         render json: {status: 'SUCCESS', :user => @user, books: @user_books,  auth_token: request.headers['Authorization']}, :except => [:password_digest],status: :ok
       end
       #### get user books ####
-      def get_user_notifications
-        
+      def get_user_books
+        if  User.exists?(:id => params[:id])
+            @user_books= Book.where(:user_id => params[:id])
+            render :json => @user_books, each_serializer: BookSerializer
+            #render json: {status: 'SUCCESS', message: 'Loaded notification_messages successfully', notification_messages:@notification_messages},status: :ok
+        else
+            render json: {status: 'FAIL', message: 'user not found'},status: :ok
+        end
       end
       private
-    
+      #### Authentication of user ####
+      def authenticate_request
+          @current_user = AuthorizeApiRequest.call(request.headers).result
+          render json: { error: 'Not Authorized' }, status: 401 unless @current_user
+      end
+      
       def user_params
         params.permit(
           :name,
