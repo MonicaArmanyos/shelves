@@ -22,8 +22,11 @@ module Api::V1::Book
           if @order
             # save order and check it saved successfuly
             if @order.save
-              ###notification to book owner
+              # notification to book owner
               @seller=User.find(@order.seller)
+              body= "There is new order to your #{@book.name} book."
+              click_action= "http://localhost:3000/api/v1/book/books/#{@book.id}/order/#{@order.id}"
+              send_notification(@seller ,body , click_action)
               @category=Category.find(@book.category_id)
               render json: {status: 'SUCCESS', message: 'order successfully created', order: {id: @order.id, state: @order.state, transcation: @order.transcation, price: @order.price, quantity: @order.quantity}, book: {id: @book.id, name: @book.name, description: @book.description, rate: @book.rate, price: @book.price}, category:{id: @category.id, name: @category.name}, seller: {id: @seller.id, name: @seller.name}},status: :ok
             else
@@ -41,7 +44,8 @@ module Api::V1::Book
         @order = Order.find(params[:id])
         if @order
         @exchangeable_books = params[:books]
-        #send_notification(@order.seller_id,"Book exchange request", "https://")
+        user = User.find(@order.seller_id)
+        #send_notification( user,"Book exchange request", "https://google.com")
         render json:{status: 'Success', exchangeable_books: @exchangeable_books, wanted_book: @order.book_id, with: @order.user_id },status: :ok
         end
        end
@@ -55,7 +59,8 @@ module Api::V1::Book
           @order.exchangeable_book_id = @exchangeable_book.id
           @order.state = "confirmed"
           if @order.save
-            #send_notification(@order.user_id, @order.user_id + " accepted to exchange books", "https://")
+            user = User.find(@order.user_id)
+            #send_notification(user, @order.user_id + " accepted to exchange books", "https://google.com")
             render json:{status: 'SUCCESS', message: 'Order to exchange book is confirmed', order: @order}, status: :ok
           end
         end
@@ -65,7 +70,8 @@ module Api::V1::Book
         if @order.state == "confirmed"
           render json:{status: 'FAIL', message: 'order has already been confirmed'},status: :ok
         elsif @order.destroy!
-           #send_notification(@order.user_id, @order.user_id + " doesn\'t want to exchange books", "https://")
+          user = User.find(@order.user_id)
+           #send_notification(user, @order.user_id + " doesn\'t want to exchange books", "https://google.com")
           render json:{status: 'SUCCESS', message: 'Order to exchange is cancelled'},status: :ok
         end
        end
