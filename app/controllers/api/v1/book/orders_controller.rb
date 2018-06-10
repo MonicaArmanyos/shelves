@@ -1,7 +1,7 @@
 module Api::V1::Book
   class Api::V1::Book::OrdersController < ApiController
-    before_action :set_book, except: :exchange_request
-
+    before_action :set_book, except: [:exchange_request, :confirm_exchange, :dismiss_exchange]
+    before_action :authenticate_request
     def create
       @current_user = AuthorizeApiRequest.call(request.headers).result
       if @current_user
@@ -38,10 +38,37 @@ module Api::V1::Book
 
       ##After user chooses the books he agreed to exchange
       def exchange_request
-        render json:{status: 'FAIL', message: params[:id]},status: :ok
-        #send_notification(current_user,"Book exchange request", "https://")
+        @order = Order.find(params[:id])
+        if @order
+        @exchangeable_books = params[:books]
+        #send_notification(@order.seller_id,"Book exchange request", "https://")
+        render json:{status: 'Success', exchangeable_books: @exchangeable_books, wanted_book: @order.book_id, with: @order.user_id },status: :ok
+        end
        end
 
+       def confirm_exchange
+        @order = Order.find(params[:id])
+        if @order.state == "confirmed"
+          render json:{status: 'FAIL', message: 'order has already been confirmed'},status: :ok
+        else 
+          @exchangeable_book = Book.find(params[:book])
+          @order.exchangeable_book_id = @exchangeable_book.id
+          @order.state = "confirmed"
+          if @order.save
+            #send_notification(@order.user_id, @order.user_id + " accepted to exchange books", "https://")
+            render json:{status: 'SUCCESS', message: 'Order to exchange book is confirmed', order: @order}, status: :ok
+          end
+        end
+       end
+       def dismiss_exchange
+        @order = Order.find(params[:id])
+        if @order.state == "confirmed"
+          render json:{status: 'FAIL', message: 'order has already been confirmed'},status: :ok
+        elsif @order.destroy!
+           #send_notification(@order.user_id, @order.user_id + " doesn\'t want to exchange books", "https://")
+          render json:{status: 'SUCCESS', message: 'Order to exchange is cancelled'},status: :ok
+        end
+       end
     private
     def set_book
       @book = Book.find(params[:book_id])
