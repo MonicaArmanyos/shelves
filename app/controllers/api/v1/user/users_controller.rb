@@ -1,6 +1,6 @@
 module Api::V1::User
   class Api::V1::User::UsersController < ApplicationController
-      before_action :authenticate_request, only: [:create, :confirm_email]
+      before_action :authenticate_request, only: [:update, :show , :get_user_books]
      
       # POST /signup
       # return authenticated token upon signup
