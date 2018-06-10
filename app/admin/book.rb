@@ -66,16 +66,14 @@ ActiveAdmin.register Book do
       f.input :description
     end
     f.inputs do 
-      f.input :user
+      f.input :user, :class => "user"
       f.input :category
     end  
-    if f.object.user_id_changed?
-      f.inputs do
-        f.input :transcation
-        f.input :price
-        f.input :quantity
-      end  
-    end  
+    f.inputs do
+      f.input :transcation
+      f.input :price
+      f.input :quantity
+    end    
     if :is_approved
       if f.object.new_record? || !f.object.is_approved
         f.inputs do
@@ -109,6 +107,6 @@ ActiveAdmin.register Book do
   filter :created_at
 
   scope :all,default: true
-  config.per_page =6
+  config.per_page =9
 end
 
