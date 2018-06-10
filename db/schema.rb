@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20180609220314) do
+
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "namespace"
     t.text "body"
@@ -169,6 +169,7 @@ ActiveRecord::Schema.define(version: 20180609220314) do
   add_foreign_key "addresses", "users"
   add_foreign_key "orders", "books"
   add_foreign_key "orders", "books", column: "exchangeable_book_id"
+  add_foreign_key "orders", "users"
   add_foreign_key "orders", "users", column: "seller_id"
   add_foreign_key "phones", "users"
 end
