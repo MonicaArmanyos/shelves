@@ -10,9 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180608190108) do
+ActiveRecord::Schema.define(version: 20180609220314) do
 
-ActiveRecord::Schema.define(version: 20180608122810) do
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "namespace"
     t.text "body"
@@ -96,6 +95,18 @@ ActiveRecord::Schema.define(version: 20180608122810) do
     t.index ["user_id"], name: "index_categories_users_on_user_id"
   end
 
+  create_table "notification_messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "title", default: "Shelves"
+    t.string "body"
+    t.string "click_action"
+    t.string "icon"
+    t.integer "receiver_user"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_notification_messages_on_user_id"
+  end
+
   create_table "notification_tokens", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "token"
     t.bigint "user_id"
@@ -107,14 +118,17 @@ ActiveRecord::Schema.define(version: 20180608122810) do
   create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "user_id"
     t.bigint "book_id"
+    t.bigint "seller_id"
     t.integer "state"
-    t.integer "seller", null: false
     t.integer "transcation"
     t.float "price", limit: 24
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "quantity", default: 1
+    t.bigint "exchangeable_book_id"
     t.index ["book_id"], name: "index_orders_on_book_id"
+    t.index ["exchangeable_book_id"], name: "index_orders_on_exchangeable_book_id"
+    t.index ["seller_id"], name: "index_orders_on_seller_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -154,6 +168,7 @@ ActiveRecord::Schema.define(version: 20180608122810) do
 
   add_foreign_key "addresses", "users"
   add_foreign_key "orders", "books"
-  add_foreign_key "orders", "users"
+  add_foreign_key "orders", "books", column: "exchangeable_book_id"
+  add_foreign_key "orders", "users", column: "seller_id"
   add_foreign_key "phones", "users"
 end

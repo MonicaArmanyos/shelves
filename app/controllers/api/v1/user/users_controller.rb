@@ -1,6 +1,7 @@
 module Api::V1::User
-  class Api::V1::User::UsersController < ApiController
-      skip_before_action :authenticate_request, only: [:create, :confirm_email]
+  class Api::V1::User::UsersController < ApplicationController
+      before_action :authenticate_request, only: [:update, :show , :get_user_books]
+     
       # POST /signup
       # return authenticated token upon signup
       def create
@@ -30,17 +31,19 @@ module Api::V1::User
         @user=User.find(params[:id]) 
         @user.update(user_complete_params)
         if params[:phone]
-          newPhones = params[:phone].values  
+          
+          newPhones = params[:phone].values
+          
         #   phonesarray = JSON.parse(newPhone)
-          @phones= Phone.where(:user_id == @user.id )
+          @phones = Phone.where(user_id: @user.id )
           @phones.each do |oldphone|
             if newPhones.include?(oldphone.phone) == false
               oldphone.destroy
             end #end if 
           end  #end do
           newPhones.each do |tel|
-          flag=0 #means that new phone not included in old ones 
-          @phones.each do |old|
+            flag=0 #means that new phone not included in old ones 
+            @phones.each do |old|
             if tel == old.phone
               flag=1
             end #end if 
@@ -50,6 +53,7 @@ module Api::V1::User
               @phone.save
             end #end if
             end #end do
+           
           end # end if 
         if params[:building_number]
           b_number = params[:building_number].values
@@ -57,7 +61,7 @@ module Api::V1::User
           reg=params[:region].values
           newCity = params[:city].values
           code = params[:postal_code].values
-          @addresses= Address.where(:user_id == @user.id )
+          @addresses= Address.where(user_id: @user.id )
           @addresses.each do |oldAddr|
             if b_number.include?(oldAddr.building_number.to_s) == false || st.include?(oldAddr.street) == false || reg.include?(oldAddr.region) == false || newCity.include?(oldAddr.city) == false ||  code.include?(oldAddr.postal_code) == false 
               oldAddr.destroy
@@ -91,7 +95,7 @@ module Api::V1::User
             end
           end
         end
-        render :json =>  params.to_json, status: :ok
+        render json: {status: 'SUCCESS', message: "Profile updated", user: current_user , phones: current_user.phones , addresses: current_user.addresses},  :except => [:password_digest], status: :ok
       end #end method
 
       def destroy
@@ -99,19 +103,33 @@ module Api::V1::User
 
       #### get current user info
       def show
-        @user = current_user
+        @user = @current_user
         @books = Book.all
         @user_books = Array.new
         for book in @books
-            if book.user_id == current_user.id 
+            if book.user_id == @current_user.id 
               @user_books << book
             end
         end
-        render json: {status: 'SUCCESS', :user => @user, books: @user_books,  auth_token: request.headers['Authorization']}, :except => [:password_digest],status: :ok
+        render json: {status: 'SUCCESS', :user => @user, books: @user_books,  auth_token: request.headers['Authorization'], phones: @user.phones, addresses: @user.addresses}, :except => [:password_digest],status: :ok
       end
-
+      #### get user books ####
+      def get_user_books
+        if  User.exists?(:id => params[:id])
+            @user_books= Book.where(:user_id => params[:id])
+            render :json => @user_books, each_serializer: BookSerializer
+            #render json: {status: 'SUCCESS', message: 'Loaded notification_messages successfully', notification_messages:@notification_messages},status: :ok
+        else
+            render json: {status: 'FAIL', message: 'user not found'},status: :ok
+        end
+      end
       private
-    
+      #### Authentication of user ####
+      def authenticate_request
+          @current_user = AuthorizeApiRequest.call(request.headers).result
+          render json: { error: 'Not Authorized' }, status: 401 unless @current_user
+      end
+      
       def user_params
         params.permit(
           :name,

@@ -6,15 +6,28 @@ module Api::V1::Book
         
         #### Show all books and searched books #### 
         def index
-            @books = Book.all
+            @books_all = Book.all
             if params[:search]
-              @books = Book.search(params[:search]).order("created_at DESC").page params[:page]
-               
+              @searched_books = Book.search(params[:search]).order("created_at DESC").page params[:page]
+              render json: @searched_books,
+              meta: {
+                pagination: {
+                  per_page: 5,
+                  total_pages: Book.search(params[:search]).count/5,
+                  total_objects: Book.search(params[:search]).count
+                }
+              }
             else
-              @books = Book.all.order('created_at DESC').page params[:page]
-              
+              @books = Book.all.order('created_at DESC').page(params[:page]).per(5)
+              render json: @books,
+              meta: {
+                pagination: {
+                  per_page: 5,
+                  total_pages: @books_all.count/5,
+                  total_objects:@books_all.count
+                }
+              }
             end
-            render :json => @books, each_serializer: BookSerializer
         end
 
          #### Latest Books in Home Page ####
@@ -88,23 +101,30 @@ module Api::V1::Book
                    render json: {status: 'FAIL', message: 'Couldn\'t update book', error:@book.errors},status: :ok
                end 
            else
-               render json: {status: 'FAIL', message: 'Un autherized', error:@book.errors},status: :ok
+               render json: {status: 'FAIL', message: 'Un authorized', error:@book.errors},status: :ok
            end
            end 
 
            #### Order Book For Exchange ####
            def exchange
               @wanted_book =  Book.find(params[:id])
-              @books = Book.all
-              @exchangeable_books = Array.new
-            
-               for book in @books
-                   if book.user_id == @current_user.id  && book.transcation == "Exchange"
-                       @exchangeable_books << book
-                   end
-              end
-              render json:  {status: 'SUCCESS', exchangeable_books: @exchangeable_books}, status: :ok
+              if @wanted_book.transcation == "Exchange"
+                @books = Book.all
+                @exchangeable_books = Array.new
+                
+                for book in @books
+                    if book.user_id == @current_user.id  && book.transcation == "Exchange"
+                        @exchangeable_books << book
+                    end
+                end
+                @order = Order.new(user_id: @current_user.id, book_id: @wanted_book.id, seller_id: @wanted_book.user_id, state: "under confirmed", transcation: "Exchange")
+                @order.save
+                render json:  {status: 'SUCCESS', exchangeable_books: @exchangeable_books, wanted_book: @wanted_book, order: @order}, :include => { :user  =>  {:except => :password_digest} } , status: :ok
+                else
+                    render json:  {status: 'FAIL', message: "Book not for exchange"}, status: :ok
+            end
            end
+          
 
         #### Delete Book ####
         def destroy

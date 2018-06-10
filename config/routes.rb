@@ -12,17 +12,24 @@ Rails.application.routes.draw do
         resources :books, except:[:new, :edit] do
           resources :rates
             
-            #/api/books/route_name
+            #/api/v1/book/books/route_name
             collection do
               get :latest_books
               get :recommended_books
             end
 
-            #/api/books/:id/route_name
+            #/api/v1/book/books/:id/route_name
             member do
               get 'exchange', to: 'books#exchange'
             end
             resources :orders
+             #route of :  request_exchange
+            # /api/v1/book/books/:id/exchange_request
+            member do
+              post 'exchange_request', to: 'orders#exchange_request'
+              post 'confirm_exchange', to: 'orders#confirm_exchange'
+              delete 'dismiss_exchange', to: 'orders#dismiss_exchange'
+            end
           end
         end
 
@@ -41,6 +48,7 @@ Rails.application.routes.draw do
               #/users/:confirm_tocken/confirm_email
               member do
                 get '/confirm_email'=> 'users#confirm_email' 
+                get 'get_user_books'=> 'users#get_user_books'
               end
 
             end
@@ -48,6 +56,13 @@ Rails.application.routes.draw do
 
             namespace 'notification' do 
               resources :notification_tokens
+              resources :notification_messages do
+ 
+                #/api/v1/notification/notification_messages/:id/get_user_notifications
+                member do
+                  get 'get_user_notifications', to: 'notification_messages#get_user_notifications'
+                end
+              end
             end
 
 
