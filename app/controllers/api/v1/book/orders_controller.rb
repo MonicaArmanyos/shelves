@@ -22,8 +22,11 @@ module Api::V1::Book
           if @order
             # save order and check it saved successfuly
             if @order.save
-              ###notification to book owner
+              # notification to book owner
               @seller=User.find(@order.seller)
+              body= "There is new order to your #{@book.name} book."
+              click_action= "http://localhost:3000/api/v1/book/books/#{@book.id}/order/#{@order.id}"
+              send_notification(@seller ,body , click_action)
               @category=Category.find(@book.category_id)
               render json: {status: 'SUCCESS', message: 'order successfully created', order: {id: @order.id, state: @order.state, transcation: @order.transcation, price: @order.price, quantity: @order.quantity}, book: {id: @book.id, name: @book.name, description: @book.description, rate: @book.rate, price: @book.price}, category:{id: @category.id, name: @category.name}, seller: {id: @seller.id, name: @seller.name}},status: :ok
             else
