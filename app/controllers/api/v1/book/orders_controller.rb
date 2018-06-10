@@ -1,5 +1,5 @@
 module Api::V1::Book
-  class Api::V1::Book::OrdersController < ApiController
+  class Api::V1::Book::OrdersController < ApplicationController
     before_action :set_book, except: [:exchange_request, :confirm_exchange, :dismiss_exchange]
     before_action :authenticate_request
     def create
@@ -73,5 +73,10 @@ module Api::V1::Book
     def set_book
       @book = Book.find(params[:book_id])
     end
+     #### Authentication of user ####
+     def authenticate_request
+      @current_user = AuthorizeApiRequest.call(request.headers).result
+      render json: { error: 'Not Authorized' }, status: 401 unless @current_user
+  end
   end
 end
