@@ -103,11 +103,11 @@ module Api::V1::User
 
       #### get current user info
       def show
-        @user = current_user
+        @user = @current_user
         @books = Book.all
         @user_books = Array.new
         for book in @books
-            if book.user_id == current_user.id 
+            if book.user_id == @current_user.id 
               @user_books << book
             end
         end

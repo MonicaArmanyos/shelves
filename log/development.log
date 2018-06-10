@@ -8811,3 +8811,397 @@ Processing by Api::V1::User::BooksController#show as */*
 >>>>>>> c3feb033d7bcfd64063b86cdeaed87b200bcce76
 
 
+Started GET "/api/v1/user/users/1/get_user_books" for 127.0.0.1 at 2018-06-10 13:33:31 +0200
+Processing by Api::V1::User::UsersController#get_user_books as JSON
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 2211ms
+
+
+  
+Mysql2::Error::ConnectionError (Access denied for user 'hebamamdouh'@'localhost' (using password: NO)):
+  
+app/commands/authorize_api_request.rb:17:in `user'
+app/commands/authorize_api_request.rb:9:in `call'
+app/controllers/api/v1/user/users_controller.rb:129:in `authenticate_request'
+Started GET "/api/v1/user/users/1/get_user_books" for 127.0.0.1 at 2018-06-10 13:35:52 +0200
+Processing by Api::V1::User::UsersController#get_user_books as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35m (369.9ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[36mUser Load (17.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mBook Load (137.9ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`user_id` = 1[0m
+  [1m[36mCategory Load (54.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.1ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (189.2ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 4[0m
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (37.9ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 5[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.7ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 6[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 7[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 8[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 9[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.6ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 10[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 11[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.6ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 12[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.5ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 13[0m
+  [1m[36mCACHE User Load (0.2ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 14[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (36.2ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 15[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 16[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 17[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 18[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 19[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 20[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 21[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 22[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 23[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 24[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 25[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.5ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 26[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 27[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.5ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 28[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 29[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 30[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 31[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.5ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 32[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 33[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 34[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 35[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 36[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.6ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 37[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.5ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 38[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 39[0m
+Completed 200 OK in 2806ms (Views: 503.1ms | ActiveRecord: 1701.1ms)
+
+
+Started GET "/api/v1/book/books" for 127.0.0.1 at 2018-06-10 13:42:14 +0200
+Processing by Api::V1::Book::BooksController#index as JSON
+  [1m[35m (50.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `books`[0m
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM `books`[0m
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY created_at DESC LIMIT 5 OFFSET 0[0m
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 39[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.5ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 38[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (2.0ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 37[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.5ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 36[0m
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 35[0m
+Completed 200 OK in 101ms (Views: 40.5ms | ActiveRecord: 56.3ms)
+
+
+Started GET "/api/v1/category/categories" for 127.0.0.1 at 2018-06-10 13:42:34 +0200
+Processing by Api::V1::Category::CategoriesController#index as JSON
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+Completed 200 OK in 31ms (Views: 30.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/user/users/1/get_user_books" for 127.0.0.1 at 2018-06-10 13:43:23 +0200
+Processing by Api::V1::User::UsersController#get_user_books as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`user_id` = 1[0m
+Completed 200 OK in 258ms (Views: 81.0ms | ActiveRecord: 92.0ms)
+
+
+Started GET "/api/v1/user/users/1/get_user_books" for 127.0.0.1 at 2018-06-10 13:43:44 +0200
+Processing by Api::V1::User::UsersController#get_user_books as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`user_id` = 1[0m
+Completed 200 OK in 159ms (Views: 70.1ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/api/v1/user/users/1/get_user_books" for 127.0.0.1 at 2018-06-10 13:44:42 +0200
+Processing by Api::V1::User::UsersController#get_user_books as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`user_id` = 1[0m
+Completed 200 OK in 125ms (Views: 58.5ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/api/v1/user/users/1/get_user_books" for 127.0.0.1 at 2018-06-10 13:45:38 +0200
+  
+SyntaxError (/media/hebamamdouh/FC10D7C110D78156/OS_38/graduation project/new project/shelves/app/controllers/api/v1/user/users_controller.rb:120: syntax error, unexpected tLABEL
+            @pp=@user_books, each_serializer: BookSerializer
+                                             ^):
+  
+app/controllers/api/v1/user/users_controller.rb:120: syntax error, unexpected tLABEL
+Started GET "/api/v1/user/users/1/get_user_books" for 127.0.0.1 at 2018-06-10 13:47:02 +0200
+  
+SyntaxError (/media/hebamamdouh/FC10D7C110D78156/OS_38/graduation project/new project/shelves/app/controllers/api/v1/user/users_controller.rb:120: syntax error, unexpected ',', expecting keyword_end
+            @pp << @user_books, each_serializer: BookSerializer
+                               ^):
+  
+app/controllers/api/v1/user/users_controller.rb:120: syntax error, unexpected ',', expecting keyword_end
+Started GET "/api/v1/user/users/1/get_user_books" for 127.0.0.1 at 2018-06-10 13:57:59 +0200
+Processing by Api::V1::User::UsersController#get_user_books as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`user_id` = 1[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.1ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.7ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 4[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.3ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 5[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.3ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 6[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 7[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.5ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 8[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.6ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 9[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (1.5ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 10[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 11[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 12[0m
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.5ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 13[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 14[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 15[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 16[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 17[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 18[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.7ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 19[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.5ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 20[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 21[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 22[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 23[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 24[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 25[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 26[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 27[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.3ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 28[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 29[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.3ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 30[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.3ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 31[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 32[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.5ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 33[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.5ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 34[0m
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 35[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.5ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 36[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.4ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 37[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.5ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 38[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 1[0m  [["id", 1]]
+  [1m[36mBookImage Load (0.5ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 39[0m
+Completed 200 OK in 458ms (Views: 357.9ms | ActiveRecord: 28.0ms)
+
+
