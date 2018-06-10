@@ -1,6 +1,6 @@
 module Api::V1::Book
   class Api::V1::Book::OrdersController < ApiController
-    before_action :set_book
+    before_action :set_book, except: :exchange_request
 
     def create
       @current_user = AuthorizeApiRequest.call(request.headers).result
@@ -35,6 +35,12 @@ module Api::V1::Book
         end 
       end    
     end  
+
+      ##After user chooses the books he agreed to exchange
+      def exchange_request
+        render json:{status: 'FAIL', message: params[:id]},status: :ok
+        #send_notification(current_user,"Book exchange request", "https://")
+       end
 
     private
     def set_book
