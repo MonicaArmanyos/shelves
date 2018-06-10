@@ -95,7 +95,7 @@ module Api::V1::User
             end
           end
         end
-        render :json =>  params.to_json, status: :ok
+        render json: {status: 'SUCCESS', message: "Profile updated", user: current_user , phones: current_user.phones , addresses: current_user.addresses},  :except => [:password_digest], status: :ok
       end #end method
 
       def destroy
@@ -111,7 +111,7 @@ module Api::V1::User
               @user_books << book
             end
         end
-        render json: {status: 'SUCCESS', :user => @user, books: @user_books,  auth_token: request.headers['Authorization']}, :except => [:password_digest],status: :ok
+        render json: {status: 'SUCCESS', :user => @user, books: @user_books,  auth_token: request.headers['Authorization'], phones: @user.phones, addresses: @user.addresses}, :except => [:password_digest],status: :ok
       end
       #### get user books ####
       def get_user_books

@@ -8958,3 +8958,81 @@ Processing by Api::V1::Book::OrdersController#confirm_exchange as JSON
 Completed 200 OK in 210ms (Views: 0.6ms | ActiveRecord: 170.0ms)
 
 
+Started PUT "/api/v1/user/users/3" for 127.0.0.1 at 2018-06-10 14:34:33 +0200
+  [1m[35m (69.7ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by Api::V1::User::UsersController#update as JSON
+  Parameters: {"name"=>"Monica Magdy", "profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x0000000006c10240 @tempfile=#<Tempfile:/tmp/RackMultipart20180610-3838-99pk0j.jpg>, @original_filename="30629720_10216432342740296_1148437687598841856_o.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"profile_picture\"; filename=\"30629720_10216432342740296_1148437687598841856_o.jpg\"\r\nContent-Type: image/jpeg\r\n">, "phone"=>{"0"=>"01207843890", "1"=>"01201281227"}, "building_number"=>{"0"=>"61"}, "street"=>{"0"=>"Ismael Sery"}, "region"=>{"0"=>"smouha"}, "city"=>{"0"=>"alex"}, "postal_code"=>{"0"=>"0020"}, "Science fiction"=>"true", "Satire"=>"true", "id"=>"3"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Unpermitted parameters: :phone, :building_number, :street, :region, :city, :postal_code, :Science fiction, :Satire, :id
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (17.9ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'sci.monicamagdy2016@alexu.edu.eg' AND (`users`.`id` != 3) LIMIT 1[0m
+  [1m[35mSQL (11.3ms)[0m  [1m[33mUPDATE `users` SET `profile_picture` = '30629720_10216432342740296_1148437687598841856_o.jpg', `updated_at` = '2018-06-10 12:34:33' WHERE `users`.`id` = 3[0m
+  [1m[35m (38.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhone Load (0.8ms)[0m  [1m[34mSELECT `phones`.* FROM `phones` WHERE `phones`.`user_id` = 3[0m
+  [1m[36mAddress Load (0.7ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses` WHERE `addresses`.`user_id` = 3[0m
+  [1m[36mCategory Load (15.7ms)[0m  [1m[34mSELECT `categories`.* FROM `categories` INNER JOIN `categories_users` ON `categories`.`id` = `categories_users`.`category_id` WHERE `categories_users`.`user_id` = 3[0m
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+Completed 500 Internal Server Error in 477ms (ActiveRecord: 184.4ms)
+
+
+  
+Encoding::UndefinedConversionError ("\xFF" from ASCII-8BIT to UTF-8):
+  
+app/controllers/api/v1/user/users_controller.rb:98:in `update'
+Started PUT "/api/v1/user/users/3" for 127.0.0.1 at 2018-06-10 14:35:18 +0200
+Processing by Api::V1::User::UsersController#update as JSON
+  Parameters: {"name"=>"Monica Magdy", "profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x0000000005c6f2f0 @tempfile=#<Tempfile:/tmp/RackMultipart20180610-3838-1e7buur.jpeg>, @original_filename="2.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"profile_picture\"; filename=\"2.jpeg\"\r\nContent-Type: image/jpeg\r\n">, "phone"=>{"0"=>"01207843890", "1"=>"01201281227"}, "building_number"=>{"0"=>"61"}, "street"=>{"0"=>"Ismael Sery"}, "region"=>{"0"=>"smouha"}, "city"=>{"0"=>"alex"}, "postal_code"=>{"0"=>"0020"}, "Science fiction"=>"true", "Satire"=>"true", "id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Unpermitted parameters: :phone, :building_number, :street, :region, :city, :postal_code, :Science fiction, :Satire, :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'sci.monicamagdy2016@alexu.edu.eg' AND (`users`.`id` != 3) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE `users` SET `profile_picture` = '2.jpeg', `updated_at` = '2018-06-10 12:35:18' WHERE `users`.`id` = 3[0m
+  [1m[35m (135.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhone Load (0.8ms)[0m  [1m[34mSELECT `phones`.* FROM `phones` WHERE `phones`.`user_id` = 3[0m
+  [1m[36mAddress Load (0.7ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses` WHERE `addresses`.`user_id` = 3[0m
+  [1m[36mCategory Load (0.9ms)[0m  [1m[34mSELECT `categories`.* FROM `categories` INNER JOIN `categories_users` ON `categories`.`id` = `categories_users`.`category_id` WHERE `categories_users`.`user_id` = 3[0m
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+Completed 500 Internal Server Error in 157ms (ActiveRecord: 140.0ms)
+
+
+  
+Encoding::UndefinedConversionError ("\xFF" from ASCII-8BIT to UTF-8):
+  
+app/controllers/api/v1/user/users_controller.rb:98:in `update'
+Started PUT "/api/v1/user/users/3" for 127.0.0.1 at 2018-06-10 14:44:19 +0200
+Processing by Api::V1::User::UsersController#update as JSON
+  Parameters: {"name"=>"Monica Magdy", "profile_picture"=>#<ActionDispatch::Http::UploadedFile:0x0000000006466738 @tempfile=#<Tempfile:/tmp/RackMultipart20180610-3838-wn529f.jpeg>, @original_filename="2.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"profile_picture\"; filename=\"2.jpeg\"\r\nContent-Type: image/jpeg\r\n">, "phone"=>{"0"=>"01207843890", "1"=>"01201281227"}, "building_number"=>{"0"=>"61"}, "street"=>{"0"=>"Ismael Sery"}, "region"=>{"0"=>"smouha"}, "city"=>{"0"=>"alex"}, "postal_code"=>{"0"=>"0020"}, "Science fiction"=>"true", "Satire"=>"true", "id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Unpermitted parameters: :phone, :building_number, :street, :region, :city, :postal_code, :Science fiction, :Satire, :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'sci.monicamagdy2016@alexu.edu.eg' AND (`users`.`id` != 3) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE `users` SET `profile_picture` = '2.jpeg', `updated_at` = '2018-06-10 12:44:19' WHERE `users`.`id` = 3[0m
+  [1m[35m (142.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhone Load (0.6ms)[0m  [1m[34mSELECT `phones`.* FROM `phones` WHERE `phones`.`user_id` = 3[0m
+  [1m[36mAddress Load (0.6ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses` WHERE `addresses`.`user_id` = 3[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT `categories`.* FROM `categories` INNER JOIN `categories_users` ON `categories`.`id` = `categories_users`.`category_id` WHERE `categories_users`.`user_id` = 3[0m
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+  [1m[36mCACHE Phone Load (0.0ms)[0m  [1m[34mSELECT `phones`.* FROM `phones` WHERE `phones`.`user_id` = 3[0m  [["user_id", 3]]
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses` WHERE `addresses`.`user_id` = 3[0m  [["user_id", 3]]
+Completed 200 OK in 246ms (Views: 28.2ms | ActiveRecord: 150.5ms)
+
+
+Started GET "/api/v1/user/users" for 127.0.0.1 at 2018-06-10 14:45:55 +0200
+Processing by Api::V1::User::UsersController#show as JSON
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/user/users" for 127.0.0.1 at 2018-06-10 14:46:36 +0200
+Processing by Api::V1::User::UsersController#show as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (16.9ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mPhone Load (0.4ms)[0m  [1m[34mSELECT `phones`.* FROM `phones` WHERE `phones`.`user_id` = 3[0m
+  [1m[36mAddress Load (0.3ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses` WHERE `addresses`.`user_id` = 3[0m
+Completed 200 OK in 45ms (Views: 4.8ms | ActiveRecord: 18.7ms)
+
+
