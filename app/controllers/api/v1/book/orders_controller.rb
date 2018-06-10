@@ -9,11 +9,11 @@ module Api::V1::Book
         if ((@book.is_available.eql? true) && (@book.is_approved.eql? true)) 
           # check book transcation
           if @book.transcation.eql? "Free Share"
-            @order = @book.orders.new(:book_id => @book.id, :user_id => @current_user.id, :state => 0, :seller => @book.user_id, :transcation => @book.transcation, :price => @book.price)
+            @order = @book.orders.new(:book_id => @book.id, :user_id => @current_user.id, :state => 0, :seller_id => @book.user_id, :transcation => @book.transcation, :price => @book.price)
           elsif @book.transcation.eql? "Sell"
             # check if quantity exist, larger than zero and less than book quantity 
             if ((params[:quantity]) && (params[:quantity].to_i < @book.quantity) && (params[:quantity].to_i > 0))
-              @order = @book.orders.new(:book_id => @book.id, :user_id => @current_user.id, :state => 0, :seller => @book.user_id, :transcation => @book.transcation, :price => @book.price * params[:quantity].to_i, :quantity => params[:quantity].to_i)
+              @order = @book.orders.new(:book_id => @book.id, :user_id => @current_user.id, :state => 0, :seller_id => @book.user_id, :transcation => @book.transcation, :price => @book.price * params[:quantity].to_i, :quantity => params[:quantity].to_i)
             else
               render json: {status: 'FAIL', message: 'This Quantity not valid', error:@book.errors},status: :ok
             end  
@@ -23,7 +23,7 @@ module Api::V1::Book
             # save order and check it saved successfuly
             if @order.save
               # notification to book owner
-              @seller=User.find(@order.seller)
+              @seller=User.find(@order.seller_id)
               body= "There is new order to your #{@book.name} book."
               click_action= "http://localhost:3000/api/v1/book/books/#{@book.id}/order/#{@order.id}"
               send_notification(@seller ,body , click_action)

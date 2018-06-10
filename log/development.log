@@ -3264,3 +3264,91 @@ puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
 puma (3.11.4) lib/puma/server.rb:446:in `process_client'
 puma (3.11.4) lib/puma/server.rb:306:in `block in run'
 puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/api/v1/book/books/3/orders" for 127.0.0.1 at 2018-06-11 00:01:45 +0200
+Processing by Api::V1::Book::OrdersController#create as */*
+  Parameters: {"quantity"=>"2", "book_id"=>"3"}
+  [1m[35m (58.1ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[36mBook Load (8.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 529ms (Views: 4.5ms | ActiveRecord: 83.7ms)
+
+
+Started POST "/api/v1/user/users/login" for 127.0.0.1 at 2018-06-11 00:02:02 +0200
+Processing by Api::V1::User::AuthenticationController#authenticate as */*
+  Parameters: {"email"=>"ghada.khamis.m@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'ghada.khamis.m@gmail.com' LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'ghada.khamis.m@gmail.com' LIMIT 1[0m  [["email", "ghada.khamis.m@gmail.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'ghada.khamis.m@gmail.com' LIMIT 1[0m  [["email", "ghada.khamis.m@gmail.com"], ["LIMIT", 1]]
+Completed 201 Created in 262ms (Views: 1.4ms | ActiveRecord: 27.3ms)
+
+
+Started POST "/api/v1/book/books/3/orders" for 127.0.0.1 at 2018-06-11 00:03:07 +0200
+Processing by Api::V1::Book::OrdersController#create as */*
+  Parameters: {"quantity"=>"2", "book_id"=>"3"}
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 77ms (ActiveRecord: 3.7ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'seller' for Order.):
+  
+app/controllers/api/v1/book/orders_controller.rb:16:in `create'
+Started POST "/api/v1/book/books/3/orders" for 127.0.0.1 at 2018-06-11 00:08:52 +0200
+Processing by Api::V1::Book::OrdersController#create as */*
+  Parameters: {"quantity"=>"2", "book_id"=>"3"}
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (89.1ms)[0m  [1m[32mINSERT INTO `orders` (`user_id`, `book_id`, `seller_id`, `state`, `transcation`, `price`, `created_at`, `updated_at`, `quantity`) VALUES (6, 3, 2, 0, 0, 20.0, '2018-06-10 22:08:53', '2018-06-10 22:08:53', 2)[0m
+  [1m[35m (108.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (18.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+Completed 500 Internal Server Error in 415ms (ActiveRecord: 226.8ms)
+
+
+  
+TypeError (no implicit conversion of nil into String):
+  
+app/controllers/application_controller.rb:24:in `+'
+app/controllers/application_controller.rb:24:in `send_notification'
+app/controllers/api/v1/book/orders_controller.rb:29:in `create'
+Started POST "/api/v1/book/books/3/orders" for 127.0.0.1 at 2018-06-11 00:10:54 +0200
+Processing by Api::V1::Book::OrdersController#create as */*
+  Parameters: {"quantity"=>"2", "book_id"=>"3"}
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (33.0ms)[0m  [1m[32mINSERT INTO `orders` (`user_id`, `book_id`, `seller_id`, `state`, `transcation`, `price`, `created_at`, `updated_at`, `quantity`) VALUES (6, 3, 2, 0, 0, 20.0, '2018-06-10 22:10:54', '2018-06-10 22:10:54', 2)[0m
+  [1m[35m (34.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mCategory Load (1.1ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 2 LIMIT 1[0m
+Completed 200 OK in 286ms (Views: 12.4ms | ActiveRecord: 80.7ms)
+
+
+Started POST "/api/v1/book/books/3/orders" for 127.0.0.1 at 2018-06-11 00:11:25 +0200
+Processing by Api::V1::Book::OrdersController#create as */*
+  Parameters: {"quantity"=>"2", "book_id"=>"3"}
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (1.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO `orders` (`user_id`, `book_id`, `seller_id`, `state`, `transcation`, `price`, `created_at`, `updated_at`, `quantity`) VALUES (6, 3, 2, 0, 0, 20.0, '2018-06-10 22:11:26', '2018-06-10 22:11:26', 2)[0m
+  [1m[35m (55.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+Completed 500 Internal Server Error in 305ms (ActiveRecord: 71.0ms)
+
+
+  
+TypeError (no implicit conversion of nil into String):
+  
+app/controllers/application_controller.rb:24:in `+'
+app/controllers/application_controller.rb:24:in `send_notification'
+app/controllers/api/v1/book/orders_controller.rb:29:in `create'
