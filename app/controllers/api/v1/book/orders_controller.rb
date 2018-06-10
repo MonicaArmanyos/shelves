@@ -77,10 +77,7 @@ module Api::V1::Book
        end
 
 
-       #### Update bid quantity and bid user for book ####
-       def updata_bid
-        
-       end
+       
 
     private
     def set_book

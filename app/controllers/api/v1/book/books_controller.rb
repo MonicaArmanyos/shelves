@@ -3,7 +3,7 @@ module Api::V1::Book
     class Api::V1::Book::BooksController < ApplicationController
         
         before_action :authenticate_request, only: [:recommended_books, :create, :update, :exchange, :destroy]
-        
+
         #### Show all books and searched books #### 
         def index
             @books_all = Book.all
@@ -33,7 +33,6 @@ module Api::V1::Book
          #### Latest Books in Home Page ####
          def latest_books
             @latest_books = Book.order('created_at Desc').limit(20);
-            
             if(@latest_books)
                 render :json => @latest_books, each_serializer: BookSerializer
             else
@@ -105,25 +104,7 @@ module Api::V1::Book
            end
            end 
 
-           #### Order Book For Exchange ####
-           def exchange
-              @wanted_book =  Book.find(params[:id])
-              if @wanted_book.transcation == "Exchange"
-                @books = Book.all
-                @exchangeable_books = Array.new
-                
-                for book in @books
-                    if book.user_id == @current_user.id  && book.transcation == "Exchange"
-                        @exchangeable_books << book
-                    end
-                end
-                @order = Order.new(user_id: @current_user.id, book_id: @wanted_book.id, seller_id: @wanted_book.user_id, state: "under confirmed", transcation: "Exchange")
-                @order.save
-                render json:  {status: 'SUCCESS', exchangeable_books: @exchangeable_books, wanted_book: @wanted_book, order: @order}, :include => { :user  =>  {:except => :password_digest} } , status: :ok
-                else
-                    render json:  {status: 'FAIL', message: "Book not for exchange"}, status: :ok
-            end
-           end
+         
           
 
         #### Delete Book ####
@@ -139,7 +120,50 @@ module Api::V1::Book
 
         end
 
+        ########################## Book orders ############################
 
+        #### Order Book For Exchange ####
+        def exchange
+            @wanted_book =  Book.find(params[:id])
+            if @wanted_book.transcation == "Exchange"
+            @books = Book.all
+            @exchangeable_books = Array.new
+            
+            for book in @books
+                if book.user_id == @current_user.id  && book.transcation == "Exchange"
+                    @exchangeable_books << book
+                end
+            end
+            @order = Order.new(user_id: @current_user.id, book_id: @wanted_book.id, seller_id: @wanted_book.user_id, state: "under confirmed", transcation: "Exchange")
+            @order.save
+            render json:  {status: 'SUCCESS', exchangeable_books: @exchangeable_books, wanted_book: @wanted_book, order: @order}, :include => { :user  =>  {:except => :password_digest} } , status: :ok
+            else
+                render json:  {status: 'FAIL', message: "Book not for exchange"}, status: :ok
+        end
+        end
+
+        #### Update bid quantity and bid user for book ####
+        def update_bid
+            #check if book exist
+            if Book.exists?(params[:id])
+               # check book transcation
+                if @book.transcation.eql? "Sell By Bids"
+                    #check if bid quatity is geater than the price of book
+                    @user_bid_price=params[:price]
+                    if @user_bid_price >  @book.price
+
+                    else
+                        render json: {status: 'FAIL', message: 'bid_price not valid'},status: :ok
+                    end
+                else
+                    render json: {status: 'FAIL', message: 'Book Not for sell by bids'},status: :ok
+                end
+            else
+                render json: {status: 'FAIL', message: 'Book Not found'},status: :ok
+            end
+
+           
+        end
 
        
         private
@@ -154,6 +178,8 @@ module Api::V1::Book
             @current_user = AuthorizeApiRequest.call(request.headers).result
             render json: { error: 'Not Authorized' }, status: 401 unless @current_user
         end
+
+        
 
        
     end
