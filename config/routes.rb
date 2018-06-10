@@ -37,7 +37,6 @@ Rails.application.routes.draw do
 
         namespace 'user' do 
           resources :password_resets, only: [:create, :update]
-          resources :books, only: [:show]
           resources :users,  except: [:index, :destroy, :create, :new, :edit] do
             collection do
               post 'login', to: 'authentication#authenticate', :as => "login"
@@ -47,6 +46,7 @@ Rails.application.routes.draw do
               #/users/:confirm_tocken/confirm_email
               member do
                 get '/confirm_email'=> 'users#confirm_email' 
+                get 'get_user_books'=> 'users#get_user_books'
               end
 
             end
