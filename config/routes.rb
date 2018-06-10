@@ -16,6 +16,7 @@ Rails.application.routes.draw do
             collection do
               get :latest_books
               get :recommended_books
+              put 'update_bid', to: 'orders#update_bid'
             end
 
             #/api/v1/book/books/:id/route_name

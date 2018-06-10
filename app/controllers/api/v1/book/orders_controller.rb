@@ -3,7 +3,7 @@ module Api::V1::Book
     before_action :set_book, except: [:exchange_request, :confirm_exchange, :dismiss_exchange]
     before_action :authenticate_request
     def create
-      @current_user = AuthorizeApiRequest.call(request.headers).result
+     # @current_user = AuthorizeApiRequest.call(request.headers).result
       if @current_user
         # check if book is available and approved or not
         if ((@book.is_available.eql? true) && (@book.is_approved.eql? true)) 
@@ -75,6 +75,13 @@ module Api::V1::Book
           render json:{status: 'SUCCESS', message: 'Order to exchange is cancelled'},status: :ok
         end
        end
+
+
+       #### Update bid quantity and bid user for book ####
+       def updata_bid
+        
+       end
+
     private
     def set_book
       @book = Book.find(params[:book_id])
