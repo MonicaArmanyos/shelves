@@ -12,16 +12,18 @@ Rails.application.routes.draw do
         resources :books, except:[:new, :edit] do
           resources :rates
             
-            #/api/books/route_name
+            #/api/v1/book/books/route_name
             collection do
               get :latest_books
               get :recommended_books
             end
 
-            #/api/books/:id/route_name
+            #/api/v1/book/books/:id/route_name
             member do
               get 'exchange', to: 'books#exchange'
             end
+            #route of :  request_exchange
+            # /api/v1/book/books/
             resources :orders
           end
         end

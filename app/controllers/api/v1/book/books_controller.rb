@@ -108,15 +108,19 @@ module Api::V1::Book
            #### Order Book For Exchange ####
            def exchange
               @wanted_book =  Book.find(params[:id])
-              @books = Book.all
-              @exchangeable_books = Array.new
-            
-               for book in @books
-                   if book.user_id == @current_user.id  && book.transcation == "Exchange"
-                       @exchangeable_books << book
-                   end
-              end
-              render json:  {status: 'SUCCESS', exchangeable_books: @exchangeable_books}, status: :ok
+              if @wanted_book.transcation == "Exchange"
+                @books = Book.all
+                @exchangeable_books = Array.new
+                
+                for book in @books
+                    if book.user_id == @current_user.id  && book.transcation == "Exchange"
+                        @exchangeable_books << book
+                    end
+                end
+                render json:  {status: 'SUCCESS', exchangeable_books: @exchangeable_books, wanted_book: @wanted_book}, :include => { :user  =>  {:except => :password_digest} } , status: :ok
+                else
+                    render json:  {status: 'FAIL', message: "Book not for exchange"}, status: :ok
+            end
            end
             ##After user chooses the books he agreed to exchange
            def request_exchange

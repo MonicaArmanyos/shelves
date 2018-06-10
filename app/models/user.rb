@@ -25,6 +25,7 @@ class User < ApplicationRecord
       attr_accessor :skip_email_validation
       
 
+ 
     def email_activate
         self.email_confirmed = true
         self.confirm_token = nil

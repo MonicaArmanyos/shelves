@@ -19,6 +19,9 @@ module Api::V1::User
       if @user.password_reset_sent_at < 2.hours.ago
         render json:  {status: 'FAIL', message: "Password reset has expired"}, status: :ok
       elsif @user.update_attributes(password_params)
+        @user.password_reset_token = nil
+        @user.password_reset_sent_at = nil
+        @user.save
         render json:  {status: 'SUCCESS', message: "Password has been reset"}, status: :ok
       else
         render json: {status: 'FAIL', message: "Please try again "}, status: :ok

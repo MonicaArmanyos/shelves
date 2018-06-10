@@ -31,17 +31,19 @@ module Api::V1::User
         @user=User.find(params[:id]) 
         @user.update(user_complete_params)
         if params[:phone]
-          newPhones = params[:phone].values  
+          
+          newPhones = params[:phone].values
+          
         #   phonesarray = JSON.parse(newPhone)
-          @phones= Phone.where(:user_id == @user.id )
+          @phones = Phone.where(user_id: @user.id )
           @phones.each do |oldphone|
             if newPhones.include?(oldphone.phone) == false
               oldphone.destroy
             end #end if 
           end  #end do
           newPhones.each do |tel|
-          flag=0 #means that new phone not included in old ones 
-          @phones.each do |old|
+            flag=0 #means that new phone not included in old ones 
+            @phones.each do |old|
             if tel == old.phone
               flag=1
             end #end if 
@@ -51,6 +53,7 @@ module Api::V1::User
               @phone.save
             end #end if
             end #end do
+           
           end # end if 
         if params[:building_number]
           b_number = params[:building_number].values
@@ -58,7 +61,7 @@ module Api::V1::User
           reg=params[:region].values
           newCity = params[:city].values
           code = params[:postal_code].values
-          @addresses= Address.where(:user_id == @user.id )
+          @addresses= Address.where(user_id: @user.id )
           @addresses.each do |oldAddr|
             if b_number.include?(oldAddr.building_number.to_s) == false || st.include?(oldAddr.street) == false || reg.include?(oldAddr.region) == false || newCity.include?(oldAddr.city) == false ||  code.include?(oldAddr.postal_code) == false 
               oldAddr.destroy
