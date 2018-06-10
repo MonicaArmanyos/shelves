@@ -1,7 +1,7 @@
 ActiveAdmin.register Order do
   permit_params :book_id, :user_id, :seller, :state, :transcation, :price
   scope :all,default: true
-  config.per_page =6
+  config.per_page =9
 
   index do
     selectable_column

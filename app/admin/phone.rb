@@ -1,7 +1,7 @@
 ActiveAdmin.register Phone do
     permit_params :phone, :user_id
     scope :all,default: true
-    config.per_page =6
+    config.per_page =9
      
    show do |phone|
      attributes_table do

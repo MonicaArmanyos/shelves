@@ -1,7 +1,7 @@
 ActiveAdmin.register User do
   permit_params :name,:email, :role, :gender, :rate, :profile_picture, :password, :password_confirmation, phones_attributes: [:id, :phone, :_destroy], addresses_attributes: [:id, :building_number, :street, :region, :city, :postal_code, :_destroy]
     scope :all,default: true
-    config.per_page =6
+    config.per_page =9
 
     index do
       selectable_column
