@@ -117,15 +117,14 @@ module Api::V1::Book
                         @exchangeable_books << book
                     end
                 end
-                render json:  {status: 'SUCCESS', exchangeable_books: @exchangeable_books, wanted_book: @wanted_book}, :include => { :user  =>  {:except => :password_digest} } , status: :ok
+                @order = Order.new(user_id: @current_user.id, book_id: @wanted_book.id, seller_id: @wanted_book.user_id, state: "under confirmed", transcation: "Exchange")
+                @order.save
+                render json:  {status: 'SUCCESS', exchangeable_books: @exchangeable_books, wanted_book: @wanted_book, order: @order}, :include => { :user  =>  {:except => :password_digest} } , status: :ok
                 else
                     render json:  {status: 'FAIL', message: "Book not for exchange"}, status: :ok
             end
            end
-            ##After user chooses the books he agreed to exchange
-           def request_exchange
-            send_notification(current_user,"Book exchange request", "https://")
-           end
+          
 
         #### Delete Book ####
         def destroy
