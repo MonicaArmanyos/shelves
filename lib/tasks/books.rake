@@ -2,7 +2,7 @@ namespace :books do
   
     desc "Rake task to check if duration of sell by bids is finished "
   task :check_bid_duration => :environment do
-   @books_for_bids=Book.where(:transcation => 3).where(:is_available => 1)
+   @books_for_bids=Book.where(:transcation => 3).where(:is_available => 1).where(:bid_duration_state => 0)
    
     for book_for_bid in @books_for_bids
       if ! book_for_bid.bid_duration.eql? nil
@@ -18,6 +18,7 @@ namespace :books do
             body= "Bid duration is ended for #{book_for_bid.name} book."
             TasksController.send_notification(@seller_user ,body, "https://angularfirebase.com")
             TasksController.send_notification(@bid_user,"Congurations ,You Win bid for #{book_for_bid.name} book, Please wait for confirmation from the owner of book","https://angularfirebase.com")
+            book_for_bid.update(:bid_duration_state => 1)
           else
             puts "Fail"
           end
