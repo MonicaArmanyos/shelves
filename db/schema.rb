@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180609220314) do
+ActiveRecord::Schema.define(version: 20180611005536) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "namespace"
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 20180609220314) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "is_available"
+    t.boolean "is_available", default: true
     t.datetime "bid_duration"
     t.index ["category_id"], name: "index_books_on_category_id"
     t.index ["user_id"], name: "index_books_on_user_id"
@@ -93,6 +93,12 @@ ActiveRecord::Schema.define(version: 20180609220314) do
     t.bigint "category_id"
     t.index ["category_id"], name: "index_categories_users_on_category_id"
     t.index ["user_id"], name: "index_categories_users_on_user_id"
+  end
+
+  create_table "cities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "notification_messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

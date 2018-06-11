@@ -1,7 +1,7 @@
 ActiveAdmin.register Address do
    permit_params :region, :city, :street, :postal_code, :building_number, :user_id
    scope :all,default: true
-   config.per_page =6
+   config.per_page =9
     
   show do |address|
     attributes_table do
