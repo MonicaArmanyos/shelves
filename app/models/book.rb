@@ -16,6 +16,8 @@ class Book < ApplicationRecord
     where("name LIKE ? OR description LIKE ?", "%#{search}%", "%#{search}%") 
   end
 
+ 
+
     
     #### Mount image uploader
   mount_uploaders :images, ImageUploader

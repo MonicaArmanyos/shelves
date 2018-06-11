@@ -139,7 +139,7 @@ module Api::V1::Book
             @order.save
             render json:  {status: 'SUCCESS', exchangeable_books: @exchangeable_books, wanted_book: @wanted_book, order: @order}, :include => { :user  =>  {:except => :password_digest} } , status: :ok
             else
-                render json:  {status: 'FAIL', message: "Book not for exchange"}, status: :ok
+            render json:  {status: 'FAIL', message: "Book not for exchange"}, status: :ok
         end
         end
 
