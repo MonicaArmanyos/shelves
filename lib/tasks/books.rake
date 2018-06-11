@@ -19,6 +19,7 @@ namespace :books do
             TasksController.send_notification(@seller_user ,body, "https://angularfirebase.com")
             TasksController.send_notification(@bid_user,"Congurations ,You Win bid for #{book_for_bid.name} book, Please wait for confirmation from the owner of book","https://angularfirebase.com")
             book_for_bid.update(:bid_duration_state => 1)
+            
           else
             puts "Fail"
           end
