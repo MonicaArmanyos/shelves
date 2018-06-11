@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180609220314) do
+ActiveRecord::Schema.define(version: 20180611222031) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "namespace"
@@ -76,7 +76,6 @@ ActiveRecord::Schema.define(version: 20180609220314) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.json "images"
     t.boolean "is_available"
     t.datetime "bid_duration"
     t.index ["category_id"], name: "index_books_on_category_id"
@@ -94,6 +93,17 @@ ActiveRecord::Schema.define(version: 20180609220314) do
     t.bigint "category_id"
     t.index ["category_id"], name: "index_categories_users_on_category_id"
     t.index ["user_id"], name: "index_categories_users_on_user_id"
+  end
+
+  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.bigint "user_id"
+    t.bigint "book_id"
+    t.text "comment"
+    t.integer "like"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_comments_on_book_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "notification_messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -168,6 +178,8 @@ ActiveRecord::Schema.define(version: 20180609220314) do
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "comments", "books"
+  add_foreign_key "comments", "users"
   add_foreign_key "orders", "books"
   add_foreign_key "orders", "books", column: "exchangeable_book_id"
   add_foreign_key "orders", "users"
