@@ -2,7 +2,7 @@ module Api::V1::Book
 
     class Api::V1::Book::BooksController < ApplicationController
         
-        before_action :authenticate_request, only: [:recommended_books, :create, :update, :exchange, :destroy]
+        before_action :authenticate_request, only: [:recommended_books, :create, :update, :exchange, :destroy , :update_bid]
 
         #### Show all books and searched books #### 
         def index
@@ -69,6 +69,7 @@ module Api::V1::Book
 
         #### Create book ####
         def create
+            
             if @current_user
                 @user = @current_user
                 @book = Book.new(book_params)
@@ -144,14 +145,18 @@ module Api::V1::Book
 
         #### Update bid quantity and bid user for book ####
         def update_bid
+            #@current_user = AuthorizeApiRequest.call(request.headers).result
+            puts @current_user.name
             #check if book exist
             if Book.exists?(params[:id])
+                @book = Book.find(params[:id])
                # check book transcation
                 if @book.transcation.eql? "Sell By Bids"
                     #check if bid quatity is geater than the price of book
                     @user_bid_price=params[:price]
-                    if @user_bid_price >  @book.price
-
+                    if @user_bid_price.to_f >  @book.price.to_f
+                        @book.update(:price => @user_bid_price , :bid_user => @current_user.id)
+                        render json:  {status: 'SUCCESS', message: 'bid_price added successfully'} , status: :ok
                     else
                         render json: {status: 'FAIL', message: 'bid_price not valid'},status: :ok
                     end
