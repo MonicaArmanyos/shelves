@@ -1,6 +1,6 @@
 module Api::V1::Book
   class Api::V1::Book::OrdersController < ApplicationController
-    before_action :set_book, except: [:exchange_request, :confirm_exchange, :dismiss_exchange]
+    before_action :set_book, except: [:exchange_request, :confirm_exchange, :dismiss_exchange, :showOrders]
     before_action :authenticate_request
     def create
       @current_user = AuthorizeApiRequest.call(request.headers).result
@@ -68,17 +68,23 @@ module Api::V1::Book
         end
        end
        def dismiss_exchange
-        @order = Order.find(params[:id])
-        @book = Book.find(@order.book_id)
-        @book.is_available = 1
-        @book.save
-        if @order.state == "confirmed"
-          render json:{status: 'FAIL', message: 'order has already been confirmed'},status: :ok
-        elsif @order.destroy!
-          user = User.find(@order.user_id)
-           #send_notification(user, @order.user_id + " doesn\'t want to exchange books", "https://www.google.com")
-          render json:{status: 'SUCCESS', message: 'Order to exchange is cancelled'},status: :ok
-        end
+          @order = Order.find(params[:id])
+          @book = Book.find(@order.book_id)
+          @book.is_available = 1
+          @book.save
+          if @order.state == "confirmed"
+            render json:{status: 'FAIL', message: 'order has already been confirmed'},status: :ok
+          elsif @order.destroy!
+            user = User.find(@order.user_id)
+            #send_notification(user, @order.user_id + " doesn\'t want to exchange books", "https://www.google.com")
+            render json:{status: 'SUCCESS', message: 'Order to exchange is cancelled'},status: :ok
+          end
+       end
+       def showOrders
+        @user = User.find(params[:id])
+        @order_as_client = @user.orders
+        @order_as_seller = Order.where(seller_id: @user.id)
+        render json:{status: 'SUCCESS', orders_as_a_client: @order_as_client, orders_as_a_seller: @order_as_seller},status: :ok
        end
     private
     def set_book
