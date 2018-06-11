@@ -1,5 +1,23 @@
 ActiveAdmin.register Comment do
-    permit_params :name
-    scope :all,default: true
-    config.per_page =9
-  end    
+  permit_params :comment, :user_id, :book_id
+  scope :all,default: true
+  config.per_page =9
+  
+  show do |comment|
+    attributes_table do
+      row :comment
+    end 
+    attributes_table do
+      row :user
+      row :book
+    end 
+    attributes_table do
+      row :like
+    end
+    attributes_table do
+      row :created_at
+      row :updated_at
+    end  
+    active_admin_comments
+  end  
+end    
