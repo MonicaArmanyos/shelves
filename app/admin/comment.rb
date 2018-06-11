@@ -20,4 +20,15 @@ ActiveAdmin.register Comment do
     end  
     active_admin_comments
   end  
+  form do |f|
+    f.semantic_errors
+    f.inputs do
+      f.input :user
+      f.input :book
+    end
+    f.inputs do 
+      f.input :comment
+    end
+    f.actions
+  end
 end    
