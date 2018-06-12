@@ -118,7 +118,8 @@ module Api::V1::Book
             if @current_user.id == @book.user_id
                if @book.update(book_params)
                    params[:book][:book_images_attributes].each do |file|
-                       @book.book_images.uodate!(:image => file)
+                    #delete book
+                       @book.book_images.create!(:image => file)
                    end
                    render json: {status: 'SUCCESS', message: 'Book successfully updated', book:@book},status: :ok
                else
@@ -128,9 +129,6 @@ module Api::V1::Book
                render json: {status: 'FAIL', message: 'Un authorized', error:@book.errors},status: :ok
            end
            end 
-
-         
-          
 
         #### Delete Book ####
         def destroy

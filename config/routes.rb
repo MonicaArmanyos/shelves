@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
   namespace 'api' do
     namespace 'v1' do
 
@@ -25,9 +24,11 @@ Rails.application.routes.draw do
               put 'update_bid', to: 'books#update_bid'
             end
             resources :orders
+            resources :comments
              #route of :  request_exchange
             # /api/v1/book/books/:id/exchange_request
             member do
+              get 'myorders', to: 'orders#showOrders' 
               post 'exchange_request', to: 'orders#exchange_request'
               post 'confirm_exchange', to: 'orders#confirm_exchange'
               delete 'dismiss_exchange', to: 'orders#dismiss_exchange'
@@ -44,15 +45,18 @@ Rails.application.routes.draw do
           end
 
         end
+       
 
         namespace 'user' do 
           resources :password_resets, only: [:create, :update]
           resources :users,  except: [:index, :destroy, :create, :new, :edit] do
+            resources :user_rates
             collection do
               post 'login', to: 'authentication#authenticate', :as => "login"
                 post 'signup', to: 'users#create', :as => "signup"
                 get '', to: 'users#show'
                 get 'get_all_book_stores' => 'users#get_all_book_stores'
+                get 'cites', to: 'users#getCities', :as => "city"
               end
               #/users/:confirm_tocken/confirm_email
               member do

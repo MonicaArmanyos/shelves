@@ -6,10 +6,6 @@ class ApplicationController < ActionController::Base
     helper_method :send_notification
     private
   
-    def authenticate_request
-      @current_user = AuthorizeApiRequest.call(request.headers).result
-      render json: { error: 'Not Authorized' }, status: 401 unless @current_user
-    end
     #### server Key configuration of firebase project ####
     def initialize()
         @serverkey  = "key=AAAAq-c6jdw:APA91bGwWnR9kGSuysCBBj_t0Il2Ka8V6OfnRL3wa7iM8OfoS6ACFKwWdnnre03fbvVikSh-U0AE60pT0wckepDIvzZZc_5owF9ZUarxfJP-0jw9p2eVUzMvfuSxFX9D6G_IsR8svcTu"
