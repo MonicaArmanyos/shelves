@@ -8943,3 +8943,238 @@ Processing by Api::V1::User::UserRatesController#create as JSON
 Completed 200 OK in 197ms (Views: 0.4ms | ActiveRecord: 182.4ms)
 
 
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('6965469184171088535', 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateWorkSpaces (20180612101412)
+  [1m[35m (278.7ms)[0m  [1m[35mCREATE TABLE `work_spaces` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `email` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180612101412')[0m
+  [1m[35m (25.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('6965469184171088535')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started PUT "/api/v1/user/users/3" for 127.0.0.1 at 2018-06-12 12:24:59 +0200
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by Api::V1::User::UsersController#update as JSON
+  Parameters: {"name"=>"Monica Magdy", "phone"=>{"0"=>"01207843890", "1"=>"01201281227"}, "building_number"=>{"0"=>"61"}, "street"=>{"0"=>"Ismael Sery"}, "region"=>{"0"=>"smouha"}, "city"=>{"0"=>"alex"}, "postal_code"=>{"0"=>"78965"}, "Science fiction"=>"true", "Satire"=>"true", "id"=>"3"}
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 11ms (Views: 5.1ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/api/v1/user/users/2" for 127.0.0.1 at 2018-06-12 12:25:19 +0200
+Processing by Api::V1::User::UsersController#update as JSON
+  Parameters: {"name"=>"Monica Magdy", "phone"=>{"0"=>"01207843890", "1"=>"01201281227"}, "building_number"=>{"0"=>"61"}, "street"=>{"0"=>"Ismael Sery"}, "region"=>{"0"=>"smouha"}, "city"=>{"0"=>"alex"}, "postal_code"=>{"0"=>"78965"}, "Science fiction"=>"true", "Satire"=>"true", "id"=>"2"}
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/api/v1/user/users/2" for 127.0.0.1 at 2018-06-12 12:27:01 +0200
+Processing by Api::V1::User::UsersController#update as JSON
+  Parameters: {"name"=>"Monica Magdy", "phone"=>{"0"=>"01207843890", "1"=>"01201281227"}, "building_number"=>{"0"=>"61"}, "street"=>{"0"=>"Ismael Sery"}, "region"=>{"0"=>"smouha"}, "city"=>{"0"=>"alex"}, "postal_code"=>{"0"=>"78965"}, "Science fiction"=>"true", "Satire"=>"true", "id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Unpermitted parameters: :phone, :building_number, :street, :region, :city, :postal_code, :Science fiction, :Satire, :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'monicamagdy70@gmail.com' AND (`users`.`id` != 2) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE `users` SET `name` = 'Monica Magdy', `updated_at` = '2018-06-12 10:27:01' WHERE `users`.`id` = 2[0m
+  [1m[35m (131.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhone Load (0.6ms)[0m  [1m[34mSELECT `phones`.* FROM `phones` WHERE `phones`.`user_id` = 2[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `phones` (`user_id`, `phone`, `created_at`, `updated_at`) VALUES (2, '01207843890', '2018-06-12 10:27:01', '2018-06-12 10:27:01')[0m
+  [1m[35m (35.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO `phones` (`user_id`, `phone`, `created_at`, `updated_at`) VALUES (2, '01201281227', '2018-06-12 10:27:01', '2018-06-12 10:27:01')[0m
+  [1m[35m (80.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mAddress Load (0.7ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses` WHERE `addresses`.`user_id` = 2[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `addresses` (`user_id`, `building_number`, `street`, `region`, `city`, `postal_code`, `created_at`, `updated_at`) VALUES (2, 61, 'Ismael Sery', 'smouha', 'alex', '78965', '2018-06-12 10:27:02', '2018-06-12 10:27:02')[0m
+  [1m[35m (31.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCategory Load (13.6ms)[0m  [1m[34mSELECT `categories`.* FROM `categories` INNER JOIN `categories_users` ON `categories`.`id` = `categories_users`.`category_id` WHERE `categories_users`.`user_id` = 2[0m
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `categories_users` (`user_id`, `category_id`) VALUES (2, 3)[0m
+  [1m[35m (32.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhone Load (0.6ms)[0m  [1m[34mSELECT `phones`.* FROM `phones` WHERE `phones`.`user_id` = 2[0m
+  [1m[36mAddress Load (0.5ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses` WHERE `addresses`.`user_id` = 2[0m
+Completed 200 OK in 557ms (Views: 11.4ms | ActiveRecord: 385.8ms)
+
+
+Started PUT "/api/v1/user/users/2" for 127.0.0.1 at 2018-06-12 12:38:58 +0200
+Processing by Api::V1::User::UsersController#update as JSON
+  Parameters: {"building_number"=>"61", "street"=>"Ismael Sery", "region"=>"smouha", "city"=>"alex", "postal_code"=>"0020", "id"=>"2"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Unpermitted parameters: :building_number, :street, :region, :city, :postal_code, :id
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'monicamagdy70@gmail.com' AND (`users`.`id` != 2) LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 68ms (ActiveRecord: 5.9ms)
+
+
+  
+NoMethodError (undefined method `values' for "61":String):
+  
+app/controllers/api/v1/user/users_controller.rb:59:in `update'
+Started POST "/api/v1/user/users/signup" for 127.0.0.1 at 2018-06-12 16:02:08 +0200
+  [1m[35m (36.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by Api::V1::User::UsersController#create as JSON
+  Parameters: {"name"=>"Monica M ", "email"=>"sci.monicamagdy2016@alexu.edu.eg", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "role"=>"Normal user"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'sci.monicamagdy2016@alexu.edu.eg' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 119ms (ActiveRecord: 29.3ms)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Email has already been taken):
+  
+app/controllers/api/v1/user/users_controller.rb:8:in `create'
+Started POST "/api/v1/user/users/signup" for 127.0.0.1 at 2018-06-12 16:03:33 +0200
+Processing by Api::V1::User::UsersController#create as JSON
+  Parameters: {"name"=>"Monica M ", "email"=>"sci.monicamagdy2019@alexu.edu.eg", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "role"=>"Normal user"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'sci.monicamagdy2019@alexu.edu.eg' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 62ms (ActiveRecord: 0.7ms)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Password confirmation doesn't match Password):
+  
+app/controllers/api/v1/user/users_controller.rb:8:in `create'
+Started POST "/api/v1/user/users/signup" for 127.0.0.1 at 2018-06-12 16:05:38 +0200
+Processing by Api::V1::User::UsersController#create as JSON
+  Parameters: {"name"=>"Monica M ", "email"=>"sci.monicamagdy2019@alexu.edu.eg", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "role"=>"Normal user"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'sci.monicamagdy2019@alexu.edu.eg' LIMIT 1[0m
+  [1m[35mSQL (14.5ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `password_digest`, `role`, `confirm_token`, `created_at`, `updated_at`) VALUES ('Monica M ', 'sci.monicamagdy2019@alexu.edu.eg', '$2a$10$yBUU6OlUKpSMMZww0rN20epVQAVoqlBdpnOY/Hu7ZOgHCWIeTJwZO', 0, 'cnCy5AV5Drsx8Gw8UXjKmw', '2018-06-12 14:05:38', '2018-06-12 14:05:38')[0m
+  [1m[35m (35.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (23.5ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'sci.monicamagdy2019@alexu.edu.eg' AND (`users`.`id` != 5) LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  Rendering user_mailer/registration_confirmation.html.erb
+  Rendered user_mailer/registration_confirmation.html.erb (13.3ms)
+UserMailer#registration_confirmation: processed outbound mail in 240.5ms
+Sent mail to sci.monicamagdy2019@alexu.edu.eg (3959.1ms)
+Date: Tue, 12 Jun 2018 16:05:38 +0200
+From: noreply@shelves.com
+To: Monica M <sci.monicamagdy2019@alexu.edu.eg>
+Message-ID: <5b1fd332ee26e_f4c35095bc7453e@monica-Lenovo-ideapad-700-15ISK.mail>
+Subject: Email Confirmation
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi Monica M ,<br/>
+Thanks for registering at Shelves! To confirm your registration , Please click this link :
+
+<a href="http://localhost:3000/users/cnCy5AV5Drsx8Gw8UXjKmw/confirm_email"> Activate from here </a>
+<br/>
+Regards,<br/>
+Shelves Team
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'sci.monicamagdy2019@alexu.edu.eg' LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'sci.monicamagdy2019@alexu.edu.eg' LIMIT 1[0m  [["email", "sci.monicamagdy2019@alexu.edu.eg"], ["LIMIT", 1]]
+Completed 201 Created in 4826ms (Views: 2.4ms | ActiveRecord: 77.0ms)
+
+
+Started POST "/api/v1/user/users/signup" for 127.0.0.1 at 2018-06-12 16:05:51 +0200
+Processing by Api::V1::User::UsersController#create as JSON
+  Parameters: {"name"=>"Monica M ", "email"=>"sci.monicamagdy2016@alexu.edu.eg", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "role"=>"Normal user"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'sci.monicamagdy2016@alexu.edu.eg' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 63ms (ActiveRecord: 0.8ms)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Email has already been taken):
+  
+app/controllers/api/v1/user/users_controller.rb:8:in `create'
+Started POST "/api/v1/user/users/signup" for 127.0.0.1 at 2018-06-12 16:06:28 +0200
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by Api::V1::User::UsersController#create as JSON
+  Parameters: {"name"=>"Monica M ", "email"=>"sci.monicamagdy2016@alexu.edu.eg", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "role"=>"Normal user"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'sci.monicamagdy2016@alexu.edu.eg' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 71ms (ActiveRecord: 1.6ms)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Email has already been taken):
+  
+app/controllers/api/v1/user/users_controller.rb:8:in `create'
+Started POST "/api/v1/user/users/signup" for 127.0.0.1 at 2018-06-12 16:09:04 +0200
+Processing by Api::V1::User::UsersController#create as JSON
+  Parameters: {"name"=>"Monica M ", "email"=>"sci.monicamagdy2016@alexu.edu.eg", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "role"=>"Normal user"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'sci.monicamagdy2016@alexu.edu.eg' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 69ms (ActiveRecord: 2.0ms)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Email has already been taken):
+  
+app/controllers/api/v1/user/users_controller.rb:8:in `create'
+Started POST "/api/v1/user/users/signup" for 127.0.0.1 at 2018-06-12 16:10:12 +0200
+Processing by Api::V1::User::UsersController#create as JSON
+  Parameters: {"name"=>"Monica M ", "email"=>"sci.monicamagdy2016@alexu.edu.eg", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "role"=>"Normal user"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'sci.monicamagdy2016@alexu.edu.eg' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 200 OK in 77ms (Views: 2.7ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/api/v1/user/users/signup" for 127.0.0.1 at 2018-06-12 16:10:28 +0200
+Processing by Api::V1::User::UsersController#create as JSON
+  Parameters: {"name"=>"Monica M ", "email"=>"sci.monicamagdy206@alexu.edu.eg", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "role"=>"Normal user"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'sci.monicamagdy206@alexu.edu.eg' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `password_digest`, `role`, `confirm_token`, `created_at`, `updated_at`) VALUES ('Monica M ', 'sci.monicamagdy206@alexu.edu.eg', '$2a$10$a6eRzhy04/DKpQVX2gVhJOHDwMNak7n9K1PCNEYyxEZ12WO7X3c72', 0, 'rtc9esWKI1QfApyfRquNHg', '2018-06-12 14:10:28', '2018-06-12 14:10:28')[0m
+  [1m[35m (62.9ms)[0m  [1m[35mCOMMIT[0m
+  Rendering user_mailer/registration_confirmation.html.erb
+  Rendered user_mailer/registration_confirmation.html.erb (0.9ms)
+UserMailer#registration_confirmation: processed outbound mail in 117.6ms
+Sent mail to sci.monicamagdy206@alexu.edu.eg (2955.8ms)
+Date: Tue, 12 Jun 2018 16:10:28 +0200
+From: noreply@shelves.com
+To: Monica M <sci.monicamagdy206@alexu.edu.eg>
+Message-ID: <5b1fd454def15_107033f38f849548@monica-Lenovo-ideapad-700-15ISK.mail>
+Subject: Email Confirmation
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi Monica M ,<br/>
+Thanks for registering at Shelves! To confirm your registration , Please click this link :
+
+<a href="http://localhost:3000/users/rtc9esWKI1QfApyfRquNHg/confirm_email"> Activate from here </a>
+<br/>
+Regards,<br/>
+Shelves Team
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'sci.monicamagdy206@alexu.edu.eg' LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'sci.monicamagdy206@alexu.edu.eg' LIMIT 1[0m  [["email", "sci.monicamagdy206@alexu.edu.eg"], ["LIMIT", 1]]
+Completed 201 Created in 3425ms (Views: 1.8ms | ActiveRecord: 64.1ms)
+
+
+Started POST "/api/v1/user/users/signup" for 127.0.0.1 at 2018-06-12 16:11:11 +0200
+Processing by Api::V1::User::UsersController#create as JSON
+  Parameters: {"name"=>"Monica M ", "email"=>"sci.monicamagdy20@alexu.edu.eg", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "role"=>"Normal user"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'sci.monicamagdy20@alexu.edu.eg' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 200 OK in 69ms (Views: 4.5ms | ActiveRecord: 0.7ms)
+
+
