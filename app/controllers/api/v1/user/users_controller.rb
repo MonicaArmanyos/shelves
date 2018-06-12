@@ -123,6 +123,13 @@ module Api::V1::User
             render json: {status: 'FAIL', message: 'user not found'},status: :ok
         end
       end
+      
+      #### get cities ###
+      def getCities
+        @cities = City.all
+        render json: {status: 'SUCCESS',cities: @cities},status: :ok
+      end
+      
       private
       #### Authentication of user ####
       def authenticate_request
