@@ -56,31 +56,29 @@ module Api::V1::User
            
           end # end if 
         if params[:building_number]
-          b_number = params[:building_number].values
-          st=params[:street].values
-          reg=params[:region].values
-          newCity = params[:city].values
-          code = params[:postal_code].values
+          b_number = params[:building_number]
+          st=params[:street]
+          reg=params[:region]
+          newCity = params[:city]
+          code = params[:postal_code]
           @addresses= Address.where(user_id: @user.id )
           @addresses.each do |oldAddr|
-            if b_number.include?(oldAddr.building_number.to_s) == false || st.include?(oldAddr.street) == false || reg.include?(oldAddr.region) == false || newCity.include?(oldAddr.city) == false ||  code.include?(oldAddr.postal_code) == false 
+            if b_number != (oldAddr.building_number.to_s) || st != (oldAddr.street)  || reg != (oldAddr.region) || newCity != (oldAddr.city) ||  code != (oldAddr.postal_code) 
               oldAddr.destroy
             end  #end if
           end #end do
-          i=0
-          b_number.each do |bno|
+        
             flag = 0 #flag is 0 if new address is not included in old ones
             @addresses.each do |oldAddress|
-              if bno == oldAddress.building_number.to_s && st[i] == oldAddress.street && reg[i] == oldAddress.region && newCity[i] == oldAddress.city && code[i] == oldAddress.postal_code.to_s
+              if b_number == oldAddress.building_number.to_s && st == oldAddress.street && reg == oldAddress.region && newCity == oldAddress.city && code == oldAddress.postal_code.to_s
                 flag = 1
             end #end if 
             end #end do 
             if flag == 0
-              @address = Address.new(user_id: @user.id, building_number: bno, street: st[i], region: reg[i], city: newCity[i], postal_code: code[i])
+              @address = Address.new(user_id: @user.id, building_number: b_number, street: st, region: reg, city: newCity, postal_code: code)
               @address.save
             end 
-        i+=1
-          end #end do
+        
         end #end if 
         @user.categories.each do |userCateg|
           if params[userCateg.name] == nil
