@@ -16,6 +16,12 @@ class Book < ApplicationRecord
     where("name LIKE ? OR description LIKE ?", "%#{search}%", "%#{search}%") 
   end
 
+
+    #### Search For Books by Category ####
+    def self.search_by_category(search)
+      where("category_id LIKE ?", "%#{search}%") 
+    end
+
  
 
     

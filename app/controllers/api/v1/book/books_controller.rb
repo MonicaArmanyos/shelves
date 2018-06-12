@@ -9,14 +9,29 @@ module Api::V1::Book
             @books_all = Book.all
             if params[:search]
               @searched_books = Book.search(params[:search]).order("created_at DESC").page params[:page]
-              render json: @searched_books,
-              meta: {
-                pagination: {
-                  per_page: 5,
-                  total_pages: Book.search(params[:search]).count/5,
-                  total_objects: Book.search(params[:search]).count
-                }
-              }
+                    if @searched_books.count != 0
+                    render json: @searched_books,
+                    meta: {
+                        pagination: {
+                        per_page: 5,
+                        total_pages: Book.search(params[:search]).count/5,
+                        total_objects: Book.search(params[:search]).count
+                        }
+                    }
+                else
+                    render json: {status: 'FAil', message: 'No result Found'},status: :ok
+                    end
+            elsif params[:category]
+                @books_by_category = Book.search_by_category(params[:category]).order("created_at DESC").page params[:page]
+                render json: @books_by_category,
+                meta: {
+                  pagination: {
+                    per_page: 5,
+                    total_pages: Book.search_by_category(params[:category]).count/5,
+                    total_objects: Book.search_by_category(params[:category]).count
+                  }
+                } 
+
             else
               @books = Book.all.order('created_at DESC').page(params[:page]).per(5)
               render json: @books,
