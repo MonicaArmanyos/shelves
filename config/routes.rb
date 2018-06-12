@@ -36,7 +36,13 @@ Rails.application.routes.draw do
         end
 
         namespace 'category' do
-          resources :categories
+          resources :categories do
+             # /api/v1/category/categories/:id/get_books_for_category
+             member do
+              get 'get_books_for_category', to: 'categories#get_books_for_category'
+            end
+          end
+
         end
 
         namespace 'user' do 
