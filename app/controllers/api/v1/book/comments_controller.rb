@@ -1,9 +1,9 @@
 module Api::V1::Book
   class Api::V1::Book::CommentsController < ApplicationController
    
-    before_action :set_book, only: [:create, :destroy]
+    before_action :set_book, only: [:create, :destroy, :update]
     before_action :authenticate_request, only: [:create, :destroy]
-    before_action :set_comment, only: [:destroy]
+    before_action :set_comment, only: [:destroy, :update]
 
     def create
       # check user if authenticate or not  
@@ -27,18 +27,25 @@ module Api::V1::Book
       #@comments=Comment.where(book_id: params[:id])
       #render json: {status: 'SUCCESS', message: 'return', comments: {id: @comment.id, comment: @comment.comment, user: @current_user.name, created_at: @comment.created_at.strftime("%B %e, %Y at %I:%M %p") }},status: :ok    
     #end    
+    #def update
+        
+    #end
+
     def destroy
-       # check if user has permationto delete this comment (owner) 
-      if @current_user.id == @comment.user_id
-        # check if comment deleted or not
-         if @comment.destroy
+      # check user if authenticate or not  
+      if @current_user
+        # check if user has permationto delete this comment (owner) 
+        if @current_user.id == @comment.user_id
+          # check if comment deleted or not
+          if @comment.destroy
             render json: {status: 'SUCCESS', message: 'comment successfully deleted', comment: {}},status: :ok    
-         else
+          else
             render json: {status: 'FAIL', message: 'you can\'t delete this comment', error:@comment.errors},status: :ok               
-         end   
-      else
-        render json: {status: 'FAIL', message: 'you can\'t delete this comment', error:{}},status: :ok               
-      end    
+          end   
+        else
+          render json: {status: 'FAIL', message: 'you can\'t delete this comment', error:{}},status: :ok               
+        end 
+      end     
     end   
 
     private
@@ -48,6 +55,7 @@ module Api::V1::Book
     #### Authentication of user ####
     def authenticate_request
       @current_user = AuthorizeApiRequest.call(request.headers).result
+      render json: { error: 'Not Authorized' }, status: 401 unless @current_user
     end
     def set_comment
       @comment= Comment.find(params[:id])

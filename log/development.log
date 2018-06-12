@@ -6911,3 +6911,151 @@ Processing by Api::V1::Book::CommentsController#destroy as */*
 Completed 200 OK in 23ms (Views: 12.6ms | ActiveRecord: 2.7ms)
 
 
+Started DELETE "/api/v1/book/books/3/comments/8" for 127.0.0.1 at 2018-06-12 03:37:42 +0200
+Processing by Api::V1::Book::CommentsController#destroy as */*
+  Parameters: {"text/plain"=>[""], "book_id"=>"3", "id"=>"8"}
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 8 LIMIT 1[0m
+Completed 500 Internal Server Error in 88ms (ActiveRecord: 29.5ms)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/api/v1/book/comments_controller.rb:36:in `destroy'
+Started GET "/admin/comments" for 127.0.0.1 at 2018-06-12 03:38:11 +0200
+Processing by Admin::CommentsController#index as HTML
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `comments`[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `comments` LIMIT 9 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `comments` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `comments`[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `comments` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` ORDER BY `comments`.`id` desc LIMIT 9 OFFSET 0[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (375.0ms)
+Completed 200 OK in 503ms (Views: 370.8ms | ActiveRecord: 63.7ms)
+
+
+Started GET "/assets/active_admin-365d7294774f2338299dafe5cec179b41884dcb3cd74805114a47f5dbc830c13.css" for 127.0.0.1 at 2018-06-12 03:38:12 +0200
+Started GET "/assets/active_admin/print-b05a0449174c4e0e939ecab3483d5b7389c188baae07f7b99af2da69df0243d9.css" for 127.0.0.1 at 2018-06-12 03:38:12 +0200
+Started GET "/assets/active_admin-e670a4b09c70a1cf0e546e3cc233273ec00d44a2fe841969cac0562998dbec41.js" for 127.0.0.1 at 2018-06-12 03:38:12 +0200
+Started GET "/assets/active_admin/orderable-29374dbb55b0012d78a37c614d573bb3474f0779849b478a147d0f1845ca6617.png" for 127.0.0.1 at 2018-06-12 03:38:12 +0200
+Started DELETE "/api/v1/book/books/3/comments/8" for 127.0.0.1 at 2018-06-12 03:39:03 +0200
+Processing by Api::V1::Book::CommentsController#destroy as */*
+  Parameters: {"text/plain"=>[""], "book_id"=>"3", "id"=>"8"}
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 8 LIMIT 1[0m
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 1.5ms)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/api/v1/book/comments_controller.rb:36:in `destroy'
+Started DELETE "/api/v1/book/books/3/comments/8" for 127.0.0.1 at 2018-06-12 03:43:08 +0200
+Processing by Api::V1::Book::CommentsController#destroy as */*
+  Parameters: {"text/plain"=>[""], "book_id"=>"3", "id"=>"8"}
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 8 LIMIT 1[0m
+No template found for Api::V1::Book::CommentsController#destroy, rendering head :no_content
+Completed 204 No Content in 181ms (ActiveRecord: 1.3ms)
+
+
+Started DELETE "/api/v1/book/books/3/comments/8" for 127.0.0.1 at 2018-06-12 03:44:02 +0200
+Processing by Api::V1::Book::CommentsController#destroy as */*
+  Parameters: {"text/plain"=>[""], "book_id"=>"3", "id"=>"8"}
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 8 LIMIT 1[0m
+No template found for Api::V1::Book::CommentsController#destroy, rendering head :no_content
+Completed 204 No Content in 180ms (ActiveRecord: 1.3ms)
+
+
+Started DELETE "/api/v1/book/books/3/comments/8" for 127.0.0.1 at 2018-06-12 03:46:13 +0200
+Processing by Api::V1::Book::CommentsController#destroy as */*
+  Parameters: {"text/plain"=>[""], "book_id"=>"3", "id"=>"8"}
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 8 LIMIT 1[0m
+  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (23.6ms)[0m  [1m[31mDELETE FROM `comments` WHERE `comments`.`id` = 8[0m
+  [1m[35m (84.6ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 213ms (Views: 20.2ms | ActiveRecord: 114.9ms)
+
+
+Started POST "/api/v1/book/books/3/orders" for 127.0.0.1 at 2018-06-12 03:46:59 +0200
+Processing by Api::V1::Book::OrdersController#create as */*
+  Parameters: {"quantity"=>"2", "book_id"=>"3"}
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (30.0ms)[0m  [1m[32mINSERT INTO `orders` (`user_id`, `book_id`, `seller_id`, `state`, `transcation`, `price`, `created_at`, `updated_at`, `quantity`) VALUES (6, 3, 2, 0, 0, 20.0, '2018-06-12 01:46:59', '2018-06-12 01:46:59', 2)[0m
+  [1m[35m (229.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+Completed 500 Internal Server Error in 352ms (ActiveRecord: 301.1ms)
+
+
+  
+TypeError (no implicit conversion of nil into String):
+  
+app/controllers/application_controller.rb:24:in `+'
+app/controllers/application_controller.rb:24:in `send_notification'
+app/controllers/api/v1/book/orders_controller.rb:29:in `create'
+Started DELETE "/api/v1/book/books/3/comments/8" for 127.0.0.1 at 2018-06-12 03:48:52 +0200
+Processing by Api::V1::Book::CommentsController#destroy as */*
+  Parameters: {"text/plain"=>[""], "book_id"=>"3", "id"=>"8"}
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 8 LIMIT 1[0m
+Completed 404 Not Found in 4ms (ActiveRecord: 1.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Comment with 'id'=8):
+  
+app/controllers/api/v1/book/comments_controller.rb:60:in `set_comment'
+Started DELETE "/api/v1/book/books/3/comments/4" for 127.0.0.1 at 2018-06-12 03:49:08 +0200
+Processing by Api::V1::Book::CommentsController#destroy as */*
+  Parameters: {"text/plain"=>[""], "book_id"=>"3", "id"=>"4"}
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 4 LIMIT 1[0m
+No template found for Api::V1::Book::CommentsController#destroy, rendering head :no_content
+Completed 204 No Content in 93ms (ActiveRecord: 1.2ms)
+
+
+Started DELETE "/api/v1/book/books/3/comments/4" for 127.0.0.1 at 2018-06-12 03:50:55 +0200
+Processing by Api::V1::Book::CommentsController#destroy as */*
+  Parameters: {"text/plain"=>[""], "book_id"=>"3", "id"=>"4"}
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 39ms (Views: 4.0ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/api/v1/book/books/3/comments/4" for 127.0.0.1 at 2018-06-12 03:51:15 +0200
+Processing by Api::V1::Book::CommentsController#destroy as */*
+  Parameters: {"text/plain"=>[""], "book_id"=>"3", "id"=>"4"}
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 4 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (23.8ms)[0m  [1m[31mDELETE FROM `comments` WHERE `comments`.`id` = 4[0m
+  [1m[35m (32.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 129ms (Views: 6.9ms | ActiveRecord: 64.6ms)
+
+
