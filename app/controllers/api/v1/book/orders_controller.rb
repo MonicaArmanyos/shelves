@@ -76,7 +76,12 @@ module Api::V1::Book
         end
        end
 
-
+      ####  Show order details ####
+      def show 
+        puts params[:id]
+        @order = Order.find(params[:id])
+        render json:{status: 'SUCCESS', message: 'Order details loaded successfully',order: @order},status: :ok
+      end
        
 
     private
