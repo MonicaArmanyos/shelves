@@ -52,6 +52,7 @@ Rails.application.routes.draw do
               post 'login', to: 'authentication#authenticate', :as => "login"
                 post 'signup', to: 'users#create', :as => "signup"
                 get '', to: 'users#show'
+                get 'get_all_book_stores' => 'users#get_all_book_stores'
               end
               #/users/:confirm_tocken/confirm_email
               member do
