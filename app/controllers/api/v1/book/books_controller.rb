@@ -7,6 +7,11 @@ module Api::V1::Book
         #### Show all books and searched books #### 
         def index
             @books_all = Book.all
+            if (params[:page]).eql? nil
+                current_page=1
+            else
+                current_page=(params[:page])
+            end
             if params[:search]
               @searched_books = Book.search(params[:search]).order("created_at DESC").page params[:page]
                     if @searched_books.count != 0
@@ -14,8 +19,8 @@ module Api::V1::Book
                     meta: {
                         pagination: {
                         per_page: 5,
-                        current_page:(params[:page]),
-                        total_pages: Book.search(params[:search]).count/5,
+                        current_page: current_page.to_i,
+                        total_pages: (Book.search(params[:search]).count.to_f/5).ceil,
                         total_objects: Book.search(params[:search]).count
                         }
                     }
@@ -29,9 +34,9 @@ module Api::V1::Book
                 render json: @books_by_category,
                 meta: {
                   pagination: {
-                    per_page: 3,
-                    current_page:(params[:page]),
-                    total_pages: Book.where(:Category_id => params[:category]).count/3,
+                    per_page: 5,
+                    current_page: current_page.to_i,
+                    total_pages: (Book.where(:Category_id => params[:category]).count.to_f/5).ceil,
                     total_objects: Book.where(:Category_id => params[:category]).count
                   }
                 }
@@ -42,12 +47,13 @@ module Api::V1::Book
 
             else
               @books = Book.all.order('created_at DESC').page(params[:page]).per(5)
+              
               render json: @books,
               meta: {
                 pagination: {
                   per_page: 5,
-                  current_page:(params[:page]),
-                  total_pages: @books_all.count/5,
+                  current_page: current_page.to_i,
+                  total_pages: (@books_all.count.to_f/5).ceil,
                   total_objects:@books_all.count
                 }
               }
