@@ -94,7 +94,8 @@ module Api::V1::Book
             if @current_user.id == @book.user_id
                if @book.update(book_params)
                    params[:book][:book_images_attributes].each do |file|
-                       @book.book_images.uodate!(:image => file)
+                    #delete book
+                       @book.book_images.create!(:image => file)
                    end
                    render json: {status: 'SUCCESS', message: 'Book successfully updated', book:@book},status: :ok
                else
@@ -117,7 +118,7 @@ module Api::V1::Book
                         @exchangeable_books << book
                     end
                 end
-                @wanted_book.is_available = 0
+                
                 @wanted_book.save
                 @order = Order.new(user_id: @current_user.id, book_id: @wanted_book.id, seller_id: @wanted_book.user_id, state: "under confirmed", transcation: "Exchange")
                 @order.save

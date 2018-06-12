@@ -21,7 +21,8 @@ Rails.application.routes.draw do
             member do
               get 'exchange', to: 'books#exchange'
             end
-            resources :orders 
+            resources :orders
+            resources :comments
              #route of :  request_exchange
             # /api/v1/book/books/:id/exchange_request
             member do
@@ -41,6 +42,7 @@ Rails.application.routes.draw do
         namespace 'user' do 
           resources :password_resets, only: [:create, :update]
           resources :users,  except: [:index, :destroy, :create, :new, :edit] do
+            resources :user_rates
             collection do
               post 'login', to: 'authentication#authenticate', :as => "login"
                 post 'signup', to: 'users#create', :as => "signup"

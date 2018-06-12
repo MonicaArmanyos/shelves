@@ -7,7 +7,7 @@ module Api::V1::Book
             @rate.user_id = current_user.id 
             if @rate.save
                 #@rate = Rate.where(book_id: params[:book_id]).average("rate")
-                @rate =@book.rates.average("rate")
+                @rate = @book.rates.average("rate")
                 puts @rate
                 @book.update(:rate => @rate)
                 #puts @rate

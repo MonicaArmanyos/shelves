@@ -5,7 +5,7 @@ module Api::V1::User
       # POST /signup
       # return authenticated token upon signup
       def create
-        @user = User.create!(user_params)
+        @user = User.new(user_params)
         #@user.profile_picture = "/assets/images/default_profile.jpg"
         if @user.save
           UserMailer.registration_confirmation(@user).deliver
@@ -13,7 +13,7 @@ module Api::V1::User
         response = {status: 'SUCCESS', message: Message.account_created, auth_token: auth_token }
         render json: response, status: :created
       else
-          head(:unprocessable_entity)
+        render json: {status: 'FAIL', message: "Email already taken or passwords don\'t match"}, status: :ok
         end
       end
 
