@@ -6752,3 +6752,162 @@ Processing by Api::V1::Book::CommentsController#create as */*
 Completed 200 OK in 160ms (Views: 8.3ms | ActiveRecord: 46.6ms)
 
 
+Started GET "/admin/comments" for 127.0.0.1 at 2018-06-12 03:28:00 +0200
+Processing by Admin::CommentsController#index as HTML
+  [1m[36mAdminUser Load (1.0ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `comments`[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `comments` LIMIT 9 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `comments` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM `comments`[0m
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `comments` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[36mComment Load (1.4ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` ORDER BY `comments`.`id` desc LIMIT 9 OFFSET 0[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (5.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mCACHE Book Load (0.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
+  [1m[36mCACHE Book Load (0.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Book Load (0.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Book Load (0.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Book Load (0.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (491.4ms)
+Completed 200 OK in 595ms (Views: 485.0ms | ActiveRecord: 16.3ms)
+
+
+Started GET "/assets/active_admin-e670a4b09c70a1cf0e546e3cc233273ec00d44a2fe841969cac0562998dbec41.js" for 127.0.0.1 at 2018-06-12 03:28:03 +0200
+Started GET "/assets/active_admin/print-b05a0449174c4e0e939ecab3483d5b7389c188baae07f7b99af2da69df0243d9.css" for 127.0.0.1 at 2018-06-12 03:28:03 +0200
+Started GET "/assets/active_admin-365d7294774f2338299dafe5cec179b41884dcb3cd74805114a47f5dbc830c13.css" for 127.0.0.1 at 2018-06-12 03:28:03 +0200
+Started GET "/assets/active_admin/orderable-29374dbb55b0012d78a37c614d573bb3474f0779849b478a147d0f1845ca6617.png" for 127.0.0.1 at 2018-06-12 03:28:03 +0200
+Started DELETE "/api/v1/book/books/3/comments/5" for 127.0.0.1 at 2018-06-12 03:28:23 +0200
+Processing by Api::V1::Book::CommentsController#destroy as */*
+  Parameters: {"text/plain"=>[""], "book_id"=>"3", "id"=>"5"}
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 5 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (144.3ms)[0m  [1m[31mDELETE FROM `comments` WHERE `comments`.`id` = 5[0m
+  [1m[35m (57.6ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 236ms (Views: 10.2ms | ActiveRecord: 204.8ms)
+
+
+Started GET "/admin/comments" for 127.0.0.1 at 2018-06-12 03:28:32 +0200
+Processing by Admin::CommentsController#index as HTML
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM `comments`[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `comments` LIMIT 9 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `comments` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM `comments`[0m
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `comments` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` ORDER BY `comments`.`id` desc LIMIT 9 OFFSET 0[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mCACHE Book Load (0.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
+  [1m[36mCACHE Book Load (0.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Book Load (0.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Book Load (0.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (289.1ms)
+Completed 200 OK in 304ms (Views: 287.3ms | ActiveRecord: 10.7ms)
+
+
+Started GET "/assets/active_admin-365d7294774f2338299dafe5cec179b41884dcb3cd74805114a47f5dbc830c13.css" for 127.0.0.1 at 2018-06-12 03:28:32 +0200
+Started GET "/assets/active_admin/print-b05a0449174c4e0e939ecab3483d5b7389c188baae07f7b99af2da69df0243d9.css" for 127.0.0.1 at 2018-06-12 03:28:32 +0200
+Started GET "/assets/active_admin-e670a4b09c70a1cf0e546e3cc233273ec00d44a2fe841969cac0562998dbec41.js" for 127.0.0.1 at 2018-06-12 03:28:32 +0200
+Started GET "/assets/active_admin/orderable-29374dbb55b0012d78a37c614d573bb3474f0779849b478a147d0f1845ca6617.png" for 127.0.0.1 at 2018-06-12 03:28:32 +0200
+Started GET "/admin/comments/7/edit" for 127.0.0.1 at 2018-06-12 03:28:39 +0200
+Processing by Admin::CommentsController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mAdminUser Load (0.8ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  [1m[36mComment Load (1.3ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 7 LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/edit.html.arb
+  [1m[36mCACHE Comment Load (0.1ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 7 LIMIT 1[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/edit.html.arb (156.5ms)
+Completed 200 OK in 191ms (Views: 177.1ms | ActiveRecord: 5.9ms)
+
+
+Started PATCH "/admin/comments/7" for 127.0.0.1 at 2018-06-12 03:28:48 +0200
+Processing by Admin::CommentsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8Za/BvWWP9piE4F8M986jZrqixfSY4kxJmztqanwU7WuT3VgWrn42d5NmVT1AoRsAmkSzShO6JL7PRgXoTqeZA==", "comment"=>{"user_id"=>"3", "book_id"=>"3", "comment"=>"dd"}, "commit"=>"Update Comment", "id"=>"7"}
+  [1m[36mAdminUser Load (0.9ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  [1m[36mComment Load (1.4ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 7 LIMIT 1[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[35mSQL (75.7ms)[0m  [1m[33mUPDATE `comments` SET `user_id` = 3, `updated_at` = '2018-06-12 01:28:48' WHERE `comments`.`id` = 7[0m
+  [1m[35m (28.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/admin/comments/7
+Completed 302 Found in 157ms (ActiveRecord: 109.4ms)
+
+
+Started GET "/admin/comments/7" for 127.0.0.1 at 2018-06-12 03:28:48 +0200
+Processing by Admin::CommentsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mAdminUser Load (0.9ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 7 LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/show.html.arb
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[35m (54.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `active_admin_comments` WHERE `active_admin_comments`.`resource_type` = 'Comment' AND `active_admin_comments`.`resource_id` = 7 AND `active_admin_comments`.`namespace` = 'admin'[0m
+  [1m[36mActiveAdmin::Comment Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM `active_admin_comments` WHERE `active_admin_comments`.`resource_type` = 'Comment' AND `active_admin_comments`.`resource_id` = 7 AND `active_admin_comments`.`namespace` = 'admin' LIMIT 1 OFFSET 0[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `active_admin_comments` WHERE `active_admin_comments`.`resource_type` = 'Comment' AND `active_admin_comments`.`resource_id` = 7 AND `active_admin_comments`.`namespace` = 'admin' ORDER BY created_at ASC LIMIT 25 OFFSET 0) subquery_for_count[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/show.html.arb (301.8ms)
+Completed 200 OK in 340ms (Views: 272.9ms | ActiveRecord: 59.5ms)
+
+
+Started GET "/admin/comments" for 127.0.0.1 at 2018-06-12 03:28:52 +0200
+Processing by Admin::CommentsController#index as HTML
+  [1m[36mAdminUser Load (0.8ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `comments`[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `comments` LIMIT 9 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `comments` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM `comments`[0m
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `comments` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` ORDER BY `comments`.`id` desc LIMIT 9 OFFSET 0[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mCACHE Book Load (0.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Book Load (0.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (293.9ms)
+Completed 200 OK in 307ms (Views: 290.7ms | ActiveRecord: 9.9ms)
+
+
+Started DELETE "/api/v1/book/books/3/comments/7" for 127.0.0.1 at 2018-06-12 03:29:06 +0200
+Processing by Api::V1::Book::CommentsController#destroy as */*
+  Parameters: {"text/plain"=>[""], "book_id"=>"3", "id"=>"7"}
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 7 LIMIT 1[0m
+Completed 200 OK in 23ms (Views: 12.6ms | ActiveRecord: 2.7ms)
+
+

@@ -28,10 +28,16 @@ module Api::V1::Book
       #render json: {status: 'SUCCESS', message: 'return', comments: {id: @comment.id, comment: @comment.comment, user: @current_user.name, created_at: @comment.created_at.strftime("%B %e, %Y at %I:%M %p") }},status: :ok    
     #end    
     def destroy
+       # check if user has permationto delete this comment (owner) 
       if @current_user.id == @comment.user_id
-
+        # check if comment deleted or not
+         if @comment.destroy
+            render json: {status: 'SUCCESS', message: 'comment successfully deleted', comment: {}},status: :ok    
+         else
+            render json: {status: 'FAIL', message: 'you can\'t delete this comment', error:@comment.errors},status: :ok               
+         end   
       else
-        
+        render json: {status: 'FAIL', message: 'you can\'t delete this comment', error:{}},status: :ok               
       end    
     end   
 
