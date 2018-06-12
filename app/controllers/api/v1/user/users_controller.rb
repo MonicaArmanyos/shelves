@@ -123,6 +123,16 @@ module Api::V1::User
             render json: {status: 'FAIL', message: 'user not found'},status: :ok
         end
       end
+
+      #### get all book_stores ####
+      def get_all_book_stores
+        @book_stores=User.where(:role => 1)
+        if @book_stores.count != 0
+          render json: {status: 'SUCCESS', :book_stores => @book_stores.select(User.column_names - ["gender","password_digest","email_confirmed","confirm_token","created_at","updated_at","password_reset_token","password_reset_sent_at"])},status: :ok
+        else
+          render json: {status: 'FAIL', message: 'No book_stores found'},status: :ok
+        end
+      end
       private
       #### Authentication of user ####
       def authenticate_request
