@@ -1,9 +1,9 @@
 module Api::V1::Book
   class Api::V1::Book::CommentsController < ApplicationController
    
-    before_action :set_book
-    before_action :authenticate_request, only: [:create]
-    
+    before_action :set_book, only: [:create, :destroy]
+    before_action :authenticate_request, only: [:create, :destroy]
+    before_action :set_comment, only: [:destroy]
 
     def create
       # check user if authenticate or not  
@@ -22,6 +22,18 @@ module Api::V1::Book
         end     
       end  
     end    
+ 
+    #def index
+      #@comments=Comment.where(book_id: params[:id])
+      #render json: {status: 'SUCCESS', message: 'return', comments: {id: @comment.id, comment: @comment.comment, user: @current_user.name, created_at: @comment.created_at.strftime("%B %e, %Y at %I:%M %p") }},status: :ok    
+    #end    
+    def destroy
+      if @current_user.id == @comment.user_id
+
+      else
+        
+      end    
+    end   
 
     private
     def set_book
@@ -31,5 +43,8 @@ module Api::V1::Book
     def authenticate_request
       @current_user = AuthorizeApiRequest.call(request.headers).result
     end
+    def set_comment
+      @comment= Comment.find(params[:id])
+    end    
   end
 end  
