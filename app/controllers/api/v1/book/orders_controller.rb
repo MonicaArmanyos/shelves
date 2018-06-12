@@ -80,7 +80,8 @@ module Api::V1::Book
       def show 
         puts params[:id]
         @order = Order.find(params[:id])
-        render json:{status: 'SUCCESS', message: 'Order details loaded successfully',order: @order},status: :ok
+       # render json:{status: 'SUCCESS', message: 'Order details loaded successfully',order: @order},status: :ok
+       render :json => @order, each_serializer: OrderSerializer
       end
        
 
