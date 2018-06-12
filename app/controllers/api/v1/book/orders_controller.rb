@@ -3,7 +3,7 @@ module Api::V1::Book
     before_action :set_book, except: [:exchange_request, :confirm_exchange, :dismiss_exchange, :showOrders]
     before_action :authenticate_request
     def create
-      @current_user = AuthorizeApiRequest.call(request.headers).result
+     # @current_user = AuthorizeApiRequest.call(request.headers).result
       if @current_user
         # check if book is available and approved or not
         if ((@book.is_available.eql? true) && (@book.is_approved.eql? true)) 
@@ -89,6 +89,16 @@ module Api::V1::Book
         @order_as_seller = Order.where(seller_id: @user.id)
         render json:{status: 'SUCCESS', orders_as_a_client: @order_as_client, orders_as_a_seller: @order_as_seller},status: :ok
        end
+
+      ####  Show order details ####
+      def show 
+        puts params[:id]
+        @order = Order.find(params[:id])
+       # render json:{status: 'SUCCESS', message: 'Order details loaded successfully',order: @order},status: :ok
+       render :json => @order, each_serializer: OrderSerializer
+      end
+       
+
     private
     def set_book
       @book = Book.find(params[:book_id])

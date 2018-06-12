@@ -2,27 +2,51 @@ module Api::V1::Book
 
     class Api::V1::Book::BooksController < ApplicationController
         
-        before_action :authenticate_request, only: [:recommended_books, :create, :update, :exchange, :destroy]
-        
+        before_action :authenticate_request, only: [:recommended_books, :create, :update, :exchange, :destroy , :update_bid]
+
         #### Show all books and searched books #### 
         def index
             @books_all = Book.all
             if params[:search]
               @searched_books = Book.search(params[:search]).order("created_at DESC").page params[:page]
-              render json: @searched_books,
-              meta: {
-                pagination: {
-                  per_page: 5,
-                  total_pages: Book.search(params[:search]).count/5,
-                  total_objects: Book.search(params[:search]).count
+                    if @searched_books.count != 0
+                    render json: @searched_books,
+                    meta: {
+                        pagination: {
+                        per_page: 5,
+                        current_page:(params[:page]),
+                        total_pages: Book.search(params[:search]).count/5,
+                        total_objects: Book.search(params[:search]).count
+                        }
+                    }
+                    else
+                    render json: {status: 'FAil', message: 'No result Found'},status: :ok
+                    end
+            elsif params[:category]
+                if Category.exists?(params[:category])
+                    puts params[:category]
+                @books_by_category = Book.where(:category_id => params[:category]).order("created_at DESC").page params[:page]
+                render json: @books_by_category,
+                meta: {
+                  pagination: {
+                    per_page: 3,
+                    current_page:(params[:page]),
+                    total_pages: Book.where(:Category_id => params[:category]).count/3,
+                    total_objects: Book.where(:Category_id => params[:category]).count
+                  }
                 }
-              }
+                else
+                render json: {status: 'FAil', message: 'Category Not Found'},status: :ok 
+                end
+
+
             else
               @books = Book.all.order('created_at DESC').page(params[:page]).per(5)
               render json: @books,
               meta: {
                 pagination: {
                   per_page: 5,
+                  current_page:(params[:page]),
                   total_pages: @books_all.count/5,
                   total_objects:@books_all.count
                 }
@@ -33,7 +57,6 @@ module Api::V1::Book
          #### Latest Books in Home Page ####
          def latest_books
             @latest_books = Book.order('created_at Desc').limit(20);
-            
             if(@latest_books)
                 render :json => @latest_books, each_serializer: BookSerializer
             else
@@ -70,6 +93,7 @@ module Api::V1::Book
 
         #### Create book ####
         def create
+            
             if @current_user
                 @user = @current_user
                 @book = Book.new(book_params)
@@ -106,29 +130,6 @@ module Api::V1::Book
            end
            end 
 
-           #### Order Book For Exchange ####
-           def exchange
-              @wanted_book =  Book.find(params[:id])
-              if @wanted_book.transcation == "Exchange" &&  @wanted_book.is_available == 1
-                @books = Book.all
-                @exchangeable_books = Array.new
-                
-                for book in @books
-                    if book.user_id == @current_user.id  && book.transcation == "Exchange"
-                        @exchangeable_books << book
-                    end
-                end
-                
-                @wanted_book.save
-                @order = Order.new(user_id: @current_user.id, book_id: @wanted_book.id, seller_id: @wanted_book.user_id, state: "under confirmed", transcation: "Exchange")
-                @order.save
-                render json:  {status: 'SUCCESS', exchangeable_books: @exchangeable_books, wanted_book: @wanted_book, order: @order}, :include => { :user  =>  {:except => :password_digest} } , status: :ok
-                else
-                    render json:  {status: 'FAIL', message: "Book not for exchange"}, status: :ok
-            end
-           end
-          
-
         #### Delete Book ####
         def destroy
            
@@ -142,7 +143,54 @@ module Api::V1::Book
 
         end
 
+        ########################## Book orders ############################
 
+        #### Order Book For Exchange ####
+        def exchange
+            @wanted_book =  Book.find(params[:id])
+            if @wanted_book.transcation == "Exchange"
+            @books = Book.all
+            @exchangeable_books = Array.new
+            
+            for book in @books
+                if book.user_id == @current_user.id  && book.transcation == "Exchange"
+                    @exchangeable_books << book
+                end
+            end
+            @order = Order.new(user_id: @current_user.id, book_id: @wanted_book.id, seller_id: @wanted_book.user_id, state: "under confirmed", transcation: "Exchange")
+            @order.save
+            render json:  {status: 'SUCCESS', exchangeable_books: @exchangeable_books, wanted_book: @wanted_book, order: @order}, :include => { :user  =>  {:except => :password_digest} } , status: :ok
+            else
+            render json:  {status: 'FAIL', message: "Book not for exchange"}, status: :ok
+        end
+        end
+
+        #### Update bid quantity and bid user for book ####
+        def update_bid
+            #@current_user = AuthorizeApiRequest.call(request.headers).result
+            puts @current_user.name
+            #check if book exist
+            if Book.exists?(params[:id])
+                @book = Book.find(params[:id])
+               # check book transcation
+                if @book.transcation.eql? "Sell By Bids"
+                    #check if bid quatity is geater than the price of book
+                    @user_bid_price=params[:price]
+                    if @user_bid_price.to_f >  @book.price.to_f
+                        @book.update(:price => @user_bid_price , :bid_user => @current_user.id)
+                        render json:  {status: 'SUCCESS', message: 'bid_price added successfully'} , status: :ok
+                    else
+                        render json: {status: 'FAIL', message: 'bid_price not valid'},status: :ok
+                    end
+                else
+                    render json: {status: 'FAIL', message: 'Book Not for sell by bids'},status: :ok
+                end
+            else
+                render json: {status: 'FAIL', message: 'Book Not found'},status: :ok
+            end
+
+           
+        end
 
        
         private
@@ -157,6 +205,8 @@ module Api::V1::Book
             @current_user = AuthorizeApiRequest.call(request.headers).result
             render json: { error: 'Not Authorized' }, status: 401 unless @current_user
         end
+
+        
 
        
     end

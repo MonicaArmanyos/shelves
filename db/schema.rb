@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 20180612101412) do
     t.datetime "updated_at", null: false
     t.boolean "is_available", default: true
     t.datetime "bid_duration"
+    t.boolean "bid_duration_state", default: false
     t.index ["category_id"], name: "index_books_on_category_id"
     t.index ["user_id"], name: "index_books_on_user_id"
   end
