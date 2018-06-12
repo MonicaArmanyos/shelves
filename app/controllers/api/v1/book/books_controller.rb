@@ -14,23 +14,31 @@ module Api::V1::Book
                     meta: {
                         pagination: {
                         per_page: 5,
+                        current_page:(params[:page]),
                         total_pages: Book.search(params[:search]).count/5,
                         total_objects: Book.search(params[:search]).count
                         }
                     }
-                else
+                    else
                     render json: {status: 'FAil', message: 'No result Found'},status: :ok
                     end
             elsif params[:category]
-                @books_by_category = Book.search_by_category(params[:category]).order("created_at DESC").page params[:page]
+                if Category.exists?(params[:category])
+                    puts params[:category]
+                @books_by_category = Book.where(:category_id => params[:category]).order("created_at DESC").page params[:page]
                 render json: @books_by_category,
                 meta: {
                   pagination: {
-                    per_page: 5,
-                    total_pages: Book.search_by_category(params[:category]).count/5,
-                    total_objects: Book.search_by_category(params[:category]).count
+                    per_page: 3,
+                    current_page:(params[:page]),
+                    total_pages: Book.where(:Category_id => params[:category]).count/3,
+                    total_objects: Book.where(:Category_id => params[:category]).count
                   }
-                } 
+                }
+                else
+                render json: {status: 'FAil', message: 'Category Not Found'},status: :ok 
+                end
+
 
             else
               @books = Book.all.order('created_at DESC').page(params[:page]).per(5)
@@ -38,6 +46,7 @@ module Api::V1::Book
               meta: {
                 pagination: {
                   per_page: 5,
+                  current_page:(params[:page]),
                   total_pages: @books_all.count/5,
                   total_objects:@books_all.count
                 }
