@@ -117,7 +117,7 @@ module Api::V1::Book
                         @exchangeable_books << book
                     end
                 end
-                @wanted_book.is_available = 0
+                
                 @wanted_book.save
                 @order = Order.new(user_id: @current_user.id, book_id: @wanted_book.id, seller_id: @wanted_book.user_id, state: "under confirmed", transcation: "Exchange")
                 @order.save

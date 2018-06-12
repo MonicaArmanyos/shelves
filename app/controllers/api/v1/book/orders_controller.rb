@@ -46,7 +46,9 @@ module Api::V1::Book
         @exchangeable_books = params[:books]
         user = User.find(@order.seller_id)
         #send_notification( user,"Book exchange request", "https://www.google.com")
-        render json:{status: 'Success', exchangeable_books: @exchangeable_books, wanted_book: @order.book_id, with: @order.user_id },status: :ok
+        @wanted_book = Book.find(@order.book_id)
+        @with = User.find(@order.user_id )
+        render json:{status: 'Success', exchangeable_books: @exchangeable_books, wanted_book: @wanted_book, with: @with},status: :ok
         end
        end
 
@@ -60,6 +62,8 @@ module Api::V1::Book
           @exchangeable_book.save
           @order.exchangeable_book_id = @exchangeable_book.id
           @order.state = "confirmed"
+          @book = Book.find(@order.book_id)
+          @book.is_available = 0
           if @order.save
             user = User.find(@order.user_id)
             #send_notification(user, @order.user_id + " accepted to exchange books", "https://www.google.com")
@@ -70,7 +74,6 @@ module Api::V1::Book
        def dismiss_exchange
           @order = Order.find(params[:id])
           @book = Book.find(@order.book_id)
-          @book.is_available = 1
           @book.save
           if @order.state == "confirmed"
             render json:{status: 'FAIL', message: 'order has already been confirmed'},status: :ok

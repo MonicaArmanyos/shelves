@@ -5250,3 +5250,705 @@ Processing by Api::V1::Book::OrdersController#showOrders as JSON
 Completed 200 OK in 46ms (Views: 18.9ms | ActiveRecord: 3.3ms)
 
 
+  [1m[35m (0.7ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT GET_LOCK('6965469184171088535', 0)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateUserRates (20180611103619)
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE `user_rates` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `user_id` bigint, `rate` int, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_user_rates_on_user_id`  (`user_id`),  INDEX `index_user_rates_on_user_id`  (`user_id`), CONSTRAINT `fk_rails_977fe418da`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+, CONSTRAINT `fk_rails_977fe418da`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+) ENGINE=InnoDB[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('6965469184171088535')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('6965469184171088535', 0)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateUserRates (20180611103619)
+  [1m[35m (403.5ms)[0m  [1m[35mCREATE TABLE `user_rates` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `user_id` bigint, `rated_user_id` bigint, `rate` int, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_user_rates_on_user_id`  (`user_id`),  INDEX `index_user_rates_on_rated_user_id`  (`rated_user_id`), CONSTRAINT `fk_rails_977fe418da`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+, CONSTRAINT `fk_rails_672f173314`
+FOREIGN KEY (`rated_user_id`)
+  REFERENCES `users` (`id`)
+) ENGINE=InnoDB[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180611103619')[0m
+  [1m[35m (36.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('6965469184171088535')[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('6965469184171088535', 0)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddDefaultValueToRate (20180611205311)
+  [1m[35m (766.6ms)[0m  [1m[35mALTER TABLE `books` CHANGE `rate` `rate` int DEFAULT 0[0m
+  [1m[35m (31.4ms)[0m  [1m[35mALTER TABLE `users` CHANGE `rate` `rate` int DEFAULT 0[0m
+  [1m[35m (40.8ms)[0m  [1m[35mALTER TABLE `rates` CHANGE `rate` `rate` int DEFAULT 0[0m
+  [1m[35m (42.5ms)[0m  [1m[35mALTER TABLE `user_rates` CHANGE `rate` `rate` int DEFAULT 0[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180611205311')[0m
+  [1m[35m (36.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('6965469184171088535')[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started POST "/api/v1/user/users/login" for 127.0.0.1 at 2018-06-12 01:22:38 +0200
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by Api::V1::User::AuthenticationController#authenticate as JSON
+  Parameters: {"email"=>"sci.monicamagdy2016@alexu.edu.eg", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'sci.monicamagdy2016@alexu.edu.eg' LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'sci.monicamagdy2016@alexu.edu.eg' LIMIT 1[0m  [["email", "sci.monicamagdy2016@alexu.edu.eg"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'sci.monicamagdy2016@alexu.edu.eg' LIMIT 1[0m  [["email", "sci.monicamagdy2016@alexu.edu.eg"], ["LIMIT", 1]]
+Completed 201 Created in 189ms (Views: 1.4ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/api/v1/user/users/2/user_rates" for 127.0.0.1 at 2018-06-12 01:27:56 +0200
+Processing by Api::V1::User::UserRatesController#create as JSON
+  Parameters: {"rate"=>4, "user_id"=>"2", "user_rate"=>{"rate"=>4}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = NULL LIMIT 1[0m
+Completed 404 Not Found in 15ms (ActiveRecord: 1.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=):
+  
+app/controllers/api/v1/user/user_rates_controller.rb:6:in `create'
+Started POST "/api/v1/user/users/2/user_rates" for 127.0.0.1 at 2018-06-12 01:31:22 +0200
+Processing by Api::V1::User::UserRatesController#create as JSON
+  Parameters: {"rate"=>4, "user_id"=>"2", "user_rate"=>{"rate"=>4}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `user_rates` (`user_id`, `rated_user_id`, `rate`, `created_at`, `updated_at`) VALUES (2, 2, 4, '2018-06-11 23:31:22', '2018-06-11 23:31:22')[0m
+  [1m[35m (30.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT AVG(`user_rates`.`rate`) FROM `user_rates` WHERE `user_rates`.`user_id` = 2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'monicamagdy70@gmail.com' AND (`users`.`id` != 2) LIMIT 1[0m
+  [1m[35mSQL (13.6ms)[0m  [1m[33mUPDATE `users` SET `rate` = 4, `updated_at` = '2018-06-11 23:31:22' WHERE `users`.`id` = 2[0m
+  [1m[35m (28.0ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 169ms (Views: 0.2ms | ActiveRecord: 75.1ms)
+
+
+Started POST "/api/v1/user/users/2/user_rates" for 127.0.0.1 at 2018-06-12 01:34:21 +0200
+Processing by Api::V1::User::UserRatesController#create as JSON
+  Parameters: {"rate"=>4, "user_id"=>"2", "user_rate"=>{"rate"=>4}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `user_rates` (`user_id`, `rated_user_id`, `rate`, `created_at`, `updated_at`) VALUES (2, 2, 4, '2018-06-11 23:34:21', '2018-06-11 23:34:21')[0m
+  [1m[35m (64.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT AVG(`user_rates`.`rate`) FROM `user_rates` WHERE `user_rates`.`user_id` = 2[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'monicamagdy70@gmail.com' AND (`users`.`id` != 2) LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 98ms (Views: 1.8ms | ActiveRecord: 69.0ms)
+
+
+Started POST "/api/v1/user/users/2/user_rates" for 127.0.0.1 at 2018-06-12 01:36:07 +0200
+Processing by Api::V1::User::UserRatesController#create as JSON
+  Parameters: {"rate"=>4, "user_id"=>"2", "user_rate"=>{"rate"=>4}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `user_rates` (`user_id`, `rated_user_id`, `rate`, `created_at`, `updated_at`) VALUES (2, 2, 4, '2018-06-11 23:36:07', '2018-06-11 23:36:07')[0m
+  [1m[35m (81.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT AVG(`user_rates`.`rate`) FROM `user_rates` WHERE `user_rates`.`user_id` = 2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'monicamagdy70@gmail.com' AND (`users`.`id` != 2) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 124ms (Views: 0.5ms | ActiveRecord: 85.7ms)
+
+
+Started POST "/api/v1/user/users/2/user_rates" for 127.0.0.1 at 2018-06-12 01:37:39 +0200
+Processing by Api::V1::User::UserRatesController#create as JSON
+  Parameters: {"rate"=>4, "user_id"=>"2", "user_rate"=>{"rate"=>4}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `user_rates` (`user_id`, `rated_user_id`, `rate`, `created_at`, `updated_at`) VALUES (2, 2, 4, '2018-06-11 23:37:39', '2018-06-11 23:37:39')[0m
+  [1m[35m (57.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT AVG(`user_rates`.`rate`) FROM `user_rates` WHERE `user_rates`.`user_id` = 2[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'monicamagdy70@gmail.com' AND (`users`.`id` != 2) LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 94ms (Views: 0.4ms | ActiveRecord: 61.1ms)
+
+
+Started POST "/api/v1/user/users/2/user_rates" for 127.0.0.1 at 2018-06-12 01:38:47 +0200
+Processing by Api::V1::User::UserRatesController#create as JSON
+  Parameters: {"rate"=>4, "user_id"=>"2", "user_rate"=>{"rate"=>4}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `user_rates` (`user_id`, `rated_user_id`, `rate`, `created_at`, `updated_at`) VALUES (2, 3, 4, '2018-06-11 23:38:47', '2018-06-11 23:38:47')[0m
+  [1m[35m (63.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT AVG(`user_rates`.`rate`) FROM `user_rates` WHERE `user_rates`.`user_id` = 2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'monicamagdy70@gmail.com' AND (`users`.`id` != 2) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 88ms (Views: 0.2ms | ActiveRecord: 67.5ms)
+
+
+Started POST "/api/v1/user/users/2/user_rates" for 127.0.0.1 at 2018-06-12 01:40:20 +0200
+Processing by Api::V1::User::UserRatesController#create as JSON
+  Parameters: {"rate"=>1, "user_id"=>"2", "user_rate"=>{"rate"=>1}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `user_rates` (`user_id`, `rated_user_id`, `rate`, `created_at`, `updated_at`) VALUES (2, 3, 1, '2018-06-11 23:40:20', '2018-06-11 23:40:20')[0m
+  [1m[35m (42.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT AVG(`user_rates`.`rate`) FROM `user_rates` WHERE `user_rates`.`user_id` = 2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'monicamagdy70@gmail.com' AND (`users`.`id` != 2) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE `users` SET `rate` = 3, `updated_at` = '2018-06-11 23:40:20' WHERE `users`.`id` = 2[0m
+  [1m[35m (27.8ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 80ms (Views: 0.3ms | ActiveRecord: 71.8ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('6965469184171088535', 0)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddDefaultValueToRate (20180611205311)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('6965469184171088535')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('6965469184171088535', 0)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to RenameRatedUserToRatedByInUserRatesChangeRateDatatype (20180611235314)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT RELEASE_LOCK('6965469184171088535')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('6965469184171088535', 0)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to RenameRatedUserToRatedByInUserRatesChangeRateDatatype (20180611235314)
+  [1m[35m (66.8ms)[0m  [1m[35mALTER TABLE `user_rates` CHANGE `rated_user_id` `rated_by` bigint(20) DEFAULT NULL[0m
+  [1m[35m (99.0ms)[0m  [1m[35mALTER TABLE `user_rates` RENAME INDEX `index_user_rates_on_rated_user_id` TO `index_user_rates_on_rated_by`[0m
+  [1m[35m (720.1ms)[0m  [1m[35mALTER TABLE `users` CHANGE `rate` `rate` float DEFAULT 0.0[0m
+  [1m[35m (797.7ms)[0m  [1m[35mALTER TABLE `books` CHANGE `rate` `rate` float DEFAULT 0.0[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180611235314')[0m
+  [1m[35m (36.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('6965469184171088535')[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started POST "/api/v1/user/users/2/user_rates" for 127.0.0.1 at 2018-06-12 02:46:43 +0200
+  [1m[35m (0.2ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by Api::V1::User::UserRatesController#create as JSON
+  Parameters: {"rate"=>1, "user_id"=>"2", "user_rate"=>{"rate"=>1}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUserRate Load (0.3ms)[0m  [1m[34mSELECT `user_rates`.* FROM `user_rates` WHERE `user_rates`.`user_id` = 2 AND `user_rates`.`rated_by` = 3[0m
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 2.1ms)
+
+
+  
+NoMethodError (undefined method `save' for #<ActiveRecord::AssociationRelation []>):
+  
+app/controllers/api/v1/user/user_rates_controller.rb:16:in `create'
+Started POST "/api/v1/user/users/2/user_rates" for 127.0.0.1 at 2018-06-12 02:48:07 +0200
+Processing by Api::V1::User::UserRatesController#create as JSON
+  Parameters: {"rate"=>1, "user_id"=>"2", "user_rate"=>{"rate"=>1}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUserRate Load (0.7ms)[0m  [1m[34mSELECT `user_rates`.* FROM `user_rates` WHERE `user_rates`.`user_id` = 2 AND `user_rates`.`rated_by` = 3[0m
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 2.8ms)
+
+
+  
+NoMethodError (undefined method `save' for #<ActiveRecord::AssociationRelation []>):
+  
+app/controllers/api/v1/user/user_rates_controller.rb:17:in `create'
+Started POST "/api/v1/user/users/2/user_rates" for 127.0.0.1 at 2018-06-12 02:49:27 +0200
+Processing by Api::V1::User::UserRatesController#create as JSON
+  Parameters: {"rate"=>1, "user_id"=>"2", "user_rate"=>{"rate"=>1}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUserRate Load (0.3ms)[0m  [1m[34mSELECT `user_rates`.* FROM `user_rates` WHERE `user_rates`.`user_id` = 2 AND `user_rates`.`rated_by` = 3[0m
+  [1m[36mCACHE UserRate Load (0.0ms)[0m  [1m[34mSELECT `user_rates`.* FROM `user_rates` WHERE `user_rates`.`user_id` = 2 AND `user_rates`.`rated_by` = 3[0m  [["user_id", 2], ["rated_by", 3]]
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 2.9ms)
+
+
+  
+NoMethodError (undefined method `save' for #<ActiveRecord::AssociationRelation []>):
+  
+app/controllers/api/v1/user/user_rates_controller.rb:17:in `create'
+Started POST "/api/v1/user/users/2/user_rates" for 127.0.0.1 at 2018-06-12 02:49:50 +0200
+Processing by Api::V1::User::UserRatesController#create as JSON
+  Parameters: {"rate"=>1, "user_id"=>"2", "user_rate"=>{"rate"=>1}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUserRate Load (0.2ms)[0m  [1m[34mSELECT `user_rates`.* FROM `user_rates` WHERE `user_rates`.`user_id` = 2 AND `user_rates`.`rated_by` = 3[0m
+  [1m[36mCACHE UserRate Load (0.0ms)[0m  [1m[34mSELECT `user_rates`.* FROM `user_rates` WHERE `user_rates`.`user_id` = 2 AND `user_rates`.`rated_by` = 3[0m  [["user_id", 2], ["rated_by", 3]]
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.7ms)
+
+
+  
+NoMethodError (undefined method `save' for #<ActiveRecord::AssociationRelation []>):
+  
+app/controllers/api/v1/user/user_rates_controller.rb:17:in `create'
+Started POST "/api/v1/user/users/2/user_rates" for 127.0.0.1 at 2018-06-12 02:50:23 +0200
+Processing by Api::V1::User::UserRatesController#create as JSON
+  Parameters: {"rate"=>1, "user_id"=>"2", "user_rate"=>{"rate"=>1}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUserRate Load (0.5ms)[0m  [1m[34mSELECT `user_rates`.* FROM `user_rates` WHERE `user_rates`.`user_id` = 2 AND `user_rates`.`rated_by` = 3[0m
+  [1m[36mCACHE UserRate Load (0.0ms)[0m  [1m[34mSELECT `user_rates`.* FROM `user_rates` WHERE `user_rates`.`user_id` = 2 AND `user_rates`.`rated_by` = 3[0m  [["user_id", 2], ["rated_by", 3]]
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 2.5ms)
+
+
+  
+TypeError (no implicit conversion of String into Array):
+  
+app/controllers/api/v1/user/user_rates_controller.rb:13:in `create'
+Started POST "/api/v1/user/users/2/user_rates" for 127.0.0.1 at 2018-06-12 02:50:58 +0200
+Processing by Api::V1::User::UserRatesController#create as JSON
+  Parameters: {"rate"=>1, "user_id"=>"2", "user_rate"=>{"rate"=>1}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUserRate Load (0.2ms)[0m  [1m[34mSELECT `user_rates`.* FROM `user_rates` WHERE `user_rates`.`user_id` = 2 AND `user_rates`.`rated_by` = 3[0m
+  [1m[36mCACHE UserRate Load (0.0ms)[0m  [1m[34mSELECT `user_rates`.* FROM `user_rates` WHERE `user_rates`.`user_id` = 2 AND `user_rates`.`rated_by` = 3[0m  [["user_id", 2], ["rated_by", 3]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.7ms)
+
+
+  
+TypeError (no implicit conversion of String into Array):
+  
+app/controllers/api/v1/user/user_rates_controller.rb:13:in `create'
+Started POST "/api/v1/user/users/2/user_rates" for 127.0.0.1 at 2018-06-12 02:51:13 +0200
+Processing by Api::V1::User::UserRatesController#create as JSON
+  Parameters: {"rate"=>1, "user_id"=>"2", "user_rate"=>{"rate"=>1}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUserRate Load (0.3ms)[0m  [1m[34mSELECT `user_rates`.* FROM `user_rates` WHERE `user_rates`.`user_id` = 2 AND `user_rates`.`rated_by` = 3[0m
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 2.1ms)
+
+
+  
+NoMethodError (undefined method `save' for #<ActiveRecord::AssociationRelation []>):
+  
+app/controllers/api/v1/user/user_rates_controller.rb:17:in `create'
+Started POST "/api/v1/user/users/1/user_rates" for 127.0.0.1 at 2018-06-12 02:52:30 +0200
+Processing by Api::V1::User::UserRatesController#create as JSON
+  Parameters: {"rate"=>1, "user_id"=>"1", "user_rate"=>{"rate"=>1}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUserRate Load (0.2ms)[0m  [1m[34mSELECT `user_rates`.* FROM `user_rates` WHERE `user_rates`.`user_id` = 1 AND `user_rates`.`rated_by` = 3[0m
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.6ms)
+
+
+  
+NoMethodError (undefined method `save' for #<ActiveRecord::AssociationRelation []>):
+  
+app/controllers/api/v1/user/user_rates_controller.rb:17:in `create'
+Started POST "/api/v1/user/users/1/user_rates" for 127.0.0.1 at 2018-06-12 02:54:24 +0200
+Processing by Api::V1::User::UserRatesController#create as JSON
+  Parameters: {"rate"=>1, "user_id"=>"1", "user_rate"=>{"rate"=>1}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUserRate Load (0.3ms)[0m  [1m[34mSELECT `user_rates`.* FROM `user_rates` WHERE `user_rates`.`user_id` = 1 AND `user_rates`.`rated_by` = 3[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT AVG(`user_rates`.`rate`) FROM `user_rates` WHERE `user_rates`.`user_id` = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'monicaarmanios_333@yahoo.com' AND (`users`.`id` != 1) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 21ms (Views: 0.2ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/api/v1/user/users/1/user_rates" for 127.0.0.1 at 2018-06-12 02:57:47 +0200
+Processing by Api::V1::User::UserRatesController#create as JSON
+  Parameters: {"rate"=>1, "user_id"=>"1", "user_rate"=>{"rate"=>1}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUserRate Load (0.4ms)[0m  [1m[34mSELECT `user_rates`.* FROM `user_rates` WHERE `user_rates`.`user_id` = 1 AND `user_rates`.`rated_by` = 3[0m
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 2.2ms)
+
+
+  
+NoMethodError (undefined method `save' for #<ActiveRecord::AssociationRelation []>):
+  
+app/controllers/api/v1/user/user_rates_controller.rb:13:in `create'
+Started POST "/api/v1/user/users/1/user_rates" for 127.0.0.1 at 2018-06-12 02:58:48 +0200
+Processing by Api::V1::User::UserRatesController#create as JSON
+  Parameters: {"rate"=>1, "user_id"=>"1", "user_rate"=>{"rate"=>1}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUserRate Load (0.3ms)[0m  [1m[34mSELECT  `user_rates`.* FROM `user_rates` WHERE `user_rates`.`user_id` = 1 AND `user_rates`.`rated_by` = 3 LIMIT 11[0m
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 2.2ms)
+
+
+  
+  [1m[36mCACHE UserRate Load (0.0ms)[0m  [1m[34mSELECT  `user_rates`.* FROM `user_rates` WHERE `user_rates`.`user_id` = 1 AND `user_rates`.`rated_by` = 3 LIMIT 11[0m  [["user_id", 1], ["rated_by", 3], ["LIMIT", 11]]
+NoMethodError (undefined method `update_attributes' for #<ActiveRecord::AssociationRelation []>
+Did you mean?  update_all):
+  
+app/controllers/api/v1/user/user_rates_controller.rb:12:in `create'
+  [1m[36mCACHE UserRate Load (0.0ms)[0m  [1m[34mSELECT  `user_rates`.* FROM `user_rates` WHERE `user_rates`.`user_id` = 1 AND `user_rates`.`rated_by` = 3 LIMIT 11[0m  [["user_id", 1], ["rated_by", 3], ["LIMIT", 11]]
+Started POST "/api/v1/user/users/1/user_rates" for 127.0.0.1 at 2018-06-12 02:59:30 +0200
+Processing by Api::V1::User::UserRatesController#create as JSON
+  Parameters: {"rate"=>1, "user_id"=>"1", "user_rate"=>{"rate"=>1}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUserRate Load (0.4ms)[0m  [1m[34mSELECT `user_rates`.* FROM `user_rates` WHERE `user_rates`.`user_id` = 1 AND `user_rates`.`rated_by` = 3[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT AVG(`user_rates`.`rate`) FROM `user_rates` WHERE `user_rates`.`user_id` = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'monicaarmanios_333@yahoo.com' AND (`users`.`id` != 1) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 20ms (Views: 0.2ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/api/v1/user/users/1/user_rates" for 127.0.0.1 at 2018-06-12 03:03:27 +0200
+Processing by Api::V1::User::UserRatesController#create as JSON
+  Parameters: {"rate"=>1, "user_id"=>"1", "user_rate"=>{"rate"=>1}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUserRate Load (0.4ms)[0m  [1m[34mSELECT `user_rates`.* FROM `user_rates` WHERE `user_rates`.`user_id` = 1 AND `user_rates`.`rated_by` = 3[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (8.8ms)[0m  [1m[32mINSERT INTO `user_rates` (`user_id`, `rated_by`, `rate`, `created_at`, `updated_at`) VALUES (1, 3, 1, '2018-06-12 01:03:27', '2018-06-12 01:03:27')[0m
+  [1m[35m (27.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT AVG(`user_rates`.`rate`) FROM `user_rates` WHERE `user_rates`.`user_id` = 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'monicaarmanios_333@yahoo.com' AND (`users`.`id` != 1) LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE `users` SET `rate` = 1.0, `updated_at` = '2018-06-12 01:03:27' WHERE `users`.`id` = 1[0m
+  [1m[35m (26.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 109ms (Views: 0.9ms | ActiveRecord: 68.0ms)
+
+
+Started POST "/api/v1/user/users/1/user_rates" for 127.0.0.1 at 2018-06-12 03:05:20 +0200
+Processing by Api::V1::User::UserRatesController#create as JSON
+  Parameters: {"rate"=>1, "user_id"=>"1", "user_rate"=>{"rate"=>1}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+No template found for Api::V1::User::UserRatesController#create, rendering head :no_content
+Completed 204 No Content in 62ms (ActiveRecord: 2.7ms)
+
+
+Started POST "/api/v1/user/users/1/user_rates" for 127.0.0.1 at 2018-06-12 03:12:57 +0200
+  
+SyntaxError (/home/monica/graduationproject/shelves/app/controllers/api/v1/user/user_rates_controller.rb:10: syntax error, unexpected ':', expecting ')'
+...id: @rated_user.id && rated_by: @current_user.id) != nil
+...                              ^
+/home/monica/graduationproject/shelves/app/controllers/api/v1/user/user_rates_controller.rb:10: syntax error, unexpected ')', expecting keyword_end
+... && rated_by: @current_user.id) != nil
+...                              ^
+/home/monica/graduationproject/shelves/app/controllers/api/v1/user/user_rates_controller.rb:11: syntax error, unexpected ':', expecting ')'
+...id: @rated_user.id && rated_by: @current_user.id)
+...                              ^
+/home/monica/graduationproject/shelves/app/controllers/api/v1/user/user_rates_controller.rb:11: syntax error, unexpected ')', expecting keyword_end
+... && rated_by: @current_user.id)
+...                              ^
+/home/monica/graduationproject/shelves/app/controllers/api/v1/user/user_rates_controller.rb:33: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+app/controllers/api/v1/user/user_rates_controller.rb:10: syntax error, unexpected ':', expecting ')'
+app/controllers/api/v1/user/user_rates_controller.rb:10: syntax error, unexpected ')', expecting keyword_end
+app/controllers/api/v1/user/user_rates_controller.rb:11: syntax error, unexpected ':', expecting ')'
+app/controllers/api/v1/user/user_rates_controller.rb:11: syntax error, unexpected ')', expecting keyword_end
+app/controllers/api/v1/user/user_rates_controller.rb:33: syntax error, unexpected keyword_end, expecting end-of-input
+Started POST "/api/v1/user/users/1/user_rates" for 127.0.0.1 at 2018-06-12 03:13:49 +0200
+  
+SyntaxError (/home/monica/graduationproject/shelves/app/controllers/api/v1/user/user_rates_controller.rb:10: syntax error, unexpected keyword_and, expecting ')'
+...ere(user_id: @rated_user.id and rated_by: @current_user.id) ...
+...                            ^~~
+/home/monica/graduationproject/shelves/app/controllers/api/v1/user/user_rates_controller.rb:10: syntax error, unexpected ')', expecting keyword_end
+...and rated_by: @current_user.id) != nil
+...                              ^
+/home/monica/graduationproject/shelves/app/controllers/api/v1/user/user_rates_controller.rb:11: syntax error, unexpected ':', expecting ')'
+...id: @rated_user.id && rated_by: @current_user.id)
+...                              ^
+/home/monica/graduationproject/shelves/app/controllers/api/v1/user/user_rates_controller.rb:11: syntax error, unexpected ')', expecting keyword_end
+... && rated_by: @current_user.id)
+...                              ^
+/home/monica/graduationproject/shelves/app/controllers/api/v1/user/user_rates_controller.rb:33: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+app/controllers/api/v1/user/user_rates_controller.rb:10: syntax error, unexpected keyword_and, expecting ')'
+app/controllers/api/v1/user/user_rates_controller.rb:10: syntax error, unexpected ')', expecting keyword_end
+app/controllers/api/v1/user/user_rates_controller.rb:11: syntax error, unexpected ':', expecting ')'
+app/controllers/api/v1/user/user_rates_controller.rb:11: syntax error, unexpected ')', expecting keyword_end
+app/controllers/api/v1/user/user_rates_controller.rb:33: syntax error, unexpected keyword_end, expecting end-of-input
+Started POST "/api/v1/user/users/1/user_rates" for 127.0.0.1 at 2018-06-12 03:15:24 +0200
+Processing by Api::V1::User::UserRatesController#create as JSON
+  Parameters: {"rate"=>3, "user_id"=>"1", "user_rate"=>{"rate"=>3}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUserRate Load (0.5ms)[0m  [1m[34mSELECT `user_rates`.* FROM `user_rates` WHERE `user_rates`.`user_id` = 1 AND `user_rates`.`user_id` = 1 AND `user_rates`.`rated_by` = 3[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE `user_rates` SET `rate` = 3, `updated_at` = '2018-06-12 01:15:24' WHERE `user_rates`.`id` = 1[0m
+  [1m[35m (32.8ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 56ms (Views: 0.4ms | ActiveRecord: 36.1ms)
+
+
+Started POST "/api/v1/user/users/1/user_rates" for 127.0.0.1 at 2018-06-12 03:16:57 +0200
+Processing by Api::V1::User::UserRatesController#create as JSON
+  Parameters: {"rate"=>3, "user_id"=>"1", "user_rate"=>{"rate"=>3}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUserRate Load (0.4ms)[0m  [1m[34mSELECT `user_rates`.* FROM `user_rates` WHERE `user_rates`.`user_id` = 1 AND `user_rates`.`user_id` = 1 AND `user_rates`.`rated_by` = 3[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT AVG(`user_rates`.`rate`) FROM `user_rates` WHERE `user_rates`.`user_id` = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'monicaarmanios_333@yahoo.com' AND (`users`.`id` != 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE `users` SET `rate` = 3.0, `updated_at` = '2018-06-12 01:16:57' WHERE `users`.`id` = 1[0m
+  [1m[35m (30.9ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 60ms (Views: 0.6ms | ActiveRecord: 34.8ms)
+
+
+Started POST "/api/v1/user/users/1/user_rates" for 127.0.0.1 at 2018-06-12 03:18:51 +0200
+Processing by Api::V1::User::UserRatesController#create as JSON
+  Parameters: {"rate"=>3, "user_id"=>"1", "user_rate"=>{"rate"=>3}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUserRate Load (0.4ms)[0m  [1m[34mSELECT `user_rates`.* FROM `user_rates` WHERE `user_rates`.`user_id` = 1 AND `user_rates`.`user_id` = 1 AND `user_rates`.`rated_by` = 3[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT AVG(`user_rates`.`rate`) FROM `user_rates` WHERE `user_rates`.`user_id` = 1[0m
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 3.5ms)
+
+
+  
+NoMethodError (undefined method `udate' for #<User:0x00007f563032bdc8>
+Did you mean?  update
+               update!):
+  
+app/controllers/api/v1/user/user_rates_controller.rb:14:in `create'
+Started POST "/api/v1/user/users/1/user_rates" for 127.0.0.1 at 2018-06-12 03:19:09 +0200
+Processing by Api::V1::User::UserRatesController#create as JSON
+  Parameters: {"rate"=>3, "user_id"=>"1", "user_rate"=>{"rate"=>3}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUserRate Load (0.6ms)[0m  [1m[34mSELECT `user_rates`.* FROM `user_rates` WHERE `user_rates`.`user_id` = 1 AND `user_rates`.`user_id` = 1 AND `user_rates`.`rated_by` = 3[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT AVG(`user_rates`.`rate`) FROM `user_rates` WHERE `user_rates`.`user_id` = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'monicaarmanios_333@yahoo.com' AND (`users`.`id` != 1) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 27ms (Views: 0.2ms | ActiveRecord: 3.7ms)
+
+
+Started POST "/api/v1/user/users/1/user_rates" for 127.0.0.1 at 2018-06-12 03:20:36 +0200
+Processing by Api::V1::User::UserRatesController#create as JSON
+  Parameters: {"rate"=>12, "user_id"=>"1", "user_rate"=>{"rate"=>12}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUserRate Load (0.3ms)[0m  [1m[34mSELECT `user_rates`.* FROM `user_rates` WHERE `user_rates`.`user_id` = 1 AND `user_rates`.`user_id` = 1 AND `user_rates`.`rated_by` = 3[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT AVG(`user_rates`.`rate`) FROM `user_rates` WHERE `user_rates`.`user_id` = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'monicaarmanios_333@yahoo.com' AND (`users`.`id` != 1) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 27ms (Views: 0.2ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/api/v1/user/users/1/user_rates" for 127.0.0.1 at 2018-06-12 03:21:46 +0200
+Processing by Api::V1::User::UserRatesController#create as JSON
+  Parameters: {"rate"=>12, "user_id"=>"1", "user_rate"=>{"rate"=>12}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUserRate Load (0.3ms)[0m  [1m[34mSELECT `user_rates`.* FROM `user_rates` WHERE `user_rates`.`user_id` = 1 AND `user_rates`.`user_id` = 1 AND `user_rates`.`rated_by` = 3[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT AVG(`user_rates`.`rate`) FROM `user_rates` WHERE `user_rates`.`user_id` = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'monicaarmanios_333@yahoo.com' AND (`users`.`id` != 1) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 28ms (Views: 0.2ms | ActiveRecord: 3.4ms)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/api/v1/user/user_rates_controller.rb:20:in `create'
+Started POST "/api/v1/user/users/1/user_rates" for 127.0.0.1 at 2018-06-12 03:22:18 +0200
+Processing by Api::V1::User::UserRatesController#create as JSON
+  Parameters: {"rate"=>12, "user_id"=>"1", "user_rate"=>{"rate"=>12}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUserRate Load (0.8ms)[0m  [1m[34mSELECT `user_rates`.* FROM `user_rates` WHERE `user_rates`.`user_id` = 1 AND `user_rates`.`user_id` = 1 AND `user_rates`.`rated_by` = 3[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT AVG(`user_rates`.`rate`) FROM `user_rates` WHERE `user_rates`.`user_id` = 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'monicaarmanios_333@yahoo.com' AND (`users`.`id` != 1) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 39ms (Views: 0.2ms | ActiveRecord: 4.9ms)
+
+
+Started POST "/api/v1/user/users/3/user_rates" for 127.0.0.1 at 2018-06-12 03:23:06 +0200
+Processing by Api::V1::User::UserRatesController#create as JSON
+  Parameters: {"rate"=>12, "user_id"=>"3", "user_rate"=>{"rate"=>12}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/v1/user/users/3/user_rates" for 127.0.0.1 at 2018-06-12 09:25:55 +0200
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by Api::V1::User::UserRatesController#create as JSON
+  Parameters: {"rate"=>12, "user_id"=>"3", "user_rate"=>{"rate"=>12}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Completed 200 OK in 125ms (Views: 0.3ms | ActiveRecord: 104.4ms)
+
+
+Started POST "/api/v1/user/users/2/user_rates" for 127.0.0.1 at 2018-06-12 09:26:07 +0200
+Processing by Api::V1::User::UserRatesController#create as JSON
+  Parameters: {"rate"=>12, "user_id"=>"2", "user_rate"=>{"rate"=>12}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Completed 500 Internal Server Error in 145ms (ActiveRecord: 0.6ms)
+
+
+  
+TypeError (no implicit conversion of UserRate::ActiveRecord_AssociationRelation into String):
+  
+app/controllers/api/v1/user/user_rates_controller.rb:11:in `+'
+app/controllers/api/v1/user/user_rates_controller.rb:11:in `create'
+Started POST "/api/v1/user/users/2/user_rates" for 127.0.0.1 at 2018-06-12 09:26:27 +0200
+Processing by Api::V1::User::UserRatesController#create as JSON
+  Parameters: {"rate"=>12, "user_id"=>"2", "user_rate"=>{"rate"=>12}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUserRate Load (0.3ms)[0m  [1m[34mSELECT `user_rates`.* FROM `user_rates` WHERE `user_rates`.`user_id` = 2 AND `user_rates`.`user_id` = 2 AND `user_rates`.`rated_by` = 3[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT AVG(`user_rates`.`rate`) FROM `user_rates` WHERE `user_rates`.`user_id` = 2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'monicamagdy70@gmail.com' AND (`users`.`id` != 2) LIMIT 1[0m
+  [1m[35mSQL (20.2ms)[0m  [1m[33mUPDATE `users` SET `rate` = NULL, `updated_at` = '2018-06-12 07:26:28' WHERE `users`.`id` = 2[0m
+  [1m[35m (36.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 191ms (Views: 0.5ms | ActiveRecord: 59.8ms)
+
+
+Started POST "/api/v1/user/users/2/user_rates" for 127.0.0.1 at 2018-06-12 09:28:11 +0200
+Processing by Api::V1::User::UserRatesController#create as JSON
+  Parameters: {"rate"=>1, "user_id"=>"2", "user_rate"=>{"rate"=>1}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUserRate Load (0.2ms)[0m  [1m[34mSELECT `user_rates`.* FROM `user_rates` WHERE `user_rates`.`user_id` = 2 AND `user_rates`.`user_id` = 2 AND `user_rates`.`rated_by` = 3[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT AVG(`user_rates`.`rate`) FROM `user_rates` WHERE `user_rates`.`user_id` = 2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'monicamagdy70@gmail.com' AND (`users`.`id` != 2) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/api/v1/user/users/2/user_rates" for 127.0.0.1 at 2018-06-12 09:29:14 +0200
+Processing by Api::V1::User::UserRatesController#create as JSON
+  Parameters: {"rate"=>1, "user_id"=>"2", "user_rate"=>{"rate"=>1}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUserRate Load (0.4ms)[0m  [1m[34mSELECT `user_rates`.* FROM `user_rates` WHERE `user_rates`.`user_id` = 2 AND `user_rates`.`user_id` = 2 AND `user_rates`.`rated_by` = 3[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT AVG(`user_rates`.`rate`) FROM `user_rates` WHERE `user_rates`.`user_id` = 2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'monicamagdy70@gmail.com' AND (`users`.`id` != 2) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 20ms (Views: 0.2ms | ActiveRecord: 3.1ms)
+
+
+Started POST "/api/v1/user/users/2/user_rates" for 127.0.0.1 at 2018-06-12 09:30:19 +0200
+Processing by Api::V1::User::UserRatesController#create as JSON
+  Parameters: {"rate"=>1, "user_id"=>"2", "user_rate"=>{"rate"=>1}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUserRate Load (0.3ms)[0m  [1m[34mSELECT `user_rates`.* FROM `user_rates` WHERE `user_rates`.`user_id` = 2 AND `user_rates`.`rated_by` = 3[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT AVG(`user_rates`.`rate`) FROM `user_rates` WHERE `user_rates`.`user_id` = 2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'monicamagdy70@gmail.com' AND (`users`.`id` != 2) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 35ms (Views: 0.5ms | ActiveRecord: 4.0ms)
+
+
+Started POST "/api/v1/user/users/2/user_rates" for 127.0.0.1 at 2018-06-12 09:31:20 +0200
+Processing by Api::V1::User::UserRatesController#create as JSON
+  Parameters: {"rate"=>1, "user_id"=>"2", "user_rate"=>{"rate"=>1}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUserRate Load (0.6ms)[0m  [1m[34mSELECT `user_rates`.* FROM `user_rates` WHERE `user_rates`.`user_id` = 2 AND `user_rates`.`rated_by` = 3[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT AVG(`user_rates`.`rate`) FROM `user_rates` WHERE `user_rates`.`user_id` = 2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'monicamagdy70@gmail.com' AND (`users`.`id` != 2) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 3.4ms)
+
+
+  
+TypeError (no implicit conversion of String into Array):
+  
+app/controllers/api/v1/user/user_rates_controller.rb:16:in `create'
+Started POST "/api/v1/user/users/2/user_rates" for 127.0.0.1 at 2018-06-12 09:31:35 +0200
+Processing by Api::V1::User::UserRatesController#create as JSON
+  Parameters: {"rate"=>1, "user_id"=>"2", "user_rate"=>{"rate"=>1}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUserRate Load (1.1ms)[0m  [1m[34mSELECT `user_rates`.* FROM `user_rates` WHERE `user_rates`.`user_id` = 2 AND `user_rates`.`rated_by` = 3[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT AVG(`user_rates`.`rate`) FROM `user_rates` WHERE `user_rates`.`user_id` = 2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'monicamagdy70@gmail.com' AND (`users`.`id` != 2) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 20ms (Views: 0.2ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/api/v1/user/users/2/user_rates" for 127.0.0.1 at 2018-06-12 09:32:48 +0200
+Processing by Api::V1::User::UserRatesController#create as JSON
+  Parameters: {"rate"=>1, "user_id"=>"2", "user_rate"=>{"rate"=>1}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUserRate Load (0.4ms)[0m  [1m[34mSELECT `user_rates`.* FROM `user_rates` WHERE `user_rates`.`user_id` = 2 AND `user_rates`.`rated_by` = 3[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO `user_rates` (`user_id`, `rated_by`, `rate`, `created_at`, `updated_at`) VALUES (2, 3, 1, '2018-06-12 07:32:48', '2018-06-12 07:32:48')[0m
+  [1m[35m (46.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT AVG(`user_rates`.`rate`) FROM `user_rates` WHERE `user_rates`.`user_id` = 2[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'monicamagdy70@gmail.com' AND (`users`.`id` != 2) LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE `users` SET `rate` = 1.0, `updated_at` = '2018-06-12 07:32:48' WHERE `users`.`id` = 2[0m
+  [1m[35m (29.8ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 234ms (Views: 0.5ms | ActiveRecord: 82.6ms)
+
+
+Started POST "/api/v1/user/users/2/user_rates" for 127.0.0.1 at 2018-06-12 09:35:11 +0200
+Processing by Api::V1::User::UserRatesController#create as JSON
+  Parameters: {"rate"=>12, "user_id"=>"2", "user_rate"=>{"rate"=>12}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUserRate Load (0.4ms)[0m  [1m[34mSELECT `user_rates`.* FROM `user_rates` WHERE `user_rates`.`user_id` = 2 AND `user_rates`.`rated_by` = 3[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT AVG(`user_rates`.`rate`) FROM `user_rates` WHERE `user_rates`.`user_id` = 2[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'monicamagdy70@gmail.com' AND (`users`.`id` != 2) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 27ms (Views: 0.2ms | ActiveRecord: 5.0ms)
+
+
+Started POST "/api/v1/user/users/2/user_rates" for 127.0.0.1 at 2018-06-12 09:38:42 +0200
+  
+SyntaxError (/home/monica/graduationproject/shelves/app/controllers/api/v1/user/user_rates_controller.rb:41: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+app/controllers/api/v1/user/user_rates_controller.rb:41: syntax error, unexpected keyword_end, expecting end-of-input
+Started POST "/api/v1/user/users/2/user_rates" for 127.0.0.1 at 2018-06-12 09:39:05 +0200
+Processing by Api::V1::User::UserRatesController#create as JSON
+  Parameters: {"rate"=>2, "user_id"=>"2", "user_rate"=>{"rate"=>2}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUserRate Load (0.5ms)[0m  [1m[34mSELECT `user_rates`.* FROM `user_rates` WHERE `user_rates`.`user_id` = 2 AND `user_rates`.`rated_by` = 3[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE `user_rates` SET `rate` = 2, `updated_at` = '2018-06-12 07:39:05' WHERE `user_rates`.`id` = 2[0m
+  [1m[35m (139.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT AVG(`user_rates`.`rate`) FROM `user_rates` WHERE `user_rates`.`user_id` = 2[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'monicamagdy70@gmail.com' AND (`users`.`id` != 2) LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE `users` SET `rate` = 2.0, `updated_at` = '2018-06-12 07:39:05' WHERE `users`.`id` = 2[0m
+  [1m[35m (29.0ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 207ms (Views: 0.5ms | ActiveRecord: 173.7ms)
+
+

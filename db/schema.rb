@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180611005536) do
+ActiveRecord::Schema.define(version: 20180611235314) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "namespace"
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 20180611005536) do
   create_table "books", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.text "description"
-    t.float "rate", limit: 24
+    t.float "rate", limit: 24, default: 0.0
     t.integer "quantity", default: 1
     t.float "price", limit: 24
     t.boolean "is_approved"
@@ -149,11 +149,21 @@ ActiveRecord::Schema.define(version: 20180611005536) do
   create_table "rates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "user_id"
     t.bigint "book_id"
-    t.integer "rate"
+    t.integer "rate", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["book_id"], name: "index_rates_on_book_id"
     t.index ["user_id"], name: "index_rates_on_user_id"
+  end
+
+  create_table "user_rates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "user_id"
+    t.bigint "rated_by"
+    t.integer "rate", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["rated_by"], name: "index_user_rates_on_rated_by"
+    t.index ["user_id"], name: "index_user_rates_on_user_id"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -163,7 +173,7 @@ ActiveRecord::Schema.define(version: 20180611005536) do
     t.string "profile_picture"
     t.integer "role"
     t.integer "gender"
-    t.integer "rate"
+    t.float "rate", limit: 24, default: 0.0
     t.boolean "email_confirmed", default: false
     t.string "confirm_token"
     t.datetime "created_at", null: false
@@ -177,4 +187,6 @@ ActiveRecord::Schema.define(version: 20180611005536) do
   add_foreign_key "orders", "books", column: "exchangeable_book_id"
   add_foreign_key "orders", "users", column: "seller_id"
   add_foreign_key "phones", "users"
+  add_foreign_key "user_rates", "users"
+  add_foreign_key "user_rates", "users", column: "rated_by"
 end
