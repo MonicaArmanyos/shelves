@@ -8045,7 +8045,6 @@ No template found for Api::V1::Book::CommentsController#create, rendering head :
 Completed 204 No Content in 201ms (ActiveRecord: 4.5ms)
 
 
-<<<<<<< HEAD
   [1m[35m (0.7ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
   [1m[35m (0.4ms)[0m  [1m[34mSELECT GET_LOCK('6965469184171088535', 0)[0m
   [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
@@ -8748,594 +8747,99 @@ Processing by Api::V1::User::UserRatesController#create as JSON
 Completed 200 OK in 207ms (Views: 0.5ms | ActiveRecord: 173.7ms)
 
 
-=======
-Started POST "/api/v1/book/books/1/comments" for 127.0.0.1 at 2018-06-12 02:12:14 +0200
-Processing by Api::V1::Book::CommentsController#create as */*
-  Parameters: {"comment"=>"", "book_id"=>"1"}
-  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
-  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
-  [1m[35m (2.6ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
-  [1m[35m (2.8ms)[0m  [1m[31mROLLBACK[0m
-No template found for Api::V1::Book::CommentsController#create, rendering head :no_content
-Completed 204 No Content in 225ms (ActiveRecord: 7.4ms)
+Started POST "/api/v1/user/users/2/user_rates" for 127.0.0.1 at 2018-06-12 09:49:35 +0200
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  
+ActiveRecord::PendingMigrationError (
 
+Migrations are pending. To resolve this issue, run:
 
-Started POST "/api/v1/book/books/1/comments" for 127.0.0.1 at 2018-06-12 02:14:01 +0200
-Processing by Api::V1::Book::CommentsController#create as */*
-  Parameters: {"comment"=>"hhhhhh", "book_id"=>"1"}
-  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
-  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.1.6) lib/active_record/migration.rb:576:in `check_pending!'
+activerecord (5.1.6) lib/active_record/migration.rb:553:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('6965469184171088535', 0)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateComments (20180611222031)
+  [1m[35m (499.0ms)[0m  [1m[35mCREATE TABLE `comments` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `user_id` bigint, `book_id` bigint, `comment` text, `like` int, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_comments_on_user_id`  (`user_id`),  INDEX `index_comments_on_book_id`  (`book_id`), CONSTRAINT `fk_rails_03de2dc08c`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+, CONSTRAINT `fk_rails_a98e86e5b9`
+FOREIGN KEY (`book_id`)
+  REFERENCES `books` (`id`)
+) ENGINE=InnoDB[0m
   [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCACHE User Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
-  [1m[35mSQL (75.7ms)[0m  [1m[32mINSERT INTO `comments` (`user_id`, `book_id`, `comment`, `created_at`, `updated_at`) VALUES (6, 1, 'hhhhhh', '2018-06-12 00:14:01', '2018-06-12 00:14:01')[0m
-  [1m[35m (62.3ms)[0m  [1m[35mCOMMIT[0m
-Completed 200 OK in 169ms (Views: 11.8ms | ActiveRecord: 140.4ms)
-
-
-Started POST "/api/v1/book/books/1/comments" for 127.0.0.1 at 2018-06-12 02:16:07 +0200
-Processing by Api::V1::Book::CommentsController#create as */*
-  Parameters: {"comment"=>"", "book_id"=>"1"}
-  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
-  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180611222031')[0m
+  [1m[35m (36.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
   [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
-  [1m[35mSQL (20.7ms)[0m  [1m[32mINSERT INTO `comments` (`user_id`, `book_id`, `comment`, `created_at`, `updated_at`) VALUES (6, 1, '', '2018-06-12 00:16:08', '2018-06-12 00:16:08')[0m
-  [1m[35m (52.0ms)[0m  [1m[35mCOMMIT[0m
-Completed 200 OK in 231ms (Views: 6.8ms | ActiveRecord: 82.5ms)
-
-
-Started GET "/admin/comments" for 127.0.0.1 at 2018-06-12 02:26:24 +0200
-Processing by Admin::CommentsController#index as HTML
-  [1m[36mAdminUser Load (16.5ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
-  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
-  [1m[35m (31.8ms)[0m  [1m[34mSELECT COUNT(*) FROM `comments`[0m
-  [1m[35m (15.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `comments` LIMIT 9 OFFSET 0) subquery_for_count[0m
-  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `comments` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
-  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `comments`[0m
-  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `comments` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
-  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` ORDER BY `comments`.`id` desc LIMIT 9 OFFSET 0[0m
-  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
-  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
-  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
-  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Book Load (0.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
-  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
-  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (659.4ms)
-Completed 200 OK in 875ms (Views: 676.1ms | ActiveRecord: 91.9ms)
-
-
-Started GET "/assets/active_admin-365d7294774f2338299dafe5cec179b41884dcb3cd74805114a47f5dbc830c13.css" for 127.0.0.1 at 2018-06-12 02:26:25 +0200
-Started GET "/assets/active_admin/print-b05a0449174c4e0e939ecab3483d5b7389c188baae07f7b99af2da69df0243d9.css" for 127.0.0.1 at 2018-06-12 02:26:25 +0200
-Started GET "/admin/comments/new" for 127.0.0.1 at 2018-06-12 02:27:02 +0200
-Processing by Admin::CommentsController#new as HTML
-  [1m[36mAdminUser Load (0.8ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
-  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/new.html.arb
-  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
-  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
-  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/new.html.arb (151.1ms)
-Completed 200 OK in 199ms (Views: 191.4ms | ActiveRecord: 2.2ms)
-
-
-Started POST "/admin/comments" for 127.0.0.1 at 2018-06-12 02:27:04 +0200
-Processing by Admin::CommentsController#create as HTML
-  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BBRshy4fyNwqoL8Mx6UaWy4O4Ksvw+HQp0rr+AK0/hZbzabhgTAP35b+pyQBeKS6to15cdXugHN6Gx5GCn4zxw==", "comment"=>{"user_id"=>"", "book_id"=>"", "comment"=>""}, "commit"=>"Create Comment"}
-  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
-  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/new.html.arb
-  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
-  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
-  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/new.html.arb (90.1ms)
-Completed 200 OK in 131ms (Views: 92.8ms | ActiveRecord: 2.4ms)
-
-
-Started POST "/api/v1/book/books/1/comments" for 127.0.0.1 at 2018-06-12 02:28:16 +0200
-  
-SyntaxError (/home/ghada/ruby/shelves/app/controllers/api/v1/book/comments_controller.rb:15: syntax error, unexpected keyword_else, expecting '}'
-          else
-          ^~~~):
-  
-app/controllers/api/v1/book/comments_controller.rb:15: syntax error, unexpected keyword_else, expecting '}'
-Started POST "/api/v1/book/books/1/comments" for 127.0.0.1 at 2018-06-12 02:29:09 +0200
-Processing by Api::V1::Book::CommentsController#create as */*
-  Parameters: {"comment"=>"", "book_id"=>"1"}
-  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
-  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
-Completed 200 OK in 91ms (Views: 6.0ms | ActiveRecord: 5.5ms)
-
-
-Started POST "/api/v1/book/books/1/comments" for 127.0.0.1 at 2018-06-12 02:29:23 +0200
-Processing by Api::V1::Book::CommentsController#create as */*
-  Parameters: {"comment"=>"d", "book_id"=>"1"}
-  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
-  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
-Completed 200 OK in 16ms (Views: 10.9ms | ActiveRecord: 1.4ms)
-
-
-Started POST "/api/v1/book/books/1/comments" for 127.0.0.1 at 2018-06-12 02:29:28 +0200
-Processing by Api::V1::Book::CommentsController#create as */*
-  Parameters: {"comment"=>"dd", "book_id"=>"1"}
-  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
-  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
-Completed 200 OK in 14ms (Views: 8.6ms | ActiveRecord: 1.5ms)
-
-
-Started POST "/api/v1/book/books/1/comments" for 127.0.0.1 at 2018-06-12 02:29:33 +0200
-Processing by Api::V1::Book::CommentsController#create as */*
-  Parameters: {"comment"=>"ddd", "book_id"=>"1"}
-  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
-  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
-Completed 200 OK in 15ms (Views: 8.9ms | ActiveRecord: 1.5ms)
-
-
-Started POST "/api/v1/book/books/1/comments" for 127.0.0.1 at 2018-06-12 02:29:58 +0200
-Processing by Api::V1::Book::CommentsController#create as */*
-  Parameters: {"comment"=>"ddd", "book_id"=>"1"}
-  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
-  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
-  [1m[35mSQL (23.1ms)[0m  [1m[32mINSERT INTO `comments` (`user_id`, `book_id`, `comment`, `created_at`, `updated_at`) VALUES (6, 1, 'ddd', '2018-06-12 00:29:59', '2018-06-12 00:29:59')[0m
-  [1m[35m (100.7ms)[0m  [1m[35mCOMMIT[0m
-Completed 200 OK in 280ms (Views: 6.9ms | ActiveRecord: 131.2ms)
-
-
-Started POST "/api/v1/book/books/1/comments" for 127.0.0.1 at 2018-06-12 02:30:05 +0200
-Processing by Api::V1::Book::CommentsController#create as */*
-  Parameters: {"comment"=>"", "book_id"=>"1"}
-  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
-  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
-Completed 200 OK in 13ms (Views: 8.0ms | ActiveRecord: 1.2ms)
-
-
-Started POST "/api/v1/book/books/1/comments" for 127.0.0.1 at 2018-06-12 02:30:14 +0200
-Processing by Api::V1::Book::CommentsController#create as */*
-  Parameters: {"comment"=>"dd", "book_id"=>"1"}
-  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
-  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
-  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
-  [1m[35mSQL (19.5ms)[0m  [1m[32mINSERT INTO `comments` (`user_id`, `book_id`, `comment`, `created_at`, `updated_at`) VALUES (6, 1, 'dd', '2018-06-12 00:30:14', '2018-06-12 00:30:14')[0m
-  [1m[35m (58.2ms)[0m  [1m[35mCOMMIT[0m
-Completed 200 OK in 102ms (Views: 8.0ms | ActiveRecord: 79.8ms)
-
-
-Started GET "/admin/comments" for 127.0.0.1 at 2018-06-12 02:30:26 +0200
-Processing by Admin::CommentsController#index as HTML
-  [1m[36mAdminUser Load (0.8ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
-  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
-  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `comments`[0m
-  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `comments` LIMIT 9 OFFSET 0) subquery_for_count[0m
-  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `comments` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
-  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `comments`[0m
-  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `comments` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
-  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` ORDER BY `comments`.`id` desc LIMIT 9 OFFSET 0[0m
-  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
-  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
-  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
-  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
-  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
-  [1m[36mCACHE Book Load (0.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Book Load (0.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
-Started GET "/admin/comments" for 127.0.0.1 at 2018-06-12 02:30:26 +0200
-Processing by Admin::CommentsController#index as HTML
-  [1m[36mBook Load (11.0ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
-  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (294.9ms)
-Completed 200 OK in 350ms (Views: 284.0ms | ActiveRecord: 19.1ms)
-
-
-  [1m[35m (93.1ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
-  [1m[36mAdminUser Load (31.6ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
-  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
-  [1m[35m (20.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `comments`[0m
-  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `comments` LIMIT 9 OFFSET 0) subquery_for_count[0m
-  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `comments` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
-  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM `comments`[0m
-  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `comments` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
-  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` ORDER BY `comments`.`id` desc LIMIT 9 OFFSET 0[0m
-  [1m[36mUser Load (11.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
-  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
-  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
-  [1m[36mBook Load (1.4ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
-  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
-  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
-  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (246.4ms)
-Completed 200 OK in 560ms (Views: 218.4ms | ActiveRecord: 162.1ms)
-
-
-Started POST "/api/v1/book/books/55/comments" for 127.0.0.1 at 2018-06-12 02:31:08 +0200
-Processing by Api::V1::Book::CommentsController#create as */*
-  Parameters: {"comment"=>"dd", "book_id"=>"55"}
-  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 55 LIMIT 1[0m
-Completed 404 Not Found in 3ms (ActiveRecord: 0.6ms)
-
-
-  
-ActiveRecord::RecordNotFound (Couldn't find Book with 'id'=55):
-  
-app/controllers/api/v1/book/comments_controller.rb:26:in `set_book'
-Started POST "/api/v1/book/books/55/comments" for 127.0.0.1 at 2018-06-12 02:44:12 +0200
-Processing by Api::V1::Book::CommentsController#create as */*
-  Parameters: {"comment"=>"dd", "book_id"=>"55"}
-  [1m[36mBook Load (77.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 55 LIMIT 1[0m
-Completed 404 Not Found in 82ms (ActiveRecord: 77.9ms)
-
-
-  
-ActiveRecord::RecordNotFound (Couldn't find Book with 'id'=55):
-  
-app/controllers/api/v1/book/comments_controller.rb:33:in `set_book'
-Started POST "/api/v1/book/books/55/comments" for 127.0.0.1 at 2018-06-12 02:48:18 +0200
-Processing by Api::V1::Book::CommentsController#create as */*
-  Parameters: {"comment"=>"dd", "book_id"=>"55"}
-  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 55 LIMIT 1[0m
-Completed 404 Not Found in 5ms (ActiveRecord: 0.6ms)
-
-
-  
-ActiveRecord::RecordNotFound (Couldn't find Book with 'id'=55):
-  
-app/controllers/api/v1/book/comments_controller.rb:28:in `set_book'
-Started POST "/api/v1/book/books/3/comments" for 127.0.0.1 at 2018-06-12 02:49:21 +0200
-Processing by Api::V1::Book::CommentsController#create as */*
-  Parameters: {"comment"=>"dd", "book_id"=>"3"}
-  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
-  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
-  [1m[35mSQL (18.7ms)[0m  [1m[32mINSERT INTO `comments` (`user_id`, `book_id`, `comment`, `created_at`, `updated_at`) VALUES (6, 3, 'dd', '2018-06-12 00:49:22', '2018-06-12 00:49:22')[0m
-  [1m[35m (96.7ms)[0m  [1m[35mCOMMIT[0m
-Completed 200 OK in 265ms (Views: 9.5ms | ActiveRecord: 117.1ms)
-
-
-Started POST "/api/v1/book/books/3/comments" for 127.0.0.1 at 2018-06-12 02:50:33 +0200
-Processing by Api::V1::Book::CommentsController#create as */*
-  Parameters: {"comment"=>"dd", "book_id"=>"3"}
-  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
-  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
-  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
-  [1m[35mSQL (12.7ms)[0m  [1m[32mINSERT INTO `comments` (`user_id`, `book_id`, `comment`, `created_at`, `updated_at`) VALUES (6, 3, 'dd', '2018-06-12 00:50:34', '2018-06-12 00:50:34')[0m
-  [1m[35m (32.0ms)[0m  [1m[35mCOMMIT[0m
-Completed 200 OK in 160ms (Views: 8.3ms | ActiveRecord: 46.6ms)
-
-
-Started GET "/admin/comments" for 127.0.0.1 at 2018-06-12 03:28:00 +0200
-Processing by Admin::CommentsController#index as HTML
-  [1m[36mAdminUser Load (1.0ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
-  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
-  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `comments`[0m
-  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `comments` LIMIT 9 OFFSET 0) subquery_for_count[0m
-  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `comments` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
-  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM `comments`[0m
-  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `comments` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
-  [1m[36mComment Load (1.4ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` ORDER BY `comments`.`id` desc LIMIT 9 OFFSET 0[0m
-  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
-  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
-  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
-  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
-  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
-  [1m[36mUser Load (5.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
-  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
-  [1m[36mCACHE Book Load (0.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
-  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
-  [1m[36mCACHE Book Load (0.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Book Load (0.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Book Load (0.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Book Load (0.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
-  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
-  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (491.4ms)
-Completed 200 OK in 595ms (Views: 485.0ms | ActiveRecord: 16.3ms)
-
-
-Started GET "/assets/active_admin-e670a4b09c70a1cf0e546e3cc233273ec00d44a2fe841969cac0562998dbec41.js" for 127.0.0.1 at 2018-06-12 03:28:03 +0200
-Started GET "/assets/active_admin/print-b05a0449174c4e0e939ecab3483d5b7389c188baae07f7b99af2da69df0243d9.css" for 127.0.0.1 at 2018-06-12 03:28:03 +0200
-Started GET "/assets/active_admin-365d7294774f2338299dafe5cec179b41884dcb3cd74805114a47f5dbc830c13.css" for 127.0.0.1 at 2018-06-12 03:28:03 +0200
-Started GET "/assets/active_admin/orderable-29374dbb55b0012d78a37c614d573bb3474f0779849b478a147d0f1845ca6617.png" for 127.0.0.1 at 2018-06-12 03:28:03 +0200
-Started DELETE "/api/v1/book/books/3/comments/5" for 127.0.0.1 at 2018-06-12 03:28:23 +0200
-Processing by Api::V1::Book::CommentsController#destroy as */*
-  Parameters: {"text/plain"=>[""], "book_id"=>"3", "id"=>"5"}
-  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
-  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
-  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 5 LIMIT 1[0m
-  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (144.3ms)[0m  [1m[31mDELETE FROM `comments` WHERE `comments`.`id` = 5[0m
-  [1m[35m (57.6ms)[0m  [1m[35mCOMMIT[0m
-Completed 200 OK in 236ms (Views: 10.2ms | ActiveRecord: 204.8ms)
-
-
-Started GET "/admin/comments" for 127.0.0.1 at 2018-06-12 03:28:32 +0200
-Processing by Admin::CommentsController#index as HTML
-  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
-  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
-  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM `comments`[0m
-  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `comments` LIMIT 9 OFFSET 0) subquery_for_count[0m
-  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `comments` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
-  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM `comments`[0m
-  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `comments` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
-  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` ORDER BY `comments`.`id` desc LIMIT 9 OFFSET 0[0m
-  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
-  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
-  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
-  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
-  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
-  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
-  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
-  [1m[36mCACHE Book Load (0.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
-  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
-  [1m[36mCACHE Book Load (0.2ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Book Load (0.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Book Load (0.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
-  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
-  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (289.1ms)
-Completed 200 OK in 304ms (Views: 287.3ms | ActiveRecord: 10.7ms)
-
-
-Started GET "/assets/active_admin-365d7294774f2338299dafe5cec179b41884dcb3cd74805114a47f5dbc830c13.css" for 127.0.0.1 at 2018-06-12 03:28:32 +0200
-Started GET "/assets/active_admin/print-b05a0449174c4e0e939ecab3483d5b7389c188baae07f7b99af2da69df0243d9.css" for 127.0.0.1 at 2018-06-12 03:28:32 +0200
-Started GET "/assets/active_admin-e670a4b09c70a1cf0e546e3cc233273ec00d44a2fe841969cac0562998dbec41.js" for 127.0.0.1 at 2018-06-12 03:28:32 +0200
-Started GET "/assets/active_admin/orderable-29374dbb55b0012d78a37c614d573bb3474f0779849b478a147d0f1845ca6617.png" for 127.0.0.1 at 2018-06-12 03:28:32 +0200
-Started GET "/admin/comments/7/edit" for 127.0.0.1 at 2018-06-12 03:28:39 +0200
-Processing by Admin::CommentsController#edit as HTML
-  Parameters: {"id"=>"7"}
-  [1m[36mAdminUser Load (0.8ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
-  [1m[36mComment Load (1.3ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 7 LIMIT 1[0m
-  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/edit.html.arb
-  [1m[36mCACHE Comment Load (0.1ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 7 LIMIT 1[0m  [["id", 7], ["LIMIT", 1]]
-  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
-  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
-  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
-  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
-  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/edit.html.arb (156.5ms)
-Completed 200 OK in 191ms (Views: 177.1ms | ActiveRecord: 5.9ms)
-
-
-Started PATCH "/admin/comments/7" for 127.0.0.1 at 2018-06-12 03:28:48 +0200
-Processing by Admin::CommentsController#update as HTML
-  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8Za/BvWWP9piE4F8M986jZrqixfSY4kxJmztqanwU7WuT3VgWrn42d5NmVT1AoRsAmkSzShO6JL7PRgXoTqeZA==", "comment"=>{"user_id"=>"3", "book_id"=>"3", "comment"=>"dd"}, "commit"=>"Update Comment", "id"=>"7"}
-  [1m[36mAdminUser Load (0.9ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
-  [1m[36mComment Load (1.4ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 7 LIMIT 1[0m
-  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
-  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
-  [1m[35mSQL (75.7ms)[0m  [1m[33mUPDATE `comments` SET `user_id` = 3, `updated_at` = '2018-06-12 01:28:48' WHERE `comments`.`id` = 7[0m
-  [1m[35m (28.9ms)[0m  [1m[35mCOMMIT[0m
-Redirected to http://localhost:3000/admin/comments/7
-Completed 302 Found in 157ms (ActiveRecord: 109.4ms)
-
-
-Started GET "/admin/comments/7" for 127.0.0.1 at 2018-06-12 03:28:48 +0200
-Processing by Admin::CommentsController#show as HTML
-  Parameters: {"id"=>"7"}
-  [1m[36mAdminUser Load (0.9ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
-  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 7 LIMIT 1[0m
-  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/show.html.arb
-  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
-  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
-  [1m[35m (54.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `active_admin_comments` WHERE `active_admin_comments`.`resource_type` = 'Comment' AND `active_admin_comments`.`resource_id` = 7 AND `active_admin_comments`.`namespace` = 'admin'[0m
-  [1m[36mActiveAdmin::Comment Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM `active_admin_comments` WHERE `active_admin_comments`.`resource_type` = 'Comment' AND `active_admin_comments`.`resource_id` = 7 AND `active_admin_comments`.`namespace` = 'admin' LIMIT 1 OFFSET 0[0m
-  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `active_admin_comments` WHERE `active_admin_comments`.`resource_type` = 'Comment' AND `active_admin_comments`.`resource_id` = 7 AND `active_admin_comments`.`namespace` = 'admin' ORDER BY created_at ASC LIMIT 25 OFFSET 0) subquery_for_count[0m
-  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/show.html.arb (301.8ms)
-Completed 200 OK in 340ms (Views: 272.9ms | ActiveRecord: 59.5ms)
-
-
-Started GET "/admin/comments" for 127.0.0.1 at 2018-06-12 03:28:52 +0200
-Processing by Admin::CommentsController#index as HTML
-  [1m[36mAdminUser Load (0.8ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
-  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
-  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `comments`[0m
-  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `comments` LIMIT 9 OFFSET 0) subquery_for_count[0m
-  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `comments` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
-  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM `comments`[0m
-  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `comments` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
-  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` ORDER BY `comments`.`id` desc LIMIT 9 OFFSET 0[0m
-  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
-  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
-  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
-  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
-  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
-  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
-  [1m[36mCACHE Book Load (0.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
-  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
-  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Book Load (0.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
-  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
-  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (293.9ms)
-Completed 200 OK in 307ms (Views: 290.7ms | ActiveRecord: 9.9ms)
-
-
-Started DELETE "/api/v1/book/books/3/comments/7" for 127.0.0.1 at 2018-06-12 03:29:06 +0200
-Processing by Api::V1::Book::CommentsController#destroy as */*
-  Parameters: {"text/plain"=>[""], "book_id"=>"3", "id"=>"7"}
-  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
-  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
-  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 7 LIMIT 1[0m
-Completed 200 OK in 23ms (Views: 12.6ms | ActiveRecord: 2.7ms)
-
-
-Started DELETE "/api/v1/book/books/3/comments/8" for 127.0.0.1 at 2018-06-12 03:37:42 +0200
-Processing by Api::V1::Book::CommentsController#destroy as */*
-  Parameters: {"text/plain"=>[""], "book_id"=>"3", "id"=>"8"}
-  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
-  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 8 LIMIT 1[0m
-Completed 500 Internal Server Error in 88ms (ActiveRecord: 29.5ms)
-
-
-  
-NoMethodError (undefined method `id' for nil:NilClass):
-  
-app/controllers/api/v1/book/comments_controller.rb:36:in `destroy'
-Started GET "/admin/comments" for 127.0.0.1 at 2018-06-12 03:38:11 +0200
-Processing by Admin::CommentsController#index as HTML
-  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
-  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
-  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `comments`[0m
-  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `comments` LIMIT 9 OFFSET 0) subquery_for_count[0m
-  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `comments` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
-  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `comments`[0m
-  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `comments` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
-  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` ORDER BY `comments`.`id` desc LIMIT 9 OFFSET 0[0m
-  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
-  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
-  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
-  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
-  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
-  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
-  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
-  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
-  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (375.0ms)
-Completed 200 OK in 503ms (Views: 370.8ms | ActiveRecord: 63.7ms)
-
-
-Started GET "/assets/active_admin-365d7294774f2338299dafe5cec179b41884dcb3cd74805114a47f5dbc830c13.css" for 127.0.0.1 at 2018-06-12 03:38:12 +0200
-Started GET "/assets/active_admin/print-b05a0449174c4e0e939ecab3483d5b7389c188baae07f7b99af2da69df0243d9.css" for 127.0.0.1 at 2018-06-12 03:38:12 +0200
-Started GET "/assets/active_admin-e670a4b09c70a1cf0e546e3cc233273ec00d44a2fe841969cac0562998dbec41.js" for 127.0.0.1 at 2018-06-12 03:38:12 +0200
-Started GET "/assets/active_admin/orderable-29374dbb55b0012d78a37c614d573bb3474f0779849b478a147d0f1845ca6617.png" for 127.0.0.1 at 2018-06-12 03:38:12 +0200
-Started DELETE "/api/v1/book/books/3/comments/8" for 127.0.0.1 at 2018-06-12 03:39:03 +0200
-Processing by Api::V1::Book::CommentsController#destroy as */*
-  Parameters: {"text/plain"=>[""], "book_id"=>"3", "id"=>"8"}
-  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
-  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 8 LIMIT 1[0m
-Completed 500 Internal Server Error in 12ms (ActiveRecord: 1.5ms)
-
-
-  
-NoMethodError (undefined method `id' for nil:NilClass):
-  
-app/controllers/api/v1/book/comments_controller.rb:36:in `destroy'
-Started DELETE "/api/v1/book/books/3/comments/8" for 127.0.0.1 at 2018-06-12 03:43:08 +0200
-Processing by Api::V1::Book::CommentsController#destroy as */*
-  Parameters: {"text/plain"=>[""], "book_id"=>"3", "id"=>"8"}
-  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
-  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 8 LIMIT 1[0m
-No template found for Api::V1::Book::CommentsController#destroy, rendering head :no_content
-Completed 204 No Content in 181ms (ActiveRecord: 1.3ms)
-
-
-Started DELETE "/api/v1/book/books/3/comments/8" for 127.0.0.1 at 2018-06-12 03:44:02 +0200
-Processing by Api::V1::Book::CommentsController#destroy as */*
-  Parameters: {"text/plain"=>[""], "book_id"=>"3", "id"=>"8"}
-  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
-  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 8 LIMIT 1[0m
-No template found for Api::V1::Book::CommentsController#destroy, rendering head :no_content
-Completed 204 No Content in 180ms (ActiveRecord: 1.3ms)
-
-
-Started DELETE "/api/v1/book/books/3/comments/8" for 127.0.0.1 at 2018-06-12 03:46:13 +0200
-Processing by Api::V1::Book::CommentsController#destroy as */*
-  Parameters: {"text/plain"=>[""], "book_id"=>"3", "id"=>"8"}
-  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
-  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
-  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 8 LIMIT 1[0m
-  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (23.6ms)[0m  [1m[31mDELETE FROM `comments` WHERE `comments`.`id` = 8[0m
-  [1m[35m (84.6ms)[0m  [1m[35mCOMMIT[0m
-Completed 200 OK in 213ms (Views: 20.2ms | ActiveRecord: 114.9ms)
-
-
-Started POST "/api/v1/book/books/3/orders" for 127.0.0.1 at 2018-06-12 03:46:59 +0200
-Processing by Api::V1::Book::OrdersController#create as */*
-  Parameters: {"quantity"=>"2", "book_id"=>"3"}
-  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
-  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
-  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
-  [1m[35mSQL (30.0ms)[0m  [1m[32mINSERT INTO `orders` (`user_id`, `book_id`, `seller_id`, `state`, `transcation`, `price`, `created_at`, `updated_at`, `quantity`) VALUES (6, 3, 2, 0, 0, 20.0, '2018-06-12 01:46:59', '2018-06-12 01:46:59', 2)[0m
-  [1m[35m (229.0ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
-  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
-Completed 500 Internal Server Error in 352ms (ActiveRecord: 301.1ms)
-
-
-  
-TypeError (no implicit conversion of nil into String):
-  
-app/controllers/application_controller.rb:24:in `+'
-app/controllers/application_controller.rb:24:in `send_notification'
-app/controllers/api/v1/book/orders_controller.rb:29:in `create'
-Started DELETE "/api/v1/book/books/3/comments/8" for 127.0.0.1 at 2018-06-12 03:48:52 +0200
-Processing by Api::V1::Book::CommentsController#destroy as */*
-  Parameters: {"text/plain"=>[""], "book_id"=>"3", "id"=>"8"}
-  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
-  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 8 LIMIT 1[0m
-Completed 404 Not Found in 4ms (ActiveRecord: 1.1ms)
-
-
-  
-ActiveRecord::RecordNotFound (Couldn't find Comment with 'id'=8):
-  
-app/controllers/api/v1/book/comments_controller.rb:60:in `set_comment'
-Started DELETE "/api/v1/book/books/3/comments/4" for 127.0.0.1 at 2018-06-12 03:49:08 +0200
-Processing by Api::V1::Book::CommentsController#destroy as */*
-  Parameters: {"text/plain"=>[""], "book_id"=>"3", "id"=>"4"}
-  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
-  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 4 LIMIT 1[0m
-No template found for Api::V1::Book::CommentsController#destroy, rendering head :no_content
-Completed 204 No Content in 93ms (ActiveRecord: 1.2ms)
-
-
-Started DELETE "/api/v1/book/books/3/comments/4" for 127.0.0.1 at 2018-06-12 03:50:55 +0200
-Processing by Api::V1::Book::CommentsController#destroy as */*
-  Parameters: {"text/plain"=>[""], "book_id"=>"3", "id"=>"4"}
-  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
-Filter chain halted as :authenticate_request rendered or redirected
-Completed 401 Unauthorized in 39ms (Views: 4.0ms | ActiveRecord: 0.7ms)
-
-
-Started DELETE "/api/v1/book/books/3/comments/4" for 127.0.0.1 at 2018-06-12 03:51:15 +0200
-Processing by Api::V1::Book::CommentsController#destroy as */*
-  Parameters: {"text/plain"=>[""], "book_id"=>"3", "id"=>"4"}
-  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
-  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
-  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 4 LIMIT 1[0m
-  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (23.8ms)[0m  [1m[31mDELETE FROM `comments` WHERE `comments`.`id` = 4[0m
-  [1m[35m (32.4ms)[0m  [1m[35mCOMMIT[0m
-Completed 200 OK in 129ms (Views: 6.9ms | ActiveRecord: 64.6ms)
-
-
-  [1m[35m (30.9ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
-  [1m[35m (12.0ms)[0m  [1m[34mSELECT GET_LOCK('6983064309306950865', 0)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT RELEASE_LOCK('6965469184171088535')[0m
   [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
-Migrating to AddDefaultValueToIsAvailableInBooks (20180611005223)
-  [1m[35m (221.2ms)[0m  [1m[35mALTER TABLE `books` CHANGE `is_available` `is_available` tinyint(1) DEFAULT 1[0m
+Started POST "/api/v1/user/users/2/user_rates" for 127.0.0.1 at 2018-06-12 09:50:06 +0200
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by Api::V1::User::UserRatesController#create as JSON
+  Parameters: {"rate"=>24, "user_id"=>"2", "user_rate"=>{"rate"=>24}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUserRate Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `user_rates` WHERE `user_rates`.`user_id` = 2 AND `user_rates`.`rated_by` = 3 LIMIT 1[0m
+  [1m[36mUserRate Load (0.3ms)[0m  [1m[34mSELECT `user_rates`.* FROM `user_rates` WHERE `user_rates`.`user_id` = 2 AND `user_rates`.`rated_by` = 3[0m
   [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (14.7ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180611005223')[0m
-  [1m[35m (34.7ms)[0m  [1m[35mCOMMIT[0m
-Migrating to CreateCities (20180611005536)
-  [1m[35m (412.3ms)[0m  [1m[35mCREATE TABLE `cities` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
-  [1m[35m (10.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (17.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180611005536')[0m
-  [1m[35m (36.4ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (8.6ms)[0m  [1m[34mSELECT RELEASE_LOCK('6983064309306950865')[0m
-  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
->>>>>>> bbe629f933328b9d26f246747be5024e9d095761
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 3.8ms)
+
+
+  
+NoMethodError (undefined method `valid?' for #<UserRate::ActiveRecord_Relation:0x0000000006695b30>):
+  
+app/controllers/api/v1/user/user_rates_controller.rb:14:in `create'
+Started POST "/api/v1/user/users/2/user_rates" for 127.0.0.1 at 2018-06-12 09:50:27 +0200
+Processing by Api::V1::User::UserRatesController#create as JSON
+  Parameters: {"rate"=>24, "user_id"=>"2", "user_rate"=>{"rate"=>24}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUserRate Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `user_rates` WHERE `user_rates`.`user_id` = 2 AND `user_rates`.`rated_by` = 3 LIMIT 1[0m
+  [1m[36mUserRate Load (0.3ms)[0m  [1m[34mSELECT `user_rates`.* FROM `user_rates` WHERE `user_rates`.`user_id` = 2 AND `user_rates`.`rated_by` = 3[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 3.5ms)
+
+
+  
+NoMethodError (undefined method `rate' for #<UserRate::ActiveRecord_Relation:0x0000000005c65868>):
+  
+app/controllers/api/v1/user/user_rates_controller.rb:14:in `create'

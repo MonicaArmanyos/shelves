@@ -17,13 +17,10 @@ class User < ApplicationRecord
       has_many :orders
       has_many :notification_tokens
       has_many :notification_messages
-<<<<<<< HEAD
       has_many :user_rates
       has_many :users, through: :user_rates
-=======
       has_many :comments
       
->>>>>>> bbe629f933328b9d26f246747be5024e9d095761
       accepts_nested_attributes_for :phones, allow_destroy: true #to be able to remove a phone
       accepts_nested_attributes_for :addresses, allow_destroy: true
       accepts_nested_attributes_for :categories, allow_destroy: true

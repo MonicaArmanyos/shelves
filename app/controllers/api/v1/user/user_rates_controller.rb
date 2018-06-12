@@ -9,7 +9,6 @@ module Api::V1::User
             else
                 
                @user_rate = UserRate.where(user_id: @rated_user.id, rated_by: @current_user.id)
-                 puts "user rate =",@user_rate
                if @user_rate.any?
                  if @user_rate.update(rate: params[:rate])
                     @rated_user.rate = @rated_user.user_rates.average(:rate)
