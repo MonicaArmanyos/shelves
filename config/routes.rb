@@ -25,7 +25,7 @@ Rails.application.routes.draw do
             end
             resources :orders
             resources :comments do
-              resources :replays
+              resources :replies
             end  
              #route of :  request_exchange
             # /api/v1/book/books/:id/exchange_request

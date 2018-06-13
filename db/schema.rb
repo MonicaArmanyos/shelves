@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180613194239) do
+ActiveRecord::Schema.define(version: 20180613221836) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "namespace"
@@ -156,14 +156,14 @@ ActiveRecord::Schema.define(version: 20180613194239) do
     t.index ["user_id"], name: "index_rates_on_user_id"
   end
 
-  create_table "replays", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.text "replay"
+  create_table "replies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.text "reply"
     t.bigint "user_id"
     t.bigint "comment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["comment_id"], name: "index_replays_on_comment_id"
-    t.index ["user_id"], name: "index_replays_on_user_id"
+    t.index ["comment_id"], name: "index_replies_on_comment_id"
+    t.index ["user_id"], name: "index_replies_on_user_id"
   end
 
   create_table "user_rates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -217,8 +217,8 @@ ActiveRecord::Schema.define(version: 20180613194239) do
   add_foreign_key "orders", "users"
   add_foreign_key "orders", "users", column: "seller_id"
   add_foreign_key "phones", "users"
-  add_foreign_key "replays", "comments"
-  add_foreign_key "replays", "users"
+  add_foreign_key "replies", "comments"
+  add_foreign_key "replies", "users"
   add_foreign_key "user_rates", "users"
   add_foreign_key "user_rates", "users", column: "rated_by"
   add_foreign_key "work_space_phones", "work_spaces"

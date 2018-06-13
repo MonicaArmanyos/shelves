@@ -26106,3 +26106,280 @@ Migrating to RenameColumnEmailInWorkSpaces (20180613194239)
   [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('6983064309306950865')[0m
   [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (46.7ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('6983064309306950865', 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to ChangeRaplayColumn (20180613214913)
+  [1m[35m (105.4ms)[0m  [1m[35mALTER TABLE `replays` CHANGE `replay` `reply` text DEFAULT NULL[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180613214913')[0m
+  [1m[35m (26.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('6983064309306950865')[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started PUT "/api/v1/book/books/3/comments/9/replays/1" for 127.0.0.1 at 2018-06-13 23:59:43 +0200
+Processing by Api::V1::Book::ReplaysController#update as */*
+  Parameters: {"reply"=>"ghada", "book_id"=>"3", "comment_id"=>"9", "id"=>"1"}
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mReplay Load (0.5ms)[0m  [1m[34mSELECT  `replays`.* FROM `replays` WHERE `replays`.`id` = 1 LIMIT 1[0m
+Completed 404 Not Found in 107ms (ActiveRecord: 7.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Replay with 'id'=1):
+  
+app/controllers/api/v1/book/replays_controller.rb:76:in `set_replay'
+Started POST "/api/v1/book/books/3/comments/9/replays" for 127.0.0.1 at 2018-06-14 00:00:12 +0200
+Processing by Api::V1::Book::ReplaysController#create as */*
+  Parameters: {"reply"=>"ghada", "book_id"=>"3", "comment_id"=>"9"}
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (67.6ms)[0m  [1m[32mINSERT INTO `replays` (`reply`, `user_id`, `comment_id`, `created_at`, `updated_at`) VALUES ('ghada', 6, 9, '2018-06-13 22:00:12', '2018-06-13 22:00:12')[0m
+  [1m[35m (32.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 151ms (ActiveRecord: 101.4ms)
+
+
+  
+NoMethodError (undefined method `replay' for #<Replay:0x00007fe695446398>
+Did you mean?  reply
+               reply=
+               reply?):
+  
+app/controllers/api/v1/book/replays_controller.rb:15:in `create'
+Started POST "/api/v1/book/books/3/comments/9/replays" for 127.0.0.1 at 2018-06-14 00:02:55 +0200
+Processing by Api::V1::Book::ReplaysController#create as */*
+  Parameters: {"reply"=>"ghada", "book_id"=>"3", "comment_id"=>"9"}
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `replays` (`reply`, `user_id`, `comment_id`, `created_at`, `updated_at`) VALUES ('ghada', 6, 9, '2018-06-13 22:02:57', '2018-06-13 22:02:57')[0m
+  [1m[35m (69.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m
+Completed 200 OK in 188ms (Views: 5.4ms | ActiveRecord: 77.3ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT GET_LOCK('6983064309306950865', 0)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to ChangeRaplayTable (20180613221836)
+  [1m[35m (237.9ms)[0m  [1m[35mRENAME TABLE `replays` TO `replies`[0m
+  [1m[35m (103.3ms)[0m  [1m[35mALTER TABLE `replies` RENAME INDEX `index_replays_on_user_id` TO `index_replies_on_user_id`[0m
+  [1m[35m (111.1ms)[0m  [1m[35mALTER TABLE `replies` RENAME INDEX `index_replays_on_comment_id` TO `index_replies_on_comment_id`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180613221836')[0m
+  [1m[35m (59.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('6983064309306950865')[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started POST "/api/v1/book/books/3/comments/9/replys" for 127.0.0.1 at 2018-06-14 00:43:34 +0200
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/book/books/3/comments/9/replys"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/api/v1/book/books/3/comments/9/replies" for 127.0.0.1 at 2018-06-14 00:44:27 +0200
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/book/books/3/comments/9/replies"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/api/v1/book/books/3/comments/9/replies" for 127.0.0.1 at 2018-06-14 00:45:53 +0200
+  
+ActionController::RoutingError (uninitialized constant Api::V1::Book::RepliesController):
+  
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:271:in `const_get'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:271:in `block in constantize'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:267:in `each'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:267:in `inject'
+activesupport (5.1.6) lib/active_support/inflector/methods.rb:267:in `constantize'
+actionpack (5.1.6) lib/action_dispatch/http/request.rb:85:in `controller_class_for'
+actionpack (5.1.6) lib/action_dispatch/http/request.rb:78:in `controller_class'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:43:in `controller'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:29:in `serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:844:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/api/v1/book/books/3/comments/9/replies" for 127.0.0.1 at 2018-06-14 00:47:23 +0200
+Processing by Api::V1::Book::RepliesController#create as */*
+  Parameters: {"reply"=>"ghada", "book_id"=>"3", "comment_id"=>"9"}
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `replies` (`reply`, `user_id`, `comment_id`, `created_at`, `updated_at`) VALUES ('ghada', 6, 9, '2018-06-13 22:47:23', '2018-06-13 22:47:23')[0m
+  [1m[35m (40.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 216ms (ActiveRecord: 48.1ms)
+
+
+  
+LoadError (Unable to autoload constant ReplySerializer, expected /home/ghada/ruby/shelves/app/serializers/reply_serializer.rb to define it):
+  
+app/controllers/api/v1/book/replies_controller.rb:15:in `create'
+Started POST "/api/v1/book/books/3/comments/9/replies" for 127.0.0.1 at 2018-06-14 00:49:01 +0200
+Processing by Api::V1::Book::RepliesController#create as */*
+  Parameters: {"reply"=>"ghada", "book_id"=>"3", "comment_id"=>"9"}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO `replies` (`reply`, `user_id`, `comment_id`, `created_at`, `updated_at`) VALUES ('ghada', 6, 9, '2018-06-13 22:49:01', '2018-06-13 22:49:01')[0m
+  [1m[35m (88.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m
+Completed 200 OK in 174ms (Views: 4.8ms | ActiveRecord: 95.6ms)
+
+
+Started GET "/api/v1/book/books/3/comments" for 127.0.0.1 at 2018-06-14 00:50:16 +0200
+Processing by Api::V1::Book::CommentsController#index as */*
+  Parameters: {"book_id"=>"3", "comment"=>{}}
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 3[0m
+Completed 500 Internal Server Error in 60ms (ActiveRecord: 3.4ms)
+
+
+  
+NoMethodError (undefined method `replays' for #<Comment:0x0000000005248c90>
+Did you mean?  replies):
+  
+app/controllers/api/v1/book/comments_controller.rb:28:in `index'
+Started GET "/api/v1/book/books/3/comments" for 127.0.0.1 at 2018-06-14 00:52:17 +0200
+Processing by Api::V1::Book::CommentsController#index as */*
+  Parameters: {"book_id"=>"3", "comment"=>{}}
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 3[0m
+  [1m[36mReply Load (0.6ms)[0m  [1m[34mSELECT `replies`.* FROM `replies` WHERE `replies`.`comment_id` = 7[0m
+  [1m[36mReply Load (0.6ms)[0m  [1m[34mSELECT `replies`.* FROM `replies` WHERE `replies`.`comment_id` = 9[0m
+  [1m[36mReply Load (0.7ms)[0m  [1m[34mSELECT `replies`.* FROM `replies` WHERE `replies`.`comment_id` = 10[0m
+  [1m[36mReply Load (0.7ms)[0m  [1m[34mSELECT `replies`.* FROM `replies` WHERE `replies`.`comment_id` = 11[0m
+  [1m[36mReply Load (0.6ms)[0m  [1m[34mSELECT `replies`.* FROM `replies` WHERE `replies`.`comment_id` = 12[0m
+  [1m[36mReply Load (0.6ms)[0m  [1m[34mSELECT `replies`.* FROM `replies` WHERE `replies`.`comment_id` = 13[0m
+  [1m[36mReply Load (0.6ms)[0m  [1m[34mSELECT `replies`.* FROM `replies` WHERE `replies`.`comment_id` = 14[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 3[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+Completed 200 OK in 167ms (Views: 118.8ms | ActiveRecord: 15.4ms)
+
+
+Started PUT "/api/v1/book/books/3/comments/9/replies/4" for 127.0.0.1 at 2018-06-14 00:53:29 +0200
+Processing by Api::V1::Book::RepliesController#update as */*
+  Parameters: {"reply"=>"ghadaaaaaaaaaaaaaaaaaa", "book_id"=>"3", "comment_id"=>"9", "id"=>"4"}
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mReply Load (0.5ms)[0m  [1m[34mSELECT  `replies`.* FROM `replies` WHERE `replies`.`id` = 4 LIMIT 1[0m
+Unpermitted parameters: :book_id, :id
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[33mUPDATE `replies` SET `reply` = 'ghadaaaaaaaaaaaaaaaaaa', `updated_at` = '2018-06-13 22:53:29' WHERE `replies`.`id` = 4[0m
+  [1m[35m (57.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m
+Completed 200 OK in 102ms (Views: 5.5ms | ActiveRecord: 61.5ms)
+
+
+Started DELETE "/api/v1/book/books/3/comments/9/replies/4" for 127.0.0.1 at 2018-06-14 00:53:41 +0200
+Processing by Api::V1::Book::RepliesController#destroy as */*
+  Parameters: {"reply"=>"ghadaaaaaaaaaaaaaaaaaa", "book_id"=>"3", "comment_id"=>"9", "id"=>"4"}
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mReply Load (0.7ms)[0m  [1m[34mSELECT  `replies`.* FROM `replies` WHERE `replies`.`id` = 4 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[31mDELETE FROM `replies` WHERE `replies`.`id` = 4[0m
+  [1m[35m (54.0ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 83ms (Views: 16.0ms | ActiveRecord: 56.9ms)
+
+

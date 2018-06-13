@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ReplayTest < ActiveSupport::TestCase
+class ReplyTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
