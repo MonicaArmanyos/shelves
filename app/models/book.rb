@@ -1,7 +1,6 @@
 class Book < ApplicationRecord
    
-  enum transcation: {"Sell" => 0, "Free Share" =>1,"Exchange" =>2,"Sell By Bids" =>4}
-    paginates_per 3
+  enum transcation: {"Sell" => 0, "Free Share" =>1,"Exchange" =>2,"Sell By Bids" =>3}
 
     #### Relations ####
   belongs_to :category
@@ -17,6 +16,14 @@ class Book < ApplicationRecord
   def self.search(search)
     where("name LIKE ? OR description LIKE ?", "%#{search}%", "%#{search}%") 
   end
+
+
+    #### Search For Books by Category ####
+    def self.search_by_category(search)
+      where("category_id LIKE ?", "%#{search}%") 
+    end
+
+ 
 
     
     #### Mount image uploader
