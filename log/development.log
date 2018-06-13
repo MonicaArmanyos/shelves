@@ -25747,3 +25747,362 @@ Processing by Api::V1::Book::CommentsController#index as */*
 Completed 200 OK in 159ms (Views: 111.1ms | ActiveRecord: 15.4ms)
 
 
+  [1m[35m (65.2ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (15.8ms)[0m  [1m[34mSELECT GET_LOCK('6983064309306950865', 0)[0m
+  [1m[35m (12.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddColumnToWorkSpaces (20180613121456)
+  [1m[35m (1189.6ms)[0m  [1m[35mALTER TABLE `work_spaces` ADD `address` varchar(255)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (16.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180613121456')[0m
+  [1m[35m (32.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateWorkSpacePhone (20180613131515)
+  [1m[35m (363.6ms)[0m  [1m[35mCREATE TABLE `work_space_phones` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `work_space_id` bigint, `phone` varchar(255),  INDEX `index_work_space_phones_on_work_space_id`  (`work_space_id`), CONSTRAINT `fk_rails_da0d6af80d`
+FOREIGN KEY (`work_space_id`)
+  REFERENCES `work_spaces` (`id`)
+) ENGINE=InnoDB[0m
+  [1m[35m (13.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (16.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180613131515')[0m
+  [1m[35m (111.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateWorkSpacePhones (20180613135729)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('6983064309306950865')[0m
+  [1m[35m (16.2ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (6.0ms)[0m  [1m[34mSELECT GET_LOCK('6983064309306950865', 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddColumnToWorkSpaces (20180613121456)
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE `work_spaces` ADD `address` varchar(255)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('6983064309306950865')[0m
+  [1m[35m (40.0ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('6983064309306950865', 0)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddColumnToWorkSpaces (20180613121456)
+  [1m[35m (11.5ms)[0m  [1m[35mALTER TABLE `work_spaces` ADD `address` varchar(255)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('6983064309306950865')[0m
+  [1m[35m (51.9ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('6983064309306950865', 0)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddColumnToWorkSpaces (20180613121456)
+  [1m[35m (6.2ms)[0m  [1m[35mALTER TABLE `work_spaces` ADD `address` varchar(255)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('6983064309306950865')[0m
+  [1m[35m (31.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT GET_LOCK('6983064309306950865', 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateWorkSpaces (20180612101412)
+  [1m[35m (328.0ms)[0m  [1m[35mCREATE TABLE `work_spaces` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `email` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (8.9ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180612101412')[0m
+  [1m[35m (39.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddColumnToWorkSpaces (20180613121456)
+  [1m[35m (500.3ms)[0m  [1m[35mALTER TABLE `work_spaces` ADD `address` varchar(255)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (15.8ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180613121456')[0m
+  [1m[35m (37.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateWorkSpacePhone (20180613131515)
+  [1m[35m (298.0ms)[0m  [1m[35mCREATE TABLE `work_space_phones` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `work_space_id` bigint, `phone` varchar(255),  INDEX `index_work_space_phones_on_work_space_id`  (`work_space_id`), CONSTRAINT `fk_rails_da0d6af80d`
+FOREIGN KEY (`work_space_id`)
+  REFERENCES `work_spaces` (`id`)
+) ENGINE=InnoDB[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180613131515')[0m
+  [1m[35m (30.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to DropNotificationMessagesTable (20180613135443)
+  [1m[35m (168.5ms)[0m  [1m[35mDROP TABLE `notification_messages`[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (12.9ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180613135443')[0m
+  [1m[35m (40.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateWorkSpacePhones (20180613135729)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('6983064309306950865')[0m
+  [1m[35m (44.5ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('6983064309306950865', 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateWorkSpacePhones (20180613135729)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('6983064309306950865')[0m
+  [1m[35m (40.2ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (399.8ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY) ENGINE=InnoDB[0m
+  [1m[35m (361.9ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (19.2ms)[0m  [1m[34mSELECT GET_LOCK('1265966630637202725', 0)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to DeviseCreateAdminUsers (20180601152752)
+  [1m[35m (294.3ms)[0m  [1m[35mCREATE TABLE `admin_users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `sign_in_count` int DEFAULT 0 NOT NULL, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (309.5ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_admin_users_on_email`  ON `admin_users` (`email`) [0m
+  [1m[35m (229.0ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_admin_users_on_reset_password_token`  ON `admin_users` (`reset_password_token`) [0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (23.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180601152752')[0m
+  [1m[35m (27.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateActiveAdminComments (20180601152755)
+  [1m[35m (330.8ms)[0m  [1m[35mCREATE TABLE `active_admin_comments` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `namespace` varchar(255), `body` text, `resource_type` varchar(255), `resource_id` bigint, `author_type` varchar(255), `author_id` bigint, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_active_admin_comments_on_resource_type_and_resource_id`  (`resource_type`, `resource_id`),  INDEX `index_active_admin_comments_on_author_type_and_author_id`  (`author_type`, `author_id`)) ENGINE=InnoDB[0m
+  [1m[35m (209.4ms)[0m  [1m[35mCREATE  INDEX `index_active_admin_comments_on_namespace`  ON `active_admin_comments` (`namespace`) [0m
+  [1m[35m (10.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180601152755')[0m
+  [1m[35m (52.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCategories (20180601180802)
+  [1m[35m (292.7ms)[0m  [1m[35mCREATE TABLE `categories` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180601180802')[0m
+  [1m[35m (30.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBooks (20180601181118)
+  [1m[35m (332.5ms)[0m  [1m[35mCREATE TABLE `books` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `description` text, `rate` int, `quantity` int DEFAULT 1, `price` float, `is_approved` tinyint(1), `transcation` int, `bid_user` int, `category_id` bigint, `user_id` bigint, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_books_on_category_id`  (`category_id`),  INDEX `index_books_on_user_id`  (`user_id`)) ENGINE=InnoDB[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180601181118')[0m
+  [1m[35m (30.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCategoriesUsers (20180601181640)
+  [1m[35m (318.6ms)[0m  [1m[35mCREATE TABLE `categories_users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `user_id` bigint, `category_id` bigint,  INDEX `index_categories_users_on_user_id`  (`user_id`),  INDEX `index_categories_users_on_category_id`  (`category_id`)) ENGINE=InnoDB[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180601181640')[0m
+  [1m[35m (29.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUsers (20180601190019)
+  [1m[35m (253.7ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `email` varchar(255), `password_digest` varchar(255), `profile_picture` varchar(255), `role` int, `gender` varchar(255), `rate` int, `email_confirmed` tinyint(1) DEFAULT 0, `confirm_token` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180601190019')[0m
+  [1m[35m (29.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddImagesToBooks (20180601225048)
+  [1m[35m (521.0ms)[0m  [1m[35mALTER TABLE `books` ADD `images` json[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180601225048')[0m
+  [1m[35m (30.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUserPhones (20180602025302)
+  [1m[35m (296.8ms)[0m  [1m[35mCREATE TABLE `user_phones` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `user_id` bigint, `phone` varchar(255),  INDEX `index_user_phones_on_user_id`  (`user_id`), CONSTRAINT `fk_rails_e14c4520d9`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+) ENGINE=InnoDB[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180602025302')[0m
+  [1m[35m (29.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBookImages (20180602133148)
+  [1m[35m (304.1ms)[0m  [1m[35mCREATE TABLE `book_images` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `image` varchar(255), `book_id` bigint, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_book_images_on_book_id`  (`book_id`)) ENGINE=InnoDB[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180602133148')[0m
+  [1m[35m (30.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePhones (20180602141600)
+  [1m[35m (282.4ms)[0m  [1m[35mCREATE TABLE `phones` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `user_id` bigint, `phone` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_phones_on_user_id`  (`user_id`), CONSTRAINT `fk_rails_a63a365e43`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+) ENGINE=InnoDB[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180602141600')[0m
+  [1m[35m (30.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to DropUserPhones (20180602141906)
+  [1m[35m (148.0ms)[0m  [1m[35mDROP TABLE `user_phones`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180602141906')[0m
+  [1m[35m (30.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAddresses (20180602144235)
+  [1m[35m (275.4ms)[0m  [1m[35mCREATE TABLE `addresses` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `user_id` bigint, `building_number` int, `street` varchar(255), `region` varchar(255), `city` varchar(255), `postal_code` int, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_addresses_on_user_id`  (`user_id`), CONSTRAINT `fk_rails_48c9e0c5a2`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+) ENGINE=InnoDB[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180602144235')[0m
+  [1m[35m (30.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeColumnInAddresses (20180603214953)
+  [1m[35m (709.6ms)[0m  [1m[35mALTER TABLE `addresses` CHANGE `postal_code` `postal_code` varchar(255) DEFAULT NULL[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180603214953')[0m
+  [1m[35m (30.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeColumnInUsers (20180604145126)
+  [1m[35m (616.3ms)[0m  [1m[35mALTER TABLE `users` CHANGE `gender` `gender` int DEFAULT NULL[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180604145126')[0m
+  [1m[35m (30.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddPasswordResetToUsers (20180604170207)
+  [1m[35m (457.9ms)[0m  [1m[35mALTER TABLE `users` ADD `password_reset_token` varchar(255)[0m
+  [1m[35m (445.9ms)[0m  [1m[35mALTER TABLE `users` ADD `password_reset_sent_at` datetime[0m
+  [1m[35m (9.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (18.7ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180604170207')[0m
+  [1m[35m (47.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddIsAvailableToBooks (20180605143614)
+  [1m[35m (544.9ms)[0m  [1m[35mALTER TABLE `books` ADD `is_available` tinyint(1)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180605143614')[0m
+  [1m[35m (30.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddBidDurationToBooks (20180605144039)
+  [1m[35m (467.1ms)[0m  [1m[35mALTER TABLE `books` ADD `bid_duration` datetime[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180605144039')[0m
+  [1m[35m (51.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateRates (20180606010153)
+  [1m[35m (473.9ms)[0m  [1m[35mCREATE TABLE `rates` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `user_id` bigint, `book_id` bigint, `rate` int, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_rates_on_user_id`  (`user_id`),  INDEX `index_rates_on_book_id`  (`book_id`)) ENGINE=InnoDB[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180606010153')[0m
+  [1m[35m (30.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to RateChangeColumnType (20180606165011)
+  [1m[35m (681.5ms)[0m  [1m[35mALTER TABLE `books` CHANGE `rate` `rate` float DEFAULT NULL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180606165011')[0m
+  [1m[35m (62.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateOrders (20180607111415)
+  [1m[35m (347.4ms)[0m  [1m[35mCREATE TABLE `orders` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `user_id` bigint, `book_id` bigint, `seller` int, `state` int, `type` int, `price` float, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_orders_on_user_id`  (`user_id`),  INDEX `index_orders_on_book_id`  (`book_id`), CONSTRAINT `fk_rails_f868b47f6a`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+, CONSTRAINT `fk_rails_2640c262ee`
+FOREIGN KEY (`book_id`)
+  REFERENCES `books` (`id`)
+) ENGINE=InnoDB[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180607111415')[0m
+  [1m[35m (30.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to RenameColumnNameOrderTable (20180607194641)
+  [1m[35m (94.4ms)[0m  [1m[35mALTER TABLE `orders` CHANGE `type` `transcation` int(11) DEFAULT NULL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180607194641')[0m
+  [1m[35m (29.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateNotificationTokens (20180608122810)
+  [1m[35m (354.0ms)[0m  [1m[35mCREATE TABLE `notification_tokens` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `token` varchar(255), `user_id` bigint, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_notification_tokens_on_user_id`  (`user_id`)) ENGINE=InnoDB[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180608122810')[0m
+  [1m[35m (18.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddQuantityColumnOrderTable (20180608190108)
+  [1m[35m (495.7ms)[0m  [1m[35mALTER TABLE `orders` ADD `quantity` int DEFAULT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180608190108')[0m
+  [1m[35m (30.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateNotificationMessages (20180609143621)
+  [1m[35m (292.2ms)[0m  [1m[35mCREATE TABLE `notification_messages` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `title` varchar(255) DEFAULT 'Shelves', `body` varchar(255), `click_action` varchar(255), `icon` varchar(255), `receiver_user` int, `user_id` bigint, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_notification_messages_on_user_id`  (`user_id`)) ENGINE=InnoDB[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180609143621')[0m
+  [1m[35m (30.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to RemoveColumnSellerFromOrders (20180609215612)
+  [1m[35m (612.3ms)[0m  [1m[35mALTER TABLE `orders` DROP `seller`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180609215612')[0m
+  [1m[35m (29.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddDetailsToOrders (20180609220314)
+  [1m[35m (489.8ms)[0m  [1m[35mALTER TABLE `orders` ADD `seller_id` bigint AFTER `book_id`[0m
+  [1m[35m (354.6ms)[0m  [1m[35mCREATE  INDEX `index_orders_on_seller_id`  ON `orders` (`seller_id`) [0m
+  [1m[35m (769.6ms)[0m  [1m[35mALTER TABLE `orders` ADD CONSTRAINT `fk_rails_f569184c98`
+FOREIGN KEY (`seller_id`)
+  REFERENCES `users` (`id`)
+[0m
+  [1m[35m (580.4ms)[0m  [1m[35mALTER TABLE `orders` ADD `exchangeable_book_id` bigint[0m
+  [1m[35m (221.2ms)[0m  [1m[35mCREATE  INDEX `index_orders_on_exchangeable_book_id`  ON `orders` (`exchangeable_book_id`) [0m
+  [1m[35m (748.4ms)[0m  [1m[35mALTER TABLE `orders` ADD CONSTRAINT `fk_rails_49b3482fb2`
+FOREIGN KEY (`exchangeable_book_id`)
+  REFERENCES `books` (`id`)
+[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180609220314')[0m
+  [1m[35m (30.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddDefaultValueToIsAvailableInBooks (20180611005223)
+  [1m[35m (41.5ms)[0m  [1m[35mALTER TABLE `books` CHANGE `is_available` `is_available` tinyint(1) DEFAULT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180611005223')[0m
+  [1m[35m (29.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCities (20180611005536)
+  [1m[35m (254.2ms)[0m  [1m[35mCREATE TABLE `cities` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180611005536')[0m
+  [1m[35m (30.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUserRates (20180611103619)
+  [1m[35m (303.7ms)[0m  [1m[35mCREATE TABLE `user_rates` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `user_id` bigint, `rated_user_id` bigint, `rate` int, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_user_rates_on_user_id`  (`user_id`),  INDEX `index_user_rates_on_rated_user_id`  (`rated_user_id`), CONSTRAINT `fk_rails_977fe418da`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+, CONSTRAINT `fk_rails_672f173314`
+FOREIGN KEY (`rated_user_id`)
+  REFERENCES `users` (`id`)
+) ENGINE=InnoDB[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180611103619')[0m
+  [1m[35m (30.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddDefaultValueToRate (20180611205311)
+  [1m[35m (732.7ms)[0m  [1m[35mALTER TABLE `books` CHANGE `rate` `rate` int DEFAULT 0[0m
+  [1m[35m (31.7ms)[0m  [1m[35mALTER TABLE `users` CHANGE `rate` `rate` int DEFAULT 0[0m
+  [1m[35m (31.3ms)[0m  [1m[35mALTER TABLE `rates` CHANGE `rate` `rate` int DEFAULT 0[0m
+  [1m[35m (31.4ms)[0m  [1m[35mALTER TABLE `user_rates` CHANGE `rate` `rate` int DEFAULT 0[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180611205311')[0m
+  [1m[35m (30.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateComments (20180611222031)
+  [1m[35m (298.9ms)[0m  [1m[35mCREATE TABLE `comments` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `user_id` bigint, `book_id` bigint, `comment` text, `like` int, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_comments_on_user_id`  (`user_id`),  INDEX `index_comments_on_book_id`  (`book_id`), CONSTRAINT `fk_rails_03de2dc08c`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+, CONSTRAINT `fk_rails_a98e86e5b9`
+FOREIGN KEY (`book_id`)
+  REFERENCES `books` (`id`)
+) ENGINE=InnoDB[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180611222031')[0m
+  [1m[35m (30.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddBidDurationStateToBooks (20180611222331)
+  [1m[35m (567.4ms)[0m  [1m[35mALTER TABLE `books` ADD `bid_duration_state` tinyint(1) DEFAULT 0[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180611222331')[0m
+  [1m[35m (30.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to RenameRatedUserToRatedByInUserRatesChangeRateDatatype (20180611235314)
+  [1m[35m (64.3ms)[0m  [1m[35mALTER TABLE `user_rates` CHANGE `rated_user_id` `rated_by` bigint(20) DEFAULT NULL[0m
+  [1m[35m (99.6ms)[0m  [1m[35mALTER TABLE `user_rates` RENAME INDEX `index_user_rates_on_rated_user_id` TO `index_user_rates_on_rated_by`[0m
+  [1m[35m (643.1ms)[0m  [1m[35mALTER TABLE `users` CHANGE `rate` `rate` float DEFAULT 0.0[0m
+  [1m[35m (658.0ms)[0m  [1m[35mALTER TABLE `books` CHANGE `rate` `rate` float DEFAULT 0.0[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180611235314')[0m
+  [1m[35m (29.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateWorkSpaces (20180612101412)
+  [1m[35m (232.7ms)[0m  [1m[35mCREATE TABLE `work_spaces` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `email` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180612101412')[0m
+  [1m[35m (29.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddColumnToWorkSpaces (20180613121456)
+  [1m[35m (445.0ms)[0m  [1m[35mALTER TABLE `work_spaces` ADD `address` varchar(255)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180613121456')[0m
+  [1m[35m (30.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateWorkSpacePhone (20180613131515)
+  [1m[35m (309.2ms)[0m  [1m[35mCREATE TABLE `work_space_phones` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `work_space_id` bigint, `phone` varchar(255),  INDEX `index_work_space_phones_on_work_space_id`  (`work_space_id`), CONSTRAINT `fk_rails_da0d6af80d`
+FOREIGN KEY (`work_space_id`)
+  REFERENCES `work_spaces` (`id`)
+) ENGINE=InnoDB[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180613131515')[0m
+  [1m[35m (52.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to DropNotificationMessagesTable (20180613135443)
+  [1m[35m (144.3ms)[0m  [1m[35mDROP TABLE `notification_messages`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (6.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180613135443')[0m
+  [1m[35m (35.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateWorkSpacePhones (20180613135729)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('1265966630637202725')[0m
+  [1m[35m (50.8ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (15.0ms)[0m  [1m[34mSELECT GET_LOCK('6983064309306950865', 0)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateWorkSpacePhones (20180613135729)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('6983064309306950865')[0m
+  [1m[35m (15.9ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT GET_LOCK('6983064309306950865', 0)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateWorkSpacePhones (20180613135729)
+  [1m[35m (404.2ms)[0m  [1m[35mCREATE TABLE `work_space_phones` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `work_space_id` bigint, `phone` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_work_space_phones_on_work_space_id`  (`work_space_id`), CONSTRAINT `fk_rails_da0d6af80d`
+FOREIGN KEY (`work_space_id`)
+  REFERENCES `work_spaces` (`id`)
+) ENGINE=InnoDB[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (75.9ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180613135729')[0m
+  [1m[35m (39.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateReplays (20180613160610)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('6983064309306950865')[0m
+  [1m[35m (5.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (12.5ms)[0m  [1m[34mSELECT GET_LOCK('6983064309306950865', 0)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateReplays (20180613160610)
+  [1m[35m (417.6ms)[0m  [1m[35mCREATE TABLE `replays` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `replay` text, `user_id` bigint, `comment_id` bigint, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_replays_on_user_id`  (`user_id`),  INDEX `index_replays_on_comment_id`  (`comment_id`), CONSTRAINT `fk_rails_4ee062e7b8`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+, CONSTRAINT `fk_rails_43a90711cf`
+FOREIGN KEY (`comment_id`)
+  REFERENCES `comments` (`id`)
+) ENGINE=InnoDB[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180613160610')[0m
+  [1m[35m (26.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddPictureToWorkSpaces (20180613164050)
+  [1m[35m (545.2ms)[0m  [1m[35mALTER TABLE `work_spaces` ADD `picture` varchar(255)[0m
+  [1m[35m (7.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180613164050')[0m
+  [1m[35m (33.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to RenameColumnEmailInWorkSpaces (20180613194239)
+  [1m[35m (108.2ms)[0m  [1m[35mALTER TABLE `work_spaces` CHANGE `email` `facebook` varchar(255) DEFAULT NULL[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180613194239')[0m
+  [1m[35m (31.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (17.7ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('6983064309306950865')[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
