@@ -18,6 +18,7 @@ class User < ApplicationRecord
       has_many :user_rates
       has_many :users, through: :user_rates
       has_many :comments
+      has_many :replays
       
       accepts_nested_attributes_for :phones, allow_destroy: true #to be able to remove a phone
       accepts_nested_attributes_for :addresses, allow_destroy: true

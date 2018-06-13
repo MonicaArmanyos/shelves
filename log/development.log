@@ -10239,3 +10239,968 @@ Processing by Api::V1::Book::CommentsController#index as */*
 Completed 200 OK in 119ms (Views: 80.7ms | ActiveRecord: 8.0ms)
 
 
+  [1m[35m (20.8ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (14.3ms)[0m  [1m[34mSELECT GET_LOCK('6983064309306950865', 0)[0m
+  [1m[35m (13.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateUserRates (20180611103619)
+  [1m[35m (493.1ms)[0m  [1m[35mCREATE TABLE `user_rates` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `user_id` bigint, `rated_user_id` bigint, `rate` int, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_user_rates_on_user_id`  (`user_id`),  INDEX `index_user_rates_on_rated_user_id`  (`rated_user_id`), CONSTRAINT `fk_rails_977fe418da`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+, CONSTRAINT `fk_rails_672f173314`
+FOREIGN KEY (`rated_user_id`)
+  REFERENCES `users` (`id`)
+) ENGINE=InnoDB[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180611103619')[0m
+  [1m[35m (43.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddDefaultValueToRate (20180611205311)
+  [1m[35m (1142.8ms)[0m  [1m[35mALTER TABLE `books` CHANGE `rate` `rate` int DEFAULT 0[0m
+  [1m[35m (87.0ms)[0m  [1m[35mALTER TABLE `users` CHANGE `rate` `rate` int DEFAULT 0[0m
+  [1m[35m (68.9ms)[0m  [1m[35mALTER TABLE `rates` CHANGE `rate` `rate` int DEFAULT 0[0m
+  [1m[35m (42.4ms)[0m  [1m[35mALTER TABLE `user_rates` CHANGE `rate` `rate` int DEFAULT 0[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180611205311')[0m
+  [1m[35m (41.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddBidDurationStateToBooks (20180611222331)
+  [1m[35m (701.5ms)[0m  [1m[35mALTER TABLE `books` ADD `bid_duration_state` tinyint(1) DEFAULT 0[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180611222331')[0m
+  [1m[35m (30.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to RenameRatedUserToRatedByInUserRatesChangeRateDatatype (20180611235314)
+  [1m[35m (72.3ms)[0m  [1m[35mALTER TABLE `user_rates` CHANGE `rated_user_id` `rated_by` bigint(20) DEFAULT NULL[0m
+  [1m[35m (113.3ms)[0m  [1m[35mALTER TABLE `user_rates` RENAME INDEX `index_user_rates_on_rated_user_id` TO `index_user_rates_on_rated_by`[0m
+  [1m[35m (754.8ms)[0m  [1m[35mALTER TABLE `users` CHANGE `rate` `rate` float DEFAULT 0.0[0m
+  [1m[35m (834.4ms)[0m  [1m[35mALTER TABLE `books` CHANGE `rate` `rate` float DEFAULT 0.0[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180611235314')[0m
+  [1m[35m (30.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateWorkSpaces (20180612101412)
+  [1m[35m (243.5ms)[0m  [1m[35mCREATE TABLE `work_spaces` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `email` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180612101412')[0m
+  [1m[35m (63.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to DropNotificationMessagesTable (20180613135443)
+  [1m[35m (246.0ms)[0m  [1m[35mDROP TABLE `notification_messages`[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180613135443')[0m
+  [1m[35m (30.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateNewNotificationMessages (20180613140532)
+  [1m[35m (276.8ms)[0m  [1m[35mCREATE TABLE `notification_messages` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `title` varchar(255) DEFAULT 'Shelves', `body` varchar(255), `click_action` varchar(255), `icon` varchar(255), `receiver_user` int, `sender_user` int, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180613140532')[0m
+  [1m[35m (30.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateReplays (20180613160610)
+  [1m[35m (353.3ms)[0m  [1m[35mCREATE TABLE `replays` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `replay` text, `user_id` bigint, `book_id` bigint, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_replays_on_user_id`  (`user_id`),  INDEX `index_replays_on_book_id`  (`book_id`), CONSTRAINT `fk_rails_4ee062e7b8`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+, CONSTRAINT `fk_rails_59d185eaed`
+FOREIGN KEY (`book_id`)
+  REFERENCES `books` (`id`)
+) ENGINE=InnoDB[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180613160610')[0m
+  [1m[35m (29.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (17.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('6983064309306950865')[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/admin/users/6" for 127.0.0.1 at 2018-06-13 18:15:46 +0200
+Processing by Admin::UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mAdminUser Load (0.4ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/show.html.arb
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT `categories`.* FROM `categories` INNER JOIN `categories_users` ON `categories`.`id` = `categories_users`.`category_id` WHERE `categories_users`.`user_id` = 6[0m
+  [1m[36mPhone Load (0.5ms)[0m  [1m[34mSELECT `phones`.* FROM `phones` WHERE `phones`.`user_id` = 6[0m
+  [1m[36mAddress Load (0.5ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses` WHERE `addresses`.`user_id` = 6[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `active_admin_comments` WHERE `active_admin_comments`.`resource_type` = 'User' AND `active_admin_comments`.`resource_id` = 6 AND `active_admin_comments`.`namespace` = 'admin'[0m
+  [1m[36mActiveAdmin::Comment Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM `active_admin_comments` WHERE `active_admin_comments`.`resource_type` = 'User' AND `active_admin_comments`.`resource_id` = 6 AND `active_admin_comments`.`namespace` = 'admin' LIMIT 1 OFFSET 0[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `active_admin_comments` WHERE `active_admin_comments`.`resource_type` = 'User' AND `active_admin_comments`.`resource_id` = 6 AND `active_admin_comments`.`namespace` = 'admin' ORDER BY created_at ASC LIMIT 25 OFFSET 0) subquery_for_count[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/show.html.arb (1143.1ms)
+Completed 200 OK in 1279ms (Views: 1162.6ms | ActiveRecord: 15.5ms)
+
+
+Started GET "/assets/active_admin/print-b05a0449174c4e0e939ecab3483d5b7389c188baae07f7b99af2da69df0243d9.css" for 127.0.0.1 at 2018-06-13 18:15:48 +0200
+Started GET "/assets/active_admin-365d7294774f2338299dafe5cec179b41884dcb3cd74805114a47f5dbc830c13.css" for 127.0.0.1 at 2018-06-13 18:15:48 +0200
+Started GET "/assets/active_admin-e670a4b09c70a1cf0e546e3cc233273ec00d44a2fe841969cac0562998dbec41.js" for 127.0.0.1 at 2018-06-13 18:15:48 +0200
+Started GET "/admin/replays" for 127.0.0.1 at 2018-06-13 18:15:52 +0200
+Processing by Admin::ReplaysController#index as HTML
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `replays` LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT `comments`.* FROM `comments`[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (208.9ms)
+Completed 200 OK in 249ms (Views: 237.0ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/admin/replays/new" for 127.0.0.1 at 2018-06-13 18:15:57 +0200
+Processing by Admin::ReplaysController#new as HTML
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/new.html.arb
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT `comments`.* FROM `comments`[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/new.html.arb (79.6ms)
+Completed 500 Internal Server Error in 141ms (ActiveRecord: 1.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `comment_id' for #<Replay:0x000000000669eff0>
+Did you mean?  comment
+               comment=):
+    1: insert_tag renderer_for(:new)
+  
+activemodel (5.1.6) lib/active_model/attribute_methods.rb:432:in `method_missing'
+ransack (1.8.8) lib/ransack/helpers/form_builder.rb:11:in `value'
+actionview (5.1.6) lib/action_view/helpers/tags/select.rb:16:in `block in render'
+actionview (5.1.6) lib/action_view/helpers/tags/select.rb:16:in `fetch'
+actionview (5.1.6) lib/action_view/helpers/tags/select.rb:16:in `render'
+actionview (5.1.6) lib/action_view/helpers/form_options_helper.rb:163:in `select'
+actionview (5.1.6) lib/action_view/helpers/form_options_helper.rb:817:in `select'
+formtastic (3.1.5) lib/formtastic/inputs/select_input.rb:173:in `select_html'
+formtastic (3.1.5) lib/formtastic/inputs/select_input.rb:168:in `block in to_html'
+actionview (5.1.6) lib/action_view/helpers/capture_helper.rb:39:in `block in capture'
+actionview (5.1.6) lib/action_view/helpers/capture_helper.rb:203:in `with_output_buffer'
+actionview (5.1.6) lib/action_view/helpers/capture_helper.rb:39:in `capture'
+formtastic (3.1.5) lib/formtastic/inputs/base/wrapping.rb:11:in `input_wrapping'
+activeadmin (1.1.0) lib/active_admin/form_builder.rb:6:in `input_wrapping'
+formtastic (3.1.5) lib/formtastic/inputs/select_input.rb:166:in `to_html'
+formtastic (3.1.5) lib/formtastic/helpers/input_helper.rb:242:in `input'
+formtastic (3.1.5) lib/formtastic/helpers/inputs_helper.rb:330:in `block in fieldset_contents_from_column_list'
+formtastic (3.1.5) lib/formtastic/helpers/inputs_helper.rb:318:in `collect'
+formtastic (3.1.5) lib/formtastic/helpers/inputs_helper.rb:318:in `fieldset_contents_from_column_list'
+formtastic (3.1.5) lib/formtastic/helpers/inputs_helper.rb:297:in `inputs'
+arbre (1.1.1) lib/arbre/rails/forms.rb:30:in `proxy_call_to_form'
+activeadmin (1.1.0) lib/active_admin/views/components/active_admin_form.rb:60:in `inputs'
+activeadmin (1.1.0) lib/active_admin/views/pages/form.rb:45:in `block in default_form_config'
+activeadmin (1.1.0) lib/active_admin/views/components/active_admin_form.rb:35:in `instance_eval'
+activeadmin (1.1.0) lib/active_admin/views/components/active_admin_form.rb:35:in `build'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:28:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:14:in `active_admin_form_for'
+activeadmin (1.1.0) lib/active_admin/views/pages/form.rb:25:in `main_content'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:93:in `block (2 levels) in build_main_content_wrapper'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:14:in `div'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:92:in `block in build_main_content_wrapper'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:14:in `div'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:91:in `build_main_content_wrapper'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:77:in `block in build_page_content'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:14:in `div'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:76:in `build_page_content'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:54:in `block (2 levels) in build_page'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:14:in `div'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:50:in `block in build_page'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:49:in `build_page'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:10:in `build'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:30:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+activeadmin (1.1.0) app/views/active_admin/resource/new.html.arb:2:in `block in __home_ghada__rvm_gems_ruby_______gems_activeadmin_______app_views_active_admin_resource_new_html_arb__1492973081701456731_54462200'
+arbre (1.1.1) lib/arbre/context.rb:45:in `instance_eval'
+arbre (1.1.1) lib/arbre/context.rb:45:in `initialize'
+activeadmin (1.1.0) app/views/active_admin/resource/new.html.arb:1:in `new'
+activeadmin (1.1.0) app/views/active_admin/resource/new.html.arb:1:in `__home_ghada__rvm_gems_ruby_______gems_activeadmin_______app_views_active_admin_resource_new_html_arb__1492973081701456731_54462200'
+actionview (5.1.6) lib/action_view/template.rb:157:in `block in render'
+activesupport (5.1.6) lib/active_support/notifications.rb:168:in `instrument'
+actionview (5.1.6) lib/action_view/template.rb:352:in `instrument_render_template'
+actionview (5.1.6) lib/action_view/template.rb:155:in `render'
+actionview (5.1.6) lib/action_view/renderer/template_renderer.rb:52:in `block (2 levels) in render_template'
+actionview (5.1.6) lib/action_view/renderer/abstract_renderer.rb:42:in `block in instrument'
+activesupport (5.1.6) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.6) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.6) lib/active_support/notifications.rb:166:in `instrument'
+actionview (5.1.6) lib/action_view/renderer/abstract_renderer.rb:41:in `instrument'
+actionview (5.1.6) lib/action_view/renderer/template_renderer.rb:51:in `block in render_template'
+actionview (5.1.6) lib/action_view/renderer/template_renderer.rb:59:in `render_with_layout'
+actionview (5.1.6) lib/action_view/renderer/template_renderer.rb:50:in `render_template'
+actionview (5.1.6) lib/action_view/renderer/template_renderer.rb:14:in `render'
+actionview (5.1.6) lib/action_view/renderer/renderer.rb:42:in `render_template'
+actionview (5.1.6) lib/action_view/renderer/renderer.rb:23:in `render'
+actionview (5.1.6) lib/action_view/rendering.rb:103:in `_render_template'
+actionpack (5.1.6) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+actionview (5.1.6) lib/action_view/rendering.rb:83:in `render_to_body'
+actionpack (5.1.6) lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+actionpack (5.1.6) lib/action_controller/metal/renderers.rb:141:in `render_to_body'
+actionpack (5.1.6) lib/abstract_controller/rendering.rb:24:in `render'
+actionpack (5.1.6) lib/action_controller/metal/rendering.rb:36:in `render'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+activesupport (5.1.6) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+/home/ghada/.rvm/rubies/ruby-2.5.1/lib/ruby/2.5.0/benchmark.rb:308:in `realtime'
+activesupport (5.1.6) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+activerecord (5.1.6) lib/active_record/railties/controller_runtime.rb:29:in `cleanup_view_runtime'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:43:in `render'
+responders (2.4.0) lib/action_controller/responder.rb:238:in `default_render'
+responders (2.4.0) lib/action_controller/responder.rb:170:in `to_html'
+responders (2.4.0) lib/responders/flash_responder.rb:107:in `to_html'
+responders (2.4.0) lib/action_controller/responder.rb:163:in `respond'
+responders (2.4.0) lib/action_controller/responder.rb:156:in `call'
+responders (2.4.0) lib/action_controller/respond_with.rb:211:in `respond_with'
+inherited_resources (1.8.0) lib/inherited_resources/actions.rb:19:in `new'
+actionpack (5.1.6) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.1.6) lib/abstract_controller/base.rb:186:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.1.6) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.1.6) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.1.6) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.6) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.6) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.6) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.6) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.6) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.6) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.6) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.6) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:844:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/admin/replays/new" for 127.0.0.1 at 2018-06-13 18:16:04 +0200
+Processing by Admin::ReplaysController#new as HTML
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/new.html.arb
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT `comments`.* FROM `comments`[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/new.html.arb (146.4ms)
+Completed 500 Internal Server Error in 156ms (ActiveRecord: 1.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `comment_id' for #<Replay:0x00007fd97c4cc270>
+Did you mean?  comment
+               comment=):
+    1: insert_tag renderer_for(:new)
+  
+activemodel (5.1.6) lib/active_model/attribute_methods.rb:432:in `method_missing'
+ransack (1.8.8) lib/ransack/helpers/form_builder.rb:11:in `value'
+actionview (5.1.6) lib/action_view/helpers/tags/select.rb:16:in `block in render'
+actionview (5.1.6) lib/action_view/helpers/tags/select.rb:16:in `fetch'
+actionview (5.1.6) lib/action_view/helpers/tags/select.rb:16:in `render'
+actionview (5.1.6) lib/action_view/helpers/form_options_helper.rb:163:in `select'
+actionview (5.1.6) lib/action_view/helpers/form_options_helper.rb:817:in `select'
+formtastic (3.1.5) lib/formtastic/inputs/select_input.rb:173:in `select_html'
+formtastic (3.1.5) lib/formtastic/inputs/select_input.rb:168:in `block in to_html'
+actionview (5.1.6) lib/action_view/helpers/capture_helper.rb:39:in `block in capture'
+actionview (5.1.6) lib/action_view/helpers/capture_helper.rb:203:in `with_output_buffer'
+actionview (5.1.6) lib/action_view/helpers/capture_helper.rb:39:in `capture'
+formtastic (3.1.5) lib/formtastic/inputs/base/wrapping.rb:11:in `input_wrapping'
+activeadmin (1.1.0) lib/active_admin/form_builder.rb:6:in `input_wrapping'
+formtastic (3.1.5) lib/formtastic/inputs/select_input.rb:166:in `to_html'
+formtastic (3.1.5) lib/formtastic/helpers/input_helper.rb:242:in `input'
+formtastic (3.1.5) lib/formtastic/helpers/inputs_helper.rb:330:in `block in fieldset_contents_from_column_list'
+formtastic (3.1.5) lib/formtastic/helpers/inputs_helper.rb:318:in `collect'
+formtastic (3.1.5) lib/formtastic/helpers/inputs_helper.rb:318:in `fieldset_contents_from_column_list'
+formtastic (3.1.5) lib/formtastic/helpers/inputs_helper.rb:297:in `inputs'
+arbre (1.1.1) lib/arbre/rails/forms.rb:30:in `proxy_call_to_form'
+activeadmin (1.1.0) lib/active_admin/views/components/active_admin_form.rb:60:in `inputs'
+activeadmin (1.1.0) lib/active_admin/views/pages/form.rb:45:in `block in default_form_config'
+activeadmin (1.1.0) lib/active_admin/views/components/active_admin_form.rb:35:in `instance_eval'
+activeadmin (1.1.0) lib/active_admin/views/components/active_admin_form.rb:35:in `build'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:28:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:14:in `active_admin_form_for'
+activeadmin (1.1.0) lib/active_admin/views/pages/form.rb:25:in `main_content'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:93:in `block (2 levels) in build_main_content_wrapper'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:14:in `div'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:92:in `block in build_main_content_wrapper'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:14:in `div'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:91:in `build_main_content_wrapper'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:77:in `block in build_page_content'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:14:in `div'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:76:in `build_page_content'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:54:in `block (2 levels) in build_page'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:14:in `div'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:50:in `block in build_page'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:49:in `build_page'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:10:in `build'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:30:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+activeadmin (1.1.0) app/views/active_admin/resource/new.html.arb:2:in `block in __home_ghada__rvm_gems_ruby_______gems_activeadmin_______app_views_active_admin_resource_new_html_arb__1492973081701456731_70286035088260'
+arbre (1.1.1) lib/arbre/context.rb:45:in `instance_eval'
+arbre (1.1.1) lib/arbre/context.rb:45:in `initialize'
+activeadmin (1.1.0) app/views/active_admin/resource/new.html.arb:1:in `new'
+activeadmin (1.1.0) app/views/active_admin/resource/new.html.arb:1:in `__home_ghada__rvm_gems_ruby_______gems_activeadmin_______app_views_active_admin_resource_new_html_arb__1492973081701456731_70286035088260'
+actionview (5.1.6) lib/action_view/template.rb:157:in `block in render'
+activesupport (5.1.6) lib/active_support/notifications.rb:168:in `instrument'
+actionview (5.1.6) lib/action_view/template.rb:352:in `instrument_render_template'
+actionview (5.1.6) lib/action_view/template.rb:155:in `render'
+actionview (5.1.6) lib/action_view/renderer/template_renderer.rb:52:in `block (2 levels) in render_template'
+actionview (5.1.6) lib/action_view/renderer/abstract_renderer.rb:42:in `block in instrument'
+activesupport (5.1.6) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.6) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.6) lib/active_support/notifications.rb:166:in `instrument'
+actionview (5.1.6) lib/action_view/renderer/abstract_renderer.rb:41:in `instrument'
+actionview (5.1.6) lib/action_view/renderer/template_renderer.rb:51:in `block in render_template'
+actionview (5.1.6) lib/action_view/renderer/template_renderer.rb:59:in `render_with_layout'
+actionview (5.1.6) lib/action_view/renderer/template_renderer.rb:50:in `render_template'
+actionview (5.1.6) lib/action_view/renderer/template_renderer.rb:14:in `render'
+actionview (5.1.6) lib/action_view/renderer/renderer.rb:42:in `render_template'
+actionview (5.1.6) lib/action_view/renderer/renderer.rb:23:in `render'
+actionview (5.1.6) lib/action_view/rendering.rb:103:in `_render_template'
+actionpack (5.1.6) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+actionview (5.1.6) lib/action_view/rendering.rb:83:in `render_to_body'
+actionpack (5.1.6) lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+actionpack (5.1.6) lib/action_controller/metal/renderers.rb:141:in `render_to_body'
+actionpack (5.1.6) lib/abstract_controller/rendering.rb:24:in `render'
+actionpack (5.1.6) lib/action_controller/metal/rendering.rb:36:in `render'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+activesupport (5.1.6) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+/home/ghada/.rvm/rubies/ruby-2.5.1/lib/ruby/2.5.0/benchmark.rb:308:in `realtime'
+activesupport (5.1.6) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+activerecord (5.1.6) lib/active_record/railties/controller_runtime.rb:29:in `cleanup_view_runtime'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:43:in `render'
+responders (2.4.0) lib/action_controller/responder.rb:238:in `default_render'
+responders (2.4.0) lib/action_controller/responder.rb:170:in `to_html'
+responders (2.4.0) lib/responders/flash_responder.rb:107:in `to_html'
+responders (2.4.0) lib/action_controller/responder.rb:163:in `respond'
+responders (2.4.0) lib/action_controller/responder.rb:156:in `call'
+responders (2.4.0) lib/action_controller/respond_with.rb:211:in `respond_with'
+inherited_resources (1.8.0) lib/inherited_resources/actions.rb:19:in `new'
+actionpack (5.1.6) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.1.6) lib/abstract_controller/base.rb:186:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.1.6) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.1.6) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.1.6) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.6) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.6) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.6) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.6) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.6) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.6) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.6) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.6) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:844:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/admin/comments" for 127.0.0.1 at 2018-06-13 18:16:31 +0200
+Processing by Admin::CommentsController#index as HTML
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `comments`[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `comments` LIMIT 9 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `comments` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `comments`[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `comments` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` ORDER BY `comments`.`id` desc LIMIT 9 OFFSET 0[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Book Load (0.1ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT `replays`.* FROM `replays`[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (275.8ms)
+Completed 200 OK in 290ms (Views: 272.9ms | ActiveRecord: 10.8ms)
+
+
+Started GET "/assets/active_admin/orderable-29374dbb55b0012d78a37c614d573bb3474f0779849b478a147d0f1845ca6617.png" for 127.0.0.1 at 2018-06-13 18:16:32 +0200
+Started GET "/admin/comments/new" for 127.0.0.1 at 2018-06-13 18:16:33 +0200
+Processing by Admin::CommentsController#new as HTML
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/new.html.arb
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/new.html.arb (141.3ms)
+Completed 200 OK in 153ms (Views: 146.1ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/admin/replays/new" for 127.0.0.1 at 2018-06-13 18:18:20 +0200
+Processing by Admin::ReplaysController#new as HTML
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/new.html.arb
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT `comments`.* FROM `comments`[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/new.html.arb (131.5ms)
+Completed 500 Internal Server Error in 143ms (ActiveRecord: 2.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `comment_id' for #<Replay:0x00007fd9705a9168>
+Did you mean?  comment
+               comment=):
+    1: insert_tag renderer_for(:new)
+  
+activemodel (5.1.6) lib/active_model/attribute_methods.rb:432:in `method_missing'
+ransack (1.8.8) lib/ransack/helpers/form_builder.rb:11:in `value'
+actionview (5.1.6) lib/action_view/helpers/tags/select.rb:16:in `block in render'
+actionview (5.1.6) lib/action_view/helpers/tags/select.rb:16:in `fetch'
+actionview (5.1.6) lib/action_view/helpers/tags/select.rb:16:in `render'
+actionview (5.1.6) lib/action_view/helpers/form_options_helper.rb:163:in `select'
+actionview (5.1.6) lib/action_view/helpers/form_options_helper.rb:817:in `select'
+formtastic (3.1.5) lib/formtastic/inputs/select_input.rb:173:in `select_html'
+formtastic (3.1.5) lib/formtastic/inputs/select_input.rb:168:in `block in to_html'
+actionview (5.1.6) lib/action_view/helpers/capture_helper.rb:39:in `block in capture'
+actionview (5.1.6) lib/action_view/helpers/capture_helper.rb:203:in `with_output_buffer'
+actionview (5.1.6) lib/action_view/helpers/capture_helper.rb:39:in `capture'
+formtastic (3.1.5) lib/formtastic/inputs/base/wrapping.rb:11:in `input_wrapping'
+activeadmin (1.1.0) lib/active_admin/form_builder.rb:6:in `input_wrapping'
+formtastic (3.1.5) lib/formtastic/inputs/select_input.rb:166:in `to_html'
+formtastic (3.1.5) lib/formtastic/helpers/input_helper.rb:242:in `input'
+formtastic (3.1.5) lib/formtastic/helpers/inputs_helper.rb:330:in `block in fieldset_contents_from_column_list'
+formtastic (3.1.5) lib/formtastic/helpers/inputs_helper.rb:318:in `collect'
+formtastic (3.1.5) lib/formtastic/helpers/inputs_helper.rb:318:in `fieldset_contents_from_column_list'
+formtastic (3.1.5) lib/formtastic/helpers/inputs_helper.rb:297:in `inputs'
+arbre (1.1.1) lib/arbre/rails/forms.rb:30:in `proxy_call_to_form'
+activeadmin (1.1.0) lib/active_admin/views/components/active_admin_form.rb:60:in `inputs'
+activeadmin (1.1.0) lib/active_admin/views/pages/form.rb:45:in `block in default_form_config'
+activeadmin (1.1.0) lib/active_admin/views/components/active_admin_form.rb:35:in `instance_eval'
+activeadmin (1.1.0) lib/active_admin/views/components/active_admin_form.rb:35:in `build'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:28:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:14:in `active_admin_form_for'
+activeadmin (1.1.0) lib/active_admin/views/pages/form.rb:25:in `main_content'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:93:in `block (2 levels) in build_main_content_wrapper'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:14:in `div'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:92:in `block in build_main_content_wrapper'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:14:in `div'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:91:in `build_main_content_wrapper'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:77:in `block in build_page_content'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:14:in `div'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:76:in `build_page_content'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:54:in `block (2 levels) in build_page'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:14:in `div'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:50:in `block in build_page'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:49:in `build_page'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:10:in `build'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:30:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+activeadmin (1.1.0) app/views/active_admin/resource/new.html.arb:2:in `block in __home_ghada__rvm_gems_ruby_______gems_activeadmin_______app_views_active_admin_resource_new_html_arb__1492973081701456731_70285934854540'
+arbre (1.1.1) lib/arbre/context.rb:45:in `instance_eval'
+arbre (1.1.1) lib/arbre/context.rb:45:in `initialize'
+activeadmin (1.1.0) app/views/active_admin/resource/new.html.arb:1:in `new'
+activeadmin (1.1.0) app/views/active_admin/resource/new.html.arb:1:in `__home_ghada__rvm_gems_ruby_______gems_activeadmin_______app_views_active_admin_resource_new_html_arb__1492973081701456731_70285934854540'
+actionview (5.1.6) lib/action_view/template.rb:157:in `block in render'
+activesupport (5.1.6) lib/active_support/notifications.rb:168:in `instrument'
+actionview (5.1.6) lib/action_view/template.rb:352:in `instrument_render_template'
+actionview (5.1.6) lib/action_view/template.rb:155:in `render'
+actionview (5.1.6) lib/action_view/renderer/template_renderer.rb:52:in `block (2 levels) in render_template'
+actionview (5.1.6) lib/action_view/renderer/abstract_renderer.rb:42:in `block in instrument'
+activesupport (5.1.6) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.6) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.6) lib/active_support/notifications.rb:166:in `instrument'
+actionview (5.1.6) lib/action_view/renderer/abstract_renderer.rb:41:in `instrument'
+actionview (5.1.6) lib/action_view/renderer/template_renderer.rb:51:in `block in render_template'
+actionview (5.1.6) lib/action_view/renderer/template_renderer.rb:59:in `render_with_layout'
+actionview (5.1.6) lib/action_view/renderer/template_renderer.rb:50:in `render_template'
+actionview (5.1.6) lib/action_view/renderer/template_renderer.rb:14:in `render'
+actionview (5.1.6) lib/action_view/renderer/renderer.rb:42:in `render_template'
+actionview (5.1.6) lib/action_view/renderer/renderer.rb:23:in `render'
+actionview (5.1.6) lib/action_view/rendering.rb:103:in `_render_template'
+actionpack (5.1.6) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+actionview (5.1.6) lib/action_view/rendering.rb:83:in `render_to_body'
+actionpack (5.1.6) lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+actionpack (5.1.6) lib/action_controller/metal/renderers.rb:141:in `render_to_body'
+actionpack (5.1.6) lib/abstract_controller/rendering.rb:24:in `render'
+actionpack (5.1.6) lib/action_controller/metal/rendering.rb:36:in `render'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+activesupport (5.1.6) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+/home/ghada/.rvm/rubies/ruby-2.5.1/lib/ruby/2.5.0/benchmark.rb:308:in `realtime'
+activesupport (5.1.6) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+activerecord (5.1.6) lib/active_record/railties/controller_runtime.rb:29:in `cleanup_view_runtime'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:43:in `render'
+responders (2.4.0) lib/action_controller/responder.rb:238:in `default_render'
+responders (2.4.0) lib/action_controller/responder.rb:170:in `to_html'
+responders (2.4.0) lib/responders/flash_responder.rb:107:in `to_html'
+responders (2.4.0) lib/action_controller/responder.rb:163:in `respond'
+responders (2.4.0) lib/action_controller/responder.rb:156:in `call'
+responders (2.4.0) lib/action_controller/respond_with.rb:211:in `respond_with'
+inherited_resources (1.8.0) lib/inherited_resources/actions.rb:19:in `new'
+actionpack (5.1.6) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.1.6) lib/abstract_controller/base.rb:186:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.1.6) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.1.6) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.1.6) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.6) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.6) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.6) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.6) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.6) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.6) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.6) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.6) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:844:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/admin/replays" for 127.0.0.1 at 2018-06-13 18:21:03 +0200
+Processing by Admin::ReplaysController#index as HTML
+  [1m[36mAdminUser Load (0.8ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `replays`[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `replays` LIMIT 9 OFFSET 0) subquery_for_count[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT `comments`.* FROM `comments`[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (162.2ms)
+Completed 200 OK in 235ms (Views: 161.9ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/admin/replays?utf8=%E2%9C%93&q%5Buser_id_eq%5D=1&commit=Filter&order=id_desc" for 127.0.0.1 at 2018-06-13 18:21:07 +0200
+Processing by Admin::ReplaysController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"user_id_eq"=>"1"}, "commit"=>"Filter", "order"=>"id_desc"}
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `replays` WHERE `replays`.`user_id` = 1[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `replays` WHERE `replays`.`user_id` = 1 LIMIT 9 OFFSET 0) subquery_for_count[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT `comments`.* FROM `comments`[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (119.1ms)
+Completed 200 OK in 134ms (Views: 120.2ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/admin/replays/new" for 127.0.0.1 at 2018-06-13 18:21:16 +0200
+Processing by Admin::ReplaysController#new as HTML
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/new.html.arb
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT `comments`.* FROM `comments`[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/new.html.arb (82.8ms)
+Completed 500 Internal Server Error in 103ms (ActiveRecord: 1.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `comment_id' for #<Replay:0x00007fd9706110d8>
+Did you mean?  comment
+               comment=):
+    1: insert_tag renderer_for(:new)
+  
+activemodel (5.1.6) lib/active_model/attribute_methods.rb:432:in `method_missing'
+ransack (1.8.8) lib/ransack/helpers/form_builder.rb:11:in `value'
+actionview (5.1.6) lib/action_view/helpers/tags/select.rb:16:in `block in render'
+actionview (5.1.6) lib/action_view/helpers/tags/select.rb:16:in `fetch'
+actionview (5.1.6) lib/action_view/helpers/tags/select.rb:16:in `render'
+actionview (5.1.6) lib/action_view/helpers/form_options_helper.rb:163:in `select'
+actionview (5.1.6) lib/action_view/helpers/form_options_helper.rb:817:in `select'
+formtastic (3.1.5) lib/formtastic/inputs/select_input.rb:173:in `select_html'
+formtastic (3.1.5) lib/formtastic/inputs/select_input.rb:168:in `block in to_html'
+actionview (5.1.6) lib/action_view/helpers/capture_helper.rb:39:in `block in capture'
+actionview (5.1.6) lib/action_view/helpers/capture_helper.rb:203:in `with_output_buffer'
+actionview (5.1.6) lib/action_view/helpers/capture_helper.rb:39:in `capture'
+formtastic (3.1.5) lib/formtastic/inputs/base/wrapping.rb:11:in `input_wrapping'
+activeadmin (1.1.0) lib/active_admin/form_builder.rb:6:in `input_wrapping'
+formtastic (3.1.5) lib/formtastic/inputs/select_input.rb:166:in `to_html'
+formtastic (3.1.5) lib/formtastic/helpers/input_helper.rb:242:in `input'
+formtastic (3.1.5) lib/formtastic/helpers/inputs_helper.rb:330:in `block in fieldset_contents_from_column_list'
+formtastic (3.1.5) lib/formtastic/helpers/inputs_helper.rb:318:in `collect'
+formtastic (3.1.5) lib/formtastic/helpers/inputs_helper.rb:318:in `fieldset_contents_from_column_list'
+formtastic (3.1.5) lib/formtastic/helpers/inputs_helper.rb:297:in `inputs'
+arbre (1.1.1) lib/arbre/rails/forms.rb:30:in `proxy_call_to_form'
+activeadmin (1.1.0) lib/active_admin/views/components/active_admin_form.rb:60:in `inputs'
+activeadmin (1.1.0) lib/active_admin/views/pages/form.rb:45:in `block in default_form_config'
+activeadmin (1.1.0) lib/active_admin/views/components/active_admin_form.rb:35:in `instance_eval'
+activeadmin (1.1.0) lib/active_admin/views/components/active_admin_form.rb:35:in `build'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:28:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:14:in `active_admin_form_for'
+activeadmin (1.1.0) lib/active_admin/views/pages/form.rb:25:in `main_content'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:93:in `block (2 levels) in build_main_content_wrapper'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:14:in `div'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:92:in `block in build_main_content_wrapper'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:14:in `div'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:91:in `build_main_content_wrapper'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:77:in `block in build_page_content'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:14:in `div'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:76:in `build_page_content'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:54:in `block (2 levels) in build_page'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:14:in `div'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:50:in `block in build_page'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:49:in `build_page'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:10:in `build'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:30:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+activeadmin (1.1.0) app/views/active_admin/resource/new.html.arb:2:in `block in __home_ghada__rvm_gems_ruby_______gems_activeadmin_______app_views_active_admin_resource_new_html_arb__1492973081701456731_70285934762160'
+arbre (1.1.1) lib/arbre/context.rb:45:in `instance_eval'
+arbre (1.1.1) lib/arbre/context.rb:45:in `initialize'
+activeadmin (1.1.0) app/views/active_admin/resource/new.html.arb:1:in `new'
+activeadmin (1.1.0) app/views/active_admin/resource/new.html.arb:1:in `__home_ghada__rvm_gems_ruby_______gems_activeadmin_______app_views_active_admin_resource_new_html_arb__1492973081701456731_70285934762160'
+actionview (5.1.6) lib/action_view/template.rb:157:in `block in render'
+activesupport (5.1.6) lib/active_support/notifications.rb:168:in `instrument'
+actionview (5.1.6) lib/action_view/template.rb:352:in `instrument_render_template'
+actionview (5.1.6) lib/action_view/template.rb:155:in `render'
+actionview (5.1.6) lib/action_view/renderer/template_renderer.rb:52:in `block (2 levels) in render_template'
+actionview (5.1.6) lib/action_view/renderer/abstract_renderer.rb:42:in `block in instrument'
+activesupport (5.1.6) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.6) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.6) lib/active_support/notifications.rb:166:in `instrument'
+actionview (5.1.6) lib/action_view/renderer/abstract_renderer.rb:41:in `instrument'
+actionview (5.1.6) lib/action_view/renderer/template_renderer.rb:51:in `block in render_template'
+actionview (5.1.6) lib/action_view/renderer/template_renderer.rb:59:in `render_with_layout'
+actionview (5.1.6) lib/action_view/renderer/template_renderer.rb:50:in `render_template'
+actionview (5.1.6) lib/action_view/renderer/template_renderer.rb:14:in `render'
+actionview (5.1.6) lib/action_view/renderer/renderer.rb:42:in `render_template'
+actionview (5.1.6) lib/action_view/renderer/renderer.rb:23:in `render'
+actionview (5.1.6) lib/action_view/rendering.rb:103:in `_render_template'
+actionpack (5.1.6) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+actionview (5.1.6) lib/action_view/rendering.rb:83:in `render_to_body'
+actionpack (5.1.6) lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+actionpack (5.1.6) lib/action_controller/metal/renderers.rb:141:in `render_to_body'
+actionpack (5.1.6) lib/abstract_controller/rendering.rb:24:in `render'
+actionpack (5.1.6) lib/action_controller/metal/rendering.rb:36:in `render'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+activesupport (5.1.6) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+/home/ghada/.rvm/rubies/ruby-2.5.1/lib/ruby/2.5.0/benchmark.rb:308:in `realtime'
+activesupport (5.1.6) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+activerecord (5.1.6) lib/active_record/railties/controller_runtime.rb:29:in `cleanup_view_runtime'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:43:in `render'
+responders (2.4.0) lib/action_controller/responder.rb:238:in `default_render'
+responders (2.4.0) lib/action_controller/responder.rb:170:in `to_html'
+responders (2.4.0) lib/responders/flash_responder.rb:107:in `to_html'
+responders (2.4.0) lib/action_controller/responder.rb:163:in `respond'
+responders (2.4.0) lib/action_controller/responder.rb:156:in `call'
+responders (2.4.0) lib/action_controller/respond_with.rb:211:in `respond_with'
+inherited_resources (1.8.0) lib/inherited_resources/actions.rb:19:in `new'
+actionpack (5.1.6) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.1.6) lib/abstract_controller/base.rb:186:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.1.6) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.1.6) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.1.6) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.6) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.6) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.6) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.6) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.6) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.6) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.6) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.6) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:844:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[35m (20.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('6983064309306950865', 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('6983064309306950865')[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (23.1ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('6983064309306950865', 0)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateReplays (20180613160610)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('6983064309306950865')[0m
+  [1m[35m (40.9ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT GET_LOCK('6983064309306950865', 0)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateReplays (20180613160610)
+  [1m[35m (334.6ms)[0m  [1m[35mCREATE TABLE `replays` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `replay` text, `user_id` bigint, `comment_id` bigint, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_replays_on_user_id`  (`user_id`),  INDEX `index_replays_on_comment_id`  (`comment_id`), CONSTRAINT `fk_rails_4ee062e7b8`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+, CONSTRAINT `fk_rails_43a90711cf`
+FOREIGN KEY (`comment_id`)
+  REFERENCES `comments` (`id`)
+) ENGINE=InnoDB[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20180613160610')[0m
+  [1m[35m (24.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('6983064309306950865')[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/admin/replays" for 127.0.0.1 at 2018-06-13 18:37:41 +0200
+Processing by Admin::ReplaysController#index as HTML
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.5ms)[0m 
