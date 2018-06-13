@@ -42,7 +42,24 @@ module Api::V1::Book
           render json: {status: 'FAIL', message: 'you can\'t delete this replay', error:{}},status: :ok               
         end       
       end
-    end      
+    end  
+    
+    def destroy
+      # check user if authenticate or not  
+      if @current_user
+        # check if user has permation to delete this replay (owner) 
+        if @current_user.id == @replay.user_id
+          # check if replay deleted or not
+          if @replay.destroy
+            render json: {status: 'SUCCESS', message: 'Replay successfully deleted', replay: {}},status: :ok    
+          else
+            render json: {status: 'FAIL', message: 'you can\'t delete this replay', error:@replay.errors},status: :ok               
+          end   
+        else
+          render json: {status: 'FAIL', message: 'you can\'t delete this replay', error:{}},status: :ok               
+        end 
+      end     
+    end   
 
     private
     #### Authentication of user ####
