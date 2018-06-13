@@ -1,5 +1,5 @@
 module Api::V1::Book
-  class Api::V1::Book::CommentsController < ApiController
+  class Api::V1::Book::CommentsController < ApplicationController
    
     before_action :set_book, only: [:create, :destroy, :update, :index]
     before_action :authenticate_request, only: [:create, :destroy, :update]
@@ -25,7 +25,7 @@ module Api::V1::Book
  
     def index
       @comments=Comment.where(book_id: @book.id)
-      render json: {status: 'SUCCESS', message: 'return all comments', comments: @comments},status: :ok    
+      render :json => @comments, meta:{ status: 'SUCCESS',message: 'comments loaded'},status: :ok 
     end   
 
     def update
