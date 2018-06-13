@@ -26383,3 +26383,1120 @@ Processing by Api::V1::Book::RepliesController#destroy as */*
 Completed 200 OK in 83ms (Views: 16.0ms | ActiveRecord: 56.9ms)
 
 
+Started GET "/admin/login" for 127.0.0.1 at 2018-06-14 00:56:54 +0200
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/devise/shared/_links.erb (30.4ms)
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (164.1ms)
+Completed 200 OK in 1155ms (Views: 985.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/active_admin-365d7294774f2338299dafe5cec179b41884dcb3cd74805114a47f5dbc830c13.css" for 127.0.0.1 at 2018-06-14 00:56:55 +0200
+Started GET "/assets/active_admin/print-b05a0449174c4e0e939ecab3483d5b7389c188baae07f7b99af2da69df0243d9.css" for 127.0.0.1 at 2018-06-14 00:56:55 +0200
+Started GET "/favicon.ico" for 127.0.0.1 at 2018-06-14 00:56:55 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/admin/login" for 127.0.0.1 at 2018-06-14 00:57:22 +0200
+Processing by ActiveAdmin::Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6lTu6HbD+GWAtK1WE2/Os7aDbp/Bzr2aVYjDw4n+T6YlErccqwjctMgCBjtpgZ3nR4MpKRsDOw5GRCLHwXGWaw==", "admin_user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Login"}
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`email` = 'admin@example.com' ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE `admin_users` SET `current_sign_in_at` = '2018-06-13 22:57:22', `last_sign_in_at` = '2018-06-13 18:13:25', `sign_in_count` = 26, `updated_at` = '2018-06-13 22:57:22' WHERE `admin_users`.`id` = 1[0m
+  [1m[35m (32.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 326ms (ActiveRecord: 33.4ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-06-14 00:57:23 +0200
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/page/index.html.arb
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/page/index.html.arb (66.2ms)
+Completed 200 OK in 103ms (Views: 83.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/work_spaces" for 127.0.0.1 at 2018-06-14 00:58:33 +0200
+Processing by Admin::WorkSpacesController#index as HTML
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `work_spaces` LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[36mWorkSpacePhone Load (0.8ms)[0m  [1m[34mSELECT `work_space_phones`.* FROM `work_space_phones`[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (238.8ms)
+Completed 200 OK in 280ms (Views: 267.1ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/admin/work_spaces/new" for 127.0.0.1 at 2018-06-14 00:58:36 +0200
+Processing by Admin::WorkSpacesController#new as HTML
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/new.html.arb
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/new.html.arb (135.8ms)
+Completed 200 OK in 159ms (Views: 138.5ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/admin/work_spaces" for 127.0.0.1 at 2018-06-14 00:59:40 +0200
+Processing by Admin::WorkSpacesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"44f2SUey6peN4pZU4ReNvlnZyrceW9oKz3Lb/6WYqSwiJ/yupsu8oNgxa5giEyO6Zeson2q9VWmUBaWZVaAlNg==", "work_space"=>{"name"=>"", "address"=>"", "facebook"=>"", "picture"=>#<ActionDispatch::Http::UploadedFile:0x0000000003e5f2b0 @tempfile=#<Tempfile:/tmp/RackMultipart20180614-13935-11bhbyg.odt>, @original_filename="ex.odt", @content_type="application/vnd.oasis.opendocument.text", @headers="Content-Disposition: form-data; name=\"work_space[picture]\"; filename=\"ex.odt\"\r\nContent-Type: application/vnd.oasis.opendocument.text\r\n">, "work_space_phones_attributes"=>{"0"=>{"phone"=>""}, "1"=>{"phone"=>""}}}, "commit"=>"Create Work space"}
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/new.html.arb
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/new.html.arb (139.6ms)
+Completed 200 OK in 255ms (Views: 142.8ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/admin/work_spaces" for 127.0.0.1 at 2018-06-14 00:59:53 +0200
+Processing by Admin::WorkSpacesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YHe7JJrAa7aLCKk1Wyx+EPA8eeYmUWJsEPpb3NtQXWqh17HDe7k9gd7bVPmYKNAUzA6bzlK37Q9LjSW6K2jRcA==", "work_space"=>{"name"=>"", "address"=>"", "facebook"=>""}, "commit"=>"Create Work space"}
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO `work_spaces` (`name`, `facebook`, `created_at`, `updated_at`, `address`) VALUES ('', '', '2018-06-13 22:59:53', '2018-06-13 22:59:53', '')[0m
+  [1m[35m (47.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/admin/work_spaces/1
+Completed 302 Found in 79ms (ActiveRecord: 49.0ms)
+
+
+Started GET "/admin/work_spaces/1" for 127.0.0.1 at 2018-06-14 00:59:53 +0200
+Processing by Admin::WorkSpacesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  [1m[36mWorkSpace Load (0.6ms)[0m  [1m[34mSELECT  `work_spaces`.* FROM `work_spaces` WHERE `work_spaces`.`id` = 1 LIMIT 1[0m
+  [1m[36mWorkSpacePhone Load (0.7ms)[0m  [1m[34mSELECT `work_space_phones`.* FROM `work_space_phones` WHERE `work_space_phones`.`work_space_id` = 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/show.html.arb
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/show.html.arb (124.6ms)
+Completed 200 OK in 206ms (Views: 160.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/admin/work_spaces" for 127.0.0.1 at 2018-06-14 01:00:03 +0200
+Processing by Admin::WorkSpacesController#index as HTML
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `work_spaces` LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `work_spaces` LIMIT 30 OFFSET 0) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `work_spaces`[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `work_spaces` LIMIT 30 OFFSET 0) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mWorkSpace Load (0.6ms)[0m  [1m[34mSELECT  `work_spaces`.* FROM `work_spaces` ORDER BY `work_spaces`.`id` desc LIMIT 30 OFFSET 0[0m
+  [1m[36mWorkSpacePhone Load (0.6ms)[0m  [1m[34mSELECT `work_space_phones`.* FROM `work_space_phones` WHERE `work_space_phones`.`work_space_id` = 1[0m
+  [1m[36mWorkSpacePhone Load (0.4ms)[0m  [1m[34mSELECT `work_space_phones`.* FROM `work_space_phones`[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (143.0ms)
+Completed 200 OK in 151ms (Views: 143.2ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/assets/active_admin/orderable-29374dbb55b0012d78a37c614d573bb3474f0779849b478a147d0f1845ca6617.png" for 127.0.0.1 at 2018-06-14 01:00:04 +0200
+Started GET "/admin/addresses" for 127.0.0.1 at 2018-06-14 01:00:12 +0200
+Processing by Admin::AddressesController#index as HTML
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `addresses`[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `addresses` LIMIT 9 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `addresses` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `addresses`[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `addresses` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[36mAddress Load (0.6ms)[0m  [1m[34mSELECT  `addresses`.* FROM `addresses` ORDER BY `addresses`.`id` desc LIMIT 9 OFFSET 0[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (178.5ms)
+Completed 200 OK in 193ms (Views: 179.1ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/admin/addresses/5" for 127.0.0.1 at 2018-06-14 01:01:20 +0200
+Processing by Admin::AddressesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  [1m[36mAddress Load (0.5ms)[0m  [1m[34mSELECT  `addresses`.* FROM `addresses` WHERE `addresses`.`id` = 5 LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/show.html.arb
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (26.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `active_admin_comments` WHERE `active_admin_comments`.`resource_type` = 'Address' AND `active_admin_comments`.`resource_id` = 5 AND `active_admin_comments`.`namespace` = 'admin'[0m
+  [1m[36mActiveAdmin::Comment Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `active_admin_comments` WHERE `active_admin_comments`.`resource_type` = 'Address' AND `active_admin_comments`.`resource_id` = 5 AND `active_admin_comments`.`namespace` = 'admin' LIMIT 1 OFFSET 0[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `active_admin_comments` WHERE `active_admin_comments`.`resource_type` = 'Address' AND `active_admin_comments`.`resource_id` = 5 AND `active_admin_comments`.`namespace` = 'admin' ORDER BY created_at ASC LIMIT 25 OFFSET 0) subquery_for_count[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/show.html.arb (222.5ms)
+Completed 200 OK in 233ms (Views: 195.1ms | ActiveRecord: 31.8ms)
+
+
+Started GET "/admin/addresses/5/edit" for 127.0.0.1 at 2018-06-14 01:01:25 +0200
+Processing by Admin::AddressesController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mAdminUser Load (0.8ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  [1m[36mAddress Load (0.6ms)[0m  [1m[34mSELECT  `addresses`.* FROM `addresses` WHERE `addresses`.`id` = 5 LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/edit.html.arb
+  [1m[36mCACHE Address Load (0.0ms)[0m  [1m[34mSELECT  `addresses`.* FROM `addresses` WHERE `addresses`.`id` = 5 LIMIT 1[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/edit.html.arb (91.5ms)
+Completed 200 OK in 111ms (Views: 101.4ms | ActiveRecord: 2.7ms)
+
+
+Started PATCH "/admin/addresses/5" for 127.0.0.1 at 2018-06-14 01:01:32 +0200
+Processing by Admin::AddressesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BLfHBi913aZau2h4rgj9+krhT2tDOpqv7Qta8vogWQDFF83hzgyLkQ9olbRtDFP+dtOtQzfcFcy2fCSUChjVGg==", "address"=>{"user_id"=>"2", "building_number"=>"1", "street"=>"lllll", "region"=>"ll", "city"=>"ll", "postal_code"=>"lllllll"}, "commit"=>"Update Address", "id"=>"5"}
+  [1m[36mAdminUser Load (0.8ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  [1m[36mAddress Load (0.6ms)[0m  [1m[34mSELECT  `addresses`.* FROM `addresses` WHERE `addresses`.`id` = 5 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/admin/addresses/5
+Completed 302 Found in 28ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/admin/addresses/5" for 127.0.0.1 at 2018-06-14 01:01:32 +0200
+Processing by Admin::AddressesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  [1m[36mAddress Load (0.5ms)[0m  [1m[34mSELECT  `addresses`.* FROM `addresses` WHERE `addresses`.`id` = 5 LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/show.html.arb
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `active_admin_comments` WHERE `active_admin_comments`.`resource_type` = 'Address' AND `active_admin_comments`.`resource_id` = 5 AND `active_admin_comments`.`namespace` = 'admin'[0m
+  [1m[36mActiveAdmin::Comment Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `active_admin_comments` WHERE `active_admin_comments`.`resource_type` = 'Address' AND `active_admin_comments`.`resource_id` = 5 AND `active_admin_comments`.`namespace` = 'admin' LIMIT 1 OFFSET 0[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `active_admin_comments` WHERE `active_admin_comments`.`resource_type` = 'Address' AND `active_admin_comments`.`resource_id` = 5 AND `active_admin_comments`.`namespace` = 'admin' ORDER BY created_at ASC LIMIT 25 OFFSET 0) subquery_for_count[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/show.html.arb (88.8ms)
+Completed 200 OK in 99ms (Views: 90.3ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/admin/addresses" for 127.0.0.1 at 2018-06-14 01:01:36 +0200
+Processing by Admin::AddressesController#index as HTML
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `addresses`[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `addresses` LIMIT 9 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `addresses` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `addresses`[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `addresses` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[36mAddress Load (0.6ms)[0m  [1m[34mSELECT  `addresses`.* FROM `addresses` ORDER BY `addresses`.`id` desc LIMIT 9 OFFSET 0[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (129.7ms)
+Completed 200 OK in 138ms (Views: 129.6ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/admin/addresses/new" for 127.0.0.1 at 2018-06-14 01:01:40 +0200
+Processing by Admin::AddressesController#new as HTML
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/new.html.arb
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/new.html.arb (95.2ms)
+Completed 200 OK in 103ms (Views: 98.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/admin/admin_comments" for 127.0.0.1 at 2018-06-14 01:02:24 +0200
+Processing by Admin::AdminCommentsController#index as HTML
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM `active_admin_comments` WHERE `active_admin_comments`.`namespace` = 'admin'[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `active_admin_comments` WHERE `active_admin_comments`.`namespace` = 'admin' LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35m (11.3ms)[0m  [1m[34mSELECT DISTINCT `active_admin_comments`.`resource_type` FROM `active_admin_comments` ORDER BY resource_type asc[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT DISTINCT `active_admin_comments`.`author_type` FROM `active_admin_comments` ORDER BY author_type asc[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (97.8ms)
+Completed 200 OK in 107ms (Views: 87.0ms | ActiveRecord: 15.0ms)
+
+
+Started GET "/admin/admin_users/1" for 127.0.0.1 at 2018-06-14 01:02:37 +0200
+Processing by Admin::AdminUsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/show.html.arb
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM `active_admin_comments` WHERE `active_admin_comments`.`resource_type` = 'AdminUser' AND `active_admin_comments`.`resource_id` = 1 AND `active_admin_comments`.`namespace` = 'admin'[0m
+  [1m[36mActiveAdmin::Comment Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `active_admin_comments` WHERE `active_admin_comments`.`resource_type` = 'AdminUser' AND `active_admin_comments`.`resource_id` = 1 AND `active_admin_comments`.`namespace` = 'admin' LIMIT 1 OFFSET 0[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `active_admin_comments` WHERE `active_admin_comments`.`resource_type` = 'AdminUser' AND `active_admin_comments`.`resource_id` = 1 AND `active_admin_comments`.`namespace` = 'admin' ORDER BY created_at ASC LIMIT 25 OFFSET 0) subquery_for_count[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/show.html.arb (91.8ms)
+Completed 200 OK in 102ms (Views: 92.7ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/admin/admin_comments" for 127.0.0.1 at 2018-06-14 01:02:40 +0200
+Processing by Admin::AdminCommentsController#index as HTML
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `active_admin_comments` WHERE `active_admin_comments`.`namespace` = 'admin'[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `active_admin_comments` WHERE `active_admin_comments`.`namespace` = 'admin' LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT DISTINCT `active_admin_comments`.`resource_type` FROM `active_admin_comments` ORDER BY resource_type asc[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT DISTINCT `active_admin_comments`.`author_type` FROM `active_admin_comments` ORDER BY author_type asc[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (98.7ms)
+Completed 200 OK in 109ms (Views: 100.6ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/admin/admin_users" for 127.0.0.1 at 2018-06-14 01:03:00 +0200
+Processing by Admin::AdminUsersController#index as HTML
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `admin_users` LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `admin_users` LIMIT 30 OFFSET 0) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users`[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `admin_users` LIMIT 30 OFFSET 0) subquery_for_count[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` ORDER BY `admin_users`.`id` desc LIMIT 30 OFFSET 0[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (88.8ms)
+Completed 200 OK in 97ms (Views: 89.9ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/admin/admin_users" for 127.0.0.1 at 2018-06-14 01:05:45 +0200
+Processing by Admin::AdminUsersController#index as HTML
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users`[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `admin_users` LIMIT 9 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `admin_users` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users`[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `admin_users` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` ORDER BY `admin_users`.`id` desc LIMIT 9 OFFSET 0[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (118.7ms)
+Completed 200 OK in 168ms (Views: 119.9ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/assets/active_admin-365d7294774f2338299dafe5cec179b41884dcb3cd74805114a47f5dbc830c13.css" for 127.0.0.1 at 2018-06-14 01:05:45 +0200
+Started GET "/assets/active_admin/print-b05a0449174c4e0e939ecab3483d5b7389c188baae07f7b99af2da69df0243d9.css" for 127.0.0.1 at 2018-06-14 01:05:45 +0200
+Started GET "/assets/active_admin-e670a4b09c70a1cf0e546e3cc233273ec00d44a2fe841969cac0562998dbec41.js" for 127.0.0.1 at 2018-06-14 01:05:45 +0200
+Started GET "/assets/active_admin/orderable-29374dbb55b0012d78a37c614d573bb3474f0779849b478a147d0f1845ca6617.png" for 127.0.0.1 at 2018-06-14 01:05:46 +0200
+Started GET "/admin/admin_comments" for 127.0.0.1 at 2018-06-14 01:07:01 +0200
+Processing by Admin::AdminCommentsController#index as HTML
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM `active_admin_comments` WHERE `active_admin_comments`.`namespace` = 'admin'[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `active_admin_comments` WHERE `active_admin_comments`.`namespace` = 'admin' LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT DISTINCT `active_admin_comments`.`resource_type` FROM `active_admin_comments` ORDER BY resource_type asc[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT DISTINCT `active_admin_comments`.`author_type` FROM `active_admin_comments` ORDER BY author_type asc[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (112.5ms)
+Completed 200 OK in 161ms (Views: 113.4ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/admin/admin_users" for 127.0.0.1 at 2018-06-14 01:07:07 +0200
+Processing by Admin::AdminUsersController#index as HTML
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users`[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `admin_users` LIMIT 9 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `admin_users` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users`[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `admin_users` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` ORDER BY `admin_users`.`id` desc LIMIT 9 OFFSET 0[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (90.2ms)
+Completed 200 OK in 100ms (Views: 92.4ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/admin/admin_users/1" for 127.0.0.1 at 2018-06-14 01:07:17 +0200
+Processing by Admin::AdminUsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/show.html.arb
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM `active_admin_comments` WHERE `active_admin_comments`.`resource_type` = 'AdminUser' AND `active_admin_comments`.`resource_id` = 1 AND `active_admin_comments`.`namespace` = 'admin'[0m
+  [1m[36mActiveAdmin::Comment Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM `active_admin_comments` WHERE `active_admin_comments`.`resource_type` = 'AdminUser' AND `active_admin_comments`.`resource_id` = 1 AND `active_admin_comments`.`namespace` = 'admin' LIMIT 1 OFFSET 0[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `active_admin_comments` WHERE `active_admin_comments`.`resource_type` = 'AdminUser' AND `active_admin_comments`.`resource_id` = 1 AND `active_admin_comments`.`namespace` = 'admin' ORDER BY created_at ASC LIMIT 25 OFFSET 0) subquery_for_count[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/show.html.arb (89.4ms)
+Completed 200 OK in 99ms (Views: 90.6ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/admin/admin_users/1" for 127.0.0.1 at 2018-06-14 01:11:56 +0200
+Processing by Admin::AdminUsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/show.html.arb
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `active_admin_comments` WHERE `active_admin_comments`.`resource_type` = 'AdminUser' AND `active_admin_comments`.`resource_id` = 1 AND `active_admin_comments`.`namespace` = 'admin'[0m
+  [1m[36mActiveAdmin::Comment Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `active_admin_comments` WHERE `active_admin_comments`.`resource_type` = 'AdminUser' AND `active_admin_comments`.`resource_id` = 1 AND `active_admin_comments`.`namespace` = 'admin' LIMIT 1 OFFSET 0[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `active_admin_comments` WHERE `active_admin_comments`.`resource_type` = 'AdminUser' AND `active_admin_comments`.`resource_id` = 1 AND `active_admin_comments`.`namespace` = 'admin' ORDER BY created_at ASC LIMIT 25 OFFSET 0) subquery_for_count[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/show.html.arb (211.0ms)
+Completed 200 OK in 268ms (Views: 214.8ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/assets/active_admin-365d7294774f2338299dafe5cec179b41884dcb3cd74805114a47f5dbc830c13.css" for 127.0.0.1 at 2018-06-14 01:11:57 +0200
+Started GET "/assets/active_admin/print-b05a0449174c4e0e939ecab3483d5b7389c188baae07f7b99af2da69df0243d9.css" for 127.0.0.1 at 2018-06-14 01:11:57 +0200
+Started GET "/assets/active_admin-e670a4b09c70a1cf0e546e3cc233273ec00d44a2fe841969cac0562998dbec41.js" for 127.0.0.1 at 2018-06-14 01:11:57 +0200
+Started GET "/admin/admin_users/1" for 127.0.0.1 at 2018-06-14 01:14:50 +0200
+Processing by Admin::AdminUsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/show.html.arb
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `active_admin_comments` WHERE `active_admin_comments`.`resource_type` = 'AdminUser' AND `active_admin_comments`.`resource_id` = 1 AND `active_admin_comments`.`namespace` = 'admin'[0m
+  [1m[36mActiveAdmin::Comment Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM `active_admin_comments` WHERE `active_admin_comments`.`resource_type` = 'AdminUser' AND `active_admin_comments`.`resource_id` = 1 AND `active_admin_comments`.`namespace` = 'admin' LIMIT 1 OFFSET 0[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `active_admin_comments` WHERE `active_admin_comments`.`resource_type` = 'AdminUser' AND `active_admin_comments`.`resource_id` = 1 AND `active_admin_comments`.`namespace` = 'admin' ORDER BY created_at ASC LIMIT 25 OFFSET 0) subquery_for_count[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/show.html.arb (96.7ms)
+Completed 200 OK in 158ms (Views: 98.5ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/assets/active_admin/print-b05a0449174c4e0e939ecab3483d5b7389c188baae07f7b99af2da69df0243d9.css" for 127.0.0.1 at 2018-06-14 01:14:51 +0200
+Started GET "/assets/active_admin-e670a4b09c70a1cf0e546e3cc233273ec00d44a2fe841969cac0562998dbec41.js" for 127.0.0.1 at 2018-06-14 01:14:51 +0200
+Started GET "/assets/active_admin-365d7294774f2338299dafe5cec179b41884dcb3cd74805114a47f5dbc830c13.css" for 127.0.0.1 at 2018-06-14 01:14:51 +0200
+Started GET "/admin/admin_users" for 127.0.0.1 at 2018-06-14 01:14:58 +0200
+Processing by Admin::AdminUsersController#index as HTML
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users`[0m
+  [1m[35m (34.1ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users` WHERE (due_date > '2018-06-13 23:14:59.031702' and due_date < '2018-06-20 23:14:59.031730')[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (106.5ms)
+Completed 500 Internal Server Error in 117ms (ActiveRecord: 35.4ms)
+
+
+  
+ActionView::Template::Error (Mysql2::Error: Unknown column 'due_date' in 'where clause': SELECT COUNT(*) FROM `admin_users` WHERE (due_date > '2018-06-13 23:14:59.031702' and due_date < '2018-06-20 23:14:59.031730')):
+    1: insert_tag renderer_for(:index)
+  
+mysql2 (0.5.1) lib/mysql2/client.rb:131:in `_query'
+mysql2 (0.5.1) lib/mysql2/client.rb:131:in `block in query'
+mysql2 (0.5.1) lib/mysql2/client.rb:130:in `handle_interrupt'
+mysql2 (0.5.1) lib/mysql2/client.rb:130:in `query'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract_mysql_adapter.rb:214:in `block (2 levels) in execute'
+activesupport (5.1.6) lib/active_support/dependencies/interlock.rb:46:in `block in permit_concurrent_loads'
+activesupport (5.1.6) lib/active_support/concurrency/share_lock.rb:185:in `yield_shares'
+activesupport (5.1.6) lib/active_support/dependencies/interlock.rb:45:in `permit_concurrent_loads'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract_mysql_adapter.rb:213:in `block in execute'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract_adapter.rb:613:in `block (2 levels) in log'
+/home/ghada/.rvm/rubies/ruby-2.5.1/lib/ruby/2.5.0/monitor.rb:226:in `mon_synchronize'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract_adapter.rb:612:in `block in log'
+activesupport (5.1.6) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract_adapter.rb:604:in `log'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract_mysql_adapter.rb:212:in `execute'
+activerecord (5.1.6) lib/active_record/connection_adapters/mysql/database_statements.rb:26:in `execute'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract_mysql_adapter.rb:223:in `execute_and_free'
+activerecord (5.1.6) lib/active_record/connection_adapters/mysql/database_statements.rb:31:in `exec_query'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/database_statements.rb:371:in `select'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/database_statements.rb:42:in `select_all'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/query_cache.rb:95:in `block in select_all'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/query_cache.rb:118:in `block in cache_sql'
+/home/ghada/.rvm/rubies/ruby-2.5.1/lib/ruby/2.5.0/monitor.rb:226:in `mon_synchronize'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/query_cache.rb:104:in `cache_sql'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/query_cache.rb:95:in `select_all'
+activerecord (5.1.6) lib/active_record/connection_adapters/mysql/database_statements.rb:10:in `select_all'
+activerecord (5.1.6) lib/active_record/relation/calculations.rb:260:in `execute_simple_calculation'
+activerecord (5.1.6) lib/active_record/relation/calculations.rb:216:in `perform_calculation'
+activerecord (5.1.6) lib/active_record/relation/calculations.rb:125:in `calculate'
+activerecord (5.1.6) lib/active_record/relation/calculations.rb:41:in `count'
+activeadmin (1.1.0) lib/active_admin/helpers/collection.rb:11:in `collection_size'
+activeadmin (1.1.0) lib/active_admin/views/components/scopes.rb:60:in `get_scope_count'
+activeadmin (1.1.0) lib/active_admin/views/components/scopes.rb:38:in `block (3 levels) in build_scope'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:14:in `span'
+activeadmin (1.1.0) lib/active_admin/views/components/scopes.rb:37:in `block (2 levels) in build_scope'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:14:in `a'
+activeadmin (1.1.0) lib/active_admin/views/components/scopes.rb:35:in `block in build_scope'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:14:in `li'
+activeadmin (1.1.0) lib/active_admin/views/components/scopes.rb:32:in `build_scope'
+activeadmin (1.1.0) lib/active_admin/views/components/scopes.rb:25:in `block in build'
+activeadmin (1.1.0) lib/active_admin/views/components/scopes.rb:24:in `each'
+activeadmin (1.1.0) lib/active_admin/views/components/scopes.rb:24:in `build'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:30:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:14:in `scopes_renderer'
+activeadmin (1.1.0) lib/active_admin/views/pages/index.rb:88:in `build_scopes'
+activeadmin (1.1.0) lib/active_admin/views/pages/index.rb:65:in `block in build_table_tools'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:14:in `div'
+activeadmin (1.1.0) lib/active_admin/views/pages/index.rb:63:in `build_table_tools'
+activeadmin (1.1.0) lib/active_admin/views/pages/index.rb:27:in `block in main_content'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:14:in `batch_action_form'
+activeadmin (1.1.0) lib/active_admin/views/pages/index.rb:36:in `wrap_with_batch_action_form'
+activeadmin (1.1.0) lib/active_admin/views/pages/index.rb:26:in `main_content'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:93:in `block (2 levels) in build_main_content_wrapper'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:14:in `div'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:92:in `block in build_main_content_wrapper'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:14:in `div'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:91:in `build_main_content_wrapper'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:77:in `block in build_page_content'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:14:in `div'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:76:in `build_page_content'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:54:in `block (2 levels) in build_page'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:14:in `div'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:50:in `block in build_page'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:49:in `build_page'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:10:in `build'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:30:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+activeadmin (1.1.0) app/views/active_admin/resource/index.html.arb:2:in `block in __home_ghada__rvm_gems_ruby_______gems_activeadmin_______app_views_active_admin_resource_index_html_arb___788652483898973237_70015596894140'
+arbre (1.1.1) lib/arbre/context.rb:45:in `instance_eval'
+arbre (1.1.1) lib/arbre/context.rb:45:in `initialize'
+activeadmin (1.1.0) app/views/active_admin/resource/index.html.arb:1:in `new'
+activeadmin (1.1.0) app/views/active_admin/resource/index.html.arb:1:in `__home_ghada__rvm_gems_ruby_______gems_activeadmin_______app_views_active_admin_resource_index_html_arb___788652483898973237_70015596894140'
+actionview (5.1.6) lib/action_view/template.rb:157:in `block in render'
+activesupport (5.1.6) lib/active_support/notifications.rb:168:in `instrument'
+actionview (5.1.6) lib/action_view/template.rb:352:in `instrument_render_template'
+actionview (5.1.6) lib/action_view/template.rb:155:in `render'
+actionview (5.1.6) lib/action_view/renderer/template_renderer.rb:52:in `block (2 levels) in render_template'
+actionview (5.1.6) lib/action_view/renderer/abstract_renderer.rb:42:in `block in instrument'
+activesupport (5.1.6) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.6) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.6) lib/active_support/notifications.rb:166:in `instrument'
+actionview (5.1.6) lib/action_view/renderer/abstract_renderer.rb:41:in `instrument'
+actionview (5.1.6) lib/action_view/renderer/template_renderer.rb:51:in `block in render_template'
+actionview (5.1.6) lib/action_view/renderer/template_renderer.rb:59:in `render_with_layout'
+actionview (5.1.6) lib/action_view/renderer/template_renderer.rb:50:in `render_template'
+actionview (5.1.6) lib/action_view/renderer/template_renderer.rb:14:in `render'
+actionview (5.1.6) lib/action_view/renderer/renderer.rb:42:in `render_template'
+actionview (5.1.6) lib/action_view/renderer/renderer.rb:23:in `render'
+actionview (5.1.6) lib/action_view/rendering.rb:103:in `_render_template'
+actionpack (5.1.6) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+actionview (5.1.6) lib/action_view/rendering.rb:83:in `render_to_body'
+actionpack (5.1.6) lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+actionpack (5.1.6) lib/action_controller/metal/renderers.rb:141:in `render_to_body'
+actionpack (5.1.6) lib/abstract_controller/rendering.rb:24:in `render'
+actionpack (5.1.6) lib/action_controller/metal/rendering.rb:36:in `render'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+activesupport (5.1.6) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+/home/ghada/.rvm/rubies/ruby-2.5.1/lib/ruby/2.5.0/benchmark.rb:308:in `realtime'
+activesupport (5.1.6) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+activerecord (5.1.6) lib/active_record/railties/controller_runtime.rb:29:in `cleanup_view_runtime'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:43:in `render'
+responders (2.4.0) lib/action_controller/responder.rb:238:in `default_render'
+responders (2.4.0) lib/action_controller/responder.rb:170:in `to_html'
+responders (2.4.0) lib/responders/flash_responder.rb:107:in `to_html'
+responders (2.4.0) lib/action_controller/responder.rb:163:in `respond'
+responders (2.4.0) lib/action_controller/responder.rb:156:in `call'
+responders (2.4.0) lib/action_controller/respond_with.rb:211:in `respond_with'
+inherited_resources (1.8.0) lib/inherited_resources/actions.rb:7:in `index'
+activeadmin (1.1.0) lib/active_admin/resource_controller/streaming.rb:12:in `index'
+actionpack (5.1.6) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.1.6) lib/abstract_controller/base.rb:186:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.1.6) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.1.6) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.1.6) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.6) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.6) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.6) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.6) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.6) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.6) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.6) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.6) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:844:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/admin/admin_users" for 127.0.0.1 at 2018-06-14 01:16:21 +0200
+Processing by Admin::AdminUsersController#index as HTML
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users`[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users` WHERE (created_at > '2018-06-13 23:16:22.620367' and created_at < '2018-06-20 23:16:22.620397')[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users` WHERE (created_at < '2018-06-13 23:16:22.623507')[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users` WHERE `admin_users`.`admin_user_id` = 1[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (77.0ms)
+Completed 500 Internal Server Error in 141ms (ActiveRecord: 9.6ms)
+
+
+  
+ActionView::Template::Error (Mysql2::Error: Unknown column 'admin_users.admin_user_id' in 'where clause': SELECT COUNT(*) FROM `admin_users` WHERE `admin_users`.`admin_user_id` = 1):
+    1: insert_tag renderer_for(:index)
+  
+mysql2 (0.5.1) lib/mysql2/client.rb:131:in `_query'
+mysql2 (0.5.1) lib/mysql2/client.rb:131:in `block in query'
+mysql2 (0.5.1) lib/mysql2/client.rb:130:in `handle_interrupt'
+mysql2 (0.5.1) lib/mysql2/client.rb:130:in `query'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract_mysql_adapter.rb:214:in `block (2 levels) in execute'
+activesupport (5.1.6) lib/active_support/dependencies/interlock.rb:46:in `block in permit_concurrent_loads'
+activesupport (5.1.6) lib/active_support/concurrency/share_lock.rb:185:in `yield_shares'
+activesupport (5.1.6) lib/active_support/dependencies/interlock.rb:45:in `permit_concurrent_loads'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract_mysql_adapter.rb:213:in `block in execute'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract_adapter.rb:613:in `block (2 levels) in log'
+/home/ghada/.rvm/rubies/ruby-2.5.1/lib/ruby/2.5.0/monitor.rb:226:in `mon_synchronize'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract_adapter.rb:612:in `block in log'
+activesupport (5.1.6) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract_adapter.rb:604:in `log'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract_mysql_adapter.rb:212:in `execute'
+activerecord (5.1.6) lib/active_record/connection_adapters/mysql/database_statements.rb:26:in `execute'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract_mysql_adapter.rb:223:in `execute_and_free'
+activerecord (5.1.6) lib/active_record/connection_adapters/mysql/database_statements.rb:31:in `exec_query'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/database_statements.rb:371:in `select'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/database_statements.rb:42:in `select_all'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/query_cache.rb:95:in `block in select_all'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/query_cache.rb:118:in `block in cache_sql'
+/home/ghada/.rvm/rubies/ruby-2.5.1/lib/ruby/2.5.0/monitor.rb:226:in `mon_synchronize'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/query_cache.rb:104:in `cache_sql'
+activerecord (5.1.6) lib/active_record/connection_adapters/abstract/query_cache.rb:95:in `select_all'
+activerecord (5.1.6) lib/active_record/connection_adapters/mysql/database_statements.rb:10:in `select_all'
+activerecord (5.1.6) lib/active_record/relation/calculations.rb:260:in `execute_simple_calculation'
+activerecord (5.1.6) lib/active_record/relation/calculations.rb:216:in `perform_calculation'
+activerecord (5.1.6) lib/active_record/relation/calculations.rb:125:in `calculate'
+activerecord (5.1.6) lib/active_record/relation/calculations.rb:41:in `count'
+activeadmin (1.1.0) lib/active_admin/helpers/collection.rb:11:in `collection_size'
+activeadmin (1.1.0) lib/active_admin/views/components/scopes.rb:60:in `get_scope_count'
+activeadmin (1.1.0) lib/active_admin/views/components/scopes.rb:38:in `block (3 levels) in build_scope'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:14:in `span'
+activeadmin (1.1.0) lib/active_admin/views/components/scopes.rb:37:in `block (2 levels) in build_scope'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:14:in `a'
+activeadmin (1.1.0) lib/active_admin/views/components/scopes.rb:35:in `block in build_scope'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:14:in `li'
+activeadmin (1.1.0) lib/active_admin/views/components/scopes.rb:32:in `build_scope'
+activeadmin (1.1.0) lib/active_admin/views/components/scopes.rb:25:in `block in build'
+activeadmin (1.1.0) lib/active_admin/views/components/scopes.rb:24:in `each'
+activeadmin (1.1.0) lib/active_admin/views/components/scopes.rb:24:in `build'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:30:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:14:in `scopes_renderer'
+activeadmin (1.1.0) lib/active_admin/views/pages/index.rb:88:in `build_scopes'
+activeadmin (1.1.0) lib/active_admin/views/pages/index.rb:65:in `block in build_table_tools'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:14:in `div'
+activeadmin (1.1.0) lib/active_admin/views/pages/index.rb:63:in `build_table_tools'
+activeadmin (1.1.0) lib/active_admin/views/pages/index.rb:27:in `block in main_content'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:14:in `batch_action_form'
+activeadmin (1.1.0) lib/active_admin/views/pages/index.rb:36:in `wrap_with_batch_action_form'
+activeadmin (1.1.0) lib/active_admin/views/pages/index.rb:26:in `main_content'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:93:in `block (2 levels) in build_main_content_wrapper'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:14:in `div'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:92:in `block in build_main_content_wrapper'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:14:in `div'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:91:in `build_main_content_wrapper'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:77:in `block in build_page_content'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:14:in `div'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:76:in `build_page_content'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:54:in `block (2 levels) in build_page'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:31:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:14:in `div'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:50:in `block in build_page'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:49:in `with_current_arbre_element'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:49:in `build_page'
+activeadmin (1.1.0) lib/active_admin/views/pages/base.rb:10:in `build'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:30:in `block in build_tag'
+arbre (1.1.1) lib/arbre/context.rb:92:in `with_current_arbre_element'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:26:in `build_tag'
+arbre (1.1.1) lib/arbre/element/builder_methods.rb:39:in `insert_tag'
+activeadmin (1.1.0) app/views/active_admin/resource/index.html.arb:2:in `block in __home_ghada__rvm_gems_ruby_______gems_activeadmin_______app_views_active_admin_resource_index_html_arb___788652483898973237_70015691968660'
+arbre (1.1.1) lib/arbre/context.rb:45:in `instance_eval'
+arbre (1.1.1) lib/arbre/context.rb:45:in `initialize'
+activeadmin (1.1.0) app/views/active_admin/resource/index.html.arb:1:in `new'
+activeadmin (1.1.0) app/views/active_admin/resource/index.html.arb:1:in `__home_ghada__rvm_gems_ruby_______gems_activeadmin_______app_views_active_admin_resource_index_html_arb___788652483898973237_70015691968660'
+actionview (5.1.6) lib/action_view/template.rb:157:in `block in render'
+activesupport (5.1.6) lib/active_support/notifications.rb:168:in `instrument'
+actionview (5.1.6) lib/action_view/template.rb:352:in `instrument_render_template'
+actionview (5.1.6) lib/action_view/template.rb:155:in `render'
+actionview (5.1.6) lib/action_view/renderer/template_renderer.rb:52:in `block (2 levels) in render_template'
+actionview (5.1.6) lib/action_view/renderer/abstract_renderer.rb:42:in `block in instrument'
+activesupport (5.1.6) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.6) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.6) lib/active_support/notifications.rb:166:in `instrument'
+actionview (5.1.6) lib/action_view/renderer/abstract_renderer.rb:41:in `instrument'
+actionview (5.1.6) lib/action_view/renderer/template_renderer.rb:51:in `block in render_template'
+actionview (5.1.6) lib/action_view/renderer/template_renderer.rb:59:in `render_with_layout'
+actionview (5.1.6) lib/action_view/renderer/template_renderer.rb:50:in `render_template'
+actionview (5.1.6) lib/action_view/renderer/template_renderer.rb:14:in `render'
+actionview (5.1.6) lib/action_view/renderer/renderer.rb:42:in `render_template'
+actionview (5.1.6) lib/action_view/renderer/renderer.rb:23:in `render'
+actionview (5.1.6) lib/action_view/rendering.rb:103:in `_render_template'
+actionpack (5.1.6) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+actionview (5.1.6) lib/action_view/rendering.rb:83:in `render_to_body'
+actionpack (5.1.6) lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+actionpack (5.1.6) lib/action_controller/metal/renderers.rb:141:in `render_to_body'
+actionpack (5.1.6) lib/abstract_controller/rendering.rb:24:in `render'
+actionpack (5.1.6) lib/action_controller/metal/rendering.rb:36:in `render'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+activesupport (5.1.6) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+/home/ghada/.rvm/rubies/ruby-2.5.1/lib/ruby/2.5.0/benchmark.rb:308:in `realtime'
+activesupport (5.1.6) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+activerecord (5.1.6) lib/active_record/railties/controller_runtime.rb:29:in `cleanup_view_runtime'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:43:in `render'
+responders (2.4.0) lib/action_controller/responder.rb:238:in `default_render'
+responders (2.4.0) lib/action_controller/responder.rb:170:in `to_html'
+responders (2.4.0) lib/responders/flash_responder.rb:107:in `to_html'
+responders (2.4.0) lib/action_controller/responder.rb:163:in `respond'
+responders (2.4.0) lib/action_controller/responder.rb:156:in `call'
+responders (2.4.0) lib/action_controller/respond_with.rb:211:in `respond_with'
+inherited_resources (1.8.0) lib/inherited_resources/actions.rb:7:in `index'
+activeadmin (1.1.0) lib/active_admin/resource_controller/streaming.rb:12:in `index'
+actionpack (5.1.6) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.1.6) lib/abstract_controller/base.rb:186:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.1.6) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.1.6) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.1.6) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.6) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.6) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.6) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.6) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.6) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.6) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.6) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.6) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.6) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.6) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:844:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/admin/admin_users" for 127.0.0.1 at 2018-06-14 01:16:44 +0200
+Processing by Admin::AdminUsersController#index as HTML
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users`[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users` WHERE (created_at > '2018-06-13 23:16:45.819061' and created_at < '2018-06-20 23:16:45.819082')[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users` WHERE (created_at < '2018-06-13 23:16:45.823559')[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `admin_users` LIMIT 9 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `admin_users` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users`[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `admin_users` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` ORDER BY `admin_users`.`id` desc LIMIT 9 OFFSET 0[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (154.4ms)
+Completed 200 OK in 224ms (Views: 157.2ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/assets/active_admin-365d7294774f2338299dafe5cec179b41884dcb3cd74805114a47f5dbc830c13.css" for 127.0.0.1 at 2018-06-14 01:16:45 +0200
+Started GET "/assets/active_admin-e670a4b09c70a1cf0e546e3cc233273ec00d44a2fe841969cac0562998dbec41.js" for 127.0.0.1 at 2018-06-14 01:16:45 +0200
+Started GET "/assets/active_admin/print-b05a0449174c4e0e939ecab3483d5b7389c188baae07f7b99af2da69df0243d9.css" for 127.0.0.1 at 2018-06-14 01:16:45 +0200
+Started GET "/assets/active_admin/orderable-29374dbb55b0012d78a37c614d573bb3474f0779849b478a147d0f1845ca6617.png" for 127.0.0.1 at 2018-06-14 01:16:46 +0200
+Started GET "/admin/admin_users?scope=due_this_week" for 127.0.0.1 at 2018-06-14 01:16:48 +0200
+Processing by Admin::AdminUsersController#index as HTML
+  Parameters: {"scope"=>"due_this_week"}
+  [1m[36mAdminUser Load (0.9ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users`[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users` WHERE (created_at > '2018-06-13 23:16:48.670149' and created_at < '2018-06-20 23:16:48.670170')[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users` WHERE (created_at < '2018-06-13 23:16:48.673652')[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `admin_users` WHERE (created_at > '2018-06-13 23:16:48.598601' and created_at < '2018-06-20 23:16:48.598620') LIMIT 9 OFFSET 0) subquery_for_count[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (98.7ms)
+Completed 200 OK in 112ms (Views: 101.6ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/admin/admin_users?scope=late" for 127.0.0.1 at 2018-06-14 01:16:51 +0200
+Processing by Admin::AdminUsersController#index as HTML
+  Parameters: {"scope"=>"late"}
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users`[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users` WHERE (created_at > '2018-06-13 23:16:51.501728' and created_at < '2018-06-20 23:16:51.501747')[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users` WHERE (created_at < '2018-06-13 23:16:51.505118')[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `admin_users` WHERE (created_at < '2018-06-13 23:16:51.430966') LIMIT 9 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `admin_users` WHERE (created_at < '2018-06-13 23:16:51.430966') LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users` WHERE (created_at < '2018-06-13 23:16:51.430966')[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `admin_users` WHERE (created_at < '2018-06-13 23:16:51.430966') LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE (created_at < '2018-06-13 23:16:51.430966') ORDER BY `admin_users`.`id` desc LIMIT 9 OFFSET 0[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (122.6ms)
+Completed 200 OK in 132ms (Views: 122.2ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/admin/admin_users?scope=due_this_week" for 127.0.0.1 at 2018-06-14 01:16:57 +0200
+Processing by Admin::AdminUsersController#index as HTML
+  Parameters: {"scope"=>"due_this_week"}
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users`[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users` WHERE (created_at > '2018-06-13 23:16:57.625743' and created_at < '2018-06-20 23:16:57.625764')[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users` WHERE (created_at < '2018-06-13 23:16:57.629038')[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `admin_users` WHERE (created_at > '2018-06-13 23:16:57.545097' and created_at < '2018-06-20 23:16:57.545118') LIMIT 9 OFFSET 0) subquery_for_count[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (106.8ms)
+Completed 200 OK in 120ms (Views: 110.4ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/admin/admin_users?scope=all" for 127.0.0.1 at 2018-06-14 01:16:59 +0200
+Processing by Admin::AdminUsersController#index as HTML
+  Parameters: {"scope"=>"all"}
+  [1m[36mAdminUser Load (0.8ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users`[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users` WHERE (created_at > '2018-06-13 23:16:59.264667' and created_at < '2018-06-20 23:16:59.264686')[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users` WHERE (created_at < '2018-06-13 23:16:59.267961')[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `admin_users` LIMIT 9 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `admin_users` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users`[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `admin_users` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[36mAdminUser Load (1.5ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` ORDER BY `admin_users`.`id` desc LIMIT 9 OFFSET 0[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (128.5ms)
+Completed 200 OK in 139ms (Views: 128.7ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/admin/admin_users?scope=all" for 127.0.0.1 at 2018-06-14 01:17:45 +0200
+Processing by Admin::AdminUsersController#index as HTML
+  Parameters: {"scope"=>"all"}
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users`[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users` WHERE (created_at > '2018-06-13 23:17:46.598376' and created_at < '2018-06-20 23:17:46.598402')[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users` WHERE (created_at < '2018-06-13 23:17:46.602923')[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `admin_users` LIMIT 9 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `admin_users` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users`[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `admin_users` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[36mAdminUser Load (0.8ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` ORDER BY `admin_users`.`id` desc LIMIT 9 OFFSET 0[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (131.7ms)
+Completed 200 OK in 198ms (Views: 131.9ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/assets/active_admin-365d7294774f2338299dafe5cec179b41884dcb3cd74805114a47f5dbc830c13.css" for 127.0.0.1 at 2018-06-14 01:17:46 +0200
+Started GET "/assets/active_admin/print-b05a0449174c4e0e939ecab3483d5b7389c188baae07f7b99af2da69df0243d9.css" for 127.0.0.1 at 2018-06-14 01:17:46 +0200
+Started GET "/assets/active_admin-e670a4b09c70a1cf0e546e3cc233273ec00d44a2fe841969cac0562998dbec41.js" for 127.0.0.1 at 2018-06-14 01:17:46 +0200
+Started GET "/assets/active_admin/orderable-29374dbb55b0012d78a37c614d573bb3474f0779849b478a147d0f1845ca6617.png" for 127.0.0.1 at 2018-06-14 01:17:46 +0200
+Started GET "/admin/admin_users?scope=created_this_week" for 127.0.0.1 at 2018-06-14 01:17:48 +0200
+Processing by Admin::AdminUsersController#index as HTML
+  Parameters: {"scope"=>"created_this_week"}
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users`[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users` WHERE (created_at > '2018-06-13 23:17:48.832431' and created_at < '2018-06-20 23:17:48.832448')[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users` WHERE (created_at < '2018-06-13 23:17:48.835932')[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `admin_users` WHERE (created_at > '2018-06-13 23:17:48.744927' and created_at < '2018-06-20 23:17:48.744947') LIMIT 9 OFFSET 0) subquery_for_count[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (115.0ms)
+Completed 200 OK in 126ms (Views: 116.4ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/admin/admin_users?scope=late" for 127.0.0.1 at 2018-06-14 01:17:50 +0200
+Processing by Admin::AdminUsersController#index as HTML
+  Parameters: {"scope"=>"late"}
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users`[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users` WHERE (created_at > '2018-06-13 23:17:50.752703' and created_at < '2018-06-20 23:17:50.752729')[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users` WHERE (created_at < '2018-06-13 23:17:50.756774')[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `admin_users` WHERE (created_at < '2018-06-13 23:17:50.669231') LIMIT 9 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `admin_users` WHERE (created_at < '2018-06-13 23:17:50.669231') LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users` WHERE (created_at < '2018-06-13 23:17:50.669231')[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `admin_users` WHERE (created_at < '2018-06-13 23:17:50.669231') LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[36mAdminUser Load (0.8ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE (created_at < '2018-06-13 23:17:50.669231') ORDER BY `admin_users`.`id` desc LIMIT 9 OFFSET 0[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (155.1ms)
+Completed 200 OK in 170ms (Views: 159.5ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/admin/admin_users/1/edit" for 127.0.0.1 at 2018-06-14 01:19:13 +0200
+Processing by Admin::AdminUsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/edit.html.arb
+  [1m[36mCACHE AdminUser Load (0.0ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/edit.html.arb (102.0ms)
+Completed 200 OK in 113ms (Views: 106.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/admin/admin_users/new" for 127.0.0.1 at 2018-06-14 01:20:17 +0200
+Processing by Admin::AdminUsersController#new as HTML
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/new.html.arb
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/new.html.arb (88.0ms)
+Completed 200 OK in 96ms (Views: 91.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/admin/admin_users" for 127.0.0.1 at 2018-06-14 01:20:25 +0200
+Processing by Admin::AdminUsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OrjP3XhHTynmQiIuonh35u2mOWnpJkFKxC77xxeEsab7GMU6mT4ZHrOR3+JhfNni0ZTbQZ3AzimfWYWh57w9vA==", "admin_user"=>{"email"=>"ddd", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create Admin user"}
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdminUser Exists (26.8ms)[0m  [1m[34mSELECT  1 AS one FROM `admin_users` WHERE `admin_users`.`email` = BINARY 'ddd' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/new.html.arb
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/new.html.arb (93.2ms)
+Completed 200 OK in 319ms (Views: 98.0ms | ActiveRecord: 28.1ms)
+
+
+Started POST "/admin/admin_users" for 127.0.0.1 at 2018-06-14 01:20:47 +0200
+Processing by Admin::AdminUsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Bgj8zuNqAkx6udBQbjQ9rNF1qCCRsK6mHf6Ri3y7XdbHqPYpAhNUey9qLZytMJOo7UdKCOVWIcVGie/tjIPRzA==", "admin_user"=>{"email"=>"ddd@ee.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create Admin user"}
+  [1m[36mAdminUser Load (0.8ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdminUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `admin_users` WHERE `admin_users`.`email` = BINARY 'ddd@ee.com' LIMIT 1[0m
+  [1m[35mSQL (25.5ms)[0m  [1m[32mINSERT INTO `admin_users` (`email`, `encrypted_password`, `created_at`, `updated_at`) VALUES ('ddd@ee.com', '$2a$11$zBVb2gWaKbCVJFvyWcizoePzQji2JqQtlyKGgLq3w1fZMDHUNQ07u', '2018-06-13 23:20:47', '2018-06-13 23:20:47')[0m
+  [1m[35m (32.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/admin/admin_users/2
+Completed 302 Found in 262ms (ActiveRecord: 59.3ms)
+
+
+Started GET "/admin/admin_users/2" for 127.0.0.1 at 2018-06-14 01:20:47 +0200
+Processing by Admin::AdminUsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  [1m[36mAdminUser Load (0.8ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 2 LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/show.html.arb
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `active_admin_comments` WHERE `active_admin_comments`.`resource_type` = 'AdminUser' AND `active_admin_comments`.`resource_id` = 2 AND `active_admin_comments`.`namespace` = 'admin'[0m
+  [1m[36mActiveAdmin::Comment Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM `active_admin_comments` WHERE `active_admin_comments`.`resource_type` = 'AdminUser' AND `active_admin_comments`.`resource_id` = 2 AND `active_admin_comments`.`namespace` = 'admin' LIMIT 1 OFFSET 0[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `active_admin_comments` WHERE `active_admin_comments`.`resource_type` = 'AdminUser' AND `active_admin_comments`.`resource_id` = 2 AND `active_admin_comments`.`namespace` = 'admin' ORDER BY created_at ASC LIMIT 25 OFFSET 0) subquery_for_count[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/show.html.arb (116.7ms)
+Completed 200 OK in 129ms (Views: 118.8ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/admin/admin_users/2/edit" for 127.0.0.1 at 2018-06-14 01:20:51 +0200
+Processing by Admin::AdminUsersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 2 LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/edit.html.arb
+  [1m[36mCACHE AdminUser Load (0.0ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 2 LIMIT 1[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/edit.html.arb (88.0ms)
+Completed 200 OK in 102ms (Views: 92.3ms | ActiveRecord: 1.4ms)
+
+
+Started PATCH "/admin/admin_users/2" for 127.0.0.1 at 2018-06-14 01:20:57 +0200
+Processing by Admin::AdminUsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6GSGAyAKiROJCOxaPGGhz7veASZfzCnZMIV2Pd8czOgpxIzkwXPfJNzbEZb/ZQ/Lh+zjDisqprpr8ghbLyRA8g==", "admin_user"=>{"email"=>"ddd@ee.comd", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Update Admin user", "id"=>"2"}
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdminUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `admin_users` WHERE `admin_users`.`email` = BINARY 'ddd@ee.comd' AND (`admin_users`.`id` != 2) LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/edit.html.arb
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/edit.html.arb (92.7ms)
+Completed 200 OK in 118ms (Views: 96.0ms | ActiveRecord: 2.3ms)
+
+
+Started PATCH "/admin/admin_users/2" for 127.0.0.1 at 2018-06-14 01:21:08 +0200
+Processing by Admin::AdminUsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Pj3o6UuF4HEgVF0fB5eaNHpLs5ZQ6AejZcZREggOnQP/neIOqvy2RnWHoNPEkzQwRnlRviQOiMA+sS90+DYRGQ==", "admin_user"=>{"email"=>"ddd@ee.comd", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Update Admin user", "id"=>"2"}
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAdminUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM `admin_users` WHERE `admin_users`.`email` = BINARY 'ddd@ee.comd' AND (`admin_users`.`id` != 2) LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE `admin_users` SET `email` = 'ddd@ee.comd', `encrypted_password` = '$2a$11$U6QOttm/SM4RTyXV1GXxSuUE2L8RjA5ytGVNWZLzbMtcHdxHJ2mRG', `updated_at` = '2018-06-13 23:21:08' WHERE `admin_users`.`id` = 2[0m
+  [1m[35m (70.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/admin/admin_users/2
+Completed 302 Found in 265ms (ActiveRecord: 73.4ms)
+
+
+Started GET "/admin/admin_users/2" for 127.0.0.1 at 2018-06-14 01:21:08 +0200
+Processing by Admin::AdminUsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  [1m[36mAdminUser Load (1.1ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 2 LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/show.html.arb
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `active_admin_comments` WHERE `active_admin_comments`.`resource_type` = 'AdminUser' AND `active_admin_comments`.`resource_id` = 2 AND `active_admin_comments`.`namespace` = 'admin'[0m
+  [1m[36mActiveAdmin::Comment Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `active_admin_comments` WHERE `active_admin_comments`.`resource_type` = 'AdminUser' AND `active_admin_comments`.`resource_id` = 2 AND `active_admin_comments`.`namespace` = 'admin' LIMIT 1 OFFSET 0[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `active_admin_comments` WHERE `active_admin_comments`.`resource_type` = 'AdminUser' AND `active_admin_comments`.`resource_id` = 2 AND `active_admin_comments`.`namespace` = 'admin' ORDER BY created_at ASC LIMIT 25 OFFSET 0) subquery_for_count[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/show.html.arb (124.2ms)
+Completed 200 OK in 137ms (Views: 126.5ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/admin/admin_users" for 127.0.0.1 at 2018-06-14 01:21:12 +0200
+Processing by Admin::AdminUsersController#index as HTML
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users`[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users` WHERE (created_at > '2018-06-13 23:21:12.507519' and created_at < '2018-06-20 23:21:12.507539')[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users` WHERE (created_at < '2018-06-13 23:21:12.510846')[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `admin_users` LIMIT 9 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `admin_users` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users`[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `admin_users` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` ORDER BY `admin_users`.`id` desc LIMIT 9 OFFSET 0[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (129.4ms)
+Completed 200 OK in 139ms (Views: 130.2ms | ActiveRecord: 3.7ms)
+
+
+Started DELETE "/admin/admin_users/2" for 127.0.0.1 at 2018-06-14 01:21:18 +0200
+Processing by Admin::AdminUsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"mf30o+l8/wVaCOourtOUsMN8myWSmOcP1pBhJNRJYn5YXf5ECAWpMg/bF+Jt1zq0/055DeZ+aGyN5x9CJHHuZA==", "id"=>"2"}
+  [1m[36mAdminUser Load (0.8ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM `admin_users` WHERE `admin_users`.`id` = 2[0m
+  [1m[35m (120.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/admin/admin_users
+Completed 302 Found in 145ms (ActiveRecord: 123.5ms)
+
+
+Started GET "/admin/admin_users" for 127.0.0.1 at 2018-06-14 01:21:19 +0200
+Processing by Admin::AdminUsersController#index as HTML
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users`[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users` WHERE (created_at > '2018-06-13 23:21:19.109823' and created_at < '2018-06-20 23:21:19.109839')[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users` WHERE (created_at < '2018-06-13 23:21:19.113672')[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `admin_users` LIMIT 9 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `admin_users` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users`[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `admin_users` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` ORDER BY `admin_users`.`id` desc LIMIT 9 OFFSET 0[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (121.9ms)
+Completed 200 OK in 130ms (Views: 122.2ms | ActiveRecord: 3.8ms)
+
+
