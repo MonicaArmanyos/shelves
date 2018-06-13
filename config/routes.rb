@@ -15,11 +15,13 @@ Rails.application.routes.draw do
             collection do
               get :latest_books
               get :recommended_books
+             
             end
 
             #/api/v1/book/books/:id/route_name
             member do
               get 'exchange', to: 'books#exchange'
+              put 'update_bid', to: 'books#update_bid'
             end
             resources :orders
             resources :comments
@@ -35,17 +37,25 @@ Rails.application.routes.draw do
         end
 
         namespace 'category' do
-          resources :categories
+          resources :categories do
+             # /api/v1/category/categories/:id/get_books_for_category
+             member do
+              get 'get_books_for_category', to: 'categories#get_books_for_category'
+            end
+          end
+
         end
        
 
         namespace 'user' do 
           resources :password_resets, only: [:create, :update]
           resources :users,  except: [:index, :destroy, :create, :new, :edit] do
+            resources :user_rates
             collection do
               post 'login', to: 'authentication#authenticate', :as => "login"
                 post 'signup', to: 'users#create', :as => "signup"
                 get '', to: 'users#show'
+                get 'get_all_book_stores' => 'users#get_all_book_stores'
                 get 'cites', to: 'users#getCities', :as => "city"
               end
               #/users/:confirm_tocken/confirm_email

@@ -4,7 +4,6 @@ class User < ApplicationRecord
     enum gender: {"male" => 0, "female" => 1}
     enum role: {"Normal user" => 0, "Book store" =>1}
     mount_uploader :profile_picture, ProfilePictureUploader
-
     validates :email, :password_digest, presence: true
     validates :email, uniqueness: true, unless: :skip_email_validation    
     #### Relations ####
@@ -17,6 +16,8 @@ class User < ApplicationRecord
       has_many :orders
       has_many :notification_tokens
       has_many :notification_messages
+      has_many :user_rates
+      has_many :users, through: :user_rates
       has_many :comments
       
       accepts_nested_attributes_for :phones, allow_destroy: true #to be able to remove a phone
