@@ -24779,3 +24779,33 @@ Processing by Api::V1::Book::ReplaysController#create as */*
 Completed 200 OK in 187ms (Views: 14.3ms | ActiveRecord: 56.0ms)
 
 
+Started GET "/api/v1/book/books/3/comments" for 127.0.0.1 at 2018-06-13 20:53:59 +0200
+Processing by Api::V1::Book::CommentsController#index as */*
+  Parameters: {"book_id"=>"3", "comment"=>{}}
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 3[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 3[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+Completed 200 OK in 90ms (Views: 45.7ms | ActiveRecord: 9.0ms)
+
+
+Started GET "/api/v1/book/books/3/comments" for 127.0.0.1 at 2018-06-13 20:54:45 +0200
+Processing by Api::V1::Book::CommentsController#index as */*
+  Parameters: {"book_id"=>"3", "comment"=>{}}
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 3[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 3[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+Completed 200 OK in 81ms (Views: 47.4ms | ActiveRecord: 7.7ms)
+
+
