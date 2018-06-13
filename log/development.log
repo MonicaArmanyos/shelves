@@ -24957,3 +24957,793 @@ Unpermitted parameters: :book_id, :id
 Completed 200 OK in 72ms (Views: 5.0ms | ActiveRecord: 54.7ms)
 
 
+Started GET "/api/v1/book/books/3/comments" for 127.0.0.1 at 2018-06-13 21:35:46 +0200
+Processing by Api::V1::Book::CommentsController#index as */*
+  Parameters: {"book_id"=>"3", "comment"=>{}}
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 3[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 3[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 7[0m
+  [1m[36mUser Load (22.1ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 9[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mReplay Load (0.7ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 10[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mReplay Load (0.5ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 11[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 12[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 13[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 14[0m
+Completed 200 OK in 134ms (Views: 73.9ms | ActiveRecord: 36.0ms)
+
+
+Started GET "/api/v1/book/books/3/comments" for 127.0.0.1 at 2018-06-13 21:46:29 +0200
+Processing by Api::V1::Book::CommentsController#index as */*
+  Parameters: {"book_id"=>"3", "comment"=>{}}
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 3[0m
+Completed 500 Internal Server Error in 58ms (ActiveRecord: 6.6ms)
+
+
+  
+NoMethodError (undefined method `each' for #<Comment:0x00007fe6983014f8>):
+  
+app/serializers/comment_serializer.rb:11:in `replays'
+app/controllers/api/v1/book/comments_controller.rb:28:in `index'
+Started GET "/api/v1/book/books/3/comments" for 127.0.0.1 at 2018-06-13 21:48:42 +0200
+Processing by Api::V1::Book::CommentsController#index as */*
+  Parameters: {"book_id"=>"3", "comment"=>{}}
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 3[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 3[0m
+  [1m[36mReplay Load (0.5ms)[0m  [1m[34mSELECT `replays`.`id`, `replays`.`replay`, `replays`.`user_id`, `replays`.`created_at` FROM `replays` WHERE `replays`.`id` = 7[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m
+  [1m[36mReplay Load (0.7ms)[0m  [1m[34mSELECT `replays`.`id`, `replays`.`replay`, `replays`.`user_id`, `replays`.`created_at` FROM `replays` WHERE `replays`.`id` = 9[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mReplay Load (0.5ms)[0m  [1m[34mSELECT `replays`.`id`, `replays`.`replay`, `replays`.`user_id`, `replays`.`created_at` FROM `replays` WHERE `replays`.`id` = 10[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mReplay Load (0.5ms)[0m  [1m[34mSELECT `replays`.`id`, `replays`.`replay`, `replays`.`user_id`, `replays`.`created_at` FROM `replays` WHERE `replays`.`id` = 11[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mReplay Load (0.5ms)[0m  [1m[34mSELECT `replays`.`id`, `replays`.`replay`, `replays`.`user_id`, `replays`.`created_at` FROM `replays` WHERE `replays`.`id` = 12[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mReplay Load (0.4ms)[0m  [1m[34mSELECT `replays`.`id`, `replays`.`replay`, `replays`.`user_id`, `replays`.`created_at` FROM `replays` WHERE `replays`.`id` = 13[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mReplay Load (0.4ms)[0m  [1m[34mSELECT `replays`.`id`, `replays`.`replay`, `replays`.`user_id`, `replays`.`created_at` FROM `replays` WHERE `replays`.`id` = 14[0m
+Completed 200 OK in 140ms (Views: 74.7ms | ActiveRecord: 31.4ms)
+
+
+Started GET "/admin/replays" for 127.0.0.1 at 2018-06-13 21:49:51 +0200
+Processing by Admin::ReplaysController#index as HTML
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (39.1ms)[0m  [1m[34mSELECT COUNT(*) FROM `replays`[0m
+  [1m[35m (32.3ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `replays` LIMIT 9 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `replays` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `replays`[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `replays` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT  `replays`.* FROM `replays` ORDER BY `replays`.`id` desc LIMIT 9 OFFSET 0[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT `comments`.* FROM `comments`[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (1974.3ms)
+Completed 200 OK in 2119ms (Views: 1957.5ms | ActiveRecord: 77.3ms)
+
+
+Started GET "/assets/active_admin/print-b05a0449174c4e0e939ecab3483d5b7389c188baae07f7b99af2da69df0243d9.css" for 127.0.0.1 at 2018-06-13 21:49:53 +0200
+Started GET "/assets/active_admin-365d7294774f2338299dafe5cec179b41884dcb3cd74805114a47f5dbc830c13.css" for 127.0.0.1 at 2018-06-13 21:49:53 +0200
+Started GET "/admin/replays?order=id_desc&page=2" for 127.0.0.1 at 2018-06-13 21:50:04 +0200
+Processing by Admin::ReplaysController#index as HTML
+  Parameters: {"order"=>"id_desc", "page"=>"2"}
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `replays`[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `replays` LIMIT 9 OFFSET 9) subquery_for_count[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `replays` LIMIT 9 OFFSET 9) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 9]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `replays`[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `replays` LIMIT 9 OFFSET 9) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 9]]
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT  `replays`.* FROM `replays` ORDER BY `replays`.`id` desc LIMIT 9 OFFSET 9[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT `comments`.* FROM `comments`[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (178.0ms)
+Completed 200 OK in 189ms (Views: 178.0ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/api/v1/book/books/3/comments" for 127.0.0.1 at 2018-06-13 21:51:27 +0200
+Processing by Api::V1::Book::CommentsController#index as */*
+  Parameters: {"book_id"=>"3", "comment"=>{}}
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 3[0m
+Completed 500 Internal Server Error in 64ms (ActiveRecord: 6.6ms)
+
+
+  
+NoMethodError (undefined method `replay' for #<Comment:0x00007fe694f816c8>
+Did you mean?  replays
+               replays=):
+  
+app/serializers/comment_serializer.rb:11:in `replays'
+app/controllers/api/v1/book/comments_controller.rb:28:in `index'
+Started GET "/api/v1/book/books/3/comments" for 127.0.0.1 at 2018-06-13 21:51:50 +0200
+Processing by Api::V1::Book::CommentsController#index as */*
+  Parameters: {"book_id"=>"3", "comment"=>{}}
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 3[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT  `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 7 LIMIT 11[0m
+Completed 500 Internal Server Error in 75ms (ActiveRecord: 7.3ms)
+
+
+  
+  [1m[36mCACHE Replay Load (0.1ms)[0m  [1m[34mSELECT  `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 7 LIMIT 11[0m  [["comment_id", 7], ["LIMIT", 11]]
+NoMethodError (undefined method `id' for #<ActiveRecord::Associations::CollectionProxy []>
+Did you mean?  ids):
+  
+app/serializers/comment_serializer.rb:11:in `replays'
+app/controllers/api/v1/book/comments_controller.rb:28:in `index'
+Started GET "/api/v1/book/books/3/comments" for 127.0.0.1 at 2018-06-13 21:57:37 +0200
+Processing by Api::V1::Book::CommentsController#index as */*
+  Parameters: {"book_id"=>"3", "comment"=>{}}
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 3[0m
+  [1m[36mReplay Load (0.8ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 7[0m
+  [1m[36mReplay Load (0.9ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 9[0m
+  [1m[36mReplay Load (0.5ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 10[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 11[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 12[0m
+  [1m[36mReplay Load (0.5ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 13[0m
+  [1m[36mReplay Load (0.7ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 14[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 3[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+Completed 200 OK in 138ms (Views: 94.4ms | ActiveRecord: 14.8ms)
+
+
+Started GET "/api/v1/book/books/3/comments" for 127.0.0.1 at 2018-06-13 21:59:12 +0200
+Processing by Api::V1::Book::CommentsController#index as */*
+  Parameters: {"book_id"=>"3", "comment"=>{}}
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 3[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 7[0m
+  [1m[36mReplay Load (0.7ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 9[0m
+  [1m[36mReplay Load (0.7ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 10[0m
+  [1m[36mReplay Load (1.3ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 11[0m
+  [1m[36mReplay Load (0.7ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 12[0m
+  [1m[36mReplay Load (0.7ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 13[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 14[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 3[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+Completed 200 OK in 159ms (Views: 96.0ms | ActiveRecord: 14.1ms)
+
+
+Started GET "/api/v1/book/books/3/comments" for 127.0.0.1 at 2018-06-13 22:00:20 +0200
+Processing by Api::V1::Book::CommentsController#index as */*
+  Parameters: {"book_id"=>"3", "comment"=>{}}
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 3[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 7[0m
+  [1m[36mReplay Load (0.7ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 9[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT  `replays`.`id`, `replays`.`replay`, `replays`.`user_id`, `replays`.`created_at` FROM `replays` WHERE `replays`.`id` = 1 LIMIT 11[0m
+Completed 500 Internal Server Error in 97ms (ActiveRecord: 9.5ms)
+
+
+  
+  [1m[36mCACHE Replay Load (0.0ms)[0m  [1m[34mSELECT  `replays`.`id`, `replays`.`replay`, `replays`.`user_id`, `replays`.`created_at` FROM `replays` WHERE `replays`.`id` = 1 LIMIT 11[0m  [["id", 1], ["LIMIT", 11]]
+NoMethodError (undefined method `created_at' for #<Replay::ActiveRecord_Relation:0x00007fe69961daa0>
+Did you mean?  create):
+  
+app/serializers/comment_serializer.rb:13:in `block in replays'
+app/serializers/comment_serializer.rb:11:in `replays'
+app/controllers/api/v1/book/comments_controller.rb:28:in `index'
+Started GET "/api/v1/book/books/3/comments" for 127.0.0.1 at 2018-06-13 22:01:11 +0200
+Processing by Api::V1::Book::CommentsController#index as */*
+  Parameters: {"book_id"=>"3", "comment"=>{}}
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 3[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 7[0m
+  [1m[36mReplay Load (2.2ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 9[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT  `replays`.`id`, `replays`.`replay`, `replays`.`user_id`, `replays`.`created_at` FROM `replays` WHERE `replays`.`id` = 1 LIMIT 11[0m
+Completed 500 Internal Server Error in 161ms (ActiveRecord: 11.2ms)
+
+
+  
+  [1m[36mCACHE Replay Load (0.0ms)[0m  [1m[34mSELECT  `replays`.`id`, `replays`.`replay`, `replays`.`user_id`, `replays`.`created_at` FROM `replays` WHERE `replays`.`id` = 1 LIMIT 11[0m  [["id", 1], ["LIMIT", 11]]
+NoMethodError (undefined method `created_at' for #<Replay::ActiveRecord_Relation:0x00007fe69817a620>
+Did you mean?  create):
+  
+app/serializers/comment_serializer.rb:13:in `block in replays'
+app/serializers/comment_serializer.rb:11:in `replays'
+app/controllers/api/v1/book/comments_controller.rb:28:in `index'
+Started GET "/api/v1/book/books/3/comments" for 127.0.0.1 at 2018-06-13 22:02:59 +0200
+Processing by Api::V1::Book::CommentsController#index as */*
+  Parameters: {"book_id"=>"3", "comment"=>{}}
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 3[0m
+Completed 500 Internal Server Error in 62ms (ActiveRecord: 5.0ms)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/serializers/comment_serializer.rb:2:in `[]'
+app/serializers/comment_serializer.rb:2:in `<class:CommentSerializer>'
+app/serializers/comment_serializer.rb:1:in `<top (required)>'
+app/controllers/api/v1/book/comments_controller.rb:28:in `index'
+Started GET "/api/v1/book/books/3/comments" for 127.0.0.1 at 2018-06-13 22:03:29 +0200
+Processing by Api::V1::Book::CommentsController#index as */*
+  Parameters: {"book_id"=>"3", "comment"=>{}}
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 3[0m
+Completed 500 Internal Server Error in 51ms (ActiveRecord: 5.4ms)
+
+
+  
+TypeError ({:replays=>[:id, :replay]} is not a symbol nor a string):
+  
+app/serializers/comment_serializer.rb:2:in `<class:CommentSerializer>'
+app/serializers/comment_serializer.rb:1:in `<top (required)>'
+app/controllers/api/v1/book/comments_controller.rb:28:in `index'
+Started GET "/api/v1/book/books/3/comments" for 127.0.0.1 at 2018-06-13 22:04:48 +0200
+Processing by Api::V1::Book::CommentsController#index as */*
+  Parameters: {"book_id"=>"3", "comment"=>{}}
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 3[0m
+Completed 500 Internal Server Error in 56ms (ActiveRecord: 5.4ms)
+
+
+  
+TypeError ({:replays_attributes=>[:id, :replay]} is not a symbol nor a string):
+  
+app/serializers/comment_serializer.rb:2:in `<class:CommentSerializer>'
+app/serializers/comment_serializer.rb:1:in `<top (required)>'
+app/controllers/api/v1/book/comments_controller.rb:28:in `index'
+Started GET "/api/v1/book/books/3/comments" for 127.0.0.1 at 2018-06-13 22:05:37 +0200
+Processing by Api::V1::Book::CommentsController#index as */*
+  Parameters: {"book_id"=>"3", "comment"=>{}}
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 3[0m
+Completed 500 Internal Server Error in 59ms (ActiveRecord: 5.7ms)
+
+
+  
+TypeError ({:replays_attributes=>[:id, :replay]} is not a symbol nor a string):
+  
+app/serializers/comment_serializer.rb:2:in `<class:CommentSerializer>'
+app/serializers/comment_serializer.rb:1:in `<top (required)>'
+app/controllers/api/v1/book/comments_controller.rb:28:in `index'
+Started GET "/api/v1/book/books/3/comments" for 127.0.0.1 at 2018-06-13 22:06:41 +0200
+Processing by Api::V1::Book::CommentsController#index as */*
+  Parameters: {"book_id"=>"3", "comment"=>{}}
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 3[0m
+Completed 500 Internal Server Error in 69ms (ActiveRecord: 5.6ms)
+
+
+  
+NameError (undefined local variable or method `replays' for CommentSerializer:Class):
+  
+app/serializers/comment_serializer.rb:2:in `<class:CommentSerializer>'
+app/serializers/comment_serializer.rb:1:in `<top (required)>'
+app/controllers/api/v1/book/comments_controller.rb:28:in `index'
+Started GET "/api/v1/book/books/3/comments" for 127.0.0.1 at 2018-06-13 22:07:01 +0200
+Processing by Api::V1::Book::CommentsController#index as */*
+  Parameters: {"book_id"=>"3", "comment"=>{}}
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 3[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 7[0m
+  [1m[36mReplay Load (0.8ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 9[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 10[0m
+  [1m[36mReplay Load (0.5ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 11[0m
+  [1m[36mReplay Load (0.7ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 12[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 13[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 14[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 3[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+Completed 200 OK in 148ms (Views: 97.9ms | ActiveRecord: 15.3ms)
+
+
+Started GET "/admin/books" for 127.0.0.1 at 2018-06-13 22:13:46 +0200
+Processing by Admin::BooksController#index as HTML
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (16.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `books`[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `books` LIMIT 9 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `books` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `books`[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `books` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` ORDER BY `books`.`id` desc LIMIT 9 OFFSET 0[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 3 LIMIT 1[0m
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 2 LIMIT 1[0m
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 2 LIMIT 1[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 2 LIMIT 1[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 2 LIMIT 1[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (544.0ms)
+Completed 200 OK in 588ms (Views: 275.0ms | ActiveRecord: 275.0ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2018-06-13 22:13:50 +0200
+Processing by Admin::UsersController#index as HTML
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `users`[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `users` LIMIT 6 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `users` LIMIT 6 OFFSET 0) subquery_for_count[0m  [["LIMIT", 6], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `users`[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `users` LIMIT 6 OFFSET 0) subquery_for_count[0m  [["LIMIT", 6], ["OFFSET", 0]]
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` ORDER BY `users`.`id` desc LIMIT 6 OFFSET 0[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (183.8ms)
+Completed 200 OK in 196ms (Views: 186.3ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/admin/replays" for 127.0.0.1 at 2018-06-13 22:13:52 +0200
+Processing by Admin::ReplaysController#index as HTML
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `replays`[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `replays` LIMIT 9 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `replays` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `replays`[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `replays` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT  `replays`.* FROM `replays` ORDER BY `replays`.`id` desc LIMIT 9 OFFSET 0[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE Comment Load (0.3ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT `comments`.* FROM `comments`[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (204.1ms)
+Completed 200 OK in 215ms (Views: 202.5ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/api/v1/book/books/3/comments" for 127.0.0.1 at 2018-06-13 22:17:34 +0200
+Processing by Api::V1::Book::CommentsController#index as */*
+  Parameters: {"book_id"=>"3", "comment"=>{}}
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (9.4ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 3[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT  `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 7 LIMIT 11[0m
+Completed 500 Internal Server Error in 91ms (ActiveRecord: 55.6ms)
+
+
+  
+  [1m[36mCACHE Replay Load (0.0ms)[0m  [1m[34mSELECT  `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 7 LIMIT 11[0m  [["comment_id", 7], ["LIMIT", 11]]
+NoMethodError (undefined method `lenght' for #<ActiveRecord::Associations::CollectionProxy []>
+Did you mean?  length):
+  
+app/serializers/comment_serializer.rb:11:in `replays'
+app/controllers/api/v1/book/comments_controller.rb:28:in `index'
+Started GET "/api/v1/book/books/3/comments" for 127.0.0.1 at 2018-06-13 22:18:19 +0200
+Processing by Api::V1::Book::CommentsController#index as */*
+  Parameters: {"book_id"=>"3", "comment"=>{}}
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 3[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 7[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 9[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 10[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 11[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 12[0m
+  [1m[36mReplay Load (0.7ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 13[0m
+  [1m[36mReplay Load (0.8ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 14[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 3[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+Completed 200 OK in 132ms (Views: 86.9ms | ActiveRecord: 14.3ms)
+
+
+Started GET "/api/v1/book/books/3/comments" for 127.0.0.1 at 2018-06-13 22:19:05 +0200
+Processing by Api::V1::Book::CommentsController#index as */*
+  Parameters: {"book_id"=>"3", "comment"=>{}}
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 3[0m
+  [1m[36mReplay Load (0.8ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 7[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 9[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 10[0m
+  [1m[36mReplay Load (0.5ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 11[0m
+  [1m[36mReplay Load (0.7ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 12[0m
+  [1m[36mReplay Load (0.8ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 13[0m
+  [1m[36mReplay Load (0.7ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 14[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 3[0m
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+Completed 200 OK in 140ms (Views: 92.5ms | ActiveRecord: 17.7ms)
+
+
+Started GET "/api/v1/book/books/3/comments" for 127.0.0.1 at 2018-06-13 22:20:22 +0200
+Processing by Api::V1::Book::CommentsController#index as */*
+  Parameters: {"book_id"=>"3", "comment"=>{}}
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 3[0m
+  [1m[36mReplay Load (0.5ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 7[0m
+  [1m[36mReplay Load (0.7ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 9[0m
+  [1m[36mReplay Load (0.7ms)[0m  [1m[34mSELECT  `replays`.`id`, `replays`.`replay`, `replays`.`user_id`, `replays`.`created_at` FROM `replays` WHERE `replays`.`id` = 1 LIMIT 11[0m
+Completed 500 Internal Server Error in 117ms (ActiveRecord: 9.0ms)
+
+
+  
+  [1m[36mCACHE Replay Load (0.0ms)[0m  [1m[34mSELECT  `replays`.`id`, `replays`.`replay`, `replays`.`user_id`, `replays`.`created_at` FROM `replays` WHERE `replays`.`id` = 1 LIMIT 11[0m  [["id", 1], ["LIMIT", 11]]
+NoMethodError (undefined method `user=' for #<Replay::ActiveRecord_Relation:0x00007fe6a1069110>):
+  
+app/serializers/comment_serializer.rb:13:in `block in replays'
+app/serializers/comment_serializer.rb:11:in `replays'
+app/controllers/api/v1/book/comments_controller.rb:28:in `index'
+Started GET "/api/v1/book/books/3/comments" for 127.0.0.1 at 2018-06-13 22:20:50 +0200
+Processing by Api::V1::Book::CommentsController#index as */*
+  Parameters: {"book_id"=>"3", "comment"=>{}}
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 3[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 7[0m
+  [1m[36mReplay Load (0.7ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 9[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT  `replays`.`id`, `replays`.`replay`, `replays`.`user_id`, `replays`.`created_at` FROM `replays` WHERE `replays`.`id` = 1 LIMIT 11[0m
+Completed 500 Internal Server Error in 98ms (ActiveRecord: 8.9ms)
+
+
+  
+  [1m[36mCACHE Replay Load (0.0ms)[0m  [1m[34mSELECT  `replays`.`id`, `replays`.`replay`, `replays`.`user_id`, `replays`.`created_at` FROM `replays` WHERE `replays`.`id` = 1 LIMIT 11[0m  [["id", 1], ["LIMIT", 11]]
+NoMethodError (undefined method `user_id=' for #<Replay::ActiveRecord_Relation:0x00007fe6953cbb98>):
+  
+app/serializers/comment_serializer.rb:13:in `block in replays'
+app/serializers/comment_serializer.rb:11:in `replays'
+app/controllers/api/v1/book/comments_controller.rb:28:in `index'
+Started GET "/api/v1/book/books/3/comments" for 127.0.0.1 at 2018-06-13 22:22:08 +0200
+Processing by Api::V1::Book::CommentsController#index as */*
+  Parameters: {"book_id"=>"3", "comment"=>{}}
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 3[0m
+  [1m[36mReplay Load (0.5ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 7[0m
+  [1m[36mReplay Load (0.5ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 9[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT  `replays`.`id`, `replays`.`replay`, `replays`.`user_id`, `replays`.`created_at` FROM `replays` WHERE `replays`.`id` = 1 LIMIT 11[0m
+Completed 500 Internal Server Error in 94ms (ActiveRecord: 9.2ms)
+
+
+  
+  [1m[36mCACHE Replay Load (0.0ms)[0m  [1m[34mSELECT  `replays`.`id`, `replays`.`replay`, `replays`.`user_id`, `replays`.`created_at` FROM `replays` WHERE `replays`.`id` = 1 LIMIT 11[0m  [["id", 1], ["LIMIT", 11]]
+NoMethodError (undefined method `user_id=' for #<Replay::ActiveRecord_Relation:0x000000000697cce0>):
+  
+app/serializers/comment_serializer.rb:13:in `block in replays'
+app/serializers/comment_serializer.rb:11:in `replays'
+app/controllers/api/v1/book/comments_controller.rb:28:in `index'
+Started GET "/api/v1/book/books/3/comments" for 127.0.0.1 at 2018-06-13 22:27:57 +0200
+Processing by Api::V1::Book::CommentsController#index as */*
+  Parameters: {"book_id"=>"3", "comment"=>{}}
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 3[0m
+  [1m[36mReplay Load (0.7ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 7[0m
+  [1m[36mReplay Load (1.0ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 9[0m
+  [1m[36mReplay Load (0.7ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 10[0m
+  [1m[36mReplay Load (0.8ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 11[0m
+  [1m[36mReplay Load (2.3ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 12[0m
+  [1m[36mReplay Load (2.7ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 13[0m
+  [1m[36mReplay Load (1.7ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 14[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 3[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+Completed 200 OK in 164ms (Views: 108.5ms | ActiveRecord: 22.9ms)
+
+
+Started GET "/api/v1/book/books/3/comments" for 127.0.0.1 at 2018-06-13 22:29:52 +0200
+Processing by Api::V1::Book::CommentsController#index as */*
+  Parameters: {"book_id"=>"3", "comment"=>{}}
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 3[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 7[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 9[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 10[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 11[0m
+  [1m[36mReplay Load (0.8ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 12[0m
+  [1m[36mReplay Load (1.4ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 13[0m
+  [1m[36mReplay Load (0.5ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 14[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 3[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+Completed 200 OK in 140ms (Views: 95.1ms | ActiveRecord: 15.1ms)
+
+
+Started GET "/api/v1/book/books/3/comments" for 127.0.0.1 at 2018-06-13 22:40:04 +0200
+Processing by Api::V1::Book::CommentsController#index as */*
+  Parameters: {"book_id"=>"3", "comment"=>{}}
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 3[0m
+Completed 500 Internal Server Error in 75ms (ActiveRecord: 30.2ms)
+
+
+  
+NoMethodError (undefined method `default_include' for CommentSerializer:Class):
+  
+app/serializers/comment_serializer.rb:4:in `<class:CommentSerializer>'
+app/serializers/comment_serializer.rb:1:in `<top (required)>'
+app/controllers/api/v1/book/comments_controller.rb:28:in `index'
+Started GET "/api/v1/book/books/3/comments" for 127.0.0.1 at 2018-06-13 22:41:04 +0200
+Processing by Api::V1::Book::CommentsController#index as */*
+  Parameters: {"book_id"=>"3", "comment"=>{}}
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 3[0m
+Completed 500 Internal Server Error in 50ms (ActiveRecord: 5.4ms)
+
+
+  
+TypeError (wrong argument type String (expected Module)):
+  
+app/serializers/comment_serializer.rb:4:in `include'
+app/serializers/comment_serializer.rb:4:in `<class:CommentSerializer>'
+app/serializers/comment_serializer.rb:1:in `<top (required)>'
+app/controllers/api/v1/book/comments_controller.rb:28:in `index'
+Started GET "/api/v1/book/books/3/comments" for 127.0.0.1 at 2018-06-13 22:42:16 +0200
+Processing by Api::V1::Book::CommentsController#index as */*
+  Parameters: {"book_id"=>"3", "comment"=>{}}
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 3[0m
+Completed 500 Internal Server Error in 49ms (ActiveRecord: 5.9ms)
+
+
+  
+TypeError (wrong argument type String (expected Module)):
+  
+app/serializers/comment_serializer.rb:4:in `include'
+app/serializers/comment_serializer.rb:4:in `<class:CommentSerializer>'
+app/serializers/comment_serializer.rb:1:in `<top (required)>'
+app/controllers/api/v1/book/comments_controller.rb:28:in `index'
+Started GET "/api/v1/book/books/3/comments" for 127.0.0.1 at 2018-06-13 22:42:40 +0200
+Processing by Api::V1::Book::CommentsController#index as */*
+  Parameters: {"book_id"=>"3", "comment"=>{}}
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 3[0m
+  [1m[36mReplay Load (0.4ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 7[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 9[0m
+Completed 500 Internal Server Error in 141ms (ActiveRecord: 9.1ms)
+
+
+  
+NoMethodError (undefined method `belongs_to' for ReplaySerializer:Class):
+  
+app/serializers/replay_serializer.rb:3:in `<class:ReplaySerializer>'
+app/serializers/replay_serializer.rb:1:in `<top (required)>'
+app/controllers/api/v1/book/comments_controller.rb:28:in `index'
+Started GET "/api/v1/book/books/3/comments" for 127.0.0.1 at 2018-06-13 22:44:04 +0200
+Processing by Api::V1::Book::CommentsController#index as */*
+  Parameters: {"book_id"=>"3", "comment"=>{}}
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 3[0m
+  [1m[36mReplay Load (0.4ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 7[0m
+  [1m[36mReplay Load (0.7ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 9[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 10[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 11[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 12[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 13[0m
+  [1m[36mReplay Load (0.7ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 14[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 3[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT `comments`.`id`, `comments`.`user_id`, `comments`.`book_id`, `comments`.`comment` FROM `comments` WHERE `comments`.`id` = 9[0m
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT `comments`.`id`, `comments`.`user_id`, `comments`.`book_id`, `comments`.`comment` FROM `comments` WHERE `comments`.`id` = 9[0m  [["id", 9]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT `comments`.`id`, `comments`.`user_id`, `comments`.`book_id`, `comments`.`comment` FROM `comments` WHERE `comments`.`id` = 9[0m  [["id", 9]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT `comments`.`id`, `comments`.`user_id`, `comments`.`book_id`, `comments`.`comment` FROM `comments` WHERE `comments`.`id` = 9[0m  [["id", 9]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT `comments`.`id`, `comments`.`user_id`, `comments`.`book_id`, `comments`.`comment` FROM `comments` WHERE `comments`.`id` = 9[0m  [["id", 9]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT `comments`.`id`, `comments`.`user_id`, `comments`.`book_id`, `comments`.`comment` FROM `comments` WHERE `comments`.`id` = 9[0m  [["id", 9]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT `comments`.`id`, `comments`.`user_id`, `comments`.`book_id`, `comments`.`comment` FROM `comments` WHERE `comments`.`id` = 9[0m  [["id", 9]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT `comments`.`id`, `comments`.`user_id`, `comments`.`book_id`, `comments`.`comment` FROM `comments` WHERE `comments`.`id` = 9[0m  [["id", 9]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT `comments`.`id`, `comments`.`user_id`, `comments`.`book_id`, `comments`.`comment` FROM `comments` WHERE `comments`.`id` = 9[0m  [["id", 9]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT `comments`.`id`, `comments`.`user_id`, `comments`.`book_id`, `comments`.`comment` FROM `comments` WHERE `comments`.`id` = 9[0m  [["id", 9]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+Completed 200 OK in 169ms (Views: 125.0ms | ActiveRecord: 14.2ms)
+
+
+Started GET "/api/v1/book/books/3/comments" for 127.0.0.1 at 2018-06-13 22:47:09 +0200
+Processing by Api::V1::Book::CommentsController#index as */*
+  Parameters: {"book_id"=>"3", "comment"=>{}}
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 3[0m
+  [1m[36mReplay Load (0.5ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 7[0m
+  [1m[36mReplay Load (0.7ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 9[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 10[0m
+  [1m[36mReplay Load (0.7ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 11[0m
+  [1m[36mReplay Load (0.7ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 12[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 13[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 14[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 3[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT `comments`.`id`, `comments`.`user_id`, `comments`.`book_id`, `comments`.`comment` FROM `comments` WHERE `comments`.`id` = 9[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE Comment Load (0.1ms)[0m  [1m[34mSELECT `comments`.`id`, `comments`.`user_id`, `comments`.`book_id`, `comments`.`comment` FROM `comments` WHERE `comments`.`id` = 9[0m  [["id", 9]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT `comments`.`id`, `comments`.`user_id`, `comments`.`book_id`, `comments`.`comment` FROM `comments` WHERE `comments`.`id` = 9[0m  [["id", 9]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT `comments`.`id`, `comments`.`user_id`, `comments`.`book_id`, `comments`.`comment` FROM `comments` WHERE `comments`.`id` = 9[0m  [["id", 9]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT `comments`.`id`, `comments`.`user_id`, `comments`.`book_id`, `comments`.`comment` FROM `comments` WHERE `comments`.`id` = 9[0m  [["id", 9]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT `comments`.`id`, `comments`.`user_id`, `comments`.`book_id`, `comments`.`comment` FROM `comments` WHERE `comments`.`id` = 9[0m  [["id", 9]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE Comment Load (0.1ms)[0m  [1m[34mSELECT `comments`.`id`, `comments`.`user_id`, `comments`.`book_id`, `comments`.`comment` FROM `comments` WHERE `comments`.`id` = 9[0m  [["id", 9]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT `comments`.`id`, `comments`.`user_id`, `comments`.`book_id`, `comments`.`comment` FROM `comments` WHERE `comments`.`id` = 9[0m  [["id", 9]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT `comments`.`id`, `comments`.`user_id`, `comments`.`book_id`, `comments`.`comment` FROM `comments` WHERE `comments`.`id` = 9[0m  [["id", 9]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT `comments`.`id`, `comments`.`user_id`, `comments`.`book_id`, `comments`.`comment` FROM `comments` WHERE `comments`.`id` = 9[0m  [["id", 9]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+Completed 200 OK in 190ms (Views: 141.1ms | ActiveRecord: 16.3ms)
+
+
+Started GET "/api/v1/book/books/3/comments" for 127.0.0.1 at 2018-06-13 22:48:19 +0200
+Processing by Api::V1::Book::CommentsController#index as */*
+  Parameters: {"book_id"=>"3", "comment"=>{}}
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 3[0m
+  [1m[36mReplay Load (0.4ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 7[0m
+  [1m[36mReplay Load (0.7ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 9[0m
+  [1m[36mReplay Load (0.7ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 10[0m
+  [1m[36mReplay Load (0.7ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 11[0m
+  [1m[36mReplay Load (0.5ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 12[0m
+  [1m[36mReplay Load (0.8ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 13[0m
+  [1m[36mReplay Load (0.7ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 14[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 3[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+Completed 200 OK in 171ms (Views: 118.2ms | ActiveRecord: 13.9ms)
+
+
+Started GET "/api/v1/book/books/3/comments" for 127.0.0.1 at 2018-06-13 22:49:00 +0200
+Processing by Api::V1::Book::CommentsController#index as */*
+  Parameters: {"book_id"=>"3", "comment"=>{}}
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 3[0m
+  [1m[36mReplay Load (0.5ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 7[0m
+  [1m[36mReplay Load (0.7ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 9[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 10[0m
+  [1m[36mReplay Load (0.5ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 11[0m
+  [1m[36mReplay Load (0.7ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 12[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 13[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 14[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 3[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+Completed 200 OK in 181ms (Views: 116.2ms | ActiveRecord: 13.5ms)
+
+
+Started GET "/api/v1/book/books/3/comments" for 127.0.0.1 at 2018-06-13 22:49:51 +0200
+Processing by Api::V1::Book::CommentsController#index as */*
+  Parameters: {"book_id"=>"3", "comment"=>{}}
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`book_id` = 3[0m
+  [1m[36mReplay Load (0.4ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 7[0m
+  [1m[36mReplay Load (0.7ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 9[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 10[0m
+  [1m[36mReplay Load (0.7ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 11[0m
+  [1m[36mReplay Load (1.1ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 12[0m
+  [1m[36mReplay Load (0.7ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 13[0m
+  [1m[36mReplay Load (0.6ms)[0m  [1m[34mSELECT `replays`.* FROM `replays` WHERE `replays`.`comment_id` = 14[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 3[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m  [["id", 6]]
+Completed 200 OK in 159ms (Views: 111.1ms | ActiveRecord: 15.4ms)
+
+
