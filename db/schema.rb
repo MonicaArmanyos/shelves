@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180613140532) do
+ActiveRecord::Schema.define(version: 20180613160610) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "namespace"
@@ -167,6 +167,16 @@ ActiveRecord::Schema.define(version: 20180613140532) do
     t.index ["user_id"], name: "index_rates_on_user_id"
   end
 
+  create_table "replays", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.text "replay"
+    t.bigint "user_id"
+    t.bigint "book_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_replays_on_book_id"
+    t.index ["user_id"], name: "index_replays_on_user_id"
+  end
+
   create_table "user_rates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.bigint "user_id"
     t.bigint "rated_by"
@@ -208,6 +218,8 @@ ActiveRecord::Schema.define(version: 20180613140532) do
   add_foreign_key "orders", "users"
   add_foreign_key "orders", "users", column: "seller_id"
   add_foreign_key "phones", "users"
+  add_foreign_key "replays", "books"
+  add_foreign_key "replays", "users"
   add_foreign_key "user_rates", "users"
   add_foreign_key "user_rates", "users", column: "rated_by"
 end
