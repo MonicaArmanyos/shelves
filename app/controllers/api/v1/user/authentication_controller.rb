@@ -8,17 +8,14 @@ module Api::V1::User
         if command.success?
           @user= User.find_by_email(params[:email])
           if  @user.email_confirmed
-            if params[:remember_me]
-              
-            else
-              
-            end
-            render json: {user: @user, auth_token: command.result }, :except => [:password_digest], status: :created
+            
+            render json: {status: 'SUCCESS',user: @user, auth_token: command.result }, :except => [:password_digest], status: :created
           else 
-            render json: :inactive
+            render json: {status: 'FAIL', message: "inactive!"}, status: :ok
+           
           end
         else
-          render json: { error: command.errors }, status: :unauthorized
+          render json: {status: 'FAIL', error: command.errors }, status: :unauthorized
         end
       end
 

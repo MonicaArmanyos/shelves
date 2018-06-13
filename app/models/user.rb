@@ -4,7 +4,6 @@ class User < ApplicationRecord
     enum gender: {"male" => 0, "female" => 1}
     enum role: {"Normal user" => 0, "Book store" =>1}
     mount_uploader :profile_picture, ProfilePictureUploader
-
     validates :email, :password_digest, presence: true
     validates :email, uniqueness: true, unless: :skip_email_validation    
     #### Relations ####

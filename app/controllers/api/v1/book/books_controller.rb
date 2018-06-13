@@ -149,7 +149,13 @@ module Api::V1::Book
             if @current_user.id == @book.user_id
                if @book.update(book_params)
                    params[:book][:book_images_attributes].each do |file|
-                    #delete book
+                    #@bookImages = BookImage.all
+                    # for bookImg in @bookImages
+                    #     if bookImg.book_id == @book.id
+                    #         bookImg.destroy
+                    #     end
+                    # end 
+                        @book.book_images.destroy
                        @book.book_images.create!(:image => file)
                    end
                    render json: {status: 'SUCCESS', message: 'Book successfully updated', book:@book},status: :ok
