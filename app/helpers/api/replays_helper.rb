@@ -1,2 +1,2 @@
-module ReplaysHelper
+module Api::ReplaysHelper
 end
