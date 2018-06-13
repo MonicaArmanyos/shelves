@@ -16,7 +16,6 @@ class User < ApplicationRecord
       has_many :books, through: :rates
       has_many :orders
       has_many :notification_tokens
-      has_many :notification_messages
       has_many :user_rates
       has_many :users, through: :user_rates
       has_many :comments
