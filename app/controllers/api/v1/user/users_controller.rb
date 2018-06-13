@@ -206,12 +206,13 @@ module Api::V1::User
         @user = @current_user
         @books = Book.all
         @user_books = Array.new
+        @user_interests = @user.categories
         for book in @books
             if book.user_id == @current_user.id 
               @user_books << book
             end
         end
-        render json: {status: 'SUCCESS', :user => @user, books: @user_books,  auth_token: request.headers['Authorization'], phones: @user.phones, addresses: @user.addresses}, :except => [:password_digest],status: :ok
+        render json: {status: 'SUCCESS', :user => @user, books: @user_books,  auth_token: request.headers['Authorization'], phones: @user.phones, addresses: @user.addresses, interests: @user_interests}, :except => [:password_digest],status: :ok
       end
       #### get user books ####
       def get_user_books
