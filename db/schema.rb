@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180613160610) do
+ActiveRecord::Schema.define(version: 20180613221836) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "namespace"
@@ -113,17 +113,6 @@ ActiveRecord::Schema.define(version: 20180613160610) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "notification_messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.string "title", default: "Shelves"
-    t.string "body"
-    t.string "click_action"
-    t.string "icon"
-    t.integer "receiver_user"
-    t.integer "sender_user"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "notification_tokens", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "token"
     t.bigint "user_id"
@@ -167,14 +156,14 @@ ActiveRecord::Schema.define(version: 20180613160610) do
     t.index ["user_id"], name: "index_rates_on_user_id"
   end
 
-  create_table "replays", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.text "replay"
+  create_table "replies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.text "reply"
     t.bigint "user_id"
     t.bigint "comment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["comment_id"], name: "index_replays_on_comment_id"
-    t.index ["user_id"], name: "index_replays_on_user_id"
+    t.index ["comment_id"], name: "index_replies_on_comment_id"
+    t.index ["user_id"], name: "index_replies_on_user_id"
   end
 
   create_table "user_rates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -203,11 +192,21 @@ ActiveRecord::Schema.define(version: 20180613160610) do
     t.datetime "password_reset_sent_at"
   end
 
-  create_table "work_spaces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.string "name"
-    t.string "email"
+  create_table "work_space_phones", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.bigint "work_space_id"
+    t.string "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["work_space_id"], name: "index_work_space_phones_on_work_space_id"
+  end
+
+  create_table "work_spaces", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "name"
+    t.string "facebook"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "address"
+    t.string "picture"
   end
 
   add_foreign_key "addresses", "users"
@@ -218,8 +217,9 @@ ActiveRecord::Schema.define(version: 20180613160610) do
   add_foreign_key "orders", "users"
   add_foreign_key "orders", "users", column: "seller_id"
   add_foreign_key "phones", "users"
-  add_foreign_key "replays", "comments"
-  add_foreign_key "replays", "users"
+  add_foreign_key "replies", "comments"
+  add_foreign_key "replies", "users"
   add_foreign_key "user_rates", "users"
   add_foreign_key "user_rates", "users", column: "rated_by"
+  add_foreign_key "work_space_phones", "work_spaces"
 end

@@ -1,7 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  replay: MyText
+  work_space: one
+  phone: MyString
 
 two:
-  replay: MyText
+  work_space: two
+  phone: MyString
