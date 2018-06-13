@@ -6,14 +6,14 @@ module Api::V1::Book
 
         #### Show all books and searched books #### 
         def index
-            @books_all = Book.all
+            @books_all = Book.where(:is_available => 1).all
             if (params[:page]).eql? nil
                 current_page=1
             else
                 current_page=(params[:page])
             end
             if params[:search]
-              @searched_books = Book.search(params[:search]).order("created_at DESC").page params[:page]
+              @searched_books = Book.where(:is_available => 1).search(params[:search]).order("created_at DESC").page params[:page]
                     if @searched_books.count != 0
                     render json: @searched_books,
                     meta: {
@@ -27,44 +27,54 @@ module Api::V1::Book
                     else
                     render json: {status: 'FAil', message: 'No result Found'},status: :ok
                     end
-            elsif params[:category]
-                if Category.exists?(params[:category])
-                    puts params[:category]
-                @books_by_category = Book.where(:category_id => params[:category]).order("created_at DESC").page params[:page]
-                render json: @books_by_category,
+        elsif params[:category]
+            if Category.exists?(params[:category])
+                @books_by_category = Book.where(:is_available => 1).where(:category_id => params[:category]).order("created_at DESC").page params[:page]
+                if @books_by_category.count != 0
+                    render json: @books_by_category,
+                    meta: {
+                    pagination: {
+                        per_page: 5,
+                        current_page: current_page.to_i,
+                        total_pages: (Book.where(:Category_id => params[:category]).count.to_f/5).ceil,
+                        total_objects: Book.where(:Category_id => params[:category]).count
+                    }
+                    }
+                else
+                    render json: {status: 'FAil', message: 'No Books Found in this category'},status: :ok 
+                end
+            else
+                render json: {status: 'FAil', message: 'Category Not Found'},status: :ok 
+            end
+
+
+        else
+              @books = Book.where(:is_available => 1).all.order('created_at DESC').page(params[:page]).per(5)
+            if @books.count != 0
+                render json: @books,
                 meta: {
-                  pagination: {
+                    pagination: {
                     per_page: 5,
                     current_page: current_page.to_i,
-                    total_pages: (Book.where(:Category_id => params[:category]).count.to_f/5).ceil,
-                    total_objects: Book.where(:Category_id => params[:category]).count
-                  }
+                    total_pages: (@books_all.count.to_f/5).ceil,
+                    total_objects:@books_all.count
+                    }
                 }
-                else
-                render json: {status: 'FAil', message: 'Category Not Found'},status: :ok 
-                end
-
-
             else
-              @books = Book.all.order('created_at DESC').page(params[:page]).per(5)
-              
-              render json: @books,
-              meta: {
-                pagination: {
-                  per_page: 5,
-                  current_page: current_page.to_i,
-                  total_pages: (@books_all.count.to_f/5).ceil,
-                  total_objects:@books_all.count
-                }
-              }
+                render json: {status: 'FAil', message: 'No books Available'},status: :ok 
+            end
             end
         end
 
          #### Latest Books in Home Page ####
          def latest_books
-            @latest_books = Book.order('created_at Desc').limit(20);
-            if(@latest_books)
-                render :json => @latest_books, each_serializer: BookSerializer
+            @latest_books = Book.where(:is_available => 1).order('created_at Desc').limit(20);
+            if(@latest_books.count != 0)
+                render json:  @latest_books,
+                meta: {
+                    status: 'SUCCESS',
+                    message: 'Loaded latest_books successfully' 
+                },status: :ok
             else
                 render json: {status: 'FAil', message: 'Can\'t Loaded latest_books'},status: :ok
             end
@@ -74,44 +84,59 @@ module Api::V1::Book
         #### Recommended Books in Home Page ####
         def recommended_books
             if @current_user
-                
                 @recommended_books ||= []
                 user_interests =  @current_user.categories
-                for interest in user_interests
-                    @recommended_books << interest.books.order('created_at Desc').limit(5)
+                if user_interests.count != 0
+                    for interest in user_interests
+                        @recommended_books << interest.books.where(:is_available => 1).order('created_at Desc').limit(5)
+                    end
+                    render json:  @recommended_books,
+                    meta: {
+                        status: 'SUCCESS',
+                        message: 'Loaded latest_books successfully' 
+                    },status: :ok
+                else
+                    render json: {status: 'FAil', message: 'user do\'t have interests'},status: :ok 
                 end
-               
-                #render json: {status: 'SUCCESS', message: 'Loaded recommended_books', data:@recommended_books},status: :ok
-                render :json => @recommended_books
             end 
         end 
          
         ### Show Book ####
         def show
-            @book = Book.find(params[:id])
-            if(@book)
-                render :json => @book, each_serializer: BookSerializer
+            if Book.exists?(params[:id])
+                @book = Book.find(params[:id])
+                render json:  @book,
+                    meta: {
+                        status: 'SUCCESS',
+                        message: 'Book Loaded successfully' 
+                    },status: :ok
+               # render :json => @book, each_serializer: BookSerializer
             else
-                render json: {status: 'FAil', message: 'Can\'t Loaded book'},status: :ok
+                render json: {status: 'FAil', message: 'Book Not Found'},status: :ok
             end
 
         end
 
         #### Create book ####
         def create
-            
             if @current_user
                 @user = @current_user
                 @book = Book.new(book_params)
                 @book.user_id = @user.id
-               
-              
                 if @book.save
                     params[:book][:book_images_attributes].each do |file|
                         @book.book_images.create!(:image => file)
                     end
+             
+                    #### send notificatios to users that interest this new book
+                    @book_category = @book.category
+                    @users_interest_book = @book_category.users
+
+                    @users_interest_book.each do |user|
+                        TasksController.send_notification(user ,"website","Book successfully created", "https://angularfirebase.com")
+                    end
+                    
                     render json: {status: 'SUCCESS', message: 'Book successfully created', book:@book},status: :ok
-                    TasksController.send_notification(@user ,"website","Book successfully created", "https://angularfirebase.com")
                 else
                     render json: {status: 'FAIL', message: 'Couldn\'t create book', error:@book.errors},status: :ok
                 end
@@ -144,7 +169,6 @@ module Api::V1::Book
 
         #### Delete Book ####
         def destroy
-           
             if Book.exists?(params[:id])
                 @book = Book.find(params[:id])
                 @book.destroy
@@ -179,7 +203,6 @@ module Api::V1::Book
 
         #### Update bid quantity and bid user for book ####
         def update_bid
-            #@current_user = AuthorizeApiRequest.call(request.headers).result
             puts @current_user.name
             #check if book exist
             if Book.exists?(params[:id])

@@ -15,7 +15,7 @@ module Api::V1::User
            
           end
         else
-          render json: {status: 'FAIL', error: command.errors }, status: :unauthorized
+          render json: {status: 'FAIL', message: "invalid username or password" }, status: :unauthorized
         end
       end
 

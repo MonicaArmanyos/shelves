@@ -13,9 +13,10 @@ class TasksController < ApplicationController
             "body" => body,
             "icon" => icon,
             "click_action" => click_action,
-            "receiver_user" =>  receiver_user.id,
-            
+            "receiver_user" =>  receiver_user.id
         })
+        
+        
         else
         icon=@serverurl+sender_user.profile_picture.url
          #### save notification message in database ####
@@ -24,23 +25,26 @@ class TasksController < ApplicationController
             "icon" => icon,
             "click_action" => click_action,
             "receiver_user" =>  receiver_user.id,
-            "user_id" => sender_user.id
+            "sender_user" => sender_user.id
         })
-        end
+        end 
 
-        if @notification_message.save
-            puts "Notification message saved successfully"
-        end
         #### get all tokens of the recevier user ####
         user_notification_tokens = receiver_user.notification_tokens        
-
+        
         #### Send notification to all the user's browsers ####
         user_notification_tokens.each do |user_notification_token|
-        JSON.load `curl https://fcm.googleapis.com/fcm/send \
-        -H "Content-Type: application/json" \
-        -H 'Authorization: #{@serverkey} ' \
-        -d '{ "notification": {"title": "Shelves", "body": "#{body}", "icon": "#{icon}" "click_action" : "#{click_action}"}, "to" : "#{user_notification_token.token}" }'`
+            if @notification_message.save
+                    puts "Notification message saved successfully"
+                JSON.load `curl https://fcm.googleapis.com/fcm/send \
+                -H "Content-Type: application/json" \
+                -H 'Authorization: #{@serverkey} ' \
+                -d '{ "notification": {"title": "Shelves", "body": "#{body}", "icon": "#{icon}" "click_action" : "#{click_action}"}, "to" : "#{user_notification_token.token}" }'`
+        
+            end
         end
+        
+        
 
     end
 
