@@ -9548,3 +9548,113 @@ Unpermitted parameter: :id
 Completed 200 OK in 61ms (Views: 0.4ms | ActiveRecord: 46.9ms)
 
 
+Started GET "/admin/logout" for 127.0.0.1 at 2018-06-13 14:30:27 +0200
+Processing by ActiveAdmin::Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"SWExcSgkKZlNRxUH+Gq2nzllkLCy6CYJA8iA3LzpzoAnuEYZ+0YIsDs+uEsPr0qLNqVMkZPPZuA4vPVM9lJp9A=="}
+  [1m[35m (35.8ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[36mAdminUser Load (1.0ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 313ms (ActiveRecord: 79.3ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-06-13 14:30:28 +0200
+Processing by Admin::DashboardController#index as HTML
+Completed 401 Unauthorized in 7ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/login" for 127.0.0.1 at 2018-06-13 14:30:28 +0200
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/devise/shared/_links.erb (13.5ms)
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (249.4ms)
+Completed 200 OK in 1891ms (Views: 1852.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admin/login" for 127.0.0.1 at 2018-06-13 14:30:37 +0200
+Processing by ActiveAdmin::Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hd/LEELTaYfKbD0OatjLi3gic3VvQ4aZbqBQX2d6jTETfNosn3AEaOzFePl5xw7HCubyL3ixYJ4m5eYfRQgf2g==", "admin_user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Login"}
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms)
+
+
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hd/LEELTaYfKbD0OatjLi3gic3VvQ4aZbqBQX2d6jTETfNosn3AEaOzFePl5xw7HCubyL3ixYJ4m5eYfRQgf2g==", "admin_user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Login"}
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/devise/shared/_links.erb (2.3ms)
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (34.0ms)
+Completed 200 OK in 87ms (Views: 84.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admin/login" for 127.0.0.1 at 2018-06-13 14:30:43 +0200
+Processing by ActiveAdmin::Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GyVTHjXvVgeirTzJsQRenbSE3Vj0tyk4xYStxHh+99SNhkIi6Ew76IQEeT6iG5vRxkBcAuNFzz+NwRuEWgxlPw==", "admin_user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Login"}
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`email` = 'admin@example.com' ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+Completed 401 Unauthorized in 193ms (ActiveRecord: 0.7ms)
+
+
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GyVTHjXvVgeirTzJsQRenbSE3Vj0tyk4xYStxHh+99SNhkIi6Ew76IQEeT6iG5vRxkBcAuNFzz+NwRuEWgxlPw==", "admin_user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Login"}
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/devise/shared/_links.erb (1.3ms)
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (17.5ms)
+Completed 200 OK in 263ms (Views: 94.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admin/login" for 127.0.0.1 at 2018-06-13 14:39:16 +0200
+Processing by ActiveAdmin::Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9W+VGWYrt8tGSA2uf2AQkDRzo3h1fYMsJv/PkqcDBjVjzIQlu4jaJGDhSFlsf9XcRrciImKPZStuunnShXGU3g==", "admin_user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Login"}
+  [1m[36mAdminUser Load (1.1ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`email` = 'admin@example.com' ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (25.3ms)[0m  [1m[33mUPDATE `admin_users` SET `current_sign_in_at` = '2018-06-13 12:39:16', `last_sign_in_at` = '2018-06-13 11:28:31', `sign_in_count` = 23, `updated_at` = '2018-06-13 12:39:16' WHERE `admin_users`.`id` = 1[0m
+  [1m[35m (53.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 315ms (ActiveRecord: 80.6ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-06-13 14:39:16 +0200
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/page/index.html.arb
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/page/index.html.arb (76.1ms)
+Completed 200 OK in 110ms (Views: 92.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2018-06-13 14:39:21 +0200
+Processing by Admin::UsersController#index as HTML
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (27.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `users`[0m
+  [1m[35m (43.4ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `users` LIMIT 6 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `users` LIMIT 6 OFFSET 0) subquery_for_count[0m  [["LIMIT", 6], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `users`[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `users` LIMIT 6 OFFSET 0) subquery_for_count[0m  [["LIMIT", 6], ["OFFSET", 0]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` ORDER BY `users`.`id` desc LIMIT 6 OFFSET 0[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (476.0ms)
+Completed 200 OK in 515ms (Views: 410.7ms | ActiveRecord: 74.5ms)
+
+
+Started POST "/api/v1/book/books/3/comments" for 127.0.0.1 at 2018-06-13 14:41:21 +0200
+Processing by Api::V1::Book::CommentsController#create as */*
+  Parameters: {"comment"=>"ghada", "book_id"=>"3"}
+  [1m[36mBook Load (18.5ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (106.2ms)[0m  [1m[32mINSERT INTO `comments` (`user_id`, `book_id`, `comment`, `created_at`, `updated_at`) VALUES (6, 3, 'ghada', '2018-06-13 12:41:22', '2018-06-13 12:41:22')[0m
+  [1m[35m (30.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 369ms (Views: 0.6ms | ActiveRecord: 195.1ms)
+
+
+Started POST "/api/v1/book/books/3/comments" for 127.0.0.1 at 2018-06-13 14:45:55 +0200
+Processing by Api::V1::Book::CommentsController#create as */*
+  Parameters: {"comment"=>"ghada", "book_id"=>"3"}
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (38.9ms)[0m  [1m[32mINSERT INTO `comments` (`user_id`, `book_id`, `comment`, `created_at`, `updated_at`) VALUES (6, 3, 'ghada', '2018-06-13 12:45:55', '2018-06-13 12:45:55')[0m
+  [1m[35m (83.9ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 207ms (Views: 0.8ms | ActiveRecord: 129.9ms)
+
+

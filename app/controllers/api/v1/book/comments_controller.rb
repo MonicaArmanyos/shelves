@@ -13,7 +13,7 @@ module Api::V1::Book
           @comment = @book.comments.new(:book_id => @book.id, :user_id => @current_user.id, :comment => params[:comment])
           # save comment and check it saved successfuly
           if @comment.save
-            render json: {status: 'SUCCESS', message: 'comment successfully created', comment: {id: @comment.id, comment: @comment.comment, user: @current_user.name, created_at: @comment.created_at.strftime("%B %e, %Y at %I:%M %p") }},status: :ok    
+            render json: {status: 'SUCCESS', message: 'comment successfully created', comment: {id: @comment.id, comment: @comment.comment, user: {id: @current_user.id, name: @current_user.name, profile_picture: @current_user.profile_picture}, created_at: @comment.created_at.strftime("%B %e, %Y at %I:%M %p") }},status: :ok    
           else
             render json: {status: 'FAIL', message: 'Couldn\'t create comment', error:@comment.errors},status: :ok   
           end
@@ -27,7 +27,7 @@ module Api::V1::Book
       @comments=Comment.where(book_id: @book.id)
       render json: {status: 'SUCCESS', message: 'return', comments: @comments},status: :ok    
     end   
-    
+
     def update
       # check user if authenticate or not  
       if @current_user 
