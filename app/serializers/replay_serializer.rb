@@ -7,7 +7,7 @@ class ReplaySerializer < ActiveModel::Serializer
   end 
   def comment
     comment_id=object.comment_id
-    Comment.where(:id => comment_id).select(Comment.column_names - ["created_at","updated_at"])
+    Comment.where(:id => comment_id).select(Comment.column_names - ["created_at","updated_at","like"])
   end 
   def created_at
     object.created_at = object.created_at.strftime("%B %e, %Y at %I:%M %p")

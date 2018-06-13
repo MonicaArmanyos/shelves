@@ -24809,3 +24809,151 @@ Processing by Api::V1::Book::CommentsController#index as */*
 Completed 200 OK in 81ms (Views: 47.4ms | ActiveRecord: 7.7ms)
 
 
+Started POST "/api/v1/book/books/3/comments/9/replays" for 127.0.0.1 at 2018-06-13 21:09:39 +0200
+Processing by Api::V1::Book::ReplaysController#create as */*
+  Parameters: {"replay"=>"koooooooo", "book_id"=>"3", "comment_id"=>"9"}
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO `replays` (`replay`, `user_id`, `comment_id`, `created_at`, `updated_at`) VALUES ('koooooooo', 6, 9, '2018-06-13 19:09:40', '2018-06-13 19:09:40')[0m
+  [1m[35m (134.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT `comments`.`id`, `comments`.`user_id`, `comments`.`book_id`, `comments`.`comment`, `comments`.`like` FROM `comments` WHERE `comments`.`id` = 9[0m
+Completed 200 OK in 246ms (Views: 8.0ms | ActiveRecord: 143.9ms)
+
+
+Started POST "/api/v1/book/books/3/comments/9/replays" for 127.0.0.1 at 2018-06-13 21:10:51 +0200
+Processing by Api::V1::Book::ReplaysController#create as */*
+  Parameters: {"replay"=>"koooooooo", "book_id"=>"3", "comment_id"=>"9"}
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO `replays` (`replay`, `user_id`, `comment_id`, `created_at`, `updated_at`) VALUES ('koooooooo', 6, 9, '2018-06-13 19:10:52', '2018-06-13 19:10:52')[0m
+  [1m[35m (32.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT `comments`.`id`, `comments`.`user_id`, `comments`.`book_id`, `comments`.`comment`, `comments`.`like` FROM `comments` WHERE `comments`.`id` = 9[0m
+Completed 200 OK in 119ms (Views: 7.0ms | ActiveRecord: 41.1ms)
+
+
+Started POST "/api/v1/book/books/3/comments/9/replays" for 127.0.0.1 at 2018-06-13 21:11:11 +0200
+Processing by Api::V1::Book::ReplaysController#create as */*
+  Parameters: {"replay"=>"koooooooo", "book_id"=>"3", "comment_id"=>"9"}
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO `replays` (`replay`, `user_id`, `comment_id`, `created_at`, `updated_at`) VALUES ('koooooooo', 6, 9, '2018-06-13 19:11:11', '2018-06-13 19:11:11')[0m
+  [1m[35m (76.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT `comments`.`id`, `comments`.`user_id`, `comments`.`book_id`, `comments`.`comment`, `comments`.`like` FROM `comments` WHERE `comments`.`id` = 9[0m
+Completed 200 OK in 158ms (Views: 6.2ms | ActiveRecord: 85.5ms)
+
+
+Started POST "/api/v1/book/books/3/comments/9/replays" for 127.0.0.1 at 2018-06-13 21:17:46 +0200
+Processing by Api::V1::Book::ReplaysController#create as */*
+  Parameters: {"replay"=>"koooooooo", "book_id"=>"3", "comment_id"=>"9"}
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO `replays` (`replay`, `user_id`, `comment_id`, `created_at`, `updated_at`) VALUES ('koooooooo', 6, 9, '2018-06-13 19:17:47', '2018-06-13 19:17:47')[0m
+  [1m[35m (50.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT `comments`.`id`, `comments`.`user_id`, `comments`.`book_id`, `comments`.`comment`, `comments`.`like` FROM `comments` WHERE `comments`.`id` = 9[0m
+Completed 200 OK in 138ms (Views: 8.7ms | ActiveRecord: 59.8ms)
+
+
+Started POST "/api/v1/book/books/3/comments/9/replays" for 127.0.0.1 at 2018-06-13 21:18:11 +0200
+Processing by Api::V1::Book::ReplaysController#create as */*
+  Parameters: {"replay"=>"koooooooo", "book_id"=>"3", "comment_id"=>"9"}
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO `replays` (`replay`, `user_id`, `comment_id`, `created_at`, `updated_at`) VALUES ('koooooooo', 6, 9, '2018-06-13 19:18:12', '2018-06-13 19:18:12')[0m
+  [1m[35m (52.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m
+  [1m[36mComment Load (1.6ms)[0m  [1m[34mSELECT `comments`.`id`, `comments`.`user_id`, `comments`.`book_id`, `comments`.`comment` FROM `comments` WHERE `comments`.`id` = 9[0m
+Completed 200 OK in 135ms (Views: 8.1ms | ActiveRecord: 63.1ms)
+
+
+Started POST "/api/v1/book/books/3/comments/9/replays" for 127.0.0.1 at 2018-06-13 21:18:42 +0200
+Processing by Api::V1::Book::ReplaysController#create as */*
+  Parameters: {"replay"=>"k", "book_id"=>"3", "comment_id"=>"9"}
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+Completed 200 OK in 10ms (Views: 5.0ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/api/v1/book/books/3/comments/9/replays" for 127.0.0.1 at 2018-06-13 21:19:36 +0200
+  
+SyntaxError (/home/ghada/ruby/shelves/app/controllers/api/v1/book/replays_controller.rb:20: syntax error, unexpected tLABEL
+          render json: meta:{status: 'FAIL', message: 'Re...
+                       ^~~~~
+/home/ghada/ruby/shelves/app/controllers/api/v1/book/replays_controller.rb:20: syntax error, unexpected ',', expecting keyword_end
+...han two characters', error:{}},status: :ok                  ...
+...                              ^):
+  
+app/controllers/api/v1/book/replays_controller.rb:20: syntax error, unexpected tLABEL
+app/controllers/api/v1/book/replays_controller.rb:20: syntax error, unexpected ',', expecting keyword_end
+Started POST "/api/v1/book/books/3/comments/9/replays" for 127.0.0.1 at 2018-06-13 21:20:47 +0200
+Processing by Api::V1::Book::ReplaysController#create as */*
+  Parameters: {"replay"=>"k", "book_id"=>"3", "comment_id"=>"9"}
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+Completed 200 OK in 105ms (Views: 8.5ms | ActiveRecord: 4.9ms)
+
+
+Started POST "/api/v1/book/books/3/comments/9/replays" for 127.0.0.1 at 2018-06-13 21:21:27 +0200
+Processing by Api::V1::Book::ReplaysController#create as */*
+  Parameters: {"replay"=>"k", "book_id"=>"3", "comment_id"=>"9"}
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+Completed 200 OK in 61ms (Views: 5.6ms | ActiveRecord: 4.7ms)
+
+
+Started PUT "/api/v1/book/books/3/comments/9/replays/1" for 127.0.0.1 at 2018-06-13 21:28:24 +0200
+Processing by Api::V1::Book::ReplaysController#update as */*
+  Parameters: {"replay"=>"k", "book_id"=>"3", "comment_id"=>"9", "id"=>"1"}
+  [1m[36mComment Load (2.5ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mReplay Load (0.5ms)[0m  [1m[34mSELECT  `replays`.* FROM `replays` WHERE `replays`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 97ms (Views: 9.4ms | ActiveRecord: 9.3ms)
+
+
+Started PUT "/api/v1/book/books/3/comments/9/replays/1" for 127.0.0.1 at 2018-06-13 21:28:35 +0200
+Processing by Api::V1::Book::ReplaysController#update as */*
+  Parameters: {"replay"=>"kkkkkkk", "book_id"=>"3", "comment_id"=>"9", "id"=>"1"}
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mReplay Load (0.7ms)[0m  [1m[34mSELECT  `replays`.* FROM `replays` WHERE `replays`.`id` = 1 LIMIT 1[0m
+Unpermitted parameters: :book_id, :id
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE `replays` SET `replay` = 'kkkkkkk', `updated_at` = '2018-06-13 19:28:35' WHERE `replays`.`id` = 1[0m
+  [1m[35m (34.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT `comments`.`id`, `comments`.`user_id`, `comments`.`book_id`, `comments`.`comment` FROM `comments` WHERE `comments`.`id` = 9[0m
+Completed 200 OK in 71ms (Views: 8.6ms | ActiveRecord: 39.5ms)
+
+
+Started PUT "/api/v1/book/books/3/comments/9/replays/1" for 127.0.0.1 at 2018-06-13 21:29:15 +0200
+Processing by Api::V1::Book::ReplaysController#update as */*
+  Parameters: {"replay"=>"ghada", "book_id"=>"3", "comment_id"=>"9", "id"=>"1"}
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mReplay Load (1.5ms)[0m  [1m[34mSELECT  `replays`.* FROM `replays` WHERE `replays`.`id` = 1 LIMIT 1[0m
+Unpermitted parameters: :book_id, :id
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mComment Load (3.8ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE `replays` SET `replay` = 'ghada', `updated_at` = '2018-06-13 19:29:15' WHERE `replays`.`id` = 1[0m
+  [1m[35m (45.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`profile_picture` FROM `users` WHERE `users`.`id` = 6[0m
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT `comments`.`id`, `comments`.`user_id`, `comments`.`book_id`, `comments`.`comment` FROM `comments` WHERE `comments`.`id` = 9[0m
+Completed 200 OK in 72ms (Views: 5.0ms | ActiveRecord: 54.7ms)
+
+
