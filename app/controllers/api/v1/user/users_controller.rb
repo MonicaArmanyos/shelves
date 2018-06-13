@@ -116,7 +116,7 @@ module Api::V1::User
         if  User.exists?(:id => params[:id])
             @user_books= Book.where(:user_id => params[:id])
             render :json => @user_books, each_serializer: BookSerializer
-            #render json: {status: 'SUCCESS', message: 'Loaded notification_messages successfully', notification_messages:@notification_messages},status: :ok
+            
         else
             render json: {status: 'FAIL', message: 'user not found'},status: :ok
         end

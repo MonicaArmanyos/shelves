@@ -111,7 +111,7 @@ module Api::V1::Book
                         @book.book_images.create!(:image => file)
                     end
                     render json: {status: 'SUCCESS', message: 'Book successfully created', book:@book},status: :ok
-                    send_notification(@user ,"Book successfully created", "https://angularfirebase.com")
+                    TasksController.send_notification(@user ,"website","Book successfully created", "https://angularfirebase.com")
                 else
                     render json: {status: 'FAIL', message: 'Couldn\'t create book', error:@book.errors},status: :ok
                 end
