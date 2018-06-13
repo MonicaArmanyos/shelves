@@ -27,6 +27,7 @@ module Api::V1::Book
       @comments=Comment.where(book_id: @book.id)
       render json: {status: 'SUCCESS', message: 'return', comments: @comments},status: :ok    
     end   
+    
     def update
       # check user if authenticate or not  
       if @current_user 
