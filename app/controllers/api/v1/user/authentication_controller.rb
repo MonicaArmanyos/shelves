@@ -11,7 +11,7 @@ module Api::V1::User
             
             render json: {status: 'SUCCESS',user: @user, auth_token: command.result }, :except => [:password_digest], status: :created
           else 
-            render json: {status: 'FAIL', message: "inactive!"}, status: :ok
+            render json: {status: 'FAIL', message: "This account is inactive! Please check your email to activate your account."}, status: :ok
            
           end
         else
