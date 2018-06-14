@@ -122,6 +122,9 @@ module Api::V1::Book
             if @current_user
                 @user = @current_user
                 @book = Book.new(book_params)
+                if not book_params[:transcation]
+                    @book.transcation = "Sell"
+                end
                 @book.user_id = @user.id
                 if @book.save
                     params[:book][:book_images_attributes].each do |file|
