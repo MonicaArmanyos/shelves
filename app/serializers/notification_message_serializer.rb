@@ -12,4 +12,8 @@ class NotificationMessageSerializer < ActiveModel::Serializer
     User.where(:id => id_user).select(User.column_names - ["password_digest","email_confirmed","confirm_token","created_at","updated_at","password_reset_token","password_reset_sent_at"])
 
   end 
+
+  def created_at
+    object.created_at.strftime("%B %e, %Y at %I:%M %p")
+  end
 end
