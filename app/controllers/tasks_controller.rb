@@ -39,7 +39,7 @@ class TasksController < ApplicationController
                 JSON.load `curl https://fcm.googleapis.com/fcm/send \
                 -H "Content-Type: application/json" \
                 -H 'Authorization: #{@serverkey} ' \
-                -d '{ "notification": {"title": "Shelves", "body": "#{body}", "icon": "#{icon}" "click_action" : "#{click_action}"}, "to" : "#{user_notification_token.token}" }'`
+                -d '{ "notification": {"title": "Shelves", "body": "#{body}", "icon": "#{icon}" "click_action" : "http://localhost:4200/showNotifications"}, "to" : "#{user_notification_token.token}" }'`
         
             end
         end
