@@ -13,7 +13,14 @@ ActiveAdmin.register WorkSpace do
 # end
 
 permit_params :name, :facebook,:address, :picture, work_space_phones_attributes:  [:id, :phone, :_destroy]
-
+scope :all,default: true
+   scope :created_this_week do |tasks|
+    tasks.where('created_at <= ? and created_at >= ?', Time.now, 1.week.ago)
+  end
+  scope :late do |tasks|
+    tasks.where('created_at < ? and created_at >= ?', Time.now, 2.days.ago)
+  end
+   config.per_page =9
 
 form do |f|
     f.inputs 'Contacts' do
@@ -58,13 +65,16 @@ form do |f|
       row :name 
       row :picture do |workspace|
         image_tag workspace.picture.url, size: "140x140" if workspace.picture?
-      end 
+      end
+    end  
+    attributes_table do 
       row :address
       row :facebook
       row 'Phone' do |work_space|
         work_space.work_space_phones.map(&:phone).join('-')
       end
     end  
+    active_admin_comments
 end
 
 end
