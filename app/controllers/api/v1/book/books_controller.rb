@@ -25,7 +25,7 @@ module Api::V1::Book
                         }
                     }
                     else
-                    render json: {status: 'FAil', message: 'No result Found'},status: :ok
+                    render json: {status: 'FAIL', message: 'No result Found'},status: :ok
                     end
         elsif params[:category]
             if Category.exists?(params[:category])
@@ -41,10 +41,10 @@ module Api::V1::Book
                     }
                     }
                 else
-                    render json: {status: 'FAil', message: 'No Books Found in this category'},status: :ok 
+                    render json: {status: 'FAIL', message: 'No Books Found in this category'},status: :ok 
                 end
             else
-                render json: {status: 'FAil', message: 'Category Not Found'},status: :ok 
+                render json: {status: 'FAIL', message: 'Category Not Found'},status: :ok 
             end
 
 
