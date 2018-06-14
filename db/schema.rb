@@ -113,6 +113,17 @@ ActiveRecord::Schema.define(version: 20180613221836) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "notification_messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "title", default: "Shelves"
+    t.string "body"
+    t.string "click_action"
+    t.string "icon"
+    t.integer "receiver_user"
+    t.integer "sender_user"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "notification_tokens", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "token"
     t.bigint "user_id"
