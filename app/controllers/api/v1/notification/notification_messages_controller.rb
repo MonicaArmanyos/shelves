@@ -20,4 +20,7 @@ class Api::V1::Notification::NotificationMessagesController < ApplicationControl
 
     end
 
+    def get_no_unseen_notification_messages
+        
+    end
 end

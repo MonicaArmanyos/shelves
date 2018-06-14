@@ -77,6 +77,7 @@ Rails.application.routes.draw do
                 member do
                   get 'get_user_notifications', to: 'notification_messages#get_user_notifications'
                   put 'update_seen_notification' to: 'notification_messages#update_seen_notification'
+                  get 'get_no_unseen_notification_messages' to: 'notification_messages#get_no_unseen_notification_messages'
                 end
               end
             end
