@@ -2,12 +2,20 @@ class Api::V1::Notification::NotificationMessagesController < ApplicationControl
     before_action :authenticate_request
     #### get all notification messages for current user
     def get_user_notifications
-        if  NotificationMessage.exists?(:receiver_user => @current_user.id)
-            @notification_messages= NotificationMessage.where(:receiver_user => @current_user.id).where(:created_at => Time.now.beginning_of_month..Time.now.end_of_month)
-            render :json => @notification_messages, each_serializer: NotificationMessageSerializer
-        else
-            render json: {status: 'FAIL', message: 'No Notification messages For this user'},status: :ok
-        end
+        
+            if  NotificationMessage.exists?(:receiver_user => @current_user.id)
+                 if (params[:status]).eql? nil
+                    
+                    @notification_messages= NotificationMessage.where(:receiver_user => @current_user.id).where(:created_at => Time.now.beginning_of_month..Time.now.end_of_month).order("created_at DESC")
+                    
+                elsif params[:status] == "navbar-notifications"
+                     @notification_messages= NotificationMessage.where(:receiver_user => @current_user.id).where(:created_at => Time.now.beginning_of_month..Time.now.end_of_month).order("created_at DESC").limit(1)
+                end
+                render :json => @notification_messages, each_serializer: NotificationMessageSerializer
+            else
+                render json: {status: 'FAIL', message: 'No Notification messages For this user'},status: :ok
+            end
+
     end
 
     #### update notification message to be seen
