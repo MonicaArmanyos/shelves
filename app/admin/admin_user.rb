@@ -2,10 +2,10 @@ ActiveAdmin.register AdminUser do
   permit_params :email, :password, :password_confirmation
   scope :all,default: true
   scope :created_this_week do |tasks|
-    tasks.where('created_at > ? and created_at < ?', Time.now, 1.week.from_now)
+    tasks.where('created_at <= ? and created_at >= ?', Time.now, 1.week.ago)
   end
   scope :late do |tasks|
-    tasks.where('created_at < ?', Time.now)
+    tasks.where('created_at < ? and created_at >= ?', Time.now, 2.days.ago)
   end
 
   config.per_page =9

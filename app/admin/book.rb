@@ -5,18 +5,15 @@ ActiveAdmin.register Book do
     selectable_column
     id_column
     column :name
-    #column :description
     column :user
     column :category
     column :rate
-    #column :bid_user
     column :transcation
     column :is_approved
     column :is_available
     column :price
     column :quantity
     column :created_at
-    #column :updated_at
     actions
   end
 
@@ -66,7 +63,7 @@ ActiveAdmin.register Book do
       f.input :description
     end
     f.inputs do 
-      f.input :user, :class => "user"
+      f.input :user, :id => "user"
       f.input :category
     end  
     f.inputs do
@@ -92,6 +89,7 @@ ActiveAdmin.register Book do
       end    
     end  
     f.actions
+    script :src => javascript_path('admin/book.js'), :type => "text/javascript"
   end
   
   filter :description
@@ -107,6 +105,12 @@ ActiveAdmin.register Book do
   filter :created_at
 
   scope :all,default: true
+  scope :created_this_week do |tasks|
+    tasks.where('created_at <= ? and created_at >= ?', Time.now, 1.week.ago)
+  end
+  scope :late do |tasks|
+    tasks.where('created_at < ? and created_at >= ?', Time.now, 2.days.ago)
+  end
   config.per_page =9
 end
 
