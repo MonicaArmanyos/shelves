@@ -203,7 +203,11 @@ module Api::V1::User
 
       #### get current user info
       def show
-        @user = @current_user
+        if params[:id] == @current_user.id || !params[:id]
+          @user = @current_user
+        else
+          @user = User.find(params[:id])
+        end
         @books = Book.all
         @user_books = Array.new
         @user_interests = @user.categories
@@ -212,7 +216,7 @@ module Api::V1::User
               @user_books << book
             end
         end
-        render json: {status: 'SUCCESS', :user => @user, books: @user_books,  auth_token: request.headers['Authorization'], phones: @user.phones, addresses: @user.addresses, interests: @user_interests}, :except => [:password_digest],status: :ok
+        render json: {status: 'SUCCESS', :user => @user, books: @user_books,  auth_token: request.headers['Authorization'], phones: @user.phones, addresses: @user.addresses, interests: @user_interests}, :except => [:password_digest, :email_confirmed, :confirm_token, :created_at, :updated_at, :password_reset_token, :password_reset_sent_at],status: :ok
       end
       #### get user books ####
       def get_user_books
