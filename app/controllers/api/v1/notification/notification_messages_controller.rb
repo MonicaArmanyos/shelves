@@ -8,4 +8,9 @@ class Api::V1::Notification::NotificationMessagesController < ApplicationControl
             render json: {status: 'FAIL', message: 'No Notification messages For that user'},status: :ok
         end
     end
+
+    def update_seen_notification
+
+    end
+
 end

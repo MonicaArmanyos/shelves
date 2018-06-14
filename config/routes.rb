@@ -76,6 +76,7 @@ Rails.application.routes.draw do
                 #/api/v1/notification/notification_messages/:id/get_user_notifications
                 member do
                   get 'get_user_notifications', to: 'notification_messages#get_user_notifications'
+                  put 'update_seen_notification' to: 'notification_messages#update_seen_notification'
                 end
               end
             end
