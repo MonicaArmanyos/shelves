@@ -4,10 +4,10 @@ ActiveAdmin.register Order do
   scope :created_this_week do |tasks|
     tasks.where('created_at <= ? and created_at >= ?', Time.now, 1.week.ago)
   end
-  scope :late do |tasks|
+  scope :created_2_days_ago do |tasks|
     tasks.where('created_at < ? and created_at >= ?', Time.now, 2.days.ago)
   end
-  config.per_page =9
+  config.per_page =6
 
   index do
     selectable_column
@@ -15,11 +15,10 @@ ActiveAdmin.register Order do
     column :user
     column :book
     column :seller
-    column :state
+    column :state 
     column :transcation
     column :price
     column :created_at
-    column :updated_at
     actions
   end  
 

@@ -4,7 +4,7 @@ ActiveAdmin.register AdminUser do
   scope :created_this_week do |tasks|
     tasks.where('created_at <= ? and created_at >= ?', Time.now, 1.week.ago)
   end
-  scope :late do |tasks|
+  scope :created_2_days_ago do |tasks|
     tasks.where('created_at < ? and created_at >= ?', Time.now, 2.days.ago)
   end
 
