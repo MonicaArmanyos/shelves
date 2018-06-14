@@ -24,7 +24,9 @@ Rails.application.routes.draw do
               put 'update_bid', to: 'books#update_bid'
             end
             resources :orders
-            resources :comments
+            resources :comments do
+              resources :replies
+            end  
              #route of :  request_exchange
             # /api/v1/book/books/:id/exchange_request
             member do

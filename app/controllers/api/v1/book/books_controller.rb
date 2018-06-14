@@ -25,7 +25,7 @@ module Api::V1::Book
                         }
                     }
                     else
-                    render json: {status: 'FAil', message: 'No result Found'},status: :ok
+                    render json: {status: 'FAIL', message: 'No result Found'},status: :ok
                     end
         elsif params[:category]
             if Category.exists?(params[:category])
@@ -41,10 +41,10 @@ module Api::V1::Book
                     }
                     }
                 else
-                    render json: {status: 'FAil', message: 'No Books Found in this category'},status: :ok 
+                    render json: {status: 'FAIL', message: 'No Books Found in this category'},status: :ok 
                 end
             else
-                render json: {status: 'FAil', message: 'Category Not Found'},status: :ok 
+                render json: {status: 'FAIL', message: 'Category Not Found'},status: :ok 
             end
 
 
@@ -61,7 +61,7 @@ module Api::V1::Book
                     }
                 }
             else
-                render json: {status: 'FAil', message: 'No books Available'},status: :ok 
+                render json: {status: 'FAIL', message: 'No books Available'},status: :ok 
             end
             end
         end
@@ -76,7 +76,7 @@ module Api::V1::Book
                     message: 'Loaded latest_books successfully' 
                 },status: :ok
             else
-                render json: {status: 'FAil', message: 'Can\'t Loaded latest_books'},status: :ok
+                render json: {status: 'FAIL', message: 'Can\'t Load latest_books'},status: :ok
             end
 
         end 
@@ -96,7 +96,7 @@ module Api::V1::Book
                         message: 'Loaded latest_books successfully' 
                     },status: :ok
                 else
-                    render json: {status: 'FAil', message: 'user do\'t have interests'},status: :ok 
+                    render json: {status: 'FAIL', message: 'user do\'t have interests'},status: :ok 
                 end
             end 
         end 
@@ -112,7 +112,7 @@ module Api::V1::Book
                     },status: :ok
                # render :json => @book, each_serializer: BookSerializer
             else
-                render json: {status: 'FAil', message: 'Book Not Found'},status: :ok
+                render json: {status: 'FAIL', message: 'Book Not Found'},status: :ok
             end
 
         end

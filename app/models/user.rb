@@ -3,7 +3,7 @@ class User < ApplicationRecord
     before_create :confirmation_token
     enum gender: {"male" => 0, "female" => 1}
     enum role: {"Normal user" => 0, "Book store" =>1}
-    mount_uploader :profile_picture, ProfilePictureUploader
+    mount_base64_uploader :profile_picture, ProfilePictureUploader
     validates :email, :password_digest, presence: true
     validates :email, uniqueness: true, unless: :skip_email_validation    
     #### Relations ####
@@ -18,6 +18,7 @@ class User < ApplicationRecord
       has_many :user_rates
       has_many :users, through: :user_rates
       has_many :comments
+      has_many :replies
       
       accepts_nested_attributes_for :phones, allow_destroy: true #to be able to remove a phone
       accepts_nested_attributes_for :addresses, allow_destroy: true

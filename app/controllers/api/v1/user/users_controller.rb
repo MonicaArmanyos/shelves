@@ -34,31 +34,38 @@ module Api::V1::User
           if @user == @current_user
             @user.profile_picture = params[:profile_picture]
             begin
-               @user.save!
                @user.update(user_complete_params)
-                    if params[:phone]
-                      
-                      newPhones = params[:phone].values
-                      @phones = Phone.where(user_id: @user.id )
-                      @phones.each do |oldphone|
-                        if newPhones.include?(oldphone.phone) == false
-                          oldphone.destroy
-                        end #end if 
-                      end  #end do
-                      newPhones.each do |tel|
-                        flag=0 #means that new phone not included in old ones 
-                        @phones.each do |old|
-                        if tel == old.phone
-                          flag=1
-                        end #end if 
-                      end  #end do
-                        if flag == 0
-                          @phone = Phone.new(user_id: @user.id, phone: tel)
+               @user.save
+                    #if params[:phone]
+                      #newPhones = params[:phone].values
+                      #@phones = Phone.where(user_id: @user.id )
+                      #@phones.each do |oldphone|
+                        #if newPhones.include?(oldphone.phone) == false
+                          #oldphone.destroy
+                        #end #end if 
+                      #end  #end do
+                      #newPhones.each do |tel|
+                        #flag=0 #means that new phone not included in old ones 
+                        #@phones.each do |old|
+                        #if tel == old.phone
+                          #flag=1
+                        #end #end if 
+                      #end  #end do
+                        #if flag == 0
+                          #@phone = Phone.new(user_id: @user.id, phone: tel)
+                          #@phone.save
+                        #end #end if
+                        #end #end do                      
+                      #end # end if 
+                      if params[:phone]
+                        newPhone = params[:phone]
+                        oldPhone = @user.phones[0]
+                        if(oldPhone.phone != newPhone)
+                          oldPhone.destroy
+                          @phone = Phone.new(user_id: @user.id, phone: newPhone)
                           @phone.save
-                        end #end if
-                        end #end do
-                      
-                      end # end if 
+                        end
+                      end
                       if params[:building_number]
                                   b_number = params[:building_number]
                                   st=params[:street]
@@ -84,20 +91,30 @@ module Api::V1::User
                                     end 
                                 
                        end #end if 
-                       @user.categories.each do |userCateg|
-                                  if params[userCateg.name] == nil
-                                    @user.categories.delete(userCateg)
-                                  end
-                        end
-                        @interests = Category.all
-                                @interests.each do |interest|
-                                  if params[interest.name]
-                                    if @user.categories.include?(interest) == false
-                                      @user.categories << interest
-                                    end
-                                  end
-                                end
-                        render json: {status: 'SUCCESS', message: "Profile updated", user: @user, phones: @user.phones , addresses: @user.addresses},  :except => [:password_digest], status: :ok
+                      #  @user.categories.each do |userCateg|
+                      #             if params[userCateg.name] == nil
+                      #               @user.categories.delete(userCateg)
+                      #             end
+                      #   end
+                      #   @interests = Category.all
+                      #           @interests.each do |interest|
+                      #             if params[interest.name]
+                      #               if @user.categories.include?(interest) == false
+                      #                 @user.categories << interest
+                      #               end
+                      #             end
+                      #           end
+                    if(params[:interests])
+                      @oldIntrests= CategoriesUsers.where(user_id: @user.id )
+                      @oldIntrests.each do |interest| 
+                        interest.destroy   
+                      end
+                      params[:interests].each do |interest|
+                        @newinterest = CategoriesUsers.new(user_id: @user.id, category_id: interest)
+                        @newinterest.save
+                      end
+                    end
+                    render json: {status: 'SUCCESS', message: "Profile updated", user: @user, phones: @user.phones , addresses: @user.addresses},  :except => [:password_digest], status: :ok
                            
             rescue
               render json: {status: 'FAIL', message: "Failed to update because invalid profile picture has been entered"}, status: :ok
@@ -189,12 +206,13 @@ module Api::V1::User
         @user = @current_user
         @books = Book.all
         @user_books = Array.new
+        @user_interests = @user.categories
         for book in @books
             if book.user_id == @current_user.id 
               @user_books << book
             end
         end
-        render json: {status: 'SUCCESS', :user => @user, books: @user_books,  auth_token: request.headers['Authorization'], phones: @user.phones, addresses: @user.addresses}, :except => [:password_digest],status: :ok
+        render json: {status: 'SUCCESS', :user => @user, books: @user_books,  auth_token: request.headers['Authorization'], phones: @user.phones, addresses: @user.addresses, interests: @user_interests}, :except => [:password_digest],status: :ok
       end
       #### get user books ####
       def get_user_books
