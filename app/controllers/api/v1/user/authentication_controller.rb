@@ -9,13 +9,14 @@ module Api::V1::User
           @user= User.find_by_email(params[:email])
           if  @user.email_confirmed
             
-            render json: {status: 'SUCCESS',user: @user, auth_token: command.result }, :except => [:password_digest], status: :created
+            render json: {status: 'SUCCESS',user: @user, books: @user.books, auth_token: command.result, phones: @user.phones, addresses: @user.addresses, interests: @user.categories }, :except => [:password_digest], status: :created
+
           else 
-            render json: {status: 'FAIL', message: "inactive!"}, status: :ok
+            render json: {status: 'FAIL', message: "This account is inactive! Please check your email to activate your account."}, status: :ok
            
           end
         else
-          render json: {status: 'FAIL', message: "invalid username or password" }, status: :unauthorized
+          render json: {status: 'FAIL', message: "invalid username or password" }, status: :ok
         end
       end
 

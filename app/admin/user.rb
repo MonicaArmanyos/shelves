@@ -1,6 +1,12 @@
 ActiveAdmin.register User do
   permit_params :name,:email, :role, :gender, :rate, :profile_picture, :password, :password_confirmation, phones_attributes: [:id, :phone, :_destroy], addresses_attributes: [:id, :building_number, :street, :region, :city, :postal_code, :_destroy]
     scope :all,default: true
+    scope :created_this_week do |tasks|
+      tasks.where('created_at <= ? and created_at >= ?', Time.now, 1.week.ago)
+    end
+    scope :created_2_days_ago do |tasks|
+      tasks.where('created_at < ? and created_at >= ?', Time.now, 2.days.ago)
+    end
     config.per_page =9
 
     index do
@@ -23,6 +29,7 @@ ActiveAdmin.register User do
     show do |user|
       attributes_table do
         row :name 
+        row :gender
         row :profile_picture do |user|
           image_tag user.profile_picture.url, size: "140x140" if user.profile_picture?
         end  
@@ -93,7 +100,7 @@ ActiveAdmin.register User do
               phone.input :phone
               phone.input :_destroy, as: :boolean, required: :false, label: 'Remove phone'
             end  
-          end 
+          end  
           f.has_many :addresses do |address|
             if address.object.new_record?
               address.inputs :building_number 

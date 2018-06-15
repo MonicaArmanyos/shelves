@@ -60,11 +60,11 @@ module Api::V1::User
                       if params[:phone]
                         newPhone = params[:phone]
                         oldPhone = @user.phones[0]
-                        if(oldPhone.phone != newPhone)
+                        if(oldPhone)
                           oldPhone.destroy
-                          @phone = Phone.new(user_id: @user.id, phone: newPhone)
-                          @phone.save
                         end
+                        @phone = Phone.new(user_id: @user.id, phone: newPhone)
+                        @phone.save
                       end
                       if params[:building_number]
                                   b_number = params[:building_number]
@@ -73,22 +73,24 @@ module Api::V1::User
                                   newCity = params[:city]
                                   code = params[:postal_code]
                                   @addresses= Address.where(user_id: @user.id )
-                                  @addresses.each do |oldAddr|
-                                    if b_number != (oldAddr.building_number.to_s) || st != (oldAddr.street)  || reg != (oldAddr.region) || newCity != (oldAddr.city) ||  code != (oldAddr.postal_code) 
+                                  if @addresses
+                                    @addresses.each do |oldAddr|
+                                      # if b_number != (oldAddr.building_number.to_s) || st != (oldAddr.street)  || reg != (oldAddr.region) || newCity != (oldAddr.city) ||  code != (oldAddr.postal_code) 
                                       oldAddr.destroy
-                                    end  #end if
-                                  end #end do
+                                      # end  #end if
+                                    end #end do
+                                  end
                                 
-                                    flag = 0 #flag is 0 if new address is not included in old ones
-                                    @addresses.each do |oldAddress|
-                                      if b_number == oldAddress.building_number.to_s && st == oldAddress.street && reg == oldAddress.region && newCity == oldAddress.city && code == oldAddress.postal_code.to_s
-                                        flag = 1
-                                    end #end if 
-                                    end #end do 
-                                    if flag == 0
-                                      @address = Address.new(user_id: @user.id, building_number: b_number, street: st, region: reg, city: newCity, postal_code: code)
-                                      @address.save
-                                    end 
+                                    # flag = 0 #flag is 0 if new address is not included in old ones
+                                    # @addresses.each do |oldAddress|
+                                    #   if b_number == oldAddress.building_number.to_s && st == oldAddress.street && reg == oldAddress.region && newCity == oldAddress.city && code == oldAddress.postal_code.to_s
+                                    #     flag = 1
+                                    # end #end if 
+                                    # end #end do 
+                                    # if flag == 0
+                                  @address = Address.new(user_id: @user.id, building_number: b_number, street: st, region: reg, city: newCity, postal_code: code)
+                                  @address.save
+                                    # end 
                                 
                        end #end if 
                       #  @user.categories.each do |userCateg|
@@ -203,15 +205,20 @@ module Api::V1::User
 
       #### get current user info
       def show
-        @user = @current_user
+        if params[:id] == @current_user.id || !params[:id]
+          @user = @current_user
+        else
+          @user = User.find(params[:id])
+        end
         @books = Book.all
         @user_books = Array.new
+        @user_interests = @user.categories
         for book in @books
             if book.user_id == @current_user.id 
               @user_books << book
             end
         end
-        render json: {status: 'SUCCESS', :user => @user, books: @user_books,  auth_token: request.headers['Authorization'], phones: @user.phones, addresses: @user.addresses}, :except => [:password_digest],status: :ok
+        render json: {status: 'SUCCESS', :user => @user, books: @user_books,  auth_token: request.headers['Authorization'], phones: @user.phones, addresses: @user.addresses, interests: @user_interests}, :except => [:password_digest, :email_confirmed, :confirm_token, :created_at, :updated_at, :password_reset_token, :password_reset_sent_at],status: :ok
       end
       #### get user books ####
       def get_user_books

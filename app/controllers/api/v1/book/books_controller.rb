@@ -25,7 +25,7 @@ module Api::V1::Book
                         }
                     }
                     else
-                    render json: {status: 'FAil', message: 'No result Found'},status: :ok
+                    render json: {status: 'FAIL', message: 'No result Found'},status: :ok
                     end
         elsif params[:category]
             if Category.exists?(params[:category])
@@ -41,10 +41,10 @@ module Api::V1::Book
                     }
                     }
                 else
-                    render json: {status: 'FAil', message: 'No Books Found in this category'},status: :ok 
+                    render json: {status: 'FAIL', message: 'No Books Found in this category'},status: :ok 
                 end
             else
-                render json: {status: 'FAil', message: 'Category Not Found'},status: :ok 
+                render json: {status: 'FAIL', message: 'Category Not Found'},status: :ok 
             end
 
 
@@ -122,10 +122,15 @@ module Api::V1::Book
             if @current_user
                 @user = @current_user
                 @book = Book.new(book_params)
+                if not book_params[:transcation]
+                    @book.transcation = "Sell"
+                end
                 @book.user_id = @user.id
                 if @book.save
-                    params[:book][:book_images_attributes].each do |file|
-                        @book.book_images.create!(:image => file)
+                    if params[:book][:book_images_attributes]
+                        params[:book][:book_images_attributes].each do |file|
+                            @book.book_images.create!(:image => file)
+                        end
                     end
              
                     #### send notificatios to users that interest this new book
@@ -147,19 +152,21 @@ module Api::V1::Book
         def update
             @book = Book.find(params[:id])
             if @current_user.id == @book.user_id
-               if @book.update(book_params)
-                   params[:book][:book_images_attributes].each do |file|
-                    #@bookImages = BookImage.all
-                    # for bookImg in @bookImages
-                    #     if bookImg.book_id == @book.id
-                    #         bookImg.destroy
-                    #     end
-                    # end 
-                        @book.book_images.destroy
-                       @book.book_images.create!(:image => file)
-                   end
+                if @book.update(book_params)
+                    if params[:book][:book_images_attributes]
+                        @bookImages = @book.book_images
+                        for bookImg in @bookImages
+                            #if bookImg.book_id == @book.id
+                            bookImg.destroy
+                            #end
+                        end
+                        params[:book][:book_images_attributes].each do |file| 
+                            # @book.book_images.destroy
+                            @book.book_images.create!(:image => file)
+                       end
+                    end                   
                    render json: {status: 'SUCCESS', message: 'Book successfully updated', book:@book},status: :ok
-               else
+                else
                    render json: {status: 'FAIL', message: 'Couldn\'t update book', error:@book.errors},status: :ok
                end 
            else
