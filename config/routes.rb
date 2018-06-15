@@ -73,9 +73,11 @@ Rails.application.routes.draw do
               resources :notification_tokens
               resources :notification_messages do
  
-                #/api/v1/notification/notification_messages/:id/get_user_notifications
-                member do
+                #/api/v1/notification/notification_messages/get_user_notifications
+                collection do
                   get 'get_user_notifications', to: 'notification_messages#get_user_notifications'
+                  put 'update_seen_notification', to: 'notification_messages#update_seen_notification'
+                  get 'get_no_unseen_notification_messages', to: 'notification_messages#get_no_unseen_notification_messages'
                 end
               end
             end

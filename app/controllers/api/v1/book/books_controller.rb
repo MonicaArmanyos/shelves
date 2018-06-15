@@ -138,7 +138,7 @@ module Api::V1::Book
                     @users_interest_book = @book_category.users
 
                     @users_interest_book.each do |user|
-                        TasksController.send_notification(user ,"website","Book successfully created", "https://angularfirebase.com")
+                        TasksController.send_notification(user ,"website","There is new book available falls under your interests ", "http://localhost:4200/books/#{@book.id}")
                     end
                     
                     render json: {status: 'SUCCESS', message: 'Book successfully created', book:@book},status: :ok
