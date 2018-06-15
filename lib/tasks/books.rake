@@ -16,8 +16,8 @@ namespace :books do
             @seller_user=User.find(book_for_bid.user_id)
             @bid_user=User.find(book_for_bid.bid_user)
             body= "Bid duration is ended for #{book_for_bid.name} book."
-            TasksController.send_notification(@seller_user ,body, "https://angularfirebase.com")
-            TasksController.send_notification(@bid_user,"Congurations ,You Win bid for #{book_for_bid.name} book, Please wait for confirmation from the owner of book","https://angularfirebase.com")
+            TasksController.send_notification(@seller_user ,"website" ,body, "https://angularfirebase.com")
+            TasksController.send_notification(@bid_user,"website","Congurations ,You Win bid for #{book_for_bid.name} book, Please wait for confirmation from the owner of book","https://angularfirebase.com")
             book_for_bid.update(:bid_duration_state => 1)
             
           else

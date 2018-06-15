@@ -138,7 +138,7 @@ module Api::V1::Book
                     @users_interest_book = @book_category.users
 
                     @users_interest_book.each do |user|
-                        TasksController.send_notification(user ,"website","Book successfully created", "https://angularfirebase.com")
+                        TasksController.send_notification(user ,"website","There is new book available falls under your interests ", "http://localhost:4200/books/#{@book.id}")
                     end
                     
                     render json: {status: 'SUCCESS', message: 'Book successfully created', book:@book},status: :ok
@@ -239,7 +239,7 @@ module Api::V1::Book
         #### Permitted book params ####
         def book_params
             params.require(:book).permit(:name, :description, :transcation, :quantity, 
-                                        :bid_user, :category_id, :price, book_images_attributes:[:id, :book_id, :image])
+                                        :bid_user, :bid_duration,:category_id, :price, book_images_attributes:[:id, :book_id, :image])
         end
 
         #### Authentication of user ####
