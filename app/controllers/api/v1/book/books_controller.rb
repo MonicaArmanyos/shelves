@@ -239,7 +239,7 @@ module Api::V1::Book
         #### Permitted book params ####
         def book_params
             params.require(:book).permit(:name, :description, :transcation, :quantity, 
-                                        :bid_user, :category_id, :price, book_images_attributes:[:id, :book_id, :image])
+                                        :bid_user, :bid_duration,:category_id, :price, book_images_attributes:[:id, :book_id, :image])
         end
 
         #### Authentication of user ####
