@@ -203,7 +203,7 @@ module Api::V1::Book
             end
             @order = Order.new(user_id: @current_user.id, book_id: @wanted_book.id, seller_id: @wanted_book.user_id, state: "under confirmed", transcation: "Exchange")
             @order.save
-            render json:  {status: 'SUCCESS', exchangeable_books: @exchangeable_books, wanted_book: @wanted_book, order: @order}, :include => { :user  =>  {:except => :password_digest} } , status: :ok
+            render json:  {status: 'SUCCESS', exchangeable_books: @exchangeable_books}, :include => { :user  =>  {:except => :password_digest} } , status: :ok
             else
             render json:  {status: 'FAIL', message: "Book not for exchange"}, status: :ok
         end
@@ -240,7 +240,7 @@ module Api::V1::Book
         #### Permitted book params ####
         def book_params
             params.require(:book).permit(:name, :description, :transcation, :quantity, 
-                                        :bid_user, :category_id, :price, book_images_attributes:[:id, :book_id, :image])
+                                        :bid_user, :bid_duration,:category_id, :price, book_images_attributes:[:id, :book_id, :image])
         end
 
         #### Authentication of user ####
