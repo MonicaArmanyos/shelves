@@ -6,14 +6,15 @@ module Api::V1::Book
 
         #### Show all books and searched books #### 
         def index
-            @books_all = Book.where(:is_available => 1).all
+
+            @books_all = Book.where(:is_available => 1).where(:is_approved => 1).all
             if (params[:page]).eql? nil
                 current_page=1
             else
                 current_page=(params[:page])
             end
             if params[:search]
-              @searched_books = Book.where(:is_available => 1).search(params[:search]).order("created_at DESC").page params[:page]
+              @searched_books = Book.where(:is_available => 1).where(:is_approved => 1).search(params[:search]).order("created_at DESC").page params[:page]
                     if @searched_books.count != 0
                     render json: @searched_books,
                     meta: {
@@ -29,7 +30,7 @@ module Api::V1::Book
                     end
         elsif params[:category]
             if Category.exists?(params[:category])
-                @books_by_category = Book.where(:is_available => 1).where(:category_id => params[:category]).order("created_at DESC").page params[:page]
+                @books_by_category = Book.where(:is_available => 1).where(:is_approved => 1).where(:category_id => params[:category]).order("created_at DESC").page params[:page]
                 if @books_by_category.count != 0
                     render json: @books_by_category,
                     meta: {
@@ -49,7 +50,7 @@ module Api::V1::Book
 
 
         else
-              @books = Book.where(:is_available => 1).all.order('created_at DESC').page(params[:page]).per(5)
+              @books = Book.where(:is_approved => 1).where(:is_available => 1).all.order('created_at DESC').page(params[:page]).per(5)
             if @books.count != 0
                 render json: @books,
                 meta: {
@@ -68,7 +69,7 @@ module Api::V1::Book
 
          #### Latest Books in Home Page ####
          def latest_books
-            @latest_books = Book.where(:is_available => 1).order('created_at Desc').limit(20);
+            @latest_books = Book.where(:is_approved => 1).where(:is_available => 1).order('created_at Desc').limit(20);
             if(@latest_books.count != 0)
                 render json:  @latest_books,
                 meta: {
@@ -88,7 +89,7 @@ module Api::V1::Book
                 user_interests =  @current_user.categories
                 if user_interests.count != 0
                     for interest in user_interests
-                        @recommended_books << interest.books.where(:is_available => 1).order('created_at Desc').limit(5)
+                        @recommended_books << interest.books.where(:is_approved => 1).where(:is_available => 1).order('created_at Desc').limit(5)
                     end
                     render json:  @recommended_books,
                     meta: {
