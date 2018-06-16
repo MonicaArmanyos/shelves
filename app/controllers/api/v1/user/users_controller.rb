@@ -223,7 +223,7 @@ module Api::V1::User
       #### get user books ####
       def get_user_books
         if  User.exists?(:id => params[:id])
-            @user_books= Book.where(:user_id => params[:id])
+            @user_books= Book.where(:is_approved => 1).where(:is_available => 1).where(:user_id => params[:id])
             render :json => @user_books, each_serializer: BookSerializer
             
         else
