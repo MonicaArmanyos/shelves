@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 20180614122428) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.json "images"
     t.boolean "is_available", default: true
     t.datetime "bid_duration"
     t.boolean "bid_duration_state", default: false
