@@ -192,17 +192,26 @@ module Api::V1::Book
         def exchange
             @wanted_book =  Book.find(params[:id])
             if @wanted_book.transcation == "Exchange"
-            @books = Book.all
-            @exchangeable_books = Array.new
-            
-            for book in @books
-                if book.user_id == @current_user.id  && book.transcation == "Exchange"
-                    @exchangeable_books << book
+                @books = Book.all
+                @exchangeable_books = Array.new
+                
+                for book in @books
+                    if book.user_id == @current_user.id  && book.transcation == "Exchange"
+                        @exchangeable_books << book.book_images
+                    end
                 end
-            end
-            @order = Order.new(user_id: @current_user.id, book_id: @wanted_book.id, seller_id: @wanted_book.user_id, state: "under confirmed", transcation: "Exchange")
-            @order.save
-            render json:  {status: 'SUCCESS', exchangeable_books: @exchangeable_books}, :include => { :user  =>  {:except => :password_digest} } , status: :ok
+                @prev_order = Order.where(user_id: @current_user.id, book_id: @wanted_book.id, seller_id: @wanted_book.user_id, state: "under confirmed", transcation: "Exchange").first
+                if @prev_order == nil
+                    @order = Order.new(user_id: @current_user.id, book_id: @wanted_book.id, seller_id: @wanted_book.user_id, state: "under confirmed", transcation: "Exchange")
+                    @order.save
+                    render json:  {status: 'SUCCESS', exchangeable_books: @exchangeable_books, order_id: @order.id}, :include => :book , status: :ok
+                else
+                   if @prev_order.notification_sent == true
+                    render json:  {status: 'FAIL',message: 'You already ordered this book'},status: :ok
+                   else
+                    render json:  {status: 'SUCCESS', exchangeable_books: @exchangeable_books, order_id: @prev_order.id}, :include => :book , status: :ok
+                   end
+                end
             else
             render json:  {status: 'FAIL', message: "Book not for exchange"}, status: :ok
         end

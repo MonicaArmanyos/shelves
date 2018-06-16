@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180614122428) do
+ActiveRecord::Schema.define(version: 20180616122651) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "namespace"
@@ -144,6 +144,7 @@ ActiveRecord::Schema.define(version: 20180614122428) do
     t.datetime "updated_at", null: false
     t.integer "quantity", default: 1
     t.bigint "exchangeable_book_id"
+    t.boolean "notification_sent"
     t.index ["book_id"], name: "index_orders_on_book_id"
     t.index ["exchangeable_book_id"], name: "index_orders_on_exchangeable_book_id"
     t.index ["seller_id"], name: "index_orders_on_seller_id"

@@ -9,7 +9,12 @@ module Api::V1::Book
         if ((@book.is_available.eql? true) && (@book.is_approved.eql? true)) 
           # check book transcation
           if @book.transcation.eql? "Free Share"
-            @order = @book.orders.new(:book_id => @book.id, :user_id => @current_user.id, :state => 0, :seller_id => @book.user_id, :transcation => @book.transcation, :price => @book.price)
+            @prev_order = Order.where(:book_id => @book.id, :user_id => @current_user.id, :state => 0, :seller_id => @book.user_id, :transcation => @book.transcation).first
+            if @prev_order == nil
+              @order = @book.orders.new(:book_id => @book.id, :user_id => @current_user.id, :state => 0, :seller_id => @book.user_id, :transcation => @book.transcation, :price => @book.price)
+            else
+              @order = @prev_order
+            end 
           elsif @book.transcation.eql? "Sell"
             # check if quantity exist, larger than zero and less than book quantity 
             if ((params[:quantity]) && (params[:quantity].to_i <= @book.quantity) && (params[:quantity].to_i > 0))
@@ -22,6 +27,9 @@ module Api::V1::Book
           if @order
             # save order and check it saved successfuly
             if @order.save
+              if @order.notification_sent == true
+                render json:  {status: 'FAIL',message: 'You already ordered this book'},status: :ok
+               else
               # notification to book owner
               @seller=User.find(@order.seller_id)
               @sender_user=@current_user
@@ -29,7 +37,10 @@ module Api::V1::Book
               click_action= "http://localhost:3000/api/v1/book/books/#{@book.id}/order/#{@order.id}"
               TasksController.send_notification(@seller,@sender_user ,body , click_action)
               @category=Category.find(@book.category_id)
+              @order.notification_sent = true
+              @order.save
               render json: {status: 'SUCCESS', message: 'order successfully created', order: {id: @order.id, state: @order.state, transcation: @order.transcation, price: @order.price, quantity: @order.quantity}, book: {id: @book.id, name: @book.name, description: @book.description, rate: @book.rate, price: @book.price}, category:{id: @category.id, name: @category.name}, seller: {id: @seller.id, name: @seller.name}},status: :ok
+               end
             else
               render json: {status: 'FAIL', message: 'Couldn\'t create order', error:@order.errors},status: :ok
             end
@@ -44,12 +55,12 @@ module Api::V1::Book
       def exchange_request
         @order = Order.find(params[:id])
         if @order
-        @exchangeable_books = params[:books]
-        user = User.find(@order.seller_id)
-        TasksController.send_notification( user,@current_user,"Book exchange request", "https://www.google.com")
-        @wanted_book = Book.find(@order.book_id)
-        @with = User.find(@order.user_id )
-        render json:{status: 'Success', exchangeable_books: @exchangeable_books, wanted_book: @wanted_book, with: @with},status: :ok
+          @exchangeable_books = params[:books]
+          user = User.find(@order.seller_id)
+          @order.notification_sent = true
+          @order.save
+          TasksController.send_notification( user,@current_user,"Book exchange request", "https://www.google.com")
+          render json:{status: 'Success', message: "Your request is sent to book owner ("+user.name+")"},status: :ok
         end
        end
 
