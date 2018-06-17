@@ -50,7 +50,9 @@ form do |f|
       image_tag work_space.picture.url, size: "60x60" if work_space.picture?
     end
     column :name
-    column :address
+    column :address do |work_space|
+      truncate(work_space.address, omision: "...", length: 20) 
+    end  
     column :facebook
     column 'Phone' do |work_space|
         work_space.work_space_phones.map(&:phone).join('-')

@@ -12,7 +12,9 @@ ActiveAdmin.register Reply do
   index do
     selectable_column
     id_column
-    column :reply
+    column :reply do |reply|
+      truncate(reply.reply, omision: "...", length: 20) 
+    end  
     column :user
     column :comment do |reply|
       link_to reply.comment.comment,  admin_comment_path(reply.comment)

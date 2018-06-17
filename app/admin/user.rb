@@ -15,7 +15,9 @@ ActiveAdmin.register User do
       column :profile_picture do |user|
         image_tag user.profile_picture.url, size: "60x60" if user.profile_picture?
       end
-      column :name
+      column :name do |user|
+        truncate(user.name, omision: "...", length: 20) 
+      end  
       column :email
       column :gender
       column :role

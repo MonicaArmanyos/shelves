@@ -12,7 +12,9 @@ ActiveAdmin.register Comment do
   index do
     selectable_column
     id_column
-    column :comment
+    column :comment do |comment|
+      truncate(comment.comment, omision: "...", length: 20) 
+    end  
     column :user
     column :book
     column :created_at
