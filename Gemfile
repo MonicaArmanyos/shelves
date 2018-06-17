@@ -9,7 +9,7 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
 # Use mysql2 as the database for Active Record
-gem 'mysql2'
+#gem 'mysql2'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use devise for admin user authentication
@@ -20,6 +20,7 @@ gem 'activeadmin', '~> 1.1.0'
 gem 'carrierwave', '~> 1.2', '>= 1.2.2'
 # Use carrierwave-base64 for base64 file uploads
 gem 'carrierwave-base64'
+
 
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -63,3 +64,11 @@ gem 'active_model_serializers', '0.9.3'
 gem 'kaminari'
 gem 'pager_api'
 gem 'whenever', require: false
+group :development do
+  gem 'mysql2'
+end
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
