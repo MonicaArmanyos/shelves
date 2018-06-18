@@ -6,14 +6,15 @@ module Api::V1::Book
 
         #### Show all books and searched books #### 
         def index
-            @books_all = Book.where(:is_available => 1).all
+
+            @books_all = Book.where(:is_available => 1).where(:is_approved => 1).all
             if (params[:page]).eql? nil
                 current_page=1
             else
                 current_page=(params[:page])
             end
             if params[:search]
-              @searched_books = Book.where(:is_available => 1).search(params[:search]).order("created_at DESC").page params[:page]
+              @searched_books = Book.where(:is_available => 1).where(:is_approved => 1).search(params[:search]).order("created_at DESC").page params[:page]
                     if @searched_books.count != 0
                     render json: @searched_books,
                     meta: {
@@ -29,7 +30,7 @@ module Api::V1::Book
                     end
         elsif params[:category]
             if Category.exists?(params[:category])
-                @books_by_category = Book.where(:is_available => 1).where(:category_id => params[:category]).order("created_at DESC").page params[:page]
+                @books_by_category = Book.where(:is_available => 1).where(:is_approved => 1).where(:category_id => params[:category]).order("created_at DESC").page params[:page]
                 if @books_by_category.count != 0
                     render json: @books_by_category,
                     meta: {
@@ -49,7 +50,7 @@ module Api::V1::Book
 
 
         else
-              @books = Book.where(:is_available => 1).all.order('created_at DESC').page(params[:page]).per(5)
+              @books = Book.where(:is_approved => 1).where(:is_available => 1).all.order('created_at DESC').page(params[:page]).per(5)
             if @books.count != 0
                 render json: @books,
                 meta: {
@@ -68,7 +69,7 @@ module Api::V1::Book
 
          #### Latest Books in Home Page ####
          def latest_books
-            @latest_books = Book.where(:is_available => 1).order('created_at Desc').limit(20);
+            @latest_books = Book.where(:is_approved => 1).where(:is_available => 1).order('created_at Desc').limit(20);
             if(@latest_books.count != 0)
                 render json:  @latest_books,
                 meta: {
@@ -88,7 +89,7 @@ module Api::V1::Book
                 user_interests =  @current_user.categories
                 if user_interests.count != 0
                     for interest in user_interests
-                        @recommended_books << interest.books.where(:is_available => 1).order('created_at Desc').limit(5)
+                        @recommended_books << interest.books.where(:is_approved => 1).where(:is_available => 1).order('created_at Desc').limit(5)
                     end
                     render json:  @recommended_books,
                     meta: {
@@ -138,7 +139,7 @@ module Api::V1::Book
                     @users_interest_book = @book_category.users
 
                     @users_interest_book.each do |user|
-                        TasksController.send_notification(user ,"website","Book successfully created", "https://angularfirebase.com")
+                        TasksController.send_notification(user ,"website","There is new book available falls under your interests ", "http://localhost:4200/books/#{@book.id}")
                     end
                     
                     render json: {status: 'SUCCESS', message: 'Book successfully created', book:@book},status: :ok
@@ -192,17 +193,26 @@ module Api::V1::Book
         def exchange
             @wanted_book =  Book.find(params[:id])
             if @wanted_book.transcation == "Exchange"
-            @books = Book.all
-            @exchangeable_books = Array.new
-            
-            for book in @books
-                if book.user_id == @current_user.id  && book.transcation == "Exchange"
-                    @exchangeable_books << book
+                @books = Book.all
+                @exchangeable_books = Array.new
+                
+                for book in @books
+                    if book.user_id == @current_user.id  && book.transcation == "Exchange"
+                        @exchangeable_books << book.book_images
+                    end
                 end
-            end
-            @order = Order.new(user_id: @current_user.id, book_id: @wanted_book.id, seller_id: @wanted_book.user_id, state: "under confirmed", transcation: "Exchange")
-            @order.save
-            render json:  {status: 'SUCCESS', exchangeable_books: @exchangeable_books, wanted_book: @wanted_book, order: @order}, :include => { :user  =>  {:except => :password_digest} } , status: :ok
+                @prev_order = Order.where(user_id: @current_user.id, book_id: @wanted_book.id, seller_id: @wanted_book.user_id, state: "under confirmed", transcation: "Exchange").first
+                if @prev_order == nil
+                    @order = Order.new(user_id: @current_user.id, book_id: @wanted_book.id, seller_id: @wanted_book.user_id, state: "under confirmed", transcation: "Exchange")
+                    @order.save
+                    render json:  {status: 'SUCCESS', exchangeable_books: @exchangeable_books, order_id: @order.id}, :include => :book , status: :ok
+                else
+                   if @prev_order.notification_sent == true
+                    render json:  {status: 'FAIL',message: 'You already ordered this book'},status: :ok
+                   else
+                    render json:  {status: 'SUCCESS', exchangeable_books: @exchangeable_books, order_id: @prev_order.id}, :include => :book , status: :ok
+                   end
+                end
             else
             render json:  {status: 'FAIL', message: "Book not for exchange"}, status: :ok
         end
@@ -239,7 +249,7 @@ module Api::V1::Book
         #### Permitted book params ####
         def book_params
             params.require(:book).permit(:name, :description, :transcation, :quantity, 
-                                        :bid_user, :category_id, :price, book_images_attributes:[:id, :book_id, :image])
+                                        :bid_user, :bid_duration,:category_id, :price, book_images_attributes:[:id, :book_id, :image])
         end
 
         #### Authentication of user ####
