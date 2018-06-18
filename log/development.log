@@ -33915,7 +33915,6 @@ Processing by Rails::WelcomeController#index as */*
   Rendered /home/monica/.rvm/gems/ruby-2.5.1/gems/railties-5.1.6/lib/rails/templates/rails/welcome/index.html.erb (2.0ms)
 Completed 200 OK in 10ms (Views: 6.4ms | ActiveRecord: 0.0ms)
 
-
 Started GET "/api/v1/category/categories" for 127.0.0.1 at 2018-06-17 02:26:38 +0200
 Started GET "/api/v1/user/users" for 127.0.0.1 at 2018-06-17 02:26:38 +0200
 Started GET "/api/v1/notification/notification_messages/get_no_unseen_notification_messages" for 127.0.0.1 at 2018-06-17 02:26:38 +0200
@@ -34143,6 +34142,521 @@ actionpack (5.1.6) lib/action_dispatch/http/parameters.rb:99:in `binary_params_f
 actionpack (5.1.6) lib/action_dispatch/http/parameters.rb:90:in `set_binary_encoding'
 actionpack (5.1.6) lib/action_dispatch/http/parameters.rb:67:in `path_parameters='
 actionpack (5.1.6) lib/action_dispatch/journey/router.rb:48:in `block in serve'
+
+Started GET "/assets/active_admin-365d7294774f2338299dafe5cec179b41884dcb3cd74805114a47f5dbc830c13.css" for 127.0.0.1 at 2018-06-14 19:06:18 +0200
+Started GET "/assets/active_admin/print-b05a0449174c4e0e939ecab3483d5b7389c188baae07f7b99af2da69df0243d9.css" for 127.0.0.1 at 2018-06-14 19:06:19 +0200
+Started GET "/assets/active_admin-e670a4b09c70a1cf0e546e3cc233273ec00d44a2fe841969cac0562998dbec41.js" for 127.0.0.1 at 2018-06-14 19:06:19 +0200
+Started GET "/admin/logout" for 127.0.0.1 at 2018-06-14 19:44:04 +0200
+Processing by ActiveAdmin::Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"qZARXIiO8qaKIbDa0RKItbieONFT0P/1YqPyaHntTCNWlRSCR4ypBATgw/qcFsjfqci4C13B2EuJfSpglZyo/w=="}
+  [1m[36mAdminUser Load (0.5ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 70ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-06-14 19:44:08 +0200
+Processing by Admin::DashboardController#index as HTML
+Completed 401 Unauthorized in 20ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/login" for 127.0.0.1 at 2018-06-14 19:44:08 +0200
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/devise/shared/_links.erb (3.5ms)
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (72.3ms)
+Completed 200 OK in 366ms (Views: 346.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/active_admin-365d7294774f2338299dafe5cec179b41884dcb3cd74805114a47f5dbc830c13.css" for 127.0.0.1 at 2018-06-14 19:44:08 +0200
+Started POST "/admin/login" for 127.0.0.1 at 2018-06-14 19:44:19 +0200
+Processing by ActiveAdmin::Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"49WQDBovUxFpD4TsTfoFVF0h8r6t+PkRoCzFoZEJx5u6Hkqegp7MhIOnPkCMbr5Sdbp8YdBXp1y4xv1mMWxVtA==", "admin_user"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Login"}
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`email` = 'admin@example.com' ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE `admin_users` SET `current_sign_in_at` = '2018-06-14 17:44:20', `last_sign_in_at` = '2018-06-14 10:41:31', `sign_in_count` = 29, `updated_at` = '2018-06-14 17:44:20' WHERE `admin_users`.`id` = 1[0m
+  [1m[35m (32.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 269ms (ActiveRecord: 33.6ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-06-14 19:44:20 +0200
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.8ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/page/index.html.arb
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE (created_at <= '2018-06-14 17:44:20.331403' and created_at >= '2018-06-07 17:44:20.331424')[0m
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE (is_approved = 'NO' )[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/page/index.html.arb (107.1ms)
+Completed 200 OK in 116ms (Views: 107.8ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/admin/addresses" for 127.0.0.1 at 2018-06-14 19:47:57 +0200
+Processing by Admin::AddressesController#index as HTML
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `addresses`[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `addresses` WHERE (created_at <= '2018-06-14 17:47:57.136429' and created_at >= '2018-06-07 17:47:57.136469')[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `addresses` WHERE (created_at < '2018-06-14 17:47:57.142433' and created_at >= '2018-06-12 17:47:57.142455')[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `addresses` LIMIT 9 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `addresses` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM `addresses`[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `addresses` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[36mAddress Load (0.6ms)[0m  [1m[34mSELECT  `addresses`.* FROM `addresses` ORDER BY `addresses`.`id` desc LIMIT 9 OFFSET 0[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (364.0ms)
+Completed 200 OK in 380ms (Views: 361.3ms | ActiveRecord: 9.2ms)
+
+
+Started GET "/assets/active_admin-365d7294774f2338299dafe5cec179b41884dcb3cd74805114a47f5dbc830c13.css" for 127.0.0.1 at 2018-06-14 19:47:57 +0200
+Started GET "/admin/admin_comments" for 127.0.0.1 at 2018-06-14 19:47:59 +0200
+Processing by Admin::AdminCommentsController#index as HTML
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM `active_admin_comments` WHERE `active_admin_comments`.`namespace` = 'admin'[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `active_admin_comments` WHERE `active_admin_comments`.`namespace` = 'admin' LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `active_admin_comments` WHERE `active_admin_comments`.`namespace` = 'admin' LIMIT 30 OFFSET 0) subquery_for_count[0m  [["namespace", "admin"], ["LIMIT", 30], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `active_admin_comments` WHERE `active_admin_comments`.`namespace` = 'admin'[0m  [["namespace", "admin"]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `active_admin_comments` WHERE `active_admin_comments`.`namespace` = 'admin' LIMIT 30 OFFSET 0) subquery_for_count[0m  [["namespace", "admin"], ["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mActiveAdmin::Comment Load (0.7ms)[0m  [1m[34mSELECT  `active_admin_comments`.* FROM `active_admin_comments` WHERE `active_admin_comments`.`namespace` = 'admin' ORDER BY `active_admin_comments`.`id` desc LIMIT 30 OFFSET 0[0m
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1[0m
+  [1m[36mWorkSpace Load (0.5ms)[0m  [1m[34mSELECT `work_spaces`.* FROM `work_spaces` WHERE `work_spaces`.`id` = 1[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT DISTINCT `active_admin_comments`.`resource_type` FROM `active_admin_comments` ORDER BY resource_type asc[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT DISTINCT `active_admin_comments`.`author_type` FROM `active_admin_comments` ORDER BY author_type asc[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (248.7ms)
+Completed 200 OK in 265ms (Views: 249.1ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/admin/addresses" for 127.0.0.1 at 2018-06-14 19:48:01 +0200
+Processing by Admin::AddressesController#index as HTML
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `addresses`[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM `addresses` WHERE (created_at <= '2018-06-14 17:48:01.418395' and created_at >= '2018-06-07 17:48:01.418419')[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `addresses` WHERE (created_at < '2018-06-14 17:48:01.422474' and created_at >= '2018-06-12 17:48:01.422502')[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `addresses` LIMIT 9 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `addresses` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `addresses`[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `addresses` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[36mAddress Load (0.6ms)[0m  [1m[34mSELECT  `addresses`.* FROM `addresses` ORDER BY `addresses`.`id` desc LIMIT 9 OFFSET 0[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (199.8ms)
+Completed 200 OK in 214ms (Views: 200.2ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2018-06-14 19:48:03 +0200
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/page/index.html.arb
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE (created_at <= '2018-06-14 17:48:03.423061' and created_at >= '2018-06-07 17:48:03.423086')[0m
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE (is_approved = 'NO' )[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/page/index.html.arb (89.1ms)
+Completed 200 OK in 97ms (Views: 90.4ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/admin/admin_users" for 127.0.0.1 at 2018-06-14 19:48:06 +0200
+Processing by Admin::AdminUsersController#index as HTML
+  [1m[36mAdminUser Load (0.8ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users`[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users` WHERE (created_at <= '2018-06-14 17:48:06.603117' and created_at >= '2018-06-07 17:48:06.603151')[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users` WHERE (created_at < '2018-06-14 17:48:06.607422' and created_at >= '2018-06-12 17:48:06.607452')[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `admin_users` LIMIT 9 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `admin_users` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `admin_users`[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `admin_users` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` ORDER BY `admin_users`.`id` desc LIMIT 9 OFFSET 0[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (136.8ms)
+Completed 200 OK in 152ms (Views: 140.3ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/admin/work_spaces" for 127.0.0.1 at 2018-06-14 19:48:09 +0200
+Processing by Admin::WorkSpacesController#index as HTML
+  [1m[36mAdminUser Load (1.0ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `work_spaces`[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `work_spaces` WHERE (created_at <= '2018-06-14 17:48:09.129744' and created_at >= '2018-06-07 17:48:09.129778')[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `work_spaces` WHERE (created_at < '2018-06-14 17:48:09.134168' and created_at >= '2018-06-12 17:48:09.134239')[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `work_spaces` LIMIT 9 OFFSET 0) subquery_for_count[0m
+  [1m[36mWorkSpacePhone Load (0.5ms)[0m  [1m[34mSELECT `work_space_phones`.* FROM `work_space_phones`[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (141.5ms)
+Completed 200 OK in 156ms (Views: 143.4ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2018-06-14 19:48:11 +0200
+Processing by Admin::UsersController#index as HTML
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `users`[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `users` WHERE (created_at <= '2018-06-14 17:48:11.325373' and created_at >= '2018-06-07 17:48:11.325406')[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `users` WHERE (created_at < '2018-06-14 17:48:11.329392' and created_at >= '2018-06-12 17:48:11.329420')[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `users` LIMIT 6 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `users` LIMIT 6 OFFSET 0) subquery_for_count[0m  [["LIMIT", 6], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `users`[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `users` LIMIT 6 OFFSET 0) subquery_for_count[0m  [["LIMIT", 6], ["OFFSET", 0]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` ORDER BY `users`.`id` desc LIMIT 6 OFFSET 0[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (193.1ms)
+Completed 200 OK in 206ms (Views: 196.4ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/admin/replies" for 127.0.0.1 at 2018-06-14 19:48:12 +0200
+Processing by Admin::RepliesController#index as HTML
+  [1m[36mAdminUser Load (0.8ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `replies`[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `replies` WHERE (created_at <= '2018-06-14 17:48:13.037113' and created_at >= '2018-06-07 17:48:13.037151')[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `replies` WHERE (created_at < '2018-06-14 17:48:13.041525' and created_at >= '2018-06-12 17:48:13.041553')[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `replies` LIMIT 9 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `replies` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `replies`[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `replies` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[36mReply Load (0.7ms)[0m  [1m[34mSELECT  `replies`.* FROM `replies` ORDER BY `replies`.`id` desc LIMIT 9 OFFSET 0[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE Comment Load (0.0ms)[0m  [1m[34mSELECT  `comments`.* FROM `comments` WHERE `comments`.`id` = 9 LIMIT 1[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT `comments`.* FROM `comments`[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (261.3ms)
+Completed 200 OK in 280ms (Views: 224.7ms | ActiveRecord: 46.1ms)
+
+
+Started GET "/admin/phones" for 127.0.0.1 at 2018-06-14 19:48:14 +0200
+Processing by Admin::PhonesController#index as HTML
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `phones`[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `phones` WHERE (created_at <= '2018-06-14 17:48:14.456068' and created_at >= '2018-06-07 17:48:14.456099')[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM `phones` WHERE (created_at < '2018-06-14 17:48:14.460188' and created_at >= '2018-06-12 17:48:14.460210')[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `phones` LIMIT 9 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `phones` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM `phones`[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `phones` LIMIT 9 OFFSET 0) subquery_for_count[0m  [["LIMIT", 9], ["OFFSET", 0]]
+  [1m[36mPhone Load (0.7ms)[0m  [1m[34mSELECT  `phones`.* FROM `phones` ORDER BY `phones`.`id` desc LIMIT 9 OFFSET 0[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (212.3ms)
+Completed 200 OK in 229ms (Views: 210.1ms | ActiveRecord: 9.4ms)
+
+
+Started GET "/admin/work_spaces" for 127.0.0.1 at 2018-06-14 19:48:16 +0200
+Processing by Admin::WorkSpacesController#index as HTML
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `work_spaces`[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `work_spaces` WHERE (created_at <= '2018-06-14 17:48:16.236226' and created_at >= '2018-06-07 17:48:16.236253')[0m
+  [1m[35m (4.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `work_spaces` WHERE (created_at < '2018-06-14 17:48:16.240312' and created_at >= '2018-06-12 17:48:16.240340')[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `work_spaces` LIMIT 9 OFFSET 0) subquery_for_count[0m
+  [1m[36mWorkSpacePhone Load (0.6ms)[0m  [1m[34mSELECT `work_space_phones`.* FROM `work_space_phones`[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (179.6ms)
+Completed 200 OK in 191ms (Views: 177.3ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/admin/work_spaces?scope=created_this_week" for 127.0.0.1 at 2018-06-14 19:48:20 +0200
+Processing by Admin::WorkSpacesController#index as HTML
+  Parameters: {"scope"=>"created_this_week"}
+  [1m[36mAdminUser Load (0.8ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `work_spaces`[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `work_spaces` WHERE (created_at <= '2018-06-14 17:48:20.566448' and created_at >= '2018-06-07 17:48:20.566465')[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `work_spaces` WHERE (created_at < '2018-06-14 17:48:20.570569' and created_at >= '2018-06-12 17:48:20.570592')[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `work_spaces` WHERE (created_at <= '2018-06-14 17:48:20.483417' and created_at >= '2018-06-07 17:48:20.483440') LIMIT 9 OFFSET 0) subquery_for_count[0m
+  [1m[36mWorkSpacePhone Load (0.5ms)[0m  [1m[34mSELECT `work_space_phones`.* FROM `work_space_phones`[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (122.6ms)
+Completed 200 OK in 135ms (Views: 123.6ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/admin/work_spaces?scope=all" for 127.0.0.1 at 2018-06-14 19:48:23 +0200
+Processing by Admin::WorkSpacesController#index as HTML
+  Parameters: {"scope"=>"all"}
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `work_spaces`[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `work_spaces` WHERE (created_at <= '2018-06-14 17:48:23.766130' and created_at >= '2018-06-07 17:48:23.766154')[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `work_spaces` WHERE (created_at < '2018-06-14 17:48:23.769904' and created_at >= '2018-06-12 17:48:23.769927')[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `work_spaces` LIMIT 9 OFFSET 0) subquery_for_count[0m
+  [1m[36mWorkSpacePhone Load (0.5ms)[0m  [1m[34mSELECT `work_space_phones`.* FROM `work_space_phones`[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (122.6ms)
+Completed 200 OK in 133ms (Views: 124.2ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/admin/work_spaces?scope=created_2_days_ago" for 127.0.0.1 at 2018-06-14 19:48:26 +0200
+Processing by Admin::WorkSpacesController#index as HTML
+  Parameters: {"scope"=>"created_2_days_ago"}
+  [1m[36mAdminUser Load (0.8ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `work_spaces`[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `work_spaces` WHERE (created_at <= '2018-06-14 17:48:26.957866' and created_at >= '2018-06-07 17:48:26.957889')[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `work_spaces` WHERE (created_at < '2018-06-14 17:48:26.961905' and created_at >= '2018-06-12 17:48:26.961941')[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `work_spaces` WHERE (created_at < '2018-06-14 17:48:26.870907' and created_at >= '2018-06-12 17:48:26.870932') LIMIT 9 OFFSET 0) subquery_for_count[0m
+  [1m[36mWorkSpacePhone Load (0.6ms)[0m  [1m[34mSELECT `work_space_phones`.* FROM `work_space_phones`[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (124.1ms)
+Completed 200 OK in 139ms (Views: 127.8ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/admin/work_spaces?scope=created_this_week" for 127.0.0.1 at 2018-06-14 19:48:29 +0200
+Processing by Admin::WorkSpacesController#index as HTML
+  Parameters: {"scope"=>"created_this_week"}
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `work_spaces`[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM `work_spaces` WHERE (created_at <= '2018-06-14 17:48:29.275191' and created_at >= '2018-06-07 17:48:29.275213')[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `work_spaces` WHERE (created_at < '2018-06-14 17:48:29.278939' and created_at >= '2018-06-12 17:48:29.278961')[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `work_spaces` WHERE (created_at <= '2018-06-14 17:48:29.170820' and created_at >= '2018-06-07 17:48:29.170843') LIMIT 9 OFFSET 0) subquery_for_count[0m
+  [1m[36mWorkSpacePhone Load (0.7ms)[0m  [1m[34mSELECT `work_space_phones`.* FROM `work_space_phones`[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (147.1ms)
+Completed 200 OK in 159ms (Views: 148.6ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/admin/work_spaces?scope=created_2_days_ago" for 127.0.0.1 at 2018-06-14 19:48:31 +0200
+Processing by Admin::WorkSpacesController#index as HTML
+  Parameters: {"scope"=>"created_2_days_ago"}
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `work_spaces`[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `work_spaces` WHERE (created_at <= '2018-06-14 17:48:31.682343' and created_at >= '2018-06-07 17:48:31.682366')[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `work_spaces` WHERE (created_at < '2018-06-14 17:48:31.686244' and created_at >= '2018-06-12 17:48:31.686266')[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `work_spaces` WHERE (created_at < '2018-06-14 17:48:31.596289' and created_at >= '2018-06-12 17:48:31.596311') LIMIT 9 OFFSET 0) subquery_for_count[0m
+  [1m[36mWorkSpacePhone Load (0.5ms)[0m  [1m[34mSELECT `work_space_phones`.* FROM `work_space_phones`[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (120.2ms)
+Completed 200 OK in 134ms (Views: 123.3ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/admin/orders" for 127.0.0.1 at 2018-06-14 19:48:34 +0200
+Processing by Admin::OrdersController#index as HTML
+  [1m[36mAdminUser Load (0.8ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `orders`[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `orders` WHERE (created_at <= '2018-06-14 17:48:35.009323' and created_at >= '2018-06-07 17:48:35.009356')[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `orders` WHERE (created_at < '2018-06-14 17:48:35.013428' and created_at >= '2018-06-12 17:48:35.013457')[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `orders` LIMIT 6 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `orders` LIMIT 6 OFFSET 0) subquery_for_count[0m  [["LIMIT", 6], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `orders`[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `orders` LIMIT 6 OFFSET 0) subquery_for_count[0m  [["LIMIT", 6], ["OFFSET", 0]]
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT  `orders`.* FROM `orders` ORDER BY `orders`.`id` desc LIMIT 6 OFFSET 0[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (263.0ms)
+Completed 200 OK in 279ms (Views: 259.5ms | ActiveRecord: 11.1ms)
+
+
+Started GET "/admin/orders?order=id_desc&page=5" for 127.0.0.1 at 2018-06-14 19:48:46 +0200
+Processing by Admin::OrdersController#index as HTML
+  Parameters: {"order"=>"id_desc", "page"=>"5"}
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `orders`[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `orders` WHERE (created_at <= '2018-06-14 17:48:46.397268' and created_at >= '2018-06-07 17:48:46.397291')[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `orders` WHERE (created_at < '2018-06-14 17:48:46.401197' and created_at >= '2018-06-12 17:48:46.401220')[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `orders` LIMIT 6 OFFSET 24) subquery_for_count[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `orders` LIMIT 6 OFFSET 24) subquery_for_count[0m  [["LIMIT", 6], ["OFFSET", 24]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `orders`[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `orders` LIMIT 6 OFFSET 24) subquery_for_count[0m  [["LIMIT", 6], ["OFFSET", 24]]
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT  `orders`.* FROM `orders` ORDER BY `orders`.`id` desc LIMIT 6 OFFSET 24[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 1 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (285.8ms)
+Completed 200 OK in 298ms (Views: 284.2ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/admin/orders?order=id_desc&page=4" for 127.0.0.1 at 2018-06-14 19:48:50 +0200
+Processing by Admin::OrdersController#index as HTML
+  Parameters: {"order"=>"id_desc", "page"=>"4"}
+  [1m[36mAdminUser Load (0.9ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `orders`[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `orders` WHERE (created_at <= '2018-06-14 17:48:50.768106' and created_at >= '2018-06-07 17:48:50.768129')[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `orders` WHERE (created_at < '2018-06-14 17:48:50.772157' and created_at >= '2018-06-12 17:48:50.772181')[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `orders` LIMIT 6 OFFSET 18) subquery_for_count[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `orders` LIMIT 6 OFFSET 18) subquery_for_count[0m  [["LIMIT", 6], ["OFFSET", 18]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `orders`[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `orders` LIMIT 6 OFFSET 18) subquery_for_count[0m  [["LIMIT", 6], ["OFFSET", 18]]
+  [1m[36mOrder Load (0.9ms)[0m  [1m[34mSELECT  `orders`.* FROM `orders` ORDER BY `orders`.`id` desc LIMIT 6 OFFSET 18[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (243.5ms)
+Completed 200 OK in 257ms (Views: 242.4ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/admin/orders?order=id_desc&page=3" for 127.0.0.1 at 2018-06-14 19:48:53 +0200
+Processing by Admin::OrdersController#index as HTML
+  Parameters: {"order"=>"id_desc", "page"=>"3"}
+  [1m[36mAdminUser Load (0.7ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `orders`[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `orders` WHERE (created_at <= '2018-06-14 17:48:53.362978' and created_at >= '2018-06-07 17:48:53.362999')[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `orders` WHERE (created_at < '2018-06-14 17:48:53.366571' and created_at >= '2018-06-12 17:48:53.366587')[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `orders` LIMIT 6 OFFSET 12) subquery_for_count[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `orders` LIMIT 6 OFFSET 12) subquery_for_count[0m  [["LIMIT", 6], ["OFFSET", 12]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `orders`[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `orders` LIMIT 6 OFFSET 12) subquery_for_count[0m  [["LIMIT", 6], ["OFFSET", 12]]
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT  `orders`.* FROM `orders` ORDER BY `orders`.`id` desc LIMIT 6 OFFSET 12[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (231.6ms)
+Completed 200 OK in 242ms (Views: 230.2ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/admin/orders?order=id_desc&page=2" for 127.0.0.1 at 2018-06-14 19:48:54 +0200
+Processing by Admin::OrdersController#index as HTML
+  Parameters: {"order"=>"id_desc", "page"=>"2"}
+  [1m[36mAdminUser Load (0.6ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `orders`[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `orders` WHERE (created_at <= '2018-06-14 17:48:54.920863' and created_at >= '2018-06-07 17:48:54.920882')[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `orders` WHERE (created_at < '2018-06-14 17:48:54.924780' and created_at >= '2018-06-12 17:48:54.924796')[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `orders` LIMIT 6 OFFSET 6) subquery_for_count[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `orders` LIMIT 6 OFFSET 6) subquery_for_count[0m  [["LIMIT", 6], ["OFFSET", 6]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `orders`[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `orders` LIMIT 6 OFFSET 6) subquery_for_count[0m  [["LIMIT", 6], ["OFFSET", 6]]
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  `orders`.* FROM `orders` ORDER BY `orders`.`id` desc LIMIT 6 OFFSET 6[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (258.2ms)
+Completed 200 OK in 269ms (Views: 255.8ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/admin/orders?order=id_desc" for 127.0.0.1 at 2018-06-14 19:48:56 +0200
+Processing by Admin::OrdersController#index as HTML
+  Parameters: {"order"=>"id_desc"}
+  [1m[36mAdminUser Load (0.9ms)[0m  [1m[34mSELECT  `admin_users`.* FROM `admin_users` WHERE `admin_users`.`id` = 1 ORDER BY `admin_users`.`id` ASC LIMIT 1[0m
+  Rendering /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `orders`[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `orders` WHERE (created_at <= '2018-06-14 17:48:56.338220' and created_at >= '2018-06-07 17:48:56.338240')[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `orders` WHERE (created_at < '2018-06-14 17:48:56.344359' and created_at >= '2018-06-12 17:48:56.344377')[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `orders` LIMIT 6 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `orders` LIMIT 6 OFFSET 0) subquery_for_count[0m  [["LIMIT", 6], ["OFFSET", 0]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `orders`[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `orders` LIMIT 6 OFFSET 0) subquery_for_count[0m  [["LIMIT", 6], ["OFFSET", 0]]
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT  `orders`.* FROM `orders` ORDER BY `orders`.`id` desc LIMIT 6 OFFSET 0[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Book Load (0.0ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`id` = 3 LIMIT 1[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  Rendered /home/ghada/.rvm/gems/ruby-2.5.1/gems/activeadmin-1.1.0/app/views/active_admin/resource/index.html.arb (382.6ms)
+Completed 200 OK in 395ms (Views: 379.3ms | ActiveRecord: 9.2ms)
+
+
+Started GET "/api/v1/category/categories" for 127.0.0.1 at 2018-06-16 17:09:50 +0200
+Started GET "/api/v1/notification/notification_messages/get_no_unseen_notification_messages" for 127.0.0.1 at 2018-06-16 17:09:50 +0200
+Started GET "/api/v1/notification/notification_messages/get_user_notifications?status=navbar-notifications" for 127.0.0.1 at 2018-06-16 17:09:50 +0200
+Started GET "/api/v1/book/books/latest_books" for 127.0.0.1 at 2018-06-16 17:09:50 +0200
+  
+  
+Processing by Api::V1::Book::BooksController#latest_books as JSON
+Processing by Api::V1::Category::CategoriesController#index as JSON
+  Parameters: {"category"=>{}}
+AbstractController::ActionNotFound (The action 'show' could not be found for Api::V1::Notification::NotificationMessagesController):
+  Parameters: {"book"=>{}}
+  
+AbstractController::ActionNotFound (The action 'show' could not be found for Api::V1::Notification::NotificationMessagesController):
+  
+actionpack (5.1.6) lib/abstract_controller/base.rb:119:in `process'
+actionview (5.1.6) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.6) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.6) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.6) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+>>>>>>> 4c6630c69613616f4c7f45c2cfd0815a42f68c29
 actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `each'
 actionpack (5.1.6) lib/action_dispatch/journey/router.rb:33:in `serve'
 actionpack (5.1.6) lib/action_dispatch/routing/route_set.rb:844:in `call'
@@ -35281,5 +35795,6 @@ Processing by Rails::WelcomeController#index as */*
   Rendering /home/monica/.rvm/gems/ruby-2.5.1/gems/railties-5.1.6/lib/rails/templates/rails/welcome/index.html.erb
   Rendered /home/monica/.rvm/gems/ruby-2.5.1/gems/railties-5.1.6/lib/rails/templates/rails/welcome/index.html.erb (2.5ms)
 Completed 200 OK in 13ms (Views: 8.8ms | ActiveRecord: 0.0ms)
+
 
 
