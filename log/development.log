@@ -35798,3 +35798,477 @@ Completed 200 OK in 13ms (Views: 8.8ms | ActiveRecord: 0.0ms)
 
 
 
+Started GET "/api/v1/user/users" for 127.0.0.1 at 2018-06-18 23:20:48 +0200
+Started GET "/api/v1/category/categories" for 127.0.0.1 at 2018-06-18 23:20:48 +0200
+Started GET "/api/v1/book/books/latest_books" for 127.0.0.1 at 2018-06-18 23:20:48 +0200
+  [1m[35m (1.0ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (1.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (8.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by Api::V1::User::UsersController#show as JSON
+  Parameters: {"user"=>{}}
+Processing by Api::V1::Book::BooksController#latest_books as JSON
+  Parameters: {"book"=>{}}
+Processing by Api::V1::Category::CategoriesController#index as JSON
+  Parameters: {"category"=>{}}
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `books` WHERE `books`.`is_approved` = 1 AND `books`.`is_available` = 1 ORDER BY created_at Desc LIMIT 20) subquery_for_count[0m
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`is_approved` = 1 AND `books`.`is_available` = 1 ORDER BY created_at Desc LIMIT 20[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+Completed 200 OK in 47ms (Views: 44.1ms | ActiveRecord: 1.9ms)
+
+
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mCategory Load (10.6ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 4 LIMIT 1[0m
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 17 LIMIT 1[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` IS NULL[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 2[0m
+  [1m[36mBookImage Load (2.9ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 6[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` IS NULL[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 3[0m
+  [1m[36mBookImage Load (3.1ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 5[0m
+Completed 200 OK in 254ms (Views: 206.7ms | ActiveRecord: 37.0ms)
+
+
+  [1m[36mPhone Load (0.7ms)[0m  [1m[34mSELECT `phones`.* FROM `phones` WHERE `phones`.`user_id` = 2[0m
+  [1m[36mAddress Load (0.6ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses` WHERE `addresses`.`user_id` = 2[0m
+  [1m[36mCategory Load (24.9ms)[0m  [1m[34mSELECT `categories`.* FROM `categories` INNER JOIN `categories_users` ON `categories`.`id` = `categories_users`.`category_id` WHERE `categories_users`.`user_id` = 2[0m
+Completed 200 OK in 321ms (Views: 71.6ms | ActiveRecord: 33.7ms)
+
+
+Started GET "/api/v1/notification/notification_messages/get_no_unseen_notification_messages" for 127.0.0.1 at 2018-06-18 23:20:48 +0200
+Started GET "/api/v1/notification/notification_messages/get_user_notifications?status=navbar-notifications" for 127.0.0.1 at 2018-06-18 23:20:48 +0200
+Started GET "/api/v1/book/books/recommended_books" for 127.0.0.1 at 2018-06-18 23:20:48 +0200
+Processing by Api::V1::Book::BooksController#recommended_books as JSON
+  Parameters: {"book"=>{}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `categories` INNER JOIN `categories_users` ON `categories`.`id` = `categories_users`.`category_id` WHERE `categories_users`.`user_id` = 2[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT `categories`.* FROM `categories` INNER JOIN `categories_users` ON `categories`.`id` = `categories_users`.`category_id` WHERE `categories_users`.`user_id` = 2[0m
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`category_id` = 3 AND `books`.`is_approved` = 1 AND `books`.`is_available` = 1 ORDER BY created_at Desc LIMIT 5[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`category_id` = 4 AND `books`.`is_approved` = 1 AND `books`.`is_available` = 1 ORDER BY created_at Desc LIMIT 5[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` IS NULL[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 2[0m
+  [1m[36mBookImage Load (0.3ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 6[0m
+Completed 200 OK in 14ms (Views: 6.2ms | ActiveRecord: 2.9ms)
+
+
+Started POST "/api/v1/user/password_resets" for 127.0.0.1 at 2018-06-18 23:34:27 +0200
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by Api::V1::User::PasswordResetsController#create as JSON
+  Parameters: {"email"=>"monicaarmanios_333@yahoo.com", "password_reset"=>{"email"=>"monicaarmanios_333@yahoo.com"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicaarmanios_333@yahoo.com' LIMIT 1[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`password_reset_token` = '6-mkVJ5MHXuvGq6wQpXGtw' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (45.8ms)[0m  [1m[33mUPDATE `users` SET `password_reset_token` = '6-mkVJ5MHXuvGq6wQpXGtw', `password_reset_sent_at` = '2018-06-18 21:34:27', `updated_at` = '2018-06-18 21:34:27' WHERE `users`.`id` = 1[0m
+  [1m[35m (87.5ms)[0m  [1m[35mCOMMIT[0m
+  Rendering user_mailer/password_reset.html.erb
+  Rendered user_mailer/password_reset.html.erb (13.5ms)
+UserMailer#password_reset: processed outbound mail in 197.6ms
+Sent mail to monicaarmanios_333@yahoo.com (2907.5ms)
+Date: Mon, 18 Jun 2018 23:34:28 +0200
+From: noreply@shelves.com
+To: monicaarmanios_333@yahoo.com
+Message-ID: <5b2825644fce9_19813233e5050317@monica-Lenovo-ideapad-700-15ISK.mail>
+Subject: Password Reset
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi Monica ,<br/>
+To reset your password, click the URL below.<br/>
+<a href="http://localhost:4200/newpassword?token="+6-mkVJ5MHXuvGq6wQpXGtw > Reset password</a>
+<br/>
+
+If you did not request your password to be reset, just ignore this email and your password will continue to stay the same
+Completed 201 Created in 3572ms (Views: 0.6ms | ActiveRecord: 135.0ms)
+
+
+Started GET "/api/v1/book/books/latest_books" for 127.0.0.1 at 2018-06-18 23:35:19 +0200
+Processing by Api::V1::Book::BooksController#latest_books as JSON
+  Parameters: {"book"=>{}}
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `books` WHERE `books`.`is_approved` = 1 AND `books`.`is_available` = 1 ORDER BY created_at Desc LIMIT 20) subquery_for_count[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`is_approved` = 1 AND `books`.`is_available` = 1 ORDER BY created_at Desc LIMIT 20[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 4 LIMIT 1[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 17 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` IS NULL[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 2[0m
+  [1m[36mBookImage Load (1.2ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 6[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` IS NULL[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 3[0m
+  [1m[36mBookImage Load (0.3ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 5[0m
+Completed 200 OK in 78ms (Views: 65.6ms | ActiveRecord: 10.0ms)
+
+
+Started POST "/api/v1/user/password_resets" for 127.0.0.1 at 2018-06-18 23:35:39 +0200
+Processing by Api::V1::User::PasswordResetsController#create as JSON
+  Parameters: {"email"=>"monicaarmanios_333@yahoo.com", "password_reset"=>{"email"=>"monicaarmanios_333@yahoo.com"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicaarmanios_333@yahoo.com' LIMIT 1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`password_reset_token` = 'ugtjog3uF_p3MHJujXQcAg' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE `users` SET `password_reset_token` = 'ugtjog3uF_p3MHJujXQcAg', `password_reset_sent_at` = '2018-06-18 21:35:39', `updated_at` = '2018-06-18 21:35:39' WHERE `users`.`id` = 1[0m
+  [1m[35m (144.2ms)[0m  [1m[35mCOMMIT[0m
+  Rendering user_mailer/password_reset.html.erb
+  Rendered user_mailer/password_reset.html.erb (0.4ms)
+UserMailer#password_reset: processed outbound mail in 6.5ms
+Sent mail to monicaarmanios_333@yahoo.com (1994.3ms)
+Date: Mon, 18 Jun 2018 23:35:40 +0200
+From: noreply@shelves.com
+To: monicaarmanios_333@yahoo.com
+Message-ID: <5b2825ac16041_19813233edc5046d@monica-Lenovo-ideapad-700-15ISK.mail>
+Subject: Password Reset
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi Monica ,<br/>
+To reset your password, click the URL below.<br/>
+<a href="http://localhost:4200/newpassword?token="ugtjog3uF_p3MHJujXQcAg > Reset password</a>
+<br/>
+
+If you did not request your password to be reset, just ignore this email and your password will continue to stay the same
+Completed 201 Created in 2152ms (Views: 0.4ms | ActiveRecord: 145.2ms)
+
+
+Started GET "/api/v1/category/categories" for 127.0.0.1 at 2018-06-18 23:36:08 +0200
+Processing by Api::V1::Category::CategoriesController#index as JSON
+  Parameters: {"category"=>{}}
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+Completed 200 OK in 11ms (Views: 10.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/v1/category/categories" for 127.0.0.1 at 2018-06-18 23:38:41 +0200
+Processing by Api::V1::Category::CategoriesController#index as JSON
+  Parameters: {"category"=>{}}
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/v1/category/categories" for 127.0.0.1 at 2018-06-18 23:46:46 +0200
+Processing by Api::V1::Category::CategoriesController#index as JSON
+  Parameters: {"category"=>{}}
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+Completed 200 OK in 51ms (Views: 49.5ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/api/v1/user/users/login" for 127.0.0.1 at 2018-06-18 23:47:00 +0200
+Processing by Api::V1::User::AuthenticationController#authenticate as JSON
+  Parameters: {"email"=>"monicamagdy70@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"monicamagdy70@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicamagdy70@gmail.com' LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicamagdy70@gmail.com' LIMIT 1[0m  [["email", "monicamagdy70@gmail.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicamagdy70@gmail.com' LIMIT 1[0m  [["email", "monicamagdy70@gmail.com"], ["LIMIT", 1]]
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT `books`.* FROM `books` INNER JOIN `rates` ON `books`.`id` = `rates`.`book_id` WHERE `rates`.`user_id` = 2[0m
+  [1m[36mPhone Load (0.7ms)[0m  [1m[34mSELECT `phones`.* FROM `phones` WHERE `phones`.`user_id` = 2[0m
+  [1m[36mAddress Load (0.7ms)[0m  [1m[34mSELECT `addresses`.* FROM `addresses` WHERE `addresses`.`user_id` = 2[0m
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT `categories`.* FROM `categories` INNER JOIN `categories_users` ON `categories`.`id` = `categories_users`.`category_id` WHERE `categories_users`.`user_id` = 2[0m
+Completed 201 Created in 729ms (Views: 65.0ms | ActiveRecord: 10.2ms)
+
+
+Started GET "/api/v1/notification/notification_messages/get_no_unseen_notification_messages" for 127.0.0.1 at 2018-06-18 23:47:00 +0200
+Started GET "/api/v1/notification/notification_messages/get_user_notifications?status=navbar-notifications" for 127.0.0.1 at 2018-06-18 23:47:00 +0200
+Started GET "/api/v1/category/categories" for 127.0.0.1 at 2018-06-18 23:50:54 +0200
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/api/v1/book/books/" for 127.0.0.1 at 2018-06-18 23:50:54 +0200
+Processing by Api::V1::Category::CategoriesController#index as JSON
+  Parameters: {"category"=>{}}
+  [1m[36mCategory Load (3.8ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+Processing by Api::V1::Book::BooksController#index as JSON
+  Parameters: {"book"=>{}}
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(REPLACE(REPLACE(REPLACE(@@sql_mode, 'STRICT_TRANS_TABLES', ''), 'STRICT_ALL_TABLES', ''), 'TRADITIONAL', ''), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Completed 200 OK in 31ms (Views: 22.6ms | ActiveRecord: 7.3ms)
+
+
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `books` WHERE `books`.`is_approved` = 1 AND `books`.`is_available` = 1 ORDER BY created_at DESC LIMIT 8 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `books` WHERE `books`.`is_available` = 1 AND `books`.`is_approved` = 1[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `books` WHERE `books`.`is_available` = 1 AND `books`.`is_approved` = 1[0m  [["is_available", 1], ["is_approved", 1]]
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`is_approved` = 1 AND `books`.`is_available` = 1 ORDER BY created_at DESC LIMIT 8 OFFSET 0[0m
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 4 LIMIT 1[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 17 LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` IS NULL[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 2[0m
+  [1m[36mBookImage Load (0.2ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 6[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` IS NULL[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 3[0m
+  [1m[36mBookImage Load (0.3ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 5[0m
+Completed 200 OK in 102ms (Views: 68.9ms | ActiveRecord: 9.4ms)
+
+
+Started GET "/api/v1/book/books/latest_books" for 127.0.0.1 at 2018-06-18 23:50:59 +0200
+Processing by Api::V1::Book::BooksController#latest_books as JSON
+  Parameters: {"book"=>{}}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `books` WHERE `books`.`is_approved` = 1 AND `books`.`is_available` = 1 ORDER BY created_at Desc LIMIT 20) subquery_for_count[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`is_approved` = 1 AND `books`.`is_available` = 1 ORDER BY created_at Desc LIMIT 20[0m
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 4 LIMIT 1[0m
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 17 LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` IS NULL[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 2[0m
+  [1m[36mBookImage Load (0.5ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 6[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` IS NULL[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 3[0m
+  [1m[36mBookImage Load (0.6ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 5[0m
+Completed 200 OK in 14ms (Views: 10.2ms | ActiveRecord: 3.0ms)
+
+
+Started PUT "/api/v1/user/password_resets/" for 127.0.0.1 at 2018-06-18 23:52:11 +0200
+  
+ActionController::RoutingError (No route matches [PUT] "/api/v1/user/password_resets"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/api/v1/user/password_resets" for 127.0.0.1 at 2018-06-18 23:55:27 +0200
+Processing by Api::V1::User::PasswordResetsController#create as JSON
+  Parameters: {"email"=>"monicaarmanios_333@yahoo.com", "password_reset"=>{"email"=>"monicaarmanios_333@yahoo.com"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicaarmanios_333@yahoo.com' LIMIT 1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`password_reset_token` = 'mNvJYcNinpsSxFGHwGYUAw' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE `users` SET `password_reset_token` = 'mNvJYcNinpsSxFGHwGYUAw', `password_reset_sent_at` = '2018-06-18 21:55:27', `updated_at` = '2018-06-18 21:55:27' WHERE `users`.`id` = 1[0m
+  [1m[35m (112.1ms)[0m  [1m[35mCOMMIT[0m
+  Rendering user_mailer/password_reset.html.erb
+  Rendered user_mailer/password_reset.html.erb (0.9ms)
+UserMailer#password_reset: processed outbound mail in 135.0ms
+Sent mail to monicaarmanios_333@yahoo.com (1913.5ms)
+Date: Mon, 18 Jun 2018 23:55:27 +0200
+From: noreply@shelves.com
+To: monicaarmanios_333@yahoo.com
+Message-ID: <5b282a4f81eb4_1b122cf3b0c2727@monica-Lenovo-ideapad-700-15ISK.mail>
+Subject: Password Reset
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi Monica ,<br/>
+To reset your password, click the URL below.<br/>
+<a href="http://localhost:4200/newpassword?token="+mNvJYcNinpsSxFGHwGYUAw > Reset password</a>
+<br/>
+
+If you did not request your password to be reset, just ignore this email and your password will continue to stay the same
+Completed 201 Created in 2297ms (Views: 0.5ms | ActiveRecord: 113.1ms)
+
+
+Started GET "/api/v1/book/books/latest_books" for 127.0.0.1 at 2018-06-18 23:58:22 +0200
+Processing by Api::V1::Book::BooksController#latest_books as JSON
+  Parameters: {"book"=>{}}
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `books` WHERE `books`.`is_approved` = 1 AND `books`.`is_available` = 1 ORDER BY created_at Desc LIMIT 20) subquery_for_count[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`is_approved` = 1 AND `books`.`is_available` = 1 ORDER BY created_at Desc LIMIT 20[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 4 LIMIT 1[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 17 LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` IS NULL[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 2[0m
+  [1m[36mBookImage Load (0.2ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 6[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` IS NULL[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 3[0m
+  [1m[36mBookImage Load (0.3ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 5[0m
+Completed 200 OK in 16ms (Views: 12.3ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/api/v1/user/password_resets" for 127.0.0.1 at 2018-06-18 23:58:32 +0200
+Processing by Api::V1::User::PasswordResetsController#create as JSON
+  Parameters: {"email"=>"monicaarmanios_333@yahoo.com", "password_reset"=>{"email"=>"monicaarmanios_333@yahoo.com"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'monicaarmanios_333@yahoo.com' LIMIT 1[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`password_reset_token` = 'xtpJmFU8vOaOxIz8rvyJbw' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE `users` SET `password_reset_token` = 'xtpJmFU8vOaOxIz8rvyJbw', `password_reset_sent_at` = '2018-06-18 21:58:32', `updated_at` = '2018-06-18 21:58:32' WHERE `users`.`id` = 1[0m
+  [1m[35m (129.9ms)[0m  [1m[35mCOMMIT[0m
+  Rendering user_mailer/password_reset.html.erb
+  Rendered user_mailer/password_reset.html.erb (0.4ms)
+UserMailer#password_reset: processed outbound mail in 6.2ms
+Sent mail to monicaarmanios_333@yahoo.com (1717.0ms)
+Date: Mon, 18 Jun 2018 23:58:33 +0200
+From: noreply@shelves.com
+To: monicaarmanios_333@yahoo.com
+Message-ID: <5b282b091594d_1b122cf3c2427334@monica-Lenovo-ideapad-700-15ISK.mail>
+Subject: Password Reset
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi Monica ,<br/>
+To reset your password, click the URL below.<br/>
+<a href="http://localhost:4200/newpassword?token=xtpJmFU8vOaOxIz8rvyJbw"> Reset password</a>
+<br/>
+
+If you did not request your password to be reset, just ignore this email and your password will continue to stay the same
+Completed 201 Created in 1860ms (Views: 0.5ms | ActiveRecord: 131.0ms)
+
+
+Started GET "/api/v1/category/categories" for 127.0.0.1 at 2018-06-18 23:59:01 +0200
+Processing by Api::V1::Category::CategoriesController#index as JSON
+  Parameters: {"category"=>{}}
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT `categories`.* FROM `categories`[0m
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.3ms)
+
+
+Started PUT "/api/v1/user/password_resets/xtpJmFU8vOaOxIz8rvyJbw" for 127.0.0.1 at 2018-06-18 23:59:15 +0200
+Processing by Api::V1::User::PasswordResetsController#update as JSON
+  Parameters: {"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "id"=>"xtpJmFU8vOaOxIz8rvyJbw", "password_reset"=>{"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`password_reset_token` = 'xtpJmFU8vOaOxIz8rvyJbw' LIMIT 1[0m
+Unpermitted parameters: :id, :password_reset
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'monicaarmanios_333@yahoo.com' AND (`users`.`id` != 1) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE `users` SET `password_digest` = '$2a$10$DII49QjnbH14L42sh88lWeUSqYEA6ZW6nvR/2kk0hDcTjMzkfvjki', `updated_at` = '2018-06-18 21:59:15' WHERE `users`.`id` = 1[0m
+  [1m[35m (135.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'monicaarmanios_333@yahoo.com' AND (`users`.`id` != 1) LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[33mUPDATE `users` SET `password_reset_sent_at` = NULL, `password_reset_token` = NULL WHERE `users`.`id` = 1[0m
+  [1m[35m (34.9ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 251ms (Views: 0.6ms | ActiveRecord: 173.2ms)
+
+
+Started GET "/api/v1/book/books/latest_books" for 127.0.0.1 at 2018-06-18 23:59:18 +0200
+Processing by Api::V1::Book::BooksController#latest_books as JSON
+  Parameters: {"book"=>{}}
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `books` WHERE `books`.`is_approved` = 1 AND `books`.`is_available` = 1 ORDER BY created_at Desc LIMIT 20) subquery_for_count[0m
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`is_approved` = 1 AND `books`.`is_available` = 1 ORDER BY created_at Desc LIMIT 20[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 4 LIMIT 1[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 17 LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` IS NULL[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 2[0m
+  [1m[36mBookImage Load (0.3ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 6[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` IS NULL[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 3[0m
+  [1m[36mBookImage Load (0.3ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 5[0m
+Completed 200 OK in 17ms (Views: 12.4ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/api/v1/user/users/signup" for 127.0.0.1 at 2018-06-19 00:00:36 +0200
+Processing by Api::V1::User::UsersController#create as JSON
+  Parameters: {"email"=>"shelvesteam@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"Shelves", "role"=>"Book store", "user"=>{"email"=>"shelvesteam@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "name"=>"Shelves", "role"=>"Book store"}}
+Unpermitted parameter: :user
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'shelvesteam@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO `users` (`name`, `email`, `password_digest`, `role`, `confirm_token`, `created_at`, `updated_at`) VALUES ('Shelves', 'shelvesteam@gmail.com', '$2a$10$c2sSLKAqmBjuALbQs7EoMOQF34KfSsIXgJfNGIaSkl.tPKT.vKVre', 1, '-yvxFAEXhErJ-OT_hz_CAw', '2018-06-18 22:00:36', '2018-06-18 22:00:36')[0m
+  [1m[35m (132.4ms)[0m  [1m[35mCOMMIT[0m
+  Rendering user_mailer/registration_confirmation.html.erb
+  Rendered user_mailer/registration_confirmation.html.erb (0.6ms)
+UserMailer#registration_confirmation: processed outbound mail in 23.0ms
+Sent mail to shelvesteam@gmail.com (2505.9ms)
+Date: Tue, 19 Jun 2018 00:00:37 +0200
+From: noreply@shelves.com
+To: Shelves <shelvesteam@gmail.com>
+Message-ID: <5b282b8522a9d_1b122cf3c24274c5@monica-Lenovo-ideapad-700-15ISK.mail>
+Subject: Email Confirmation
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi Shelves,<br/>
+Thanks for registering at Shelves! To confirm your registration , Please click this link :
+
+<a href="http://localhost:3000/api/v1/user/users/-yvxFAEXhErJ-OT_hz_CAw/confirm_email"> Activate from here </a>
+<br/>
+Regards,<br/>
+Shelves Team
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'shelvesteam@gmail.com' LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'shelvesteam@gmail.com' LIMIT 1[0m  [["email", "shelvesteam@gmail.com"], ["LIMIT", 1]]
+Completed 201 Created in 2894ms (Views: 5.4ms | ActiveRecord: 133.5ms)
+
+
+Started GET "/api/v1/book/books/latest_books" for 127.0.0.1 at 2018-06-19 00:00:46 +0200
+Processing by Api::V1::Book::BooksController#latest_books as JSON
+  Parameters: {"book"=>{}}
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM (SELECT  1 AS one FROM `books` WHERE `books`.`is_approved` = 1 AND `books`.`is_available` = 1 ORDER BY created_at Desc LIMIT 20) subquery_for_count[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  `books`.* FROM `books` WHERE `books`.`is_approved` = 1 AND `books`.`is_available` = 1 ORDER BY created_at Desc LIMIT 20[0m
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 4 LIMIT 1[0m
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  `categories`.* FROM `categories` WHERE `categories`.`id` = 17 LIMIT 1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` IS NULL[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 2[0m
+  [1m[36mBookImage Load (0.3ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 6[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` IS NULL[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.`id`, `users`.`name`, `users`.`email`, `users`.`profile_picture`, `users`.`role`, `users`.`gender`, `users`.`rate` FROM `users` WHERE `users`.`id` = 3[0m
+  [1m[36mBookImage Load (0.3ms)[0m  [1m[34mSELECT `book_images`.* FROM `book_images` WHERE `book_images`.`book_id` = 5[0m
+Completed 200 OK in 19ms (Views: 14.5ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/api/v1/user/users/-yvxFAEXhErJ-OT_hz_CAw/confirm_email" for 127.0.0.1 at 2018-06-19 00:01:28 +0200
+Processing by Api::V1::User::UsersController#confirm_email as HTML
+  Parameters: {"id"=>"-yvxFAEXhErJ-OT_hz_CAw"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`confirm_token` = '-yvxFAEXhErJ-OT_hz_CAw' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE `users` SET `email_confirmed` = 1, `confirm_token` = NULL, `updated_at` = '2018-06-18 22:01:28' WHERE `users`.`id` = 7[0m
+  [1m[35m (119.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 136ms (Views: 10.5ms | ActiveRecord: 120.3ms)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2018-06-19 00:01:28 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/favicon.ico" for 127.0.0.1 at 2018-06-19 00:01:28 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
