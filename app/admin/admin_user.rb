@@ -8,7 +8,7 @@ ActiveAdmin.register AdminUser do
     tasks.where('created_at < ? and created_at >= ?', Time.now, 2.days.ago)
   end
 
-  config.per_page =9
+  config.per_page =10
   
   index do
     selectable_column

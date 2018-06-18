@@ -20,7 +20,7 @@ scope :all,default: true
   scope :created_2_days_ago do |tasks|
     tasks.where('created_at < ? and created_at >= ?', Time.now, 2.days.ago)
   end
-   config.per_page =9
+   config.per_page =10
 
 form do |f|
     f.inputs 'Contacts' do
@@ -50,7 +50,9 @@ form do |f|
       image_tag work_space.picture.url, size: "60x60" if work_space.picture?
     end
     column :name
-    column :address
+    column :address do |work_space|
+      truncate(work_space.address, omision: "...", length: 20) 
+    end  
     column :facebook
     column 'Phone' do |work_space|
         work_space.work_space_phones.map(&:phone).join('-')
@@ -76,5 +78,10 @@ form do |f|
     end  
     active_admin_comments
 end
+filter :name
+filter :address
+filter :facebook
+filter :created_at
+filter :updated_at
 
 end

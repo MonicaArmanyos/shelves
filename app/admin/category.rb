@@ -7,7 +7,7 @@ ActiveAdmin.register Category do
     scope :created_2_days_ago do |tasks|
       tasks.where('created_at < ? and created_at >= ?', Time.now, 2.days.ago)
     end
-    config.per_page =9
+    config.per_page =10
     
     show do
       attributes_table do
@@ -19,4 +19,8 @@ ActiveAdmin.register Category do
       end  
       active_admin_comments
     end
+    filter :name
+    filter :created_at
+    filter :updated_at  
+
   end    

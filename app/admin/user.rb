@@ -7,21 +7,21 @@ ActiveAdmin.register User do
     scope :created_2_days_ago do |tasks|
       tasks.where('created_at < ? and created_at >= ?', Time.now, 2.days.ago)
     end
-    config.per_page =9
+    config.per_page =10
 
     index do
       selectable_column
       id_column
       column :profile_picture do |user|
-        image_tag user.profile_picture.url, size: "60x60" if user.profile_picture?
+        image_tag user.profile_picture.url, size: "40x40" if user.profile_picture?
       end
-      column :name
+      column :name do |user|
+        truncate(user.name, omision: "...", length: 10) 
+      end  
       column :email
       column :gender
       column :role
       column :rate
-      column :created_at
-      column :updated_at
       column :email_confirmed 
       actions
     end
@@ -125,12 +125,10 @@ ActiveAdmin.register User do
     scope :all,default: true
     config.per_page =6
   
-    filter :email
     filter :name
     filter :gender
     filter :role
     filter :rate  
-    filter :email_confirmed 
     filter :updated_at
     filter :created_at
   
