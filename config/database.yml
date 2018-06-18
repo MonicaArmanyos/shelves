@@ -18,7 +18,3 @@ development:
 test:
   <<: *default
   database: shelves_gp
-
-production:
-  <<: *default
-  database: shelves_gp
