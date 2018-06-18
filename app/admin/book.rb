@@ -4,16 +4,19 @@ ActiveAdmin.register Book do
   index do
     selectable_column
     id_column
-    column :name
-    column :user
-    column :category
-    column :rate
+    column :name do |book|
+      truncate(book.name, omision: "...", length: 25) 
+    end  
+    column :user  do |book|
+      truncate(book.user.name, omision: "...", length: 25) 
+    end  
+    column :category do |book|
+      truncate(book.category.name, omision: "...", length: 25) 
+    end  
     column :transcation
     column :is_approved
     column :is_available
     column :price
-    column :quantity
-    column :created_at
     actions
   end
 
@@ -53,6 +56,26 @@ ActiveAdmin.register Book do
         end  
       end  
     end   
+    panel 'comments' do
+      attributes_table do
+        book.comments.each do |comment|
+          row :comment do 
+            comment.comment
+          end  
+          row :user do 
+            comment.user
+          end  
+          row :created_at
+          row :Replies do
+            table_for comment.replies.each do |t|  
+              t.column :reply 
+              t.column :user
+              t.column :created_at
+            end         
+          end
+        end  
+      end   
+    end  
     active_admin_comments   
   end 
 
@@ -91,14 +114,13 @@ ActiveAdmin.register Book do
     f.actions
     script :src => javascript_path('admin/book.js'), :type => "text/javascript"
   end
-  
+  filter :name
+  filter :rate  
+  filter :quantity
   filter :description
   filter :transcation
-  filter :category
-  filter :user
-  filter :name
   filter :quantity
-  filter :rate  
+  filter :category
   filter :is_approved 
   filter :is_available
   filter :updated_at
@@ -111,6 +133,6 @@ ActiveAdmin.register Book do
   scope :created_2_days_ago do |tasks|
     tasks.where('created_at < ? and created_at >= ?', Time.now, 2.days.ago)
   end
-  config.per_page =9
+  config.per_page =10
 end
 

@@ -18,7 +18,7 @@ ActiveAdmin.register_page "Dashboard" do
       end
 
       column do
-        panel "Books are Not approved" do
+        panel "Books are not approved" do
           table do
             Book.where('is_approved = ? ', "NO").map do |book|
               li link_to(book.name, admin_book_path(book))

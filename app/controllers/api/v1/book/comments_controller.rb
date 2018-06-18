@@ -56,6 +56,10 @@ module Api::V1::Book
         # check if user has permation to delete this comment (owner) 
         if @current_user.id == @comment.user_id
           # check if comment deleted or not
+          @replies = @comment.replies
+          @replies.each do |reply|
+            reply.destroy
+          end  
           if @comment.destroy
             render json: {status: 'SUCCESS', message: 'comment successfully deleted', comment: {}},status: :ok    
           else
