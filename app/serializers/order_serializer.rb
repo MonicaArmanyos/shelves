@@ -1,5 +1,5 @@
 class OrderSerializer < ActiveModel::Serializer
-  attributes :id, :user, :book , :seller, :state , :transcation , :price , :quantity
+  attributes :id, :user, :book , :seller, :state , :transcation , :price , :quantity, :exchangeable_books
   
   def user
     id_user=object.user_id
