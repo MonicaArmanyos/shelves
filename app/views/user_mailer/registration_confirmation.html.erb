@@ -1,7 +1,7 @@
 Hi <%= @user.name %>,<br/>
 Thanks for registering at Shelves! To confirm your registration , Please click this link :
 
-<a href="http://localhost:3000/api/v1/user/users/<%=@user.confirm_token%>/confirm_email"> Activate from here </a>
+<a href="http://localhost:4200/confirmEmail?token=<%=@user.confirm_token%>"> Activate from here </a>
 <br/>
 Regards,<br/>
 Shelves Team

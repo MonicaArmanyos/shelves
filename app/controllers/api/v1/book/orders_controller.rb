@@ -2,6 +2,7 @@ module Api::V1::Book
   class Api::V1::Book::OrdersController < ApplicationController
     before_action :set_book, except: [:exchange_request, :confirm_exchange, :dismiss_exchange, :showOrders, :showOrder]
     before_action :authenticate_request
+    before_action :set_order, only: [:set_order, :confirm_order]
     def create
      # @current_user = AuthorizeApiRequest.call(request.headers).result
       if @current_user
@@ -18,7 +19,16 @@ module Api::V1::Book
           elsif @book.transcation.eql? "Sell"
             # check if quantity exist, larger than zero and less than book quantity 
             if ((params[:quantity]) && (params[:quantity].to_i <= @book.quantity) && (params[:quantity].to_i > 0))
-              @order = @book.orders.new(:book_id => @book.id, :user_id => @current_user.id, :state => 0, :seller_id => @book.user_id, :transcation => @book.transcation, :price => @book.price * params[:quantity].to_i, :quantity => params[:quantity].to_i)
+              @book.quantity =  @book.quantity - params[:quantity].to_i
+              # check quantity of the book then update is available
+              if (@book.quantity == 0)
+                @book.is_available = 0
+              end 
+              if @book.save
+                @order = @book.orders.new(:book_id => @book.id, :user_id => @current_user.id, :state => 0, :seller_id => @book.user_id, :transcation => @book.transcation, :price => @book.price * params[:quantity].to_i, :quantity => params[:quantity].to_i) 
+              else
+                render json: {status: 'FAIL', message: 'Order can\'t created, try again', error:@book.errors},status: :ok
+              end  
             else
               render json: {status: 'FAIL', message: 'This Quantity not valid', error:@book.errors},status: :ok
             end  
@@ -34,7 +44,7 @@ module Api::V1::Book
               @seller=User.find(@order.seller_id)
               @sender_user=@current_user
               body= "There is new order to your #{@book.name} book."
-              click_action= "http://localhost:3000/api/v1/book/books/#{@book.id}/order/#{@order.id}"
+              click_action= "http://localhost:4200/order/#{@order.id}"
               TasksController.send_notification(@seller,@sender_user ,body , click_action)
               @category=Category.find(@book.category_id)
               @order.notification_sent = true
@@ -109,16 +119,80 @@ module Api::V1::Book
         @order = Order.find(params[:id])
        render :json => @order, each_serializer: OrderSerializer
       end
+      
+      # confirm order
+      def confirm_order
+        # @current_user = AuthorizeApiRequest.call(request.headers).result
+        if @current_user
+          # check current user is the owner of book
+          if (@current_user.id == @order.seller_id)
+            #update order state 
+            @order.state = "confirmed"
+            if (@book.transcation == "Free Share")
+              @book.is_available = 0
+            end
+            if (@order.save && @book.save)
+              #send notification to order owner and book owner
+              @order_user=User.find(@order.user_id)
+              @sender_user=@current_user
+              body= "Your order confirmed for #{@book.name} book. You must communicate with the owner"
+              click_action= "http://localhost:4200/userprofile/#{@sender_user.id}"
+              TasksController.send_notification(@order_user,@sender_user ,body , click_action)
+              body= "Your order confirmed for #{@book.name} book. You must communicate with the owner"
+              click_action= "http://localhost:4200/userprofile/#{@order_user.id}"
+              TasksController.send_notification(@sender_user ,@order_user,body , click_action)
+              render json: {status: 'SUCCESS', message: 'Order successfully confirmed', error:@book.errors},status: :ok                                
+            else
+              render json: {status: 'FAIL', message: 'Order can\'t confirmed, tey again', error:@book.errors},status: :ok                
+            end  
+          else
+            render json: {status: 'FAIL', message: 'Not the owner of this book, so you can\'t dismiss order', error:@book.errors},status: :ok
+          end  
+        end  
+      end  
+
+      # dismiss order
+      def dismiss_order
+        # @current_user = AuthorizeApiRequest.call(request.headers).result
+        if @current_user
+          # check current user is the owner of book
+          if (@current_user.id == @order.seller_id)
+            # update quantity of book
+            if (@order.transcation ="Sell")
+              @book.quantity = @book.quantity + @order.quantity
+            end  
+            if @order.destroy
+              @book.is_available = 1
+              @book.sava
+              # send notification to order owner
+              @order_user=User.find(@order.user_id)
+              @sender_user=@current_user
+              body= "Your order refused for #{@book.name} book."
+              click_action= "http://localhost:4200/books/#{@book.id}"
+              TasksController.send_notification(@order_user,@sender_user ,body , click_action)
+              render json:{status: 'SUCCESS', message: 'Order successfully deleted'},status: :ok
+            else
+              render json: {status: 'FAIL', message: 'This order can\'t deleted, try again ', error:@book.errors},status: :ok              
+            end  
+          else
+            render json: {status: 'FAIL', message: 'Not the owner of this book, so you can\'t dismiss order', error:@book.errors},status: :ok
+          end  
+        end
+      end  
        
-####  Show order details ####
-def showOrder
+  ####  Show order details ####
+  def showOrder
   @order = Order.find(params[:id])
- render :json => @order, each_serializer: OrderSerializer
-end
+     render :json => @order, each_serializer: OrderSerializer
+    end
+
     private
     def set_book
       @book = Book.find(params[:book_id])
     end
+    def set_order
+      @order = Order.find(params[:id])
+    end  
      #### Authentication of user ####
         def authenticate_request
             @current_user = AuthorizeApiRequest.call(request.headers).result
