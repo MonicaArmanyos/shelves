@@ -27,7 +27,7 @@ class Book < ApplicationRecord
 
     
     #### Mount image uploader
-  mount_uploaders :images, ImageUploader
+  #mount_uploaders :images, ImageUploader
 
     #### accept upload multiple images
     accepts_nested_attributes_for :book_images

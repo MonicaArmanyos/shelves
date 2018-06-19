@@ -14,7 +14,7 @@ module Api::V1::Book
                 current_page=(params[:page])
             end
             if params[:search]
-              @searched_books = Book.where(:is_available => 1).where(:is_approved => 1).search(params[:search]).order("created_at DESC").page params[:page].per(8)
+              @searched_books = Book.where(:is_available => 1).where(:is_approved => 1).search(params[:search]).order("created_at DESC").page(params[:page]).per(8)
                     if @searched_books.count != 0
                     render json: @searched_books,
                     meta: {
@@ -30,7 +30,7 @@ module Api::V1::Book
                     end
         elsif params[:category]
             if Category.exists?(params[:category])
-                @books_by_category = Book.where(:is_available => 1).where(:is_approved => 1).where(:category_id => params[:category]).order("created_at DESC").page params[:page].per(8)
+                @books_by_category = Book.where(:is_available => 1).where(:is_approved => 1).where(:category_id => params[:category]).order("created_at DESC").page(params[:page]).per(8)
                 if @books_by_category.count != 0
                     render json: @books_by_category,
                     meta: {

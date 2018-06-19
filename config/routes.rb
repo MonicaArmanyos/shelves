@@ -47,6 +47,11 @@ Rails.application.routes.draw do
           end
 
         end
+
+        namespace 'work_space' do
+          resources :work_spaces 
+
+        end
        
 
         namespace 'user' do 
