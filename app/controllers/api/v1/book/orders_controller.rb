@@ -56,11 +56,12 @@ module Api::V1::Book
         @order = Order.find(params[:id])
         if @order
           @exchangeable_books = params[:books]
+          puts @exchangeable_books
           @order.exchangeable_books = @exchangeable_books.to_json
           user = User.find(@order.seller_id)
           @order.notification_sent = true
           @order.save
-          TasksController.send_notification( user,@current_user,"Book exchange request", "http://localhost:4200/order/#{@order.id}")
+          TasksController.send_notification(user,@current_user,"Book exchange request", "http://localhost:4200/order/#{@order.id}")
           render json:{status: 'Success', message: "Your request is sent to book owner ("+user.name+")"}, status: :ok
         end
        end
