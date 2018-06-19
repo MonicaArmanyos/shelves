@@ -233,9 +233,22 @@ module Api::V1::User
 
       #### get all book_stores ####
       def get_all_book_stores
-        @book_stores=User.where(:role => 1)
+        if (params[:page]).eql? nil
+          current_page=1
+      else
+          current_page=(params[:page])
+      end
+        @book_stores=User.where(:role => 1).page(params[:page]).per(8)
         if @book_stores.count != 0
-          render json: @book_stores
+          render json: @book_stores,
+          meta: {
+              pagination: {
+              per_page: 8,
+              current_page: current_page.to_i,
+              total_pages: (User.where(:role => 1).count.to_f/8).ceil,
+              total_objects: User.where(:role => 1).count
+        }
+        }
                     
                   
          
