@@ -14,14 +14,14 @@ module Api::V1::Book
                 current_page=(params[:page])
             end
             if params[:search]
-              @searched_books = Book.where(:is_available => 1).where(:is_approved => 1).search(params[:search]).order("created_at DESC").page(params[:page]).per(8)
+              @searched_books = Book.where(:is_available => 1).where(:is_approved => 1).search(params[:search]).order("created_at DESC").page(params[:page]).per(16)
                     if @searched_books.count != 0
                     render json: @searched_books,
                     meta: {
                         pagination: {
-                        per_page: 8,
+                        per_page: 16,
                         current_page: current_page.to_i,
-                        total_pages: (Book.search(params[:search]).count.to_f/8).ceil,
+                        total_pages: (Book.search(params[:search]).count.to_f/16).ceil,
                         total_objects: Book.search(params[:search]).count
                         }
                     }
@@ -30,14 +30,14 @@ module Api::V1::Book
                     end
         elsif params[:category]
             if Category.exists?(params[:category])
-                @books_by_category = Book.where(:is_available => 1).where(:is_approved => 1).where(:category_id => params[:category]).order("created_at DESC").page(params[:page]).per(8)
+                @books_by_category = Book.where(:is_available => 1).where(:is_approved => 1).where(:category_id => params[:category]).order("created_at DESC").page(params[:page]).per(16)
                 if @books_by_category.count != 0
                     render json: @books_by_category,
                     meta: {
                     pagination: {
-                        per_page: 8,
+                        per_page: 16,
                         current_page: current_page.to_i,
-                        total_pages: (Book.where(:Category_id => params[:category]).count.to_f/8).ceil,
+                        total_pages: (Book.where(:Category_id => params[:category]).count.to_f/16).ceil,
                         total_objects: Book.where(:Category_id => params[:category]).count
                     }
                     }
@@ -50,14 +50,14 @@ module Api::V1::Book
 
 
         else
-              @books = Book.where(:is_approved => 1).where(:is_available => 1).all.order('created_at DESC').page(params[:page]).per(8)
+              @books = Book.where(:is_approved => 1).where(:is_available => 1).all.order('created_at DESC').page(params[:page]).per(16)
             if @books.count != 0
                 render json: @books,
                 meta: {
                     pagination: {
-                    per_page: 8,
+                    per_page: 16,
                     current_page: current_page.to_i,
-                    total_pages: (@books_all.count.to_f/8).ceil,
+                    total_pages: (@books_all.count.to_f/16).ceil,
                     total_objects:@books_all.count
                     }
                 }
