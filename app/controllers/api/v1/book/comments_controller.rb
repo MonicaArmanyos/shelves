@@ -37,7 +37,7 @@ module Api::V1::Book
           if ((params[:comment]) && (params[:comment].length >= 2))
             # update comment and check if it is updated or not
             if @comment.update(comment_params)
-              render json: {status: 'SUCCESS', message: 'Comment successfully updated', comment:{id: @comment.id, comment: @comment.comment, user: {id: @current_user.id, name: @current_user.name, profile_picture: @current_user.profile_picture}, created_at: @comment.created_at.strftime("%B %e, %Y at %I:%M %p") }},status: :ok
+              render json: @comment,meta: {status: 'SUCCESS', message: 'Comment successfully updated'},status: :ok
             else
               render json: {status: 'FAIL', message: 'Couldn\'t update comment', error:@comment.errors},status: :ok            
             end  

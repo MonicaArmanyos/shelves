@@ -1,6 +1,6 @@
 module Api::V1::Book
   class Api::V1::Book::OrdersController < ApplicationController
-    before_action :set_book, except: [:exchange_request, :confirm_exchange, :dismiss_exchange, :showOrders]
+    before_action :set_book, except: [:exchange_request, :confirm_exchange, :dismiss_exchange, :showOrders, :showOrder]
     before_action :authenticate_request
     def create
      # @current_user = AuthorizeApiRequest.call(request.headers).result
@@ -56,11 +56,12 @@ module Api::V1::Book
         @order = Order.find(params[:id])
         if @order
           @exchangeable_books = params[:books]
+          @order.exchangeable_books = @exchangeable_books.to_json
           user = User.find(@order.seller_id)
           @order.notification_sent = true
           @order.save
-          TasksController.send_notification( user,@current_user,"Book exchange request", "https://www.google.com")
-          render json:{status: 'Success', message: "Your request is sent to book owner ("+user.name+")"},status: :ok
+          TasksController.send_notification( user,@current_user,"Book exchange request", "http://localhost:4200/order/#{@order.id}")
+          render json:{status: 'Success', message: "Your request is sent to book owner ("+user.name+")"}, status: :ok
         end
        end
 
@@ -78,20 +79,20 @@ module Api::V1::Book
           @book.is_available = 0
           if @order.save
             user = User.find(@order.user_id)
-            TasksController.send_notification(user, @current_user ,@order.user_id + " accepted to exchange books", "https://www.google.com")
+            TasksController.send_notification(user, @current_user ,"#{@order.user_id}accepted to exchange books", "http://localhost:4200/showNotifications")
             render json:{status: 'SUCCESS', message: 'Order to exchange book is confirmed', order: @order}, status: :ok
           end
         end
        end
        def dismiss_exchange
           @order = Order.find(params[:id])
-          @book = Book.find(@order.book_id)
-          @book.save
+          # @book = Book.find(@order.book_id)
+          # @book.save
           if @order.state == "confirmed"
             render json:{status: 'FAIL', message: 'order has already been confirmed'},status: :ok
           elsif @order.destroy!
             user = User.find(@order.user_id)
-            TasksController.send_notification(user, @current_user , @order.user_id + " doesn\'t want to exchange books", "https://www.google.com")
+            TasksController.send_notification(user, @current_user , @order.user_id + " doesn\'t want to exchange books","http://localhost:4200/showNotifications")
             render json:{status: 'SUCCESS', message: 'Order to exchange is cancelled'},status: :ok
           end
        end
@@ -102,13 +103,17 @@ module Api::V1::Book
         render json:{status: 'SUCCESS', orders_as_a_client: @order_as_client, orders_as_a_seller: @order_as_seller},status: :ok
        end
 
-      ####  Show order details ####
+      ####  Show order details of a certain book####
       def show 
         @order = Order.find(params[:id])
        render :json => @order, each_serializer: OrderSerializer
       end
        
-
+####  Show order details ####
+def showOrder
+  @order = Order.find(params[:id])
+ render :json => @order, each_serializer: OrderSerializer
+end
     private
     def set_book
       @book = Book.find(params[:book_id])

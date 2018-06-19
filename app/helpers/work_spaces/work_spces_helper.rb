@@ -1,0 +1,2 @@
+module WorkSpaces::WorkSpcesHelper
+end
