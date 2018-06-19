@@ -6,8 +6,13 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace 'api' do
     namespace 'v1' do
-
-      namespace 'book' do     
+    
+      namespace 'book' do  
+        resources :orders, :except => :all do
+          member do
+            get 'order', to: 'orders#showOrder' 
+          end
+        end
         resources :books, except:[:new, :edit] do
           resources :rates
             
@@ -23,7 +28,7 @@ Rails.application.routes.draw do
               get 'exchange', to: 'books#exchange'
               put 'update_bid', to: 'books#update_bid'
             end
-            resources :orders do
+            resources :orders, except:[:new, :edit] do
               #/api/v1/book/books/:id/orders
               member do
                put :confirm_order
@@ -52,6 +57,11 @@ Rails.application.routes.draw do
               get 'get_books_for_category', to: 'categories#get_books_for_category'
             end
           end
+
+        end
+
+        namespace 'work_space' do
+          resources :work_spaces 
 
         end
        

@@ -233,9 +233,23 @@ module Api::V1::User
 
       #### get all book_stores ####
       def get_all_book_stores
-        @book_stores=User.where(:role => 1)
+        if (params[:page]).eql? nil
+          current_page=1
+      else
+          current_page=(params[:page])
+      end
+        @book_stores=User.where(:role => 1).page(params[:page]).per(8)
         if @book_stores.count != 0
-          render json: {status: 'SUCCESS', :book_stores => @book_stores.select(User.column_names - ["gender","password_digest","email_confirmed","confirm_token","created_at","updated_at","password_reset_token","password_reset_sent_at"])},status: :ok
+          render json: @book_stores,
+          meta: {
+              pagination: {
+              per_page: 8,
+              current_page: current_page.to_i,
+              total_pages: (User.where(:role => 1).count.to_f/8).ceil,
+              total_objects: User.where(:role => 1).count
+        }
+        }
+ 
         else
           render json: {status: 'FAIL', message: 'No book_stores found'},status: :ok
         end

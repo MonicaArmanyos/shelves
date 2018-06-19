@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180616122651) do
+ActiveRecord::Schema.define(version: 20180619132149) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "namespace"
@@ -76,7 +76,6 @@ ActiveRecord::Schema.define(version: 20180616122651) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.json "images"
     t.boolean "is_available", default: true
     t.datetime "bid_duration"
     t.boolean "bid_duration_state", default: false
@@ -146,6 +145,7 @@ ActiveRecord::Schema.define(version: 20180616122651) do
     t.integer "quantity", default: 1
     t.bigint "exchangeable_book_id"
     t.boolean "notification_sent"
+    t.string "exchangeable_books"
     t.index ["book_id"], name: "index_orders_on_book_id"
     t.index ["exchangeable_book_id"], name: "index_orders_on_exchangeable_book_id"
     t.index ["seller_id"], name: "index_orders_on_seller_id"
@@ -204,6 +204,7 @@ ActiveRecord::Schema.define(version: 20180616122651) do
     t.datetime "updated_at", null: false
     t.string "password_reset_token"
     t.datetime "password_reset_sent_at"
+    t.string "facebook_page"
   end
 
   create_table "work_space_phones", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -221,6 +222,7 @@ ActiveRecord::Schema.define(version: 20180616122651) do
     t.datetime "updated_at", null: false
     t.string "address"
     t.string "picture"
+    t.string "phone"
   end
 
   add_foreign_key "addresses", "users"
