@@ -249,9 +249,7 @@ module Api::V1::User
               total_objects: User.where(:role => 1).count
         }
         }
-                    
-                  
-         
+ 
         else
           render json: {status: 'FAIL', message: 'No book_stores found'},status: :ok
         end
