@@ -1,5 +1,5 @@
 class OrderSerializer < ActiveModel::Serializer
-  attributes :id, :user, :book , :seller, :state , :transcation , :price , :quantity, :exchangeable_books
+  attributes :id, :user, :book , :seller, :state , :transcation , :price , :quantity, :exchangeable_books , :book_images
   
   def user
     id_user=object.user_id
@@ -13,6 +13,12 @@ class OrderSerializer < ActiveModel::Serializer
 
   def book
     book_id=object.book_id
-    Book.where(:id => book_id).select(["name","description"])
+    Book.where(:id => book_id).select(["id","name","description"])
   end
+
+  def book_images
+    book_id=object.book_id
+    BookImage.where(:book_id => book_id)
+  end
+
 end
