@@ -22,7 +22,7 @@ env :GEM_PATH, ENV['GEM_PATH']
 env :PATH, ENV['PATH']
 ENV['RAILS_ENV'] = "development"
 set :output, 'log/whenever.log'
-every 1.minute
-#every 1.day , at: '12:00 am' do
+#every 1.minute do
+every 1.day , at: '12:00 am' do
   rake "books:check_bid_duration"
 end

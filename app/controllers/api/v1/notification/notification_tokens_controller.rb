@@ -3,12 +3,19 @@ module Api::V1::Notification
         
         #### Create notification_token ####
         def create
+            @token_exist=NotificationToken.where(:token => notification_token_params[:token]).where(:user_id => notification_token_params[:user_id])
+            puts @token_exist
+            if @token_exist.count == 0
                 @notification_token = NotificationToken.new(notification_token_params)
                 if @notification_token.save
                     render json: {status: 'SUCCESS', message: 'token saved successfully ', notification_token:@notification_token},status: :ok
                 else
                     render json: {status: 'FAIL', message: 'Couldn\'t save token in database'},status: :ok
                 end
+            else
+                render json: {status: 'FAIL', message: 'token already saved in database'},status: :ok
+            end
+
         end
 
         #### Update notification_token ####

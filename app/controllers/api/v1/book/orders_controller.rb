@@ -147,9 +147,9 @@ module Api::V1::Book
               body= "Your order confirmed for #{@book.name} book. You must communicate with the owner"
               click_action= "http://localhost:4200/userprofile/#{@sender_user.id}"
               TasksController.send_notification(@order_user,@sender_user ,body , click_action)
-              body= "Your order confirmed for #{@book.name} book. You must communicate with the owner"
+              body= "Your order confirmed for #{@book.name} book. You must communicate with the owner of order"
               click_action= "http://localhost:4200/userprofile/#{@order_user.id}"
-              TasksController.send_notification(@sender_user ,@order_user,body , click_action)
+              TasksController.send_notification(@sender_user ,"website",body , click_action)
               render json: {status: 'SUCCESS', message: 'Order successfully confirmed', error:@book.errors},status: :ok                                
             else
               render json: {status: 'FAIL', message: 'Order can\'t confirmed, tey again', error:@book.errors},status: :ok                

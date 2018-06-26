@@ -9,14 +9,15 @@ namespace :books do
         @bid_date = book_for_bid.bid_duration.to_date 
         @today=Date.today
         if @bid_date <= @today
+          
           #### create new order in database ####
           @order = book_for_bid.orders.new(:book_id => book_for_bid.id, :user_id => book_for_bid.bid_user, :state => 0, :seller_id => book_for_bid.user_id, :transcation => book_for_bid.transcation, :price => book_for_bid.price)
           if @order.save
-           
+            book_for_bid.update(:is_available => 0)
             @seller_user=User.find(book_for_bid.user_id)
             @bid_user=User.find(book_for_bid.bid_user)
             body= "Bid duration is ended for #{book_for_bid.name} book."
-            click_action_seller= "http://localhost:4200/userprofile/#{@bid_user.id}"
+            click_action_seller= "http://localhost:4200/order/#{@order.id}"
             click_action_buyer= "http://localhost:4200/userprofile/#{@seller_user.id}"
             TasksController.send_notification(@seller_user ,"website" ,body, click_action_seller)
             TasksController.send_notification(@bid_user,"website","Congurations ,You Win bid for #{book_for_bid.name} book, Please wait for confirmation from the owner of book",click_action_buyer)
