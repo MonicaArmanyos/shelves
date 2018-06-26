@@ -28,7 +28,13 @@ Rails.application.routes.draw do
               get 'exchange', to: 'books#exchange'
               put 'update_bid', to: 'books#update_bid'
             end
-            resources :orders, except:[:new, :edit]
+            resources :orders, except:[:new, :edit] do
+              #/api/v1/book/books/:id/orders
+              member do
+               put :confirm_order
+               delete :dismiss_order
+              end
+            end  
             resources :comments do
               resources :replies
             end  
@@ -39,6 +45,7 @@ Rails.application.routes.draw do
               post 'exchange_request', to: 'orders#exchange_request'
               post 'confirm_exchange', to: 'orders#confirm_exchange'
               delete 'dismiss_exchange', to: 'orders#dismiss_exchange'
+
             end
           end
         end
@@ -50,6 +57,11 @@ Rails.application.routes.draw do
               get 'get_books_for_category', to: 'categories#get_books_for_category'
             end
           end
+
+        end
+
+        namespace 'work_space' do
+          resources :work_spaces 
 
         end
        

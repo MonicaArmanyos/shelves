@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180619024313) do
+ActiveRecord::Schema.define(version: 20180619132149) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "namespace"
@@ -204,6 +204,7 @@ ActiveRecord::Schema.define(version: 20180619024313) do
     t.datetime "updated_at", null: false
     t.string "password_reset_token"
     t.datetime "password_reset_sent_at"
+    t.string "facebook_page"
   end
 
   create_table "work_space_phones", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -221,6 +222,7 @@ ActiveRecord::Schema.define(version: 20180619024313) do
     t.datetime "updated_at", null: false
     t.string "address"
     t.string "picture"
+    t.string "phone"
   end
 
   add_foreign_key "addresses", "users"
