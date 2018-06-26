@@ -99,7 +99,7 @@ module Api::V1::Book
           @book.is_available = 0
           if @order.save
             user = User.find(@order.user_id)
-            TasksController.send_notification(user, @current_user ,"#{@order.user_id}accepted to exchange books", "http://localhost:4200/showNotifications")
+            TasksController.send_notification(user, @current_user ,"#{@current_user.name} accepted to exchange books", "http://localhost:4200/showNotifications")
             render json:{status: 'SUCCESS', message: 'Order to exchange book is confirmed', order: @order}, status: :ok
           end
         end
@@ -112,7 +112,7 @@ module Api::V1::Book
             render json:{status: 'FAIL', message: 'order has already been confirmed'},status: :ok
           elsif @order.destroy!
             user = User.find(@order.user_id)
-            TasksController.send_notification(user, @current_user , @order.user_id + " doesn\'t want to exchange books","http://localhost:4200/showNotifications")
+            TasksController.send_notification(user, @current_user , @current_user.name+ " doesn\'t want to exchange books","http://localhost:4200/showNotifications")
             render json:{status: 'SUCCESS', message: 'Order to exchange is cancelled'},status: :ok
           end
        end
