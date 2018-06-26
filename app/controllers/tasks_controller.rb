@@ -18,7 +18,12 @@ class TasksController < ApplicationController
         
         
         else
+            
+            if sender_user.profile_picture.url
         icon=@serverurl+sender_user.profile_picture.url
+    else
+        icon=@serverurl + "/uploads/logo.png"
+    end
          #### save notification message in database ####
          @notification_message=NotificationMessage.new({
             "body" => body,

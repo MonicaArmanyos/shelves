@@ -2,7 +2,7 @@ module Api::V1::Book
   class Api::V1::Book::OrdersController < ApplicationController
     before_action :set_book, except: [:exchange_request, :confirm_exchange, :dismiss_exchange, :showOrders, :showOrder]
     before_action :authenticate_request
-    before_action :set_order, only: [:set_order, :confirm_order]
+    before_action :set_order, only: [:set_order, :confirm_order, :dismiss_order]
     def create
      # @current_user = AuthorizeApiRequest.call(request.headers).result
       if @current_user
@@ -15,8 +15,10 @@ module Api::V1::Book
               @order = @book.orders.new(:book_id => @book.id, :user_id => @current_user.id, :state => 0, :seller_id => @book.user_id, :transcation => @book.transcation, :price => @book.price)
             else
               @order = @prev_order
+              
             end 
           elsif @book.transcation.eql? "Sell"
+            @prev_order = Order.where(:book_id => @book.id, :user_id => @current_user.id, :state => 0, :seller_id => @book.user_id, :transcation => @book.transcation).first
             # check if quantity exist, larger than zero and less than book quantity 
             if ((params[:quantity]) && (params[:quantity].to_i <= @book.quantity) && (params[:quantity].to_i > 0))
               @book.quantity =  @book.quantity - params[:quantity].to_i
@@ -25,7 +27,14 @@ module Api::V1::Book
                 @book.is_available = 0
               end 
               if @book.save
-                @order = @book.orders.new(:book_id => @book.id, :user_id => @current_user.id, :state => 0, :seller_id => @book.user_id, :transcation => @book.transcation, :price => @book.price * params[:quantity].to_i, :quantity => params[:quantity].to_i) 
+                 @prev_order = Order.where(:book_id => @book.id, :user_id => @current_user.id, :state => 0, :seller_id => @book.user_id, :transcation => @book.transcation).first
+                  if @prev_order == nil
+                    @order = @book.orders.new(:book_id => @book.id, :user_id => @current_user.id, :state => 0, :seller_id => @book.user_id, :transcation => @book.transcation, :price => @book.price * params[:quantity].to_i, :quantity => params[:quantity].to_i) 
+                  else
+                    @order = @prev_order
+                    
+                  end 
+                
               else
                 render json: {status: 'FAIL', message: 'Order can\'t created, try again', error:@book.errors},status: :ok
               end  
@@ -66,11 +75,12 @@ module Api::V1::Book
         @order = Order.find(params[:id])
         if @order
           @exchangeable_books = params[:books]
+          puts @exchangeable_books
           @order.exchangeable_books = @exchangeable_books.to_json
           user = User.find(@order.seller_id)
           @order.notification_sent = true
           @order.save
-          TasksController.send_notification( user,@current_user,"Book exchange request", "http://localhost:4200/order/#{@order.id}")
+          TasksController.send_notification(user,@current_user,"Book exchange request", "http://localhost:4200/order/#{@order.id}")
           render json:{status: 'Success', message: "Your request is sent to book owner ("+user.name+")"}, status: :ok
         end
        end
@@ -162,7 +172,7 @@ module Api::V1::Book
             end  
             if @order.destroy
               @book.is_available = 1
-              @book.sava
+              @book.save
               # send notification to order owner
               @order_user=User.find(@order.user_id)
               @sender_user=@current_user
